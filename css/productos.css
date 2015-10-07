@@ -1,0 +1,238 @@
+/* CSS para productos */
+
+#producto_principal {
+	background-color: #c7c7c7;
+	border-bottom: 2px solid #acacac;
+	text-align: center;
+	padding: 0 20px 15px;
+	border-top: 2px solid #acacac;
+	margin: 0px auto;
+	font: 12px Helvetica-Neue, Helvetica;
+	list-style-type: none;
+	color: #575858;
+}
+
+#producto_columna {
+	width: 350px;
+	float: right;
+	text-align: left;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	list-style-image: url(../img/li.png);
+	margin-right: 25px;
+}
+
+#producto_columna a {
+	color: #094d63;
+}
+
+#producto_columna_calle {
+	width: 750px;
+	float: left;
+	text-align: left;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	list-style-image: url(../img/li.png);
+	margin-right: 25px;
+	margin-left: 75px;
+}
+
+#producto_columna_calle #trozo {
+	float: left;
+	padding-right: 5px;
+	/*background-color: #cfcfcf;
+	padding-bottom: 8px;*/
+}
+
+#producto_columna_calle #trozo.final {
+	padding-right: 2px;
+	background-color: #cfcfcf;
+	padding-bottom: 8px;
+	margin-right: 2px;
+	border: 1px solid #7a7b7b;
+	margin-bottom: 5px;
+}
+
+#producto_columna_calle #trozo p {
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+#producto_columna_calle #trozo .imagenes{
+	border: 1px solid #b4b4b4;
+	margin: 7px;
+	border-radius: 5px;
+	-moz-box-shadow: 1px 1px 5px #888;
+	-webkit-box-shadow: 1px 1px 5px #888;
+	box-shadow: 1px 1px 5px #888;
+}
+
+textarea {
+	border-radius: 5px;
+	border: 1px solid #afafaf;
+	padding: 5px;
+}
+
+input {
+	border: 1px solid #b6b6b6;
+	padding: 8px;
+	border-radius: 5px;
+	background: white;
+	margin-top: -5px;
+}
+
+/* Fake upload makeado */
+.upload {
+	position: relative;
+	width: 280px;
+	margin-left: 2px;
+	list-style-type: none;
+}
+
+.realupload {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	/* estilos transparentes para navegadores */
+	opacity: 0;
+	-moz-opacity: 0;
+	filter: alpha(opacity:0);
+
+	z-index: 2; /* Para el click del boton */
+	width: 20px;
+}
+
+form .fakeupload {
+	background: url(../img/subir_imagen.png) no-repeat 100% -0px;
+}
+
+form .fakeupload input {
+	width: 200px;
+	height: 16px;
+	margin-top: 0px;
+}
+
+#libre {
+	background-color: #f9f9f9;
+	color: #333;
+	font-size: 12px;
+	padding: 10px;
+	border: 1px solid #acacac;
+	border-radius: 5px;
+	width: 200px;
+	margin-top: 20px;
+	text-align: center;
+	-moz-box-shadow: 0px 0px 5px #888;
+	-webkit-box-shadow: 0px 0px 5px #888;
+	box-shadow: 0px 0px 5px #888;
+}
+
+.error_fichero {
+	color: #fc6b64;
+	border: 1px solid #fc6561;
+	font-weight: bold;
+	border-radius: 3px;
+	background: #fedad9 url(atencion.png) no-repeat 5px 0;
+	padding: 10px 10px 10px 60px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+/* Formularios imagenes */
+#formularios_img {
+	width: 120px;
+	background-image: none;
+	border-radius: 3px;
+	border: 1px solid #d0d0d0;
+	padding: 3px 3px 3px 15px;
+	/*margin-top: -150px;*/
+	margin-left: 10px;
+	z-index: 100;
+	background-color: #b7b7b7;
+}
+
+#formularios_img form.imagenes {
+	float: left;
+	clear: right;
+	border-style: none;
+}
+
+#formularios_img form.imagenes>.movimiento {
+	float: left;
+	width: 20px;
+	height: 25px;
+	border: 1px solid #404040;
+	text-align: center;
+	padding: 3px;
+	border-radius: 2px;
+	color: #5d313a;
+	font: 9px Verdana;
+	background-color: #ddd;
+}
+
+#formularios_img form.imagenes>.cerrar {
+	float: right;
+	width: 20px;
+	height: 25px;
+	border: 1px solid #404040;
+	text-align: center;
+	padding: 3px;
+	border-radius: 2px;
+	color: #5d313a;
+	font: 9px Verdana;
+	background-color: #ddd;
+}
+
+/* paso 2 precio */
+.paso_estoy {
+	color: #505051;
+	font-size: 14px;
+	background-color: #d5d5d5;
+	padding: 3px 5px;
+	border: 1px solid #b7b7b7;
+	border-radius: 3px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.paso {
+	color: #fffeff;
+	font-size: 14px;
+	background-color: #d5d5d5;
+	padding: 3px 5px;
+	border: 1px solid #b7b7b7;
+	border-radius: 3px;
+}
+
+#contenido p a {
+	color: #4f6488;
+}
+
+/* Tablas */
+th {
+	padding: 3px 10px;
+	background-color: #d5d5d5;
+}
+
+/* h3 para los productos */
+h3 {
+	margin-bottom: -2px;
+	color: #808080;
+	font-size: 13px;
+}
+
+/* Fechacas */
+p .fecha_insercion {
+	margin-top: 5px;
+	font-size: 10px;
+}
+
+.fecha_insercion {
+	border-radius: 3px;
+	color: #fffeff;
+	background-color: #383838;
+	padding: 5px;
+	margin-top: 30px;
+}

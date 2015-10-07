@@ -1,0 +1,476 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2014-11-08 00:07:43 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 00:07:43 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 00:20:05 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 00:20:05 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 00:50:58 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 00:50:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 01:17:46 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 01:17:46 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 02:01:18 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 02:01:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 02:27:26 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 02:27:26 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 02:53:57 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 02:53:57 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 03:03:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 03:23:45 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 03:23:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 04:21:52 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 04:21:52 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 04:26:38 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 04:45:08 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 04:45:08 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 05:41:41 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 05:41:41 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 05:41:50 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 05:41:50 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 06:06:08 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 06:06:08 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 07:33:44 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 07:34:37 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 07:34:37 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 08:09:00 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 08:09:00 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 08:30:39 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 08:30:39 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 09:28:03 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 09:28:03 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 09:29:59 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 09:29:59 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 09:33:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:09:40 --> 404 Page Not Found --> index.php
+ERROR - 2014-11-08 10:22:34 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 10:26:22 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 10:26:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 10:26:22 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 10:26:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 10:26:22 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 10:26:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 10:32:18 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 10:40:52 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 10:40:52 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 10:46:36 --> 404 Page Not Found --> index.php
+ERROR - 2014-11-08 11:23:19 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 11:23:19 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 11:23:37 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 11:25:03 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 11:25:03 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 11:34:00 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/mis/addpaso1.php 86
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 12:12:45 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 12:12:50 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/gps.php 157
+ERROR - 2014-11-08 12:12:50 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:12:50 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:12:50 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:12:50 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:12:52 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:12:52 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:12:56 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:12:56 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:12:57 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:12:57 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:13:00 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:13:00 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:13:01 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:13:01 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:13:04 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:13:04 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:13:11 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:13:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:13:12 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:13:12 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:20:35 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:20:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 12:28:56 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 12:28:56 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 13:06:13 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 13:06:13 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 13:16:35 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 13:16:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 13:22:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 14:24:39 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 14:24:39 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 15:00:23 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 15:01:16 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 15:01:16 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:15:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:21:52 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 16:21:52 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 16:34:40 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 16:34:43 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 16:34:45 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 16:39:27 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 16:39:40 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 16:41:38 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 16:42:11 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 16:43:31 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 16:43:31 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 16:48:10 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 16:48:10 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 16:56:35 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 17:18:46 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 17:21:30 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:16 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:22 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:29 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:32 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:34 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:37 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:55 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:22:59 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:01 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:04 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:06 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:07 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:12 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:15 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:18 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:20 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:23:22 --> 404 Page Not Found --> pisos/images
+ERROR - 2014-11-08 17:24:26 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 17:24:30 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 17:24:34 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 17:24:39 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 17:24:44 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 17:24:51 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 17:24:58 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 17:49:54 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 17:50:13 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 17:54:04 --> 404 Page Not Found --> index.php
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 19:31:58 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 19:49:13 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 19:49:13 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 19:51:21 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 19:51:21 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 19:54:25 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 19:54:25 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 20:01:39 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 20:03:03 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 20:03:27 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 20:04:10 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 20:07:08 --> 404 Page Not Found --> principal/js
+ERROR - 2014-11-08 20:31:23 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 20:31:23 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 86
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 133
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 152
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 163
+ERROR - 2014-11-08 21:05:11 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/buscar.php 174
+ERROR - 2014-11-08 21:23:25 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 21:23:25 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 21:40:12 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 22:02:27 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/gps.php 157
+ERROR - 2014-11-08 22:13:10 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 22:13:10 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 22:55:22 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 23:32:07 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 23:32:14 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 23:34:24 --> Severity: Notice  --> Undefined variable: datos /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/controllers/pisos.php 68
+ERROR - 2014-11-08 23:34:24 --> Severity: Notice  --> Undefined index: logeado /servicios/samba/silos/silo1/aplicaciones/ebayuva/application/views/error_permisos.php 73
+ERROR - 2014-11-08 23:56:40 --> 404 Page Not Found --> js
+ERROR - 2014-11-08 23:56:40 --> Severity: Warning  --> chmod(): Operation not permitted /servicios/samba/silos/silo1/aplicaciones/ebayuva/system/libraries/Log.php 106

@@ -1,0 +1,39 @@
+#busqueda_ajax {
+	display: block;
+	width: 200px;
+	top: 5px;
+	padding: 3px 5px 5px;
+	color: #989898;
+	background-color: #f7f7f7;
+	border: 1px solid #d1d1d1;
+	visibility: hidden;
+	z-index: 100;
+	/*-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;*/
+	border-radius: 5px;
+	right: 5px;
+	position: absolute;
+}
+
+#busqueda_ajax > h1 {
+	font: 14px Verdana;
+	margin-bottom: 1px;
+	margin-top: -2px;
+	color: #964247;
+	text-transform: uppercase;
+	padding: 2px;
+	border-bottom: 1px dotted #ddd;
+}
+
+#busqueda_ajax > a {
+	text-decoration: none;
+	color: #989898;
+}
+
+#busqueda_ajax > a:hover {
+	text-decoration: underline;
+}

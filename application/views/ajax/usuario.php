@@ -1,0 +1,1 @@
+<div id="respuesta_user"><?=$respuesta?>&nbsp;<input type="button" value="comprobar" onclick="javascript:comprueba_usuario()">&nbsp;</div>

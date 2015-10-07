@@ -1,0 +1,92 @@
+/* CSS del login */
+
+#caja_login {
+	width: 350px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 15px;
+	border-radius: 3px;
+	background-color: #d2d2d2;
+	color: #000;
+	font-size: 12px;
+	border: 1px solid #8a8a8a;
+	float: right;
+}
+
+#caja_recuperar {
+	width: 550px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 15px;
+	border-radius: 3px;
+	background-color: #d2d2d2;
+	color: #000;
+	font-size: 12px;
+	border: 1px solid #8a8a8a;
+	text-align: left;
+}
+
+#caja_recuperar_ok {
+	width: 450px;
+	padding: 15px 15px 15px 90px;
+	border-radius: 3px;
+	color: #4f9d5e;
+	border: 1px solid #8a8a8a;
+	text-align: left;
+	margin: 30px 10px;
+	font: 12px Verdana;
+	background: #c4f1d4 url(../img/icon_ok.png) no-repeat -20px -10px;
+}
+
+#alta_usuario {
+	padding: 10px;
+	border: 1px solid #d9d9d9;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	border-radius: 3px;
+	background-color: #e5e5e5;
+}
+
+#alta_usuario td {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#alta_usuario a {
+	color: #b54947;
+}
+
+.rojo {
+	color: #b54947;
+}
+
+.rojo_ok {
+	color: #b54947;
+	padding: 5px 5px 5px 25px;
+	background: #b69392 url(../img/error.png) no-repeat 1px;
+	border: 1px solid #7e6565;
+}
+.verde_ok {
+	color: #4f9d5e;
+	padding: 5px 5px 5px 30px;
+	background: #c4f1d4 url(../img/ok.png) no-repeat 1px;
+	border: 1px solid #99bba6;
+}
+
+#respuesta_user {
+	float: right;
+}
+
+#contra {
+	float: right;
+}
+
+#errores {
+	width: 350px;
+	border: 1px solid #7d2b27;
+	border-radius: 3px;
+	padding: 20px 20px 20px 90px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #fdc3b9 url(atencion.png) no-repeat 20px 5px;
+}
