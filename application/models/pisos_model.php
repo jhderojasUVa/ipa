@@ -302,9 +302,13 @@ class Pisos_model extends CI_Model {
 	
 	function muestra_5_imagenes_piso() {
 		// Funcion que devuelve 5 imagenes de los ultimos pisos añadidos y en caso de que no, la imagen estandar
+<<<<<<< HEAD
 		//$sql = "SELECT DISTINCT (imagenes_pisos.idpiso), imagenes_pisos.imagen, imagenes_pisos.descripcion FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso=pisos.id_piso AND pisos.verificado=true ORDER BY idpiso DESC LIMIT 10";
 		$sql = "SELECT DISTINCT imagenes_pisos.idpiso FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso=pisos.id_piso AND pisos.verificado=true AND pisos.libre=1 ORDER BY idpiso DESC, orden LIMIT 10";
 		//$sql = "SELECT DISTINCT imagenes_pisos.idpiso FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso = pisos.id_piso AND pisos.verificado=TRUE AND pisos.libre=1 ORDER BY imagenes_pisos.idpiso LIMIT 10";
+=======
+		$sql = "SELECT DISTINCT imagenes_pisos.idpiso FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso = pisos.id_piso AND pisos.verificado=TRUE AND pisos.libre=1 ORDER BY imagenes_pisos.idpiso LIMIT 10";
+>>>>>>> origin/master
 		$resultado = $this -> db -> query($sql);
 		// Devolvemos las imagenes o la imagen vacia en caso de que no haya datos
 		if ($resultado -> num_rows()>0) {
