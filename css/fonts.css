@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300, 400, 500|Arvo:300, 400, 500|IM+Fell+English+SC:300, 400, 500|Lato:300, 400, 500|Libre+Franklin:300, 400, 500|Montserrat:300, 400, 500|Open+Sans:300, 400, 500|Raleway:300, 400, 500");
+h1 {
+  font-family: "Libre Franklin", sans-serif;
+  color: rgba(55, 55, 55, 0.9);
+  font-weight: 300;
+  font-size: 2.8em;
+  line-height: 1.0em;
+  margin-bottom: .1em;
+  margin-top: .1em;
+}
+
+h1.titulos_cortos {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "Libre Franklin", sans-serif;
+  color: rgba(55, 55, 55, 0.8);
+  font-weight: 300;
+  font-size: 2.5em;
+  line-height: 1.0em;
+  margin-top: .2em;
+  margin-bottom: .0em;
+}
+
+h3 {
+  font-family: "Open Sans", sans-serif;
+  color: rgba(55, 55, 55, 0.8);
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+h4 {
+  font-family: "Open Sans", sans-serif;
+  color: rgba(55, 55, 55, 0.8);
+  font-weight: 400;
+  font-size: .8em;
+  line-height: 1.4em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+h5 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: rgba(55, 55, 55, 0.8);
+  font-size: .65em;
+  line-height: 1.4em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+h5.arvo {
+  font-family: "Arvo", serif;
+}
+
+h5.opensans {
+  font-family: "Open Sans", sans-serif;
+}
+
+p, li {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  color: rgba(55, 55, 55, 0.8);
+}
+
+p.piefoto, li.piefoto {
+  font-family: "Open Sans", sans-serif;
+  font-size: .65em;
+  font-weight: 400;
+  color: #373737;
+  line-height: 1.4em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+blockquote {
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  line-height: 1.0;
+  color: rgba(227, 5, 74, 0.75);
+}
+
+.script {
+  font-family: "IM Fell English", serif;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-family: "Libre Franklin", sans-serif;
+    color: rgba(55, 55, 55, 0.9);
+    font-weight: 300;
+    font-size: 1.8em;
+    line-height: 1.0em;
+    margin-bottom: 0.1em;
+    margin-top: 0.1em;
+  }
+  h2 {
+    font-family: "Libre Franklin", sans-serif;
+    color: rgba(55, 55, 55, 0.8);
+    font-weight: 300;
+    font-size: 1.4em;
+    line-height: 1.0em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+  h3 {
+    font-size: 1.2em;
+    line-height: 1.4em;
+    margin-top: .9em;
+    margin-bottom: .5em;
+  }
+  h4 {
+    font-size: 1em;
+    line-height: 1.4em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+  h5 {
+    font-size: .8em;
+    line-height: 1.4em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+  h6 {
+    font-size: .65em;
+    line-height: 1.4em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+  p, li {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    margin-top: .6em;
+    margin-bottom: 1.5em;
+  }
+  .footer p {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    line-height: 1.4em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    color: rgba(55, 55, 55, 0.8);
+  }
+  blockquote {
+    font-size: 2em;
+    line-height: 1.0;
+  }
+}
+
+.fondo_rojo_destacado {
+  background-color: rgba(227, 5, 74, 0.75);
+}
+
+.fondo_rojo_240 {
+  background-color: #f04b50;
+}
+
+.fondo_rojo_uva {
+  background-color: #e5134b;
+}
+
+.fondo_azul_0 {
+  background-color: #00aff5;
+}
+
+.fondo_azul_0_ {
+  background-color: #004696;
+}
+
+h2 p {
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.3em !important;
+}
