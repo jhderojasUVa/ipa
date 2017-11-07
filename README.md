@@ -5,7 +5,9 @@ Aplicación realizada en CodeIgniter de la Información de Pisos en Alquiler de 
 
 ## Realizada con
 v1.0 > Codeigniter + custom CSS
+
 v2.0 > Codeigniter + Foundation
+
 v2.5 (futura) > Codeigniter > WebServices > Angular 4 > Foundation (Web components)
 
 ## Necesidades
