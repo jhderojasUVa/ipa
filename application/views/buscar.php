@@ -1,4 +1,8 @@
 <? $this -> load -> helper ("url"); ?>
+
+
+<!-- THE OLD FASHION WAY -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,7 +28,7 @@
 <script>
 
 $(function(){
-	
+
 	$("#precio").slider({
 		range: true,
 		min: 0,
@@ -63,14 +67,14 @@ function show_modal(direccion) {
 }
 
 #simplemodal-container a.modalCloseImg {
-	background: url(<?=base_url()?>img/x.png) no-repeat; 
-	width :25px; 
-	height: 29px; 
-	display: inline; 
-	z-index: 3200; 
-	position: absolute; 
-	top: -15px; 
-	right: -16px; 
+	background: url(<?=base_url()?>img/x.png) no-repeat;
+	width :25px;
+	height: 29px;
+	display: inline;
+	z-index: 3200;
+	position: absolute;
+	top: -15px;
+	right: -16px;
 	cursor: pointer;
 }
 
@@ -87,7 +91,7 @@ function show_modal(direccion) {
             <td width="400">
             	<span class="botones"><img src="<?=base_url()?>img/home2.png" align="absbottom" width="20" alt="home" border="0"/><a href="<?=base_url()?>">&nbsp;Principal</a></span>
             	<span class="botones"><a href="<?=base_url()?>index.php/mis/mispisos">Mis pisos</a></span>
-                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>            
+                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>
                 <? if ($_SESSION["uva"]==0) { ?><span class="botones"><a href="<?=base_url()?>index.php/principal/vermisdatos">Mis datos</a></span><? } ?>
                 <span class="botones"><a href="<?=base_url()?>index.php/principal/logout">Salir</a></span>
             </td>
@@ -106,8 +110,8 @@ function show_modal(direccion) {
             </td>
         </tr>
     </table>
-	
-   
+
+
 </div>
 <div id="contenido">
 	<h2>Resultado de la busqueda</h2>
@@ -120,33 +124,33 @@ function show_modal(direccion) {
         <? } else { ?>
         <tr class="salteado">
         <? } ?>
-        	
+
             	<? if ($row["libre"] == true) { ?>
                 <td width="65" onmouseover="showdiv(event,'<span class=verde>Libre</span>');" onMouseOut="hiddenDiv()">
                 <? } else { ?>
                 <td width="65" class="ocupado" onmouseover="showdiv(event,'<span class=rojo>Ocupado</span>');" onMouseOut="hiddenDiv()">
                 <? } ?>
             	<a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["idpiso"]?>"><img src="<?=base_url()?>img_pisos/<?=$row["imagen"]?>" width="60" alt="foto" class="foto"/></a>
-            
+
             </td>
             <td>
             <? if ($_SESSION["logeado"] == true) { ?>
             <? if (($this -> pisos_model ->  es_piso_usuario($usuario, $row["idpiso"]) == true) || ($_SESSION["uva"] == true)) { ?>
-				
+
                     <a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["idpiso"]?>"><?
                     if (strlen($row["descripcion"])>350) {
                         echo str_replace("]",":",str_replace("[","",substr($row["descripcion"], 0, 250)))." [...]";
                     } else {
                         echo str_replace("]",":",str_replace("[","",$row["descripcion"]));
                     }
-                    
+
                     ?></a>
                 <? } else { ?>
                     <p>Solo los <strong><a href="<?=base_url()?>index.php/principal/haz_login">usuarios autentificados</a></strong> pueden verlo.</p>
                 <? } ?>
             <?	} else { ?>
                     <p>Solo los <strong><a href="<?=base_url()?>index.php/principal/haz_login">usuarios autentificados</a></strong> pueden verlo.</p>
-            <?	} ?> 
+            <?	} ?>
             </td>
             <td width="180">
             	<? if ($_SESSION["logeado"] == true) { ?>
@@ -246,7 +250,7 @@ function show_modal(direccion) {
                             <? } else { ?>
                             <option value="<?=$row ->idlocalizacion?>"><?=$row -> localizacion?></option>
                             <? } ?>
-                        	
+
                         <? } ?>
                     </select>
                 </div>
@@ -254,7 +258,7 @@ function show_modal(direccion) {
                 <div id="trozo">
                 	<p>Precio: <input type="text" name="cantidad" id="cantidad" style="border:0; color:#f6931f; font-weight:bold; background: #d7d8d9;" value="<?=$rango?>" /></p>
                     <div id="precio"></div>
-                </div>                
+                </div>
               	<div id="trozo_boton">
                 	<br /><br /><br />
                 	<right><input type="submit" value="Refinar busqueda" class="boton"/></right>
@@ -263,12 +267,12 @@ function show_modal(direccion) {
             <div id="clear"></div>
         </div>
         <div id="clear"></div>
-    	
+
     </div>
     <div id="clear"></div>
 </div>
 <div id="pie">
-    <div id="contenido">    
+    <div id="contenido">
     	<table width="600" align="center">
         	<tr>
            	  <td width="20"><img src="<?=base_url()?>img/logo_azul.jpg" alt="Universidad de Valladolid" align="middle" /></td>

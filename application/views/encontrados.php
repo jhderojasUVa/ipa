@@ -50,8 +50,8 @@
 	</div>
 </div>
 <!-- paginacion -->
-<div class="grid-x grid-margin-x" style="margin-top:20px;">
+<div class="grid-x grid-margin-x" style="margin-top:20px; margin-bottom:20px;">
 	<div class="smal-12 cell">
-		<?=$this -> pagination -> create_links();?>
+    <center><?=$this -> pagination -> create_links();?></center>
 	</div>
 </div>

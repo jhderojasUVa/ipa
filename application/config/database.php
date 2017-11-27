@@ -97,9 +97,9 @@ $db['production'] = array(
 
 $db['development'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
+	'hostname' => '157.88.62.131',
 	'username' => 'root',
-	'password' => 'cos5feoenterf5',
+	'password' => '1234567890',
 	'database' => 'ebayuva',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

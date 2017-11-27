@@ -10,12 +10,7 @@ class Principal extends CI_Controller {
 		 $this -> load -> helper("url");
 
 		 // Modelos
-		 $this -> load -> model("barrios_model");
-		 $this -> load -> model("comentarios_model");
-		 $this -> load -> model("localizaciones_model");
-		 $this -> load -> model("pisos_model");
-		 $this -> load -> model("admin_model");
-		 $this -> load -> model("usuarios_model");
+		 // Se cargan en el autoload
 
 		 // Librerias
 		 //$this -> load -> library("session");
@@ -77,7 +72,7 @@ class Principal extends CI_Controller {
 			// Pintamos la pagina de arriba a abajo
 			// Primero la oferta de pisos con imagenes, que son 5
 			$datos["pisos"] = $this -> pisos_model -> muestra_5_imagenes_piso();
-			$datos["6_ultimos"] = $this -> $pisos_model -> muestra_ultimos_pisos(6);
+			$datos["ultimos_6"] = $this -> pisos_model -> muestra_ultimos_pisos(7);
 			$datos["barrios"] = $this -> barrios_model -> barrios_con_pisos();
 			$datos["ciudades"] = $this -> localizaciones_model -> mostrar_localizaciones_pisos();
 

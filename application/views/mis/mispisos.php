@@ -1,4 +1,8 @@
 <? $this -> load -> helper("url"); ?>
+
+
+<!-- THE OLD FASHION WAY -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -67,14 +71,14 @@ function show_modal(direccion) {
 }
 
 #simplemodal-container a.modalCloseImg {
-	background: url(<?=base_url()?>img/x.png) no-repeat; 
-	width :25px; 
-	height: 29px; 
-	display: inline; 
-	z-index: 3200; 
-	position: absolute; 
-	top: -15px; 
-	right: -16px; 
+	background: url(<?=base_url()?>img/x.png) no-repeat;
+	width :25px;
+	height: 29px;
+	display: inline;
+	z-index: 3200;
+	position: absolute;
+	top: -15px;
+	right: -16px;
 	cursor: pointer;
 }
 
@@ -90,7 +94,7 @@ function show_modal(direccion) {
             <td width="400">
             	<span class="botones"><img src="<?=base_url()?>img/home2.png" align="absbottom" width="20" alt="home" border="0"/><a href="<?=base_url()?>">&nbsp;Principal</a></span>
             	<span class="botones"><a href="<?=base_url()?>index.php/mis/mispisos">Mis pisos</a></span>
-                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>            
+                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>
                 <? if ($_SESSION["uva"]==0) { ?><span class="botones"><a href="<?=base_url()?>index.php/principal/vermisdatos">Mis datos</a></span><? } ?>
                 <span class="botones"><a href="<?=base_url()?>index.php/principal/logout">Salir</a></span>
             </td>
@@ -113,7 +117,7 @@ function show_modal(direccion) {
 <div id="contenido">
 	<!-- primero los pisos metidos en modo buscador -->
     <h2>Mis pisos</h2>
-   
+
     <? if (count($pisos_usuario)>0) { // Si tiene pisos ?>
     <table align="center" width="900" cellpadding="0" cellspacing="0" class="buscar">
     <? $aux=0 ?>
@@ -127,7 +131,7 @@ function show_modal(direccion) {
 				} else {
 					echo str_replace("]",":",str_replace("[","",$row["descripcion"]));
 				}
-				
+
 				?></a>
                 <p><span class="botones"><a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["idpiso"]?>">Ver inmueble como un usuario UVa</a></span></p>
                 <p>Estado: <? if ($row["verificado"] == true) { ?>
@@ -162,7 +166,7 @@ function show_modal(direccion) {
     </center>
     </div>
     -->
-	
+
 </div>
 <div id="ciudades_principal">
 	<!-- luego el enlace para añadir un piso nuevo -->
@@ -183,7 +187,7 @@ function show_modal(direccion) {
         </table>
         </center>
         <p>Puede cambiar si el piso <strong>dispone de plazas o no</strong> sin tener que acceder al piso pulsando sobre <span class="verde">Libre</span> para ponerlo en <span class="ocupado">Ocupado</span> o viceversa.</p>
-        <p>Recuerde que usted es el m&aacute;ximo responsable de los datos de su inmueble y de indicar cuando ha sido alquilado. Procure no tener datos erroneos o no actualizados ya que repercute en su propio inmueble.</p> 
+        <p>Recuerde que usted es el m&aacute;ximo responsable de los datos de su inmueble y de indicar cuando ha sido alquilado. Procure no tener datos erroneos o no actualizados ya que repercute en su propio inmueble.</p>
     </div>
     <div id="clear"></div>
 </div>

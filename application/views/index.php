@@ -8,7 +8,12 @@
 						<div class="caja"><h2>Lo sentimos</h2><p>No hay pisos disponibles.</p></div>
 					<? } else { ?>
 							<? foreach ($pisos as $row) { ?>
-							<div class="caja"><a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["id_piso"]?>" role="link"><img src="<?=base_url()?>img_pisos/<?=$row["imagen"]?>" alt="<?=$row["descripcion"]?>" /></a></div>
+							<div class="caja">
+								<a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["id_piso"]?>" role="link">
+									<!--<img src="<?=base_url()?>img_pisos/<?=$row["imagen"]?>" alt="<?=$row["descripcion"]?>" />-->
+									<img src="http://ipa.uva.es/img_pisos/<?=$row["imagen"]?>" alt="<?=$row["descripcion"]?>" />
+								</a>
+							</div>
 						<? } // fin del foreach ?>
 					<? } // fin del if ?>
         </div>
@@ -17,7 +22,7 @@
 
 		<!-- Buscador -->
 		<div class="buscador align-middle">
-      <form action="<?=base_url()?>index.php/buscar/busquedas" method="post">
+      <form action="<?=base_url()?>index.php?buscar/busquedas" method="post">
         <div class="grid-container">
           <div class="grid-x">
             <div class="medium-12 cell">
@@ -71,7 +76,7 @@
 			</div>
 		</div>
 
-		<? if (count($6_ultimos)>0) {?>
+		<? if (count($ultimos_6)>0) {?>
 		<!-- ultimas ofertas -->
 		<div class="ultimas_ofertas">
       <div class="grid-container">
@@ -82,19 +87,23 @@
         </div>
         <!-- casas destacadas -->
         <div class="grid-x grid-margin-x">
-					<? for ($i=0; $i<count($6_ultimos);$i++) { ?>
+
+					<? for ($i=0; $i<count($ultimos_6); $i++) { ?>
           <!-- destacado -->
           <div class="medium-4 cell">
             <div class="card">
-              <div style="width: 100%; height: 100%;background: url(<?=$6_ultimos->imagen?>) no-repeat center center; background-size: 100%;"><div style="width: 100%; height: 200px;"></div></div>
-              <div class="card-section">
-                <p class="texto"><?=$6_ultimos->descripcion?></p>
+
+              <!--<div style="width: 100%; height: 100%;background: url(<?=$ultimos_6[$i]["imagen"]?>) no-repeat center center; background-size: 100%;"><div style="width: 100%; height: 200px;"></div></div>-->
+							<div style="width: 100%; height: 100%;background: url(<?=base_url()?><?=$ultimos_6[$i]["imagen"]?>) no-repeat center center; background-size: 100%;"><div style="width: 100%; height: 200px;"></div></div>
+
+							<div class="card-section">
+                <p class="texto"><?=str_replace("[Plazas ofertadas]", "", str_replace("[Número habitaciones]", "", str_replace("[Datos del inmueble]", "", $ultimos_6[$i]["descripcion"])))?></p>
                 <ul class="opciones">
 									<?
-									$extras = split($6_ultimos->extras,"|");
-									for ($i=0;$i<$extras;$i++) { ?>
+									$extras = explode("|",$ultimos_6[$i]["extras"]);
+									for ($i2=0;$i2<count($extras);$i2++) { ?>
 										<li>
-											<? switch ($extras[i]) {
+											<? switch ($extras[$i2]) {
 												case 'Cocina':
 													?>Icono cocina<?
 													break;
@@ -152,18 +161,21 @@
                   <li><i class="extras fi-telephone"></i></li>
                   <li><i class="extras fi-laptop"></i></li>
                   <li><i class="extras fi-credit-card"></i></li>
-								<? } // fin del for ?>
+								<? }  // fin del for ?>
                 </ul>
               </div>
               <div class="card-section">
                 <center>
-                  <a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$6_ultimos->idpiso?>" class="button" role="link">Ver piso</a>
-                  <a href="http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=<?=$6_ultimas->direccion?>&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=<?=$6_ultimas->direccion?>&amp;t=m&amp;z=50&amp\" class="button" role="link" target="_blank">Google Maps</a>
+                  <a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$ultimos_6[$i]["idpiso"]?>" class="button" role="link">Ver piso</a>
+                  <a href="http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=<?=$ultimos_6[$i]["direccion"]?>&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=<?=$ultimos_6[$i]["direccion"]?>&amp;t=m&amp;z=50&amp" class="button" role="link" target="_blank">Google Maps</a>
                 </center>
               </div>
+
             </div>
+
           </div>
 					<? } ?>
+
 				</div>
 
       </div>

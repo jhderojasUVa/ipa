@@ -2,15 +2,15 @@
 /*
 
    Net_HTTP_Client class
-	
-@DESCRIPTION 
+
+@DESCRIPTION
 
    HTTP Client component
 	suppots methods HEAD, GET, POST
 	1.0 and 1.1 compliant
 	WebDAV methods tested against Apache/mod_dav
 	Documentation @ http://lwest.free.fr/doc/php/lib/net_http_client-en.html
-	
+
 @SYNOPSIS
 
 	include "Net/HTTP/Client.php";
@@ -22,7 +22,7 @@
 		die( "Problem : " . $http->getStatusMessage() . "\n" );
 	$http->disconnect();
 
-	
+
 
 @CHANGES
 	0.1 initial version
@@ -31,7 +31,7 @@
 		 o Post(), Connect()
 	0.3 DAV enhancements:
 		 + Put() method
-	0.4 continued DAV support 
+	0.4 continued DAV support
 		 + Delete(), Move(), MkCol(), Propfind()  methods
 		 o added url property, remove host and port properties
 		 o Connect, Net_HTTP_Client (use of this.url)
@@ -47,11 +47,11 @@
 	    + addCookie and removeCookies methods
 	    o fix the "0" problem
 	    o undeifned variable warning fixed
-	    
-	
+
+
 @VERSION
 	0.7
-	
+
 @INFORMATIONS
 
  Compatibility : PHP 4 >= 4.0b4
@@ -64,8 +64,8 @@
 
 @TODO
 	remaining WebDAV methods: UNLOCK PROPPATCH
-	
-	
+
+
 */
 
 
@@ -83,18 +83,17 @@ define( "EBADRESPONSE", -2 ); // response status line is not http compliant
 define( "CRLF", "\r\n" );
 
 
-class Net_HTTP_Client 
-{
+class Net_HTTP_Client {
 
 	// @private
 	/// array containg server URL, similar to array returned by parseurl()
-	var $url; 
+	var $url;
 	/// server response code eg. "304"
 	var $reply;
 	/// server response line eg. "200 OK"
 	var $replyString;
 	/// HTPP protocol version used
-	var $protocolVersion = "1.0";	
+	var $protocolVersion = "1.0";
 	/// internal buffers
 	var $requestHeaders, $requestBody;
 	/// TCP socket identifier
@@ -104,59 +103,65 @@ class Net_HTTP_Client
 	var $proxyHost, $proxyPort;
 	/// debugging flag
 	var $debug = 0;
-		
+
 	/**
 	 * Net_HTTP_Client
 	 * constructor
 	 * Note : when host and port are defined, the connection is immediate
 	 * @seeAlso connect
-	 **/	
-	function Net_HTTP_Client( $host= NULL, $port= NULL )
-	{
+	 **/
+	 // Constructor nuevo
+	 function __construct($host= NULL, $port= NULL) {
+		 if( $this->debug & DBGTRACE ) echo "Net_HTTP_Client( $host, $port )\n";
+
+ 		if( $host != NULL ) {
+ 			$this->connect( $host, $port );
+ 		}
+	 }
+
+	 // Anterior a PHP 7
+	/*function Net_HTTP_Client( $host= NULL, $port= NULL ) {
 		if( $this->debug & DBGTRACE ) echo "Net_HTTP_Client( $host, $port )\n";
-			
+
 		if( $host != NULL ) {
 			$this->connect( $host, $port );
 		}
-	}
+	}*/
 
 	/**
 	 * turn on debug messages
 	 * @param level a combinaison of debug flags
 	 * @see debug flags ( DBG..) defined at top of file
-	 **/	
-	function setDebug( $level )
-	{
+	 **/
+	function setDebug( $level )	{
 		if( $this->debug & DBGTRACE ) echo "setDebug( $level )\n";
 		$this->debug = $level;
 	}
-	
-		
+
+
 	/**
 	 * turn on proxy support
 	 * @param proxyHost proxy host address eg "proxy.mycorp.com"
 	 * @param proxyPort proxy port usually 80 or 8080
-	 **/	
-	function setProxy( $proxyHost, $proxyPort )
-	{
+	 **/
+	function setProxy( $proxyHost, $proxyPort )	{
 		if( $this->debug & DBGTRACE ) echo "setProxy( $proxyHost, $proxyPort )\n";
 		$this->useProxy = true;
 		$this->proxyHost = $proxyHost;
 		$this->proxyPort = $proxyPort;
 	}
-	
-		
+
+
 	/**
 	 * setProtocolVersion
 	 * define the HTTP protocol version to use
 	 *	@param version string the version number with one decimal: "0.9", "1.0", "1.1"
 	 * when using 1.1, you MUST set the mandatory headers "Host"
 	 * @return boolean false if the version number is bad, true if ok
-	 **/	
-	function setProtocolVersion( $version )
-	{
+	 **/
+	function setProtocolVersion( $version )	{
 		if( $this->debug & DBGTRACE ) echo "setProtocolVersion( $version )\n";
-			
+
 		if( $version > 0 and $version <= 1.1 ) {
 			$this->protocolVersion = $version;
 			return true;
@@ -171,19 +176,17 @@ class Net_HTTP_Client
 	 *	@param username string - identifier
 	 *	@param password string - clear password
 	 **/
-	function setCredentials( $username, $password )
-	{
+	function setCredentials( $username, $password )	{
 		$hdrvalue = base64_encode( "$username:$password" );
 		$this->addHeader( "Authorization", "Basic $hdrvalue" );
 	}
-	
+
 	/**
 	 * define a set of HTTP headers to be sent to the server
 	 * header names are lowercased to avoid duplicated headers
 	 *	@param headers hash array containing the headers as headerName => headerValue pairs
-	 **/	
-	function setHeaders( $headers )
-	{
+	 **/
+	function setHeaders( $headers )	{
 		if( $this->debug & DBGTRACE ) echo "setHeaders( $headers ) \n";
 		if( is_array( $headers )) {
 			foreach( $headers as $name => $value ) {
@@ -191,15 +194,14 @@ class Net_HTTP_Client
 			}
 		}
 	}
-	
+
 	/**
 	 * addHeader
 	 * set a unique request header
 	 *	@param headerName the header name
 	 *	@param headerValue the header value, ( unencoded)
-	 **/	
-	function addHeader( $headerName, $headerValue )
-	{
+	 **/
+	function addHeader( $headerName, $headerValue )	{
 		if( $this->debug & DBGTRACE ) echo "addHeader( $headerName, $headerValue )\n";
 		$this->requestHeaders[$headerName] = $headerValue;
 	}
@@ -208,9 +210,8 @@ class Net_HTTP_Client
 	 * removeHeader
 	 * unset a request header
 	 *	@param headerName the header name
-	 **/	
-	function removeHeader( $headerName ) 
-	{
+	 **/
+	function removeHeader( $headerName ) 	{
 		if( $this->debug & DBGTRACE )	echo "removeHeader( $headerName) \n";
 		unset( $this->requestHeaders[$headerName] );
 	}
@@ -218,14 +219,13 @@ class Net_HTTP_Client
 	/**
 	 * addCookie
 	 * set a session cookie, that will be used in the next requests.
-	 * this is a hack as cookie are usually set by the server, but you may need it 
+	 * this is a hack as cookie are usually set by the server, but you may need it
 	 * it is your responsabilty to unset the cookie if you request another host
 	 * to keep a session on the server
 	 *	@param string the name of the cookie
 	 *	@param string the value for the cookie
-	 **/	
-	function addCookie( $cookiename, $cookievalue ) 
-	{
+	 **/
+	function addCookie( $cookiename, $cookievalue ) {
 		if( $this->debug & DBGTRACE )	echo "addCookie( $cookiename, $cookievalue ) \n";
 		$cookie = $cookiename . "=" . $cookievalue;
 		$this->requestHeaders["Cookie"] = $cookie;
@@ -234,9 +234,8 @@ class Net_HTTP_Client
 	/**
 	 * removeCookie
 	 * unset cookies currently in use
-	 **/	
-	function removeCookies() 
-	{
+	 **/
+	function removeCookies() {
 		if( $this->debug & DBGTRACE )	echo "removeCookies() \n";
 		unset( $this->requestHeaders["Cookie"] );
 	}
@@ -248,10 +247,9 @@ class Net_HTTP_Client
 	 * @param port string server listening port - defaults to 80
 	 * @return boolean false is connection failed, true otherwise
 	 **/
-	function Connect( $host, $port = NULL ) 
-	{
+	function Connect( $host, $port = NULL ) {
 		if( $this->debug & DBGTRACE ) echo "Connect( $host, $port ) \n";
-		
+
 		$this->url['scheme'] = "http";
 		$this->url['host'] = $host;
 		if( $port != NULL )
@@ -263,8 +261,7 @@ class Net_HTTP_Client
 	 * Disconnect
 	 * close the connection to the  server
 	 **/
-	function Disconnect() 
-	{
+	function Disconnect() {
 		if( $this->debug & DBGTRACE ) echo "Disconnect()\n";
 		if( $this->socket )
 			fclose( $this->socket );
@@ -277,8 +274,7 @@ class Net_HTTP_Client
 	 * @return string response status code (200 if ok)
 	 * @seeAlso getHeaders()
 	 **/
-	function Head( $uri )
-	{
+	function Head( $uri ) {
 		if( $this->debug & DBGTRACE ) echo "Head( $uri )\n";
 		$this->responseHeaders = $this->responseBody = "";
 		$uri = $this->makeUri( $uri );
@@ -286,8 +282,8 @@ class Net_HTTP_Client
 			$this->processReply();
 		return $this->reply;
 	}
-	
-	
+
+
 	/**
 	 * get
 	 * issue a GET http request
@@ -295,49 +291,47 @@ class Net_HTTP_Client
 	 * @return string response status code (200 if ok)
 	 * @seeAlso getHeaders(), getBody()
 	 **/
-	function Get( $url )
-	{
+	function Get( $url ) {
 		if( $this->debug & DBGTRACE ) echo "Get( $url )\n";
 		$this->responseHeaders = $this->responseBody = "";
 		$uri = $this->makeUri( $url );
-		
+
 		if( $this->sendCommand( "GET $uri HTTP/$this->protocolVersion" ) )
 			$this->processReply();
 		return $this->reply;
 	}
-	
+
 	/**
 	 * Options
 	 * issue a OPTIONS http request
 	 * @param uri URI (path on server) or full URL of the document
 	 * @return array list of options supported by the server or NULL in case of error
 	 **/
-	function Options( $url )
-	{
+	function Options( $url ) {
 		if( $this->debug & DBGTRACE ) echo "Options( $url )\n";
 		$this->responseHeaders = $this->responseBody = "";
 		$uri = $this->makeUri( $url );
-		
+
 		if( $this->sendCommand( "OPTIONS $uri HTTP/$this->protocolVersion" ) )
 			$this->processReply();
 		if( @$this->responseHeaders["Allow"] == NULL )
-			return NULL; 
+			return NULL;
 		else
 			return explode( ",", $this->responseHeaders["Allow"] );
 	}
-	
+
 	/**
 	 * Post
 	 * issue a POST http request
 	 * @param uri string URI of the document
 	 * @param query_params array parameters to send in the form "parameter name" => value
 	 * @return string response status code (200 if ok)
-	 * @example 
+	 * @example
 	 *   $params = array( "login" => "tiger", "password" => "secret" );
 	 *   $http->post( "/login.php", $params );
 	 **/
 	function Post( $uri, $query_params="" ){
-	
+
 		if( $this->debug & DBGTRACE ) {
 			echo "Post( $uri, $query_params )\n";
 			}
@@ -381,7 +375,7 @@ class Net_HTTP_Client
 			$this->processReply();
 		return $this->reply;
 	}
-		
+
 	/**
 	 * Send a MOVE HTTP-DAV request
 	 * Move (rename) a file on the server
@@ -398,13 +392,13 @@ class Net_HTTP_Client
 			$this->requestHeaders['Overwrite'] = "T";
 		else
 			$this->requestHeaders['Overwrite'] = "F";
-		
+
 		$destUrl = $this->url['scheme'] . "://" . $this->url['host'];
 		if( $this->url['port'] != "" )
 			$destUrl .= ":" . $this->url['port'];
 		$destUrl .= $destUri;
 		$this->requestHeaders['Destination'] =  $destUrl;
-		
+
 		if( $this->sendCommand( "MOVE $srcUri HTTP/$this->protocolVersion" ) )
 			$this->processReply();
 		return $this->reply;
@@ -426,13 +420,13 @@ class Net_HTTP_Client
 			$this->requestHeaders['Overwrite'] = "T";
 		else
 			$this->requestHeaders['Overwrite'] = "F";
-		
+
 		$destUrl = $this->url['scheme'] . "://" . $this->url['host'];
 		if( $this->url['port'] != "" )
 			$destUrl .= ":" . $this->url['port'];
 		$destUrl .= $destUri;
 		$this->requestHeaders['Destination'] =  $destUrl;
-		
+
 		if( $this->sendCommand( "COPY $srcUri HTTP/$this->protocolVersion" ) )
 			$this->processReply();
 		return $this->reply;
@@ -449,7 +443,7 @@ class Net_HTTP_Client
 	function MkCol( $uri )
 	{
 		if( $this->debug & DBGTRACE ) echo "Mkcol( $uri )\n";
-		// $this->requestHeaders['Overwrite'] = "F";		
+		// $this->requestHeaders['Overwrite'] = "F";
 		if( $this->sendCommand( "MKCOL $uri HTTP/$this->protocolVersion" ) )
 			$this->processReply();
 		return $this->reply;
@@ -477,7 +471,7 @@ class Net_HTTP_Client
 	 * PROPFIND retrieves meta informations about a resource on the server
 	 * XML reply is not parsed, you'll need to do it
 	 * @param uri the location of the file on the server. dont forget the heading "/"
-	 * @param scope set the scope of the request. 
+	 * @param scope set the scope of the request.
 	 *         O : infos about the node only
 	 *         1 : infos for the node and its direct children ( one level)
 	 *         Infinity : infos for the node and all its children nodes (recursive)
@@ -500,7 +494,7 @@ class Net_HTTP_Client
 	 * @param $uri URL (relative) of the resource to lock
 	 * @param $lockScope -  use "exclusive" for an eclusive lock, "inclusive" for a shared lock
 	 * @param $lockType - acces type of the lock : "write"
-	 * @param $lockScope -  use "exclusive" for an eclusive lock, "inclusive" for a shared lock	 
+	 * @param $lockScope -  use "exclusive" for an eclusive lock, "inclusive" for a shared lock
 	 * @param $lockOwner - an url representing the owner for this lock
 	 * @return server reply code, 200 if ok
 	 **/
@@ -511,7 +505,7 @@ class Net_HTTP_Client
 <D:lockscope><D:$lockScope/></D:lockscope>\n<D:locktype><D:$lockType/></D:locktype>
 	<D:owner><D:href>$lockOwner</D:href></D:owner>
 </D:lockinfo>\n";
-		
+
 		$this->requestBody = utf8_encode( $body );
 		if( $this->sendCommand( "LOCK $uri HTTP/$this->protocolVersion" ) )
 			$this->processReply();
@@ -544,7 +538,7 @@ class Net_HTTP_Client
 	function getHeaders()
 	{
 		if( $this->debug & DBGTRACE ) echo "getHeaders()\n";
-		if( $this->debug & DBGINDATA ) { 
+		if( $this->debug & DBGINDATA ) {
 			echo "DBG.INDATA responseHeaders="; print_r( $this->responseHeaders );
 		}
 		return $this->responseHeaders;
@@ -575,28 +569,28 @@ class Net_HTTP_Client
 		return $this->responseBody;
 	}
 
-	/** 
-	  * getStatus return the server response's status code 
+	/**
+	  * getStatus return the server response's status code
 	  * @return string a status code
 	  * code are divided in classes (where x is a digit)
 	  *  - 20x : request processed OK
 	  *  - 30x : document moved
 	  *  - 40x : client error ( bad url, document not found, etc...)
-	  *  - 50x : server error 
+	  *  - 50x : server error
 	  * @see RFC2616 "Hypertext Transfer Protocol -- HTTP/1.1"
 	  **/
-	function getStatus() 
+	function getStatus()
 	{
 		return $this->reply;
 	}
-  
-	
-	/** 
+
+
+	/**
 	  * getStatusMessage return the full response status, of the form "CODE Message"
 	  * eg. "404 Document not found"
-	  * @return string the message 
+	  * @return string the message
 	  **/
-	function getStatusMessage() 
+	function getStatusMessage()
 	{
 		return $this->replyString;
 	}
@@ -608,7 +602,7 @@ class Net_HTTP_Client
 	 * @scope only protected or private methods below
 	 **/
 
-	/** 
+	/**
 	  * send a request
 	  * data sent are in order
 	  * a) the command
@@ -616,15 +610,15 @@ class Net_HTTP_Client
 	  * c) the request body if defined
 	  * @return string the server repsonse status code
 	  **/
-	function sendCommand( $command ) 
-	{		
+	function sendCommand( $command )
+	{
 		if( $this->debug & DBGLOW ) echo "sendCommand( $command )\n";
 		$this->responseHeaders = array();
 		$this->responseBody = "";
 
-		// connect if necessary		
+		// connect if necessary
 		if( $this->socket == false or feof( $this->socket) ) {
-			
+
 			if( $this->useProxy ) {
 				$host = $this->proxyHost;
 				$port = $this->proxyPort;
@@ -643,7 +637,7 @@ class Net_HTTP_Client
 				return false;
 			}
 		}
-				
+
 		if( $this->requestBody != ""  ) {
 			$this->addHeader( "Content-Length", strlen( $this->requestBody ) );
 		}
@@ -655,7 +649,7 @@ class Net_HTTP_Client
 				$cmd .= "$k: $v" . CRLF;
 			}
 		}
-		
+
 		if( $this->requestBody != ""  ) {
 			$cmd .= CRLF . $this->requestBody;
 		}
@@ -663,17 +657,17 @@ class Net_HTTP_Client
 		// unset body (in case of successive requests)
 		$this->requestBody = "";
 		if( $this->debug & DBGOUTDATA ) echo "DBG.OUTDATA Sending\n$cmd\n";
-		
+
 		fputs( $this->socket, $cmd . CRLF );
 		return true;
 	}
 
 	function processReply()	{
-	
+
 		if( $this->debug & DBGLOW ) echo "processReply()\n";
 
 		$this->replyString = trim(fgets( $this->socket,1024) );
-		
+
 		if( preg_match( "|^HTTP/\S+ (\d+) |i", $this->replyString, $a )) {
 			$this->reply = $a[1];
 		} else {
@@ -688,8 +682,8 @@ class Net_HTTP_Client
 //			$this->addHeader( "cookie", $this->responseHeaders['set-cookie'] );
 		return $this->reply;
 	}
-	
-	/** 
+
+	/**
 	  * processHeader() reads header lines from socket until the line equals $lastLine
 	  * @scope protected
 	  * @return array of headers with header names as keys and header content as values
@@ -699,7 +693,7 @@ class Net_HTTP_Client
 		if( $this->debug & DBGLOW ) echo "processHeader( [lastLine] )\n";
 		$headers = array();
 		$finished = false;
-		
+
 		while ( ( ! $finished ) && ( ! feof($this->socket)) ) {
 			$str = fgets( $this->socket, 1024 );
 			if( $this->debug & DBGINDATA ) echo "HEADER : $str";
@@ -707,7 +701,7 @@ class Net_HTTP_Client
 			if ( !$finished ) {
 				//list( $hdr, $value ) = split( ": ", $str, 2 );
 				list( $hdr, $value ) = explode( ": ", $str, 2 );
-				// nasty workaround broken multiple same headers (eg. Set-Cookie headers) @FIXME 
+				// nasty workaround broken multiple same headers (eg. Set-Cookie headers) @FIXME
 				if( isset( $headers[$hdr]) )
 					$headers[$hdr] .= "; " . trim($value);
 				else
@@ -717,17 +711,17 @@ class Net_HTTP_Client
 		return $headers;
 	}
 
-	/** 
-	  * processBody() reads the body from the socket 
+	/**
+	  * processBody() reads the body from the socket
 	  * the body is the "real" content of the reply
-	  * @return string body content 
+	  * @return string body content
 	  * @scope private
 	  **/
 	function processBody()
 	{
 		$failureCount = 0;
 		if( $this->debug & DBGLOW ) echo "processBody()\n";
-/*		if( $this->responseHeaders['Content-Length'] ) 
+/*		if( $this->responseHeaders['Content-Length'] )
 		{
 			$length = $this->responseHeaders['Content-Length'];
 			$data = fread( $this->socket, $length );
@@ -741,7 +735,7 @@ class Net_HTTP_Client
 			do{
 				$status = socket_get_status( $this->socket );
 				if( $status['eof'] == 1 ) {
-					if( $this->debug & DBGSOCK ) echo "DBG.SOCK status eof met, finished socket_read\n";			
+					if( $this->debug & DBGSOCK ) echo "DBG.SOCK status eof met, finished socket_read\n";
 					break;
 				}
 				if( $status['unread_bytes'] > 0 ) {
@@ -755,7 +749,7 @@ class Net_HTTP_Client
 				$data .= $buffer;
 				if( $this->debug & DBGSOCK )
 					echo implode( " | ", $status ), "\n";
-				
+
 			} while(  $status['unread_bytes'] > 0 || $counter++ < 10 );
 
 			if( $this->debug & DBGSOCK ) {
@@ -774,7 +768,7 @@ class Net_HTTP_Client
 	 * @return URI to be used in the HTTP request
 	 * @scope private
 	 **/
-	 
+
 	function makeUri( $uri )
 	{
 		$a = parse_url( $uri );
@@ -785,7 +779,7 @@ class Net_HTTP_Client
 			unset( $this->url['query']);
 			unset( $this->url['fragment']);
 			$this->url = array_merge( $this->url, $a );
-		}		
+		}
 		if( $this->useProxy ) {
 			$requesturi= "http://" . $this->url['host'] . ( empty($this->url['port']) ? "" : ":" . $this->url['port'] ) . $this->url['path'] . ( empty($this->url['query']) ? "" : "?" . $this->url['query'] );
 		} else {
@@ -793,8 +787,8 @@ class Net_HTTP_Client
 		}
 		return $requesturi;
 	}
-	
+
 } // end class Net_HTTP_Client
 
-	
+
 ?>

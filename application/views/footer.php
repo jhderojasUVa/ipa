@@ -5,7 +5,7 @@
     <div class="grid-x grid-margin-x">
       <div class="medium-4 small-12 cell">
         <center>
-          <img src="img/Secundaria_Roja.jpg" width="100" alt="Universidad de Valladolid">
+          <img src="<?=base_url()?>img/Secundaria_Roja.jpg" width="100" alt="Universidad de Valladolid">
           <h3>Servicio de Asuntos Sociales</h3>
           <p>
             <small>
@@ -22,9 +22,9 @@
       </div>
       <div class="medium-3  small-12 cell">
         <h3 class="headline">Manual</h3>
-        <p><a href="<? $this -> load -> helper ("url"); ?>css/IPA.pdf">Descargate el manual de la aplicación [PDF]</a>.</p>
+        <p><a href="<?=base_url()?>css/IPA.pdf">Descargate el manual de la aplicación [PDF]</a>.</p>
         <h3 class="headline">Buscar</h3>
-        <p><a href="<? $this -> load -> helper ("url"); ?>index.php/buscar/busquedas">Usa nuestro buscador para encontrar tu piso o habitación ideal</a>.</p>
+        <p><a href="<?=base_url()?>index.php/buscar/busquedas">Usa nuestro buscador para encontrar tu piso o habitación ideal</a>.</p>
       </div>
       <div class="medium-3 medium-offset-1 small-12 cell">
         <h3 class="headline">Somos sociales</h3>

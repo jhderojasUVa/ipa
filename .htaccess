@@ -1,0 +1,7 @@
+#AddDefaultCharset UTF-8
+#RewriteEngine on
+
+#RewriteBase /ipa/
+
+#RewriteCond $1 !^(index\.php|images|robots\.txt)
+#RewriteRule ^(.*)$ /index.php/$1 [L]

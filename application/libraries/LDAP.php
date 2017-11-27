@@ -22,8 +22,13 @@
 class LDAP {
 	var $CI;
 
-	function LDAP() {
+	/*function LDAP() {
 		$this->CI =& get_instance();
+		$this->CI->config->load('ldap');
+	}*/
+	function __construct() {
+		$this->CI =& get_instance();
+		//parent::__construct();
 		$this->CI->config->load('ldap');
 	}
 
@@ -72,7 +77,7 @@ class LDAP {
 			 $err = 'Nombre de usuario o contraseña erróneos';
 			 return -1;
 		 }
-		 
+
 		 $info = @ldap_get_entries($ds, $res);
 
 		 if ($info['count'] == 0) {
@@ -107,7 +112,7 @@ class LDAP {
 	/**
 	 * Extrae la información asociada a un DN de LDAP
 	 *
-	 * @param 	string dn 
+	 * @param 	string dn
 	 * @return	FALSE si falla, o un array con los datos del usuario
 	 */
 
@@ -152,7 +157,7 @@ class LDAP {
 				'id' => $info[0]['uid'],
 				// By Tuti, cambiado de givenname a cn
 				'name' => ucwords(strtolower($info[0]['cn'][0]
-				//'name' => ucwords(strtolower($info[0]['cn'][0] 
+				//'name' => ucwords(strtolower($info[0]['cn'][0]
 						. ' ' .  $info[0]['sn'][0])),
 				'mail' => $info[0]['mail'][0],
 				//'uvaNIF' => $info[0]['uvanif'][0],
@@ -169,7 +174,7 @@ class LDAP {
 	function cache_expiration() {
 		$fechaexp = time() - 12 * 60 * 60;
 		$this->CI->db->where('timestamp <=', $fechaexp);
-		$this->CI->db->delete('usercache'); 
+		$this->CI->db->delete('usercache');
 	}
 
 	/**
@@ -185,12 +190,12 @@ class LDAP {
 	 */
 	function logout() {
 	}
-	
+
 	function sacar_datos_ldap($idusuario) {
 		// Funcion que devuelve los datos del usuario
-		
+
 		$uid = $idusuario;
-		
+
 		// Primero nos conectamos
 		$opciones = $this->CI->config->item('ldap');
 		$ds = @ldap_connect($opciones["host"], $opciones["puerto"]);
@@ -206,7 +211,7 @@ class LDAP {
 			log_message('error', 'No se pudo hacer bind. Revise la configuración');
 			return FALSE;
 		}
-		
+
 		$atributos = array("cn", "givenName", "mail");
 		//$sr = ldap_search ($idconexion, "ou=personal,dc=uva,dc=es", "(&(uid=".$uid.")(uvaDominioCorreo=uva.es)(|(uvaColectivos=2)(uvaColectivos=3)(uvaColectivos=9)))", $atributos);
 		$sr = ldap_search ($ds, "ou=personal,dc=uva,dc=es", "uid=".$idusuario, $atributos);
@@ -226,7 +231,7 @@ class LDAP {
 			$datos = array("nombre" => $nombre, "mail" => $busqueda[0]["mail"][0]);
 		}
 
-		
+
 		//print_r($busqueda);
 
 		return $datos;

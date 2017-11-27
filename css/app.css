@@ -516,8 +516,8 @@ a {
 }
 
 .ultimas_ofertas .card .texto {
-  height: 40px;
-  overflow-x: hidden;
+  height: 45px;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -591,6 +591,55 @@ footer ul {
 
 footer ul li {
   list-style-type: none;
+}
+
+.login .headline {
+  border-bottom: 1px dotted #d2d2d2;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 1.6em;
+}
+
+.boton_pasos {
+  margin: 2px;
+  color: #d2d2d2;
+}
+
+.boton_pasos strong {
+  color: #868686;
+}
+
+.boton_pasos a {
+  padding: 5px 15px;
+  border: 1px solid #007cd1;
+  color: #007cd1;
+}
+
+.boton_pasos a:hover {
+  background-color: #007cd1;
+  color: white;
+}
+
+@media print, screen and (min-width: 20em) {
+  .error h1 {
+    font-size: 10em;
+    text-shadow: 1px 1px #007cd1;
+  }
+}
+
+@media print, screen and (min-width: 30em) {
+  .error h1 {
+    font-size: 16em;
+    text-shadow: 1px 1px #007cd1;
+  }
+}
+
+@media print, screen and (min-width: 60em) {
+  .error h1 {
+    font-size: 24em;
+    text-shadow: 1px 1px #007cd1;
+  }
 }
 
 .valign-middle {

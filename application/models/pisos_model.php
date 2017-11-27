@@ -8,10 +8,10 @@
 class Pisos_model extends CI_Model {
 
     function __construct() {
-        // Call the Model constructor
-        parent::__construct();
-		// Cargamos la base de datos
-		$this -> load -> database();
+      // Call the Model constructor
+      parent::__construct();
+      // Cargamos la base de datos
+      $this -> load -> database();
     }
 
 	function show_piso($idpiso) {
@@ -27,7 +27,7 @@ class Pisos_model extends CI_Model {
 		$sql = "SELECT COUNT(id_piso) AS total FROM pisos WHERE idusuario='".$usuario."'";
 		$resultado = $this -> db -> query($sql);
 		foreach ($resultado -> result() as $row) {
-			$total = $row -> total;
+		$total = $row -> total;
 		}
 
 		return $total;
@@ -359,7 +359,7 @@ class Pisos_model extends CI_Model {
 		if ($resultado_1->num_rows()>0) {
 			// Hay sugus continuo para sacar la ciudad y tal
 			foreach ($resultado_1->result() as $row) {
-				$sql2 = "SELECT imagen FROM imagenes_pisos WHERE idpiso=".$row >id_piso." LIMIT 1";
+				$sql2 = "SELECT imagen FROM imagenes_pisos WHERE idpiso=".$row -> id_piso." LIMIT 1";
 
 				$resultado_2 = $this -> db -> query($sql2);
 				foreach ($resultado_2->result() as $row2) {
