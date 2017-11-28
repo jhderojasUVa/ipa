@@ -135,5 +135,5 @@ $autoload['language'] = array();
 $autoload['model'] = array(
   "admin_model", "barrios_model", "comentarios_model", "estadisticas_model",
   "localizaciones_model", "pisos_model", "precios_model", "usuarios_model",
-  "webservice_model"
+  "webservice_model", "estadisticas_model"
 );

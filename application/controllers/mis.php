@@ -11,11 +11,13 @@ class Mis extends CI_Controller {
 		$this->load->helper("file");
 
 		// Modelos
+		/*
 		$this -> load -> model("barrios_model");
 		$this -> load -> model("comentarios_model");
 		$this -> load -> model("localizaciones_model");
 		$this -> load -> model("pisos_model");
 		$this -> load -> model("usuarios_model");
+		*/
 
 		// Librerias
 		$this -> load -> library("sesiones_usuarios");
@@ -88,7 +90,9 @@ class Mis extends CI_Controller {
 		//$datos["cantidad_mis_comentarios"] = $this -> comentarios_model -> show_cantidad_comentario_usuario($datos["usuario"]);
 		$datos["cantidad_mis_comentarios"] = count($datos["mis_comentarios"]);
 
+		$this -> load -> view("cabecera", $datos);
 		$this -> load -> view("mis/miscomentarios", $datos);
+		$this -> load -> view("footer", $datos);
 	}
 
 	public function buscar() {
@@ -107,7 +111,9 @@ class Mis extends CI_Controller {
 		$datos["mis_comentarios"] = $this -> comentarios_model -> q_show_comentario_usuario($q, $datos["usuario"]);
 		$datos["cantidad_mis_comentarios"] = $this -> comentarios_model -> q_show_cantidad_comentario_usuario($q, $datos["usuario"]);
 
+		$this -> load -> view("cabecera", $datos);
 		$this -> load -> view("mis/miscomentarios", $datos);
+		$this -> load -> view("footer", $datos);
 	}
 
 	public function misdatos_usuario() {
@@ -123,7 +129,10 @@ class Mis extends CI_Controller {
 			if ($espass==1) {
 				$password = $this -> input -> post("password");
 				$this -> usuarios_model -> cambia_campo("password", $password, $idu);
+
+				$this -> load -> view("cabecera", $datos);
 				$this -> load -> view("mis/misdatos_ok");
+				$this -> load -> view("footer", $datos);
 			}
 
 			// Si quiere cambiar datos del usuarios
@@ -141,7 +150,9 @@ class Mis extends CI_Controller {
 				$dni = strtoupper($this -> input -> post("dni"));
 				$this -> usuarios_model -> cambia_campo("dni", $dni, $idu);
 
+				$this -> load -> view("cabecera", $datos);
 				$this -> load -> view("mis/misdatos_ok");
+				$this -> load -> view("footer", $datos);
 			}
 
 		} else {

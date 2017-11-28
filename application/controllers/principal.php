@@ -326,13 +326,25 @@ class Principal extends CI_Controller {
 			// Doblada en el login del usuario
 			if ($this -> usuarios_model -> comprueba($login) == true) {
 				$ok = 0;
-				$datos["errores"] .= "<li>El nombre de usuario ya esta en uso.</li>";
+				// Sacamos mas varantes del login para mostrarselas
+				$mas_login = $this -> usuarios_model -> variantes_usuario($login, 5);
+				// Montamos el error
+				$datos["errores"] .= "<li>El nombre de usuario ya esta en uso. Puede probar con los siguientes:";
+				for ($aux=0; $aux<count($datos["mas_login"]); $aux++) {
+					if ($aux == count($datos["mas_login"] - 1)){
+						// Poner un punto al final, nunca esta de mas
+						$datos["errores"] .= " ".$mas_login[$aux].".";
+					} else {
+						$datos["errores"] .= " ".$mas_login[$aux].", ";
+					}
+				}
+				$datos["errores"] .= "</li>";
 			}
 
 		}
 
 		// Comprobamos el DNI
-		if ($dni && $this -> dni -> comprobar_nif($dni)==false) {
+		if ($dni && $this -> dni -> comprobar_nif($dni) == false) {
 			$ok = 0;
 			$datos["errores"] .="<li>El DNI introducido no es correcto</li>";
 		}
@@ -358,7 +370,10 @@ class Principal extends CI_Controller {
 			// Sino mostramos la pagina de los errores
 			//$this -> load -> view("user/add", $datos);
 		}
+
+		$this -> load -> view("cabecera", $datos);
 		$this -> load -> view("user/add", $datos);
+		$this -> load -> view("footer", $datos);
 	}
 
 	public function recordar_password() {
@@ -423,7 +438,10 @@ class Principal extends CI_Controller {
 				$datos["usuario"] = $_SESSION["idu"];
 
 				$datos["datos_usuario"] = $this -> usuarios_model -> devuelve_datos_usuario_id($datos["usuario"]);
+
+				$this -> load -> view("cabecera", $datos);
 				$this -> load -> view("mis/misdatos", $datos);
+				$this -> load -> view("footer", $datos);
 			}
 			$_SESSION["logeado"] = true;
 		} else {
@@ -448,11 +466,11 @@ class Principal extends CI_Controller {
 	*************************************************************************************************/
 
 	function letranif($dni) {
-        $letras = array('T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T');
-        $resto = $dni % 23;
-        $letra = $letras[$resto];
-        return $letra;
+		// Devuelve la letra del DNI
+    $letras = array('T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T');
+    $resto = $dni % 23;
+    $letra = $letras[$resto];
+    return $letra;
 	}
-
 
 }

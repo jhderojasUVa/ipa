@@ -20,12 +20,17 @@
 			$libre = $paso -> libre;
 		}
 	}
-	
+
 	if (!isset($edicion)) {
 		// No lo tamos editando cansinos
 		$edicion = 0;
 	}
 ?>
+
+
+
+<!-- OLD FASHION WAY -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -87,7 +92,7 @@ function MM_validateForm() { //v4.0
             <td width="400">
             	<span class="botones"><img src="<?=base_url()?>img/home2.png" align="absbottom" width="20" alt="home" border="0"/><a href="<?=base_url()?>">&nbsp;Principal</a></span>
             	<span class="botones"><a href="<?=base_url()?>index.php/mis/mispisos">Mis pisos</a></span>
-                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>            
+                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>
                 <? if ($_SESSION["uva"]==0) { ?><span class="botones"><a href="<?=base_url()?>index.php/principal/vermisdatos">Mis datos</a></span><? } ?>
                 <span class="botones"><a href="<?=base_url()?>index.php/principal/logout">Salir</a></span>
             </td>
@@ -106,8 +111,8 @@ function MM_validateForm() { //v4.0
             </td>
         </tr>
     </table>
-	
-   
+
+
 </div>
 <form action="<?=base_url()?>index.php/pisos/addpiso1" method="post" onsubmit="MM_validateForm('calle','','R','numero','','RisNum','piso','','R','letra','','R','cp','','RisNum','tlf','','RisNum');return document.MM_returnValue">
 <input type="hidden" name="edicion" value="<?=$edicion?>" />
@@ -125,10 +130,10 @@ function MM_validateForm() { //v4.0
 	<div id="contenido">
     	<div id="producto_columna">
             <h2>Contenido</h2>
-            <? 
+            <?
 			$bano=$tv=$cocina=$telf=$wifi=$compartido=$lavadora=$frigo=$cama=$vajilla=$horno=$secadora=0;
 			if (sizeof($extras)>0) {
-			foreach ($extras as $row) { 
+			foreach ($extras as $row) {
 				// La chapu, seguramente los input se pueden meter aqui dentro...
 				switch ($row) {
 					case "Cocina":
@@ -168,7 +173,7 @@ function MM_validateForm() { //v4.0
 						$compartido=1;
 						break;
 				}
-				
+
 			} // Fin del foreach
 			} // Fin del if
 			?>
@@ -177,56 +182,56 @@ function MM_validateForm() { //v4.0
             <? } else { ?>
                 <input type="checkbox" name="contenido[]" value="Cocina" />&nbsp;Cocina<br />
             <? } ?>
-            
+
 			<? if ($frigo==1) {
 			?>
 				<input type="checkbox" name="contenido[]" value="Frigo" checked="checked"/>&nbsp;Frigorifico<br />
 			<? } else { ?>
 				<input type="checkbox" name="contenido[]" value="Frigo"/>&nbsp;Frigorifico<br />
 			<? } ?>
-            
+
             <? if ($lavadora==1) {
 			?>
 				<input type="checkbox" name="contenido[]" value="Lavadora" checked="checked"/>&nbsp;Lavadora<br />
 			<? } else { ?>
 				<input type="checkbox" name="contenido[]" value="Lavadora"/>&nbsp;Lavadora<br />
 			<? } ?>
-            
+
             <? if ($vajilla==1) {
 			?>
 				<input type="checkbox" name="contenido[]" value="Vajilla" checked="checked"/>&nbsp;Vajilla<br />
 			<? } else { ?>
 				<input type="checkbox" name="contenido[]" value="Vajilla"/>&nbsp;Vajilla<br />
 			<? } ?>
-            
+
             <? if ($cama==1) {
 			?>
 				<input type="checkbox" name="contenido[]" value="Cama" checked="checked"/>&nbsp;Ropa de cama y mesa<br />
 			<? } else { ?>
 				<input type="checkbox" name="contenido[]" value="Cama"/>&nbsp;Ropa de cama y mesa<br />
 			<? } ?>
-			
+
             <? if ($horno==1) {
 			?>
 				<input type="checkbox" name="contenido[]" value="Horno" checked="checked"/>&nbsp;Horno, Microondas<br />
 			<? } else { ?>
 				<input type="checkbox" name="contenido[]" value="Horno"/>&nbsp;Horno, Microondas<br />
 			<? } ?>
-            
+
             <? if ($secadora==1) {
 			?>
 				<input type="checkbox" name="contenido[]" value="Secadora" checked="checked"/>&nbsp;Secadora<br />
 			<? } else { ?>
 				<input type="checkbox" name="contenido[]" value="Secadora"/>&nbsp;Secadora<br />
 			<? } ?>
-            
+
 			<? if ($bano==1) {
 			?>
 				<input type="checkbox" name="contenido[]" value="Bano" checked="checked"/>&nbsp;Baño<br />
 			<? } else { ?>
 				<input type="checkbox" name="contenido[]" value="Bano"/>&nbsp;Baño<br />
 			<? } ?>
-            
+
 			<? if ($tv == 1) { ?>
                 <input type="checkbox" name="contenido[]" value="TV" checked="checked"/>&nbsp;TV<br />
             <? } else { ?>
@@ -244,7 +249,7 @@ function MM_validateForm() { //v4.0
             <? } else { ?>
                 <input type="checkbox" name="contenido[]" value="WIFI"/>&nbsp;Internet<br />
             <? } ?>
-            
+
 			<? if ($compartido == 1) { ?>
                 <input type="checkbox" name="contenido[]" value="Compartido" checked="checked"/>&nbsp;Compartido<br />
             <? } else { ?>

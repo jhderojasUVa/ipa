@@ -1,4 +1,9 @@
 <? $this -> load -> helper("url"); ?>
+
+
+
+<!-- OLD FASHION WAY -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -51,7 +56,7 @@ function finalizar() {
             <td width="400">
             	<span class="botones"><img src="<?=base_url()?>img/home2.png" align="absbottom" width="20" alt="home" border="0"/><a href="<?=base_url()?>">&nbsp;Principal</a></span>
             	<span class="botones"><a href="<?=base_url()?>index.php/mis/mispisos">Mis pisos</a></span>
-                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>            
+                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>
                 <? if ($_SESSION["uva"]==0) { ?><span class="botones"><a href="<?=base_url()?>index.php/principal/vermisdatos">Mis datos</a></span><? } ?>
                 <span class="botones"><a href="<?=base_url()?>index.php/principal/logout">Salir</a></span>
             </td>
@@ -70,8 +75,8 @@ function finalizar() {
             </td>
         </tr>
     </table>
-	
-   
+
+
 </div>
 <form action="<?=base_url()?>index.php/pisos/editpiso1" method="post">
 <input type="hidden" name="idpiso" value="<?=$idpiso?>" />
@@ -89,9 +94,9 @@ function finalizar() {
 <input type="hidden" name="idpiso" value="<?=$idpiso?>" />
 <div id="producto_principal">
 	<div id="contenido">
-    
+
     <div id="producto_columna_calle">
-    
+
     	<div id="trozo">
     	<p><strong>a&ntilde;ada una imagen</strong></p>
     		<div class="upload">
@@ -136,10 +141,10 @@ function finalizar() {
             </div>
             <?
 				$temp++;
-				if ($temp>=3) { 
+				if ($temp>=3) {
 					$temp=0;
 					?>
-                    
+
 					<div id="clear"></div>
 				<? }
 			?>
@@ -157,7 +162,7 @@ function finalizar() {
             </tr>
         </table>
     </div>
-    
+
     <div id="clear"></div>
     	<!--
         <p><center><img src="<?=base_url()?>img/orden.png" /><br />Use los controles para cambiar el orden en que se muestran las imagenes de su inmueble.</center></p>
@@ -167,7 +172,7 @@ function finalizar() {
 </div>
 <div id="pie">
     <div id="contenido">
-    	
+
     	<table width="600" align="center">
         	<tr>
            	  <td width="20"><img src="<?=base_url()?>img/logo_azul.jpg" alt="Universidad de Valladolid" align="middle" /></td>

@@ -22,6 +22,11 @@
 		}
 	}
 ?>
+
+
+
+<!-- OLD FASHION WAY -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -83,7 +88,7 @@ function MM_validateForm() { //v4.0
             <td width="400">
             	<span class="botones"><img src="<?=base_url()?>img/home2.png" align="absbottom" width="20" alt="home" border="0"/><a href="<?=base_url()?>">&nbsp;Principal</a></span>
             	<span class="botones"><a href="<?=base_url()?>index.php/mis/mispisos">Mis pisos</a></span>
-                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>            
+                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>
                 <? if ($_SESSION["uva"]==0) { ?><span class="botones"><a href="<?=base_url()?>index.php/principal/vermisdatos">Mis datos</a></span><? } ?>
                 <span class="botones"><a href="<?=base_url()?>index.php/principal/logout">Salir</a></span>
             </td>
@@ -102,8 +107,8 @@ function MM_validateForm() { //v4.0
             </td>
         </tr>
     </table>
-	
-   
+
+
 </div>
 <div id="contenido">
 <form action="<?=base_url()?>index.php/pisos/addpiso2_fin" method="post">
