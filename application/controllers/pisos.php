@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
 
 class Pisos extends CI_Controller {
 
-	$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
 
 	public function __construct() {
 		parent::__construct();
@@ -584,7 +584,7 @@ class Pisos extends CI_Controller {
 
 		$comentario = $this -> input -> post("comentario");
 		$id_piso = $this -> input -> post("idpiso");
-		$idpiso = $id_piso; // Asi arreglamos esto temporalmente pero hay que unificarlo
+		$idpiso = $id_piso; // Asi arreglamos esto temporalmente pero hay que unificarlo porque sino, es una verguencita
 		// La puntuacion esta a 0 de forma temporal
 		$puntuacion = 0;
 		// Y metemos el comentario matarile rile rile
@@ -595,7 +595,7 @@ class Pisos extends CI_Controller {
 
 		$asunto = "IPA: Nuevo comentario";
 		$texto = "Se ha recibido un nuevo comentario:\r\n\r\nUsuario: ".$datos_pollo["nombre"]." - ".$datos_pollo["mail"]."\r\nComentario: ".$comentario."\r\nURL del piso: http://ipa.uva.es/index.php/pisos/producto_piso/?id=".$idpiso."\r\n\r\nEntre en el administrador para realizar las acciones adecuadas.";
-		$texto_comentario ="Su piso en la plataforma IPA ha recibido un comentario.\r\n\r\n"
+		$texto_comentario ="Su piso en la plataforma IPA ha recibido un comentario.\r\n\r\n";
 		$this -> mail_uva -> envia_mail("ipa.asuntos.sociales@uva.es,jesusangel.hernandez@uva.es", $asunto, $texto);
 		$this -> mail_uva -> envia_mail($datos_pollo["mail"],"Tu piso en IPA ha recibido un comentario",$texto_comentario);
 

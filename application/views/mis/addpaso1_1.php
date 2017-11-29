@@ -23,7 +23,26 @@
 	}
 ?>
 
-
+<div class="grid-container">
+	<div class="grid-x grid-margin-x">
+		<form action="<?=base_url()?>index.php/pisos/addpiso2_fin" method="post">
+			<input type="hidden" name="idpiso" value="<?=$idpiso?>" />
+			<!--
+			<ul>
+				<li><span class="paso_estoy">1. Descripcion</span></li>
+				<li><span class="paso">2. Precio</span></li>
+				<li><span class="paso">3. Imagenes</span></li>
+			</ul>
+			-->
+			<dl class="sub-nav">
+				<dt>Pasos:</dt>
+				<dd class="active">1. Descripci&oacute;n</dd>
+				<dd>2. Precio</dd>
+				<dd>3. Imagenes</dd>
+			</dl>
+		</form>
+	</div>
+</div>
 
 <!-- OLD FASHION WAY -->
 

@@ -8,9 +8,9 @@
     <title>IPA Información de Pisos en Alquiler. Universidad de Valladolid</title>
     <link rel="stylesheet" href="<?=base_url()?>css/foundation.css">
     <link rel="stylesheet" href="<?=base_url()?>css/foundation-icons/foundation-icons.css">
-    <link rel="stylesheet" href="<?=base_url()?>css/app.css">
     <link rel="stylesheet" href="<?=base_url()?>css/slick.css">
     <link rel="stylesheet" href="<?=base_url()?>css/slick-theme.css">
+    <link rel="stylesheet" href="<?=base_url()?>css/app.css">
   </head>
   <body>
 		<!-- header -->
