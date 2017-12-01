@@ -38,7 +38,7 @@ class Pisos extends CI_Controller {
 		echo "<script>window.location.href('/');</script>";
 	}
 
-	public function producto_piso() {
+	public function producto_piso($ws = null) {
 		// Controlador / Funcion, como quieras llamarlo que saca la información de la base
 		// de datos de un piso seleccionado (incluyendo las imagenes) y la planta en la pagina
 
@@ -94,14 +94,31 @@ class Pisos extends CI_Controller {
 			$datos["comentarios"] = $this -> comentarios_model -> show_comentario_objeto($id_piso, $datos["usuario"]);
 
 			// Y ahora mostrar la paginita
-			$this -> load -> view("cabecera", $datos);
-			$this -> load -> view("producto", $datos);
-			$this -> load -> view("footer", $datos);
+
+			if ($ws="json") {
+				// Cambiamos la cabecera a JSON de respuesta
+				header('Content-Type: application/json');
+				// Escupimos la respuesta
+				echo json_encode($datos);
+			} else {
+				$this -> load -> view("cabecera", $datos);
+				$this -> load -> view("producto", $datos);
+				$this -> load -> view("footer", $datos);
+			}
+
 		} else {
-			// Sino a la pagina de error
-			$this -> load -> view("cabecera", $datos);
-			$this -> load -> view("error_permisos");
-			$this -> load -> view("footer", $datos);
+
+			if ($ws="json") {
+				// Cambiamos la cabecera a JSON de respuesta
+				header('Content-Type: application/json');
+				// Escupimos la respuesta
+				echo json_encode($datos);
+			} else {
+				// Sino a la pagina de error
+				$this -> load -> view("cabecera", $datos);
+				$this -> load -> view("error_permisos");
+				$this -> load -> view("footer", $datos);
+			}
 		}
 	}
 
@@ -254,13 +271,6 @@ class Pisos extends CI_Controller {
 			}
 		}
 
-		/* ESTO ES NECESARIO PARA LAS IMAGENES
-
-		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($datos["idpiso"]);
-		$datos["hay_error"] = false;
-		$datos["error"] = "";
-		*/
-
 		$datos["error"] = "";
 		$datos["precios_piso"] = $this -> precios_model -> show_precios($datos["idpiso"]);
 		$datos["cant_precios_piso"] = count($datos["precios_piso"]);
@@ -270,8 +280,10 @@ class Pisos extends CI_Controller {
 		$this -> load -> view("footer", $datos);
 	}
 
-	public function addpiso2() {
+	public function addpiso2($ws = null) {
 		// Funcion para añadir precios
+
+		// Esto hay que migrarlo a AJAX si o si
 
 		// Lo primero el SSO de la UVa... ¡siempre!
 		// Con esto comprobamos si esta logeado o no
@@ -304,12 +316,18 @@ class Pisos extends CI_Controller {
 		$datos["precios_piso"] = $this -> precios_model -> show_precios($datos["idpiso"]);
 		$datos["cant_precios_piso"] = $this -> precios_model -> cant_show_precios($datos["idpiso"]);
 
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("mis/addpaso1_1", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("mis/addpaso1_1", $datos);
+			$this -> load -> view("footer", $datos);
+		}
 	}
 
-	public function borra_precio() {
+	public function borra_precio($ws = null) {
 		// Funcion para borrar precios
 
 		// Lo primero el SSO de la UVa... ¡siempre!
@@ -347,9 +365,15 @@ class Pisos extends CI_Controller {
 		$datos["precios_piso"] = $this -> precios_model -> show_precios($datos["idpiso"]);
 		$datos["cant_precios_piso"] = $this -> precios_model -> cant_show_precios($datos["idpiso"]);
 
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("mis/addpaso1_1", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("mis/addpaso1_1", $datos);
+			$this -> load -> view("footer", $datos);
+		}
 	}
 
 	public function addpiso2_fin() {
@@ -457,7 +481,7 @@ class Pisos extends CI_Controller {
 		$this -> load -> view("footer", $datos);
 	}
 
-	public function del_img() {
+	public function del_img($ws = null) {
 		// Esta funcion borra una imagen subida
 		// Lo hacemos a traves de un formulario porque asi los pollos no ven que es una url e intentan inyectar algo que se me haya pasado
 
@@ -498,12 +522,20 @@ class Pisos extends CI_Controller {
 		$datos["error"] = "";
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("mis/addpaso2", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("mis/addpaso2", $datos);
+			$this -> load -> view("footer", $datos);
+		}
+
+
 	}
 
-	public function cambiarorden() {
+	public function cambiarorden($ws = null) {
 		// Esta funcion sirve para mover el orden de las imagenes
 		// Primero sacamos los datos
 		$idpiso = $this -> input -> post("idpiso");
@@ -526,9 +558,16 @@ class Pisos extends CI_Controller {
 		$datos["error"] = "";
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("mis/addpaso2", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("mis/addpaso2", $datos);
+			$this -> load -> view("footer", $datos);
+		}
+
 	}
 
 	public function editpiso1() {
@@ -575,7 +614,7 @@ class Pisos extends CI_Controller {
 		$this -> load -> view("footer", $datos);
 	}
 
-	public function comentarios() {
+	public function comentarios($ws = null) {
 		// Funcion que envia un comentario
 		// Por ahora no esta en AJAX... pero mas adelante....
 		// SSO SIEMPRE
@@ -617,9 +656,15 @@ class Pisos extends CI_Controller {
 		$datos["cant_precios_piso"] = count($datos["precios_piso"]);
 
 		// Y ahora mostrar la paginita
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("producto", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("producto", $datos);
+			$this -> load -> view("footer", $datos);
+		}
 	}
 
 } // Fin de la clase

@@ -454,9 +454,9 @@ class Principal extends CI_Controller {
 
 	public function error() {
 		// Muestra la página de error
-		$this -> load -> view("cabecera", $datos);
+		$this -> load -> view("cabecera");
 		$this -> load -> view("error_permisos");
-		$this -> load -> view("footer", $datos);
+		$this -> load -> view("footer");
 	}
 
 	/*************************************************************************************************

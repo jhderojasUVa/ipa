@@ -22,63 +22,7 @@
 		}
 	}
 ?>
-
-<div class="grid-container">
-	<div class="grid-x grid-margin-x">
-		<form action="<?=base_url()?>index.php/pisos/addpiso2_fin" method="post">
-			<input type="hidden" name="idpiso" value="<?=$idpiso?>" />
-			<!--
-			<ul>
-				<li><span class="paso_estoy">1. Descripcion</span></li>
-				<li><span class="paso">2. Precio</span></li>
-				<li><span class="paso">3. Imagenes</span></li>
-			</ul>
-			-->
-			<dl class="sub-nav">
-				<dt>Pasos:</dt>
-				<dd class="active">1. Descripci&oacute;n</dd>
-				<dd>2. Precio</dd>
-				<dd>3. Imagenes</dd>
-			</dl>
-		</form>
-	</div>
-</div>
-
-<!-- OLD FASHION WAY -->
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Información sobre pisos en alquiler UVa</title>
-<link href="<?=base_url()?>css/principal.css" rel="stylesheet" type="text/css" />
-<link href="<?=base_url()?>css/productos.css" rel="stylesheet" type="text/css" />
-<link href="<?=base_url()?>css/comentarios.css" rel="stylesheet" type="text/css" />
-<link href="<?=base_url()?>css/slideshow.css" rel="stylesheet" type="text/css" />
-<!--[if gte IE 9]>
-  <style type="text/css">
-    .gradient {
-       filter: none;
-    }
-  </style>
-<![endif]-->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script type="text/javascript" src="<?=base_url()?>js/jquery.jcarousel.js"></script>
 <script>
-/*
-// Carrusel comentado
-
-$(document).ready(function() {
-	$("#mycarousel").jcarousel({
-		//size: 2,
-		scroll: 2,
-		visible: 2,
-		animation: 1400,
-		auto: 8,
-		wrap: "circular"
-	});
-})
-*/;
 function MM_validateForm() { //v4.0
   if (document.getElementById){
     var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
@@ -96,108 +40,69 @@ function MM_validateForm() { //v4.0
     document.MM_returnValue = (errors == '');
 } }
 </script>
-</head>
 
-<body>
-<div id="beta"></div>
-<div id="menu_sup">
-	<table align="center">
-    	<tr>
-        	<? if ($_SESSION["logeado"] == true) { ?>
-            <td width="400">
-            	<span class="botones"><img src="<?=base_url()?>img/home2.png" align="absbottom" width="20" alt="home" border="0"/><a href="<?=base_url()?>">&nbsp;Principal</a></span>
-            	<span class="botones"><a href="<?=base_url()?>index.php/mis/mispisos">Mis pisos</a></span>
-                <span class="botones"><a href="<?=base_url()?>index.php/mis/miscomentarios">Mis comentarios</a></span>
-                <? if ($_SESSION["uva"]==0) { ?><span class="botones"><a href="<?=base_url()?>index.php/principal/vermisdatos">Mis datos</a></span><? } ?>
-                <span class="botones"><a href="<?=base_url()?>index.php/principal/logout">Salir</a></span>
-            </td>
-            <? } else { ?>
-            <td width="350">
-            	Usuario <strong>no identificado</strong>&nbsp;
-                <span class="botones"><img src="<?=base_url()?>img/home2.png" align="absbottom" width="20" alt="home" border="0"/><a href="<?=base_url()?>">&nbsp;Principal</a></span>
-		<span class="botones"><a href="<?=base_url()?>index.php/principal/haz_login">Acceso</a></span>
-            </td>
-            <? } ?>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>
-            	 <form action="<?=base_url()?>index.php/buscar/busquedas" method="post">
-                    <input type="text" name="q" placeholder="buscar...." class="buscar" size="50" />&nbsp;<input type="submit" value="Buscar" />
-                </form>
-            </td>
-        </tr>
-    </table>
-
-
-</div>
-<div id="contenido">
 <form action="<?=base_url()?>index.php/pisos/addpiso2_fin" method="post">
-<input type="hidden" name="idpiso" value="<?=$idpiso?>" />
-	<table align="center" width="750">
-    	<tr>
-        	<td><span class="paso">1. Descripcion</span> <span class="paso_estoy">2. Precio</span> <span class="paso">3. Imagenes</span></td>
-            <td width="50">
-            	<? if ($cant_precios_piso>0) { ?>
-            	<input type="submit" name="enviar" value="continuar &raquo;" />
-                <? } else {?>
-                	<input type="submit" name="enviar" disabled value="continuar &raquo;" />
-                <? } ?>
-            </td>
-        </tr>
-    </table>
+	<div class="grid-container">
+		<div class="grid-x grid-margin-x">
+				<input type="hidden" name="idpiso" value="<?=$idpiso?>" />
+				<ul class="menu simple">
+					<li>1. Descripcion</li>
+					<li class="active">2. Precio</li>
+					<li>3. Imagenes</li>
+					<li><input class="button" type="submit" name="enviar" value="continuar &raquo;" /></li>
+				</ul>
+			</form>
+		</div>
+	</div>
 </form>
-</div>
+
 <form action="<?=base_url()?>index.php/pisos/addpiso2" method="post">
 <input type="hidden" name="idpiso" value="<?=$idpiso?>" />
-<div id="producto_principal">
-    <div id="contenido">
-        <div id="producto_columna_calle">
-        <h2>Precio</h2>
-  		<p>A continuaci&oacute;n indique el precio y el porque del precio. Puede poner precio a diferentes habitaciones o poner un precio comun para todas o precio por el piso completo.</p>
+	<div class="grid-container contenido">
+		<div class="grid-x grid-margin-x">
+			<div class="small-12 cell">
+				<h2 class="headline">Precio</h2>
+				<p>A continuaci&oacute;n indique el precio y el porque del precio. Puede poner precio a diferentes habitaciones o poner un precio comun para todas o precio por el piso completo.</p>
         <p><strong>El precio es necesario hasta que no tenga un precio no podra continuar con el proceso</strong>.</p>
-                <div id="trozo">
-                    <p><strong>precio</strong></p>
-                    <input type="number" name="precio" />
-                </div>
-                <div id="trozo">
-                    <p><strong>referente a</strong></p>
-                    <input type="text" name="descripcion" size="20" maxlength="50"placeholder="habitacion doble" />
-                </div>
-                <div id="trozo">
-                    <p>&nbsp;</p>
-                    <input type="submit" value="a&ntilde;adir" class="form_boton"/>
-                </div>
-        </div>
-        <div id="clear"></div>
-        <? if ($cant_precios_piso>0) { ?>
-        <hr width="350" />
-        <p>Precios anteriormente a&ntilde;adidos.</p>
-        <table width="700" align="center">
-        		<tr>
-                	<th>precio</th>
-                    <th>descripci&oacute;n</th>
-                    <td></td>
-                </tr>
-        	<? foreach ($precios_piso as $row) { ?>
-            	<tr>
-                	<td width="90"><?=$row -> precio?> &euro;</td>
-                    <td width="200"><?=$row -> descripcion?></td>
-                    <td valign="middle"><a href="<?=base_url()?>index.php/pisos/borra_precio/?idpiso=<?=$idpiso?>&precio=<?=$row->precio?>&desc=<?=$row->descripcion?>&ok=1"><img src="<?=base_url()?>img/x.png" border="0" /></a></td>
-                </tr>
-			<? } ?>
-        </table>
-		<? } ?>
-    </div>
+			</div>
+		</div>
+		<div class="grid-x grid-margin-x">
+			<div class="small-12 medium-4 cell">
+				<label>precio
+					<input type="number" name="precio" placeholder="50"/>
+				</label>
+			</div>
+			<div class="small-12 medium-6 cell">
+				<label>referente a
+					<input type="text" name="descripcion" size="20" maxlength="50"placeholder="habitacion doble" />
+				</label>
+			</div>
+			<div class="small-12 medium-2 cell">
+				<label>
+					<input class="button" type="submit" name="precio_enviar" value="a&ntilde;adir precio" />
+				</label>
+			</div>
+		</div>
+
+	<? if ($cant_precios_piso>0) { ?>
+		<div class="grid-x grid-margin-x precios_piso" style="margin-top:15px;margin-bottom:20px;">
+			<div class="small-12 cell">
+				<h2 class="headline">Precios anteriormente a&ntilde;adidos</h2>
+			</div>
+			<div class="precios">
+				<? foreach ($precios_piso as $row) { ?>
+					<div class="small-4 cell">
+						<?=$row -> precio?> &euro;
+					</div>
+					<div class="small-6 cell">
+						<?=$row -> descripcion?>
+					</div>
+					<div class="small-2 cell">
+						<a href="<?=base_url()?>index.php/pisos/borra_precio/?idpiso=<?=$idpiso?>&precio=<?=$row->precio?>&desc=<?=$row->descripcion?>&ok=1"><i class="fi-x"></i></a>
+					</div>
+				<? } ?>
+			</div>
+		</div>
+	<? } ?>
+	</div>
 </form>
-</div>
-<div id="pie">
-    <div id="contenido">
-    	<table width="600" align="center">
-        	<tr>
-           	  <td width="20"><img src="<?=base_url()?>img/logo_azul.jpg" alt="Universidad de Valladolid" align="middle" /></td>
-                <td align="left">Universidad de Valladolid - <a href="http://www.uva.es">www.uva.es</a> | STIC - <a href="http://www.uva.es/stic">www.uva.es/stic</a> | <img src="<?=base_url()?>img/mail.png" alt="mail" width="10" /> <a href="mailto:ipa.asuntos.sociales@uva.es">administrador</a> | &copy; 2011</td>
-            </tr>
-        </table>
-    </div>
-</div>
-</body>
-</html>

@@ -278,6 +278,12 @@ class Pisos_model extends CI_Model {
 		$resultado = $this -> db -> query($sql);
 	}
 
+  function del_imagen_piso_burro($imagen, $idpiso) {
+    // Funcion que borra el piso sin pedir tantas cosas... usar con cuidado
+    $sql = "DELETE FROM imagenes_pisos WHERE idpiso='".$idpiso."' AND imagen='".$imagen."'";
+    $resultado = $this -> db -> query($sql);
+  }
+
 	function cambia_orden_imagen($fichero, $actual, $nuevo, $idpiso) {
 		// Funcion que cambia el orden de una imagen
 		// Primero ponemos la vieja al orden de la nueva
@@ -624,6 +630,11 @@ class Pisos_model extends CI_Model {
 			$sql = $sql." AND cp='".$cp."'";
 		}
 
+    // Esto es una autentica mierda para solucionar si no envian el $rango
+    if ($rango == null) {
+      $rango = "0-100000";
+    }
+
 		// Ahora hacemos bujeritos el rango para meterlo en la secuencia
 		$minmax = explode("-", $rango);
 
@@ -686,6 +697,11 @@ class Pisos_model extends CI_Model {
 		}
 
 		$sql.= " LIMIT ".$total." OFFSET ".($total*$llego);
+
+    // Esto es una autentica mierda para arreglar si no envian el $rango
+    if ($rango == null) {
+      $rango = "0-100000";
+    }
 
 		// Ahora hacemos bujeritos el rango para meterlo en la secuencia
 		$minmax = explode("-", $rango);
@@ -752,7 +768,7 @@ class Pisos_model extends CI_Model {
 	function devuelve_usuario_piso($idpiso) {
 		// Funcion que devuelve el usuario de un piso
 		$sql = "SELECT idusuario FROM pisos WHERE id_piso=".$idpiso;
-		$resultado = $this -> db ->query($sql);
+		$resultado = $this -> db -> query($sql);
 		if ($resultado -> num_rows()>0) {
 			foreach ($resultado -> result() as $row) {
 				return $row -> idusuario;
@@ -784,5 +800,22 @@ class Pisos_model extends CI_Model {
 			return false;
 		}
 	}
+
+  function devuelve_todas_imagenes_idpiso() {
+    // Funcion que devuelve todas las imagenes y el id al que pertencen
+    $sql = "SELECT idpiso, imagen FROM imagenes_pisos ORDER BY idpiso";
+    $resultado = $this -> db -> query($sql);
+    return $resultado -> result();
+  }
+
+  function piso_existe($idpiso) {
+    $sql = "SELECT idpiso FROM pisos WHERE idpiso=".$idpiso;
+    $resultado = $this -> db -> query($sql);
+    if ($resultado -> num_rows()>0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 ?>

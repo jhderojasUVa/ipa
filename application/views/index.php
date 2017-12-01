@@ -10,8 +10,7 @@
 							<? foreach ($pisos as $row) { ?>
 							<div class="caja">
 								<a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["id_piso"]?>" role="link">
-									<!--<img src="<?=base_url()?>img_pisos/<?=$row["imagen"]?>" alt="<?=$row["descripcion"]?>" />-->
-									<img src="http://ipa.uva.es/img_pisos/<?=$row["imagen"]?>" alt="<?=$row["descripcion"]?>" />
+									<img src="http://ipa.uva.es/img_pisos/<?=$row["id_piso"]?>/<?=$row["imagen"]?>" alt="<?=$row["descripcion"]?>" />
 								</a>
 							</div>
 						<? } // fin del foreach ?>

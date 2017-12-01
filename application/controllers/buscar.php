@@ -11,23 +11,21 @@ class Buscar extends CI_Controller {
 		$this->load->helper("file");
 
 		// Modelos
+		/*
 		$this -> load -> model("barrios_model");
 		$this -> load -> model("comentarios_model");
 		$this -> load -> model("localizaciones_model");
 		$this -> load -> model("pisos_model");
+		*/
 
 		// Librerias
 		$this -> load -> library("sesiones_usuarios");
 		$this -> load -> library("SSOUVa");
 		$this -> load -> library("LDAP");
 
-		// Configuracion del upload
-		//$config["upload_path"] = "../../img_pisos/";
 		$config["upload_path"] = "/Volumes/320Gb/httpdocs/ebayuva2/img_pisos";
 		$config["allowed_types"] = "gif|jpg|png";
 		$config["max_size"]	= "20000";
-		//$config["max_width"]  = "1024";
-		//$config["max_height"]  = "768";
 
 		// Y la libreria
 		$this -> load -> library("upload", $config);
@@ -39,7 +37,7 @@ class Buscar extends CI_Controller {
 		echo "<script>window.location.href('/');</script>";
 	}
 
-	public function busquedas() {
+	public function busquedas($ws = null) {
 		// Funcion para buscar
 
 		// Con esto comprobamos si esta logeado o no
@@ -76,8 +74,9 @@ class Buscar extends CI_Controller {
 			$datos["pagina_llego"] = 1;
 		}
 
-		$datos["buscar_pisos"] = $this -> pisos_model -> buscar_piso($q, 8, ($datos["pagina_llego"]-1));
-		$datos["buscar_pisos_numrows"]= $this -> pisos_model -> buscar_piso_total($q);
+		$datos["buscar_pisos_numrows"]= $this -> pisos_model -> buscar_piso_total($datos["q"]);
+		$datos["buscar_pisos_paginas"] = intdiv($datos["buscar_pisos_numrows"], 8);
+		$datos["buscar_pisos"] = $this -> pisos_model -> buscar_piso($datos["q"], 8, ($datos["pagina_llego"]-1));
 
 		// Configuracion de la paginacion
 		$config["base_url"] = base_url()."index.php/buscar/busquedas/?q=".$q;
@@ -116,12 +115,19 @@ class Buscar extends CI_Controller {
 
 		$datos["ciudades"] = $this -> localizaciones_model -> show_localizaciones("cualquiera");
 
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("buscar", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			// Cambiamos la cabecera a JSON de respuesta
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("buscar", $datos);
+			$this -> load -> view("footer", $datos);
+		}
 	}
 
-	public function refinar() {
+	public function refinar($ws = null) {
 		// Funcion de refinamiento de busqueda
 		// Lo primero el SSO
 		if ($this -> sesiones_usuarios -> esta_logeado() == true) {
@@ -175,8 +181,9 @@ class Buscar extends CI_Controller {
 			$datos["pagina_llego"] = 1;
 		}
 
-		$datos["buscar_pisos"] = $this -> pisos_model -> refinar_buscar_piso($q, $cp, $loc, $rango, 8 , $datos["pagina_llego"]-1);
+		$datos["buscar_pisos_paginas"] = intdiv($datos["buscar_pisos_numrows"], 8);
 		$datos["buscar_pisos_numrows"]= $this -> pisos_model -> refinar_cantidad_buscar_piso($q, $cp, $loc, $rango);
+		$datos["buscar_pisos"] = $this -> pisos_model -> refinar_buscar_piso($q, $cp, $loc, $rango, 8 , $datos["pagina_llego"]-1);
 
 		// Configuracion de la paginacion
 		$config["base_url"] = base_url()."index.php/buscar/refinar/?id=0&q=".$q."&cp=".$cp."&loc=".$loc."&cantidad=".$rango;
@@ -204,19 +211,23 @@ class Buscar extends CI_Controller {
 		$config["cur_tag_close"] = "</strong></span>";
 		$config["num_tag_open"] = "<span class=\"boton_pasos\">";
 		$config["num_tag_close"] = "</span>";
-		//if ($datos["buscar_pisos_numrows"]>8) {
-		//	$config["total_rows"] = $datos["buscar_pisos_numrows"]-8;
-		//} else {
-			$config["total_rows"] = $datos["buscar_pisos_numrows"];
-		//}
+
+		$config["total_rows"] = $datos["buscar_pisos_numrows"];
 
 		$this -> pagination -> initialize($config);
 
 		$datos["ciudades"] = $this -> localizaciones_model -> show_localizaciones("cualquiera");
 
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("buscar", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			// Cambiamos la cabecera a JSON de respuesta
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("buscar", $datos);
+			$this -> load -> view("footer", $datos);
+		}
 	}
 
 }

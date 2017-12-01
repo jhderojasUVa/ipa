@@ -7,7 +7,7 @@
     <!-- elemento -->
     <div class="grid-x grid-margin-x elemento">
       <div class="small-12 medium-3 cell">
-        <div style="width: 100%; height: 100%;background: url(<?=base_url()?>img_pisos/<?=$row["imagen"]?>) no-repeat center center; background-size: 100%;"><a href="#" role="link"><div style="width: 100%; height: 100%"></div></a></div>
+        <div style="width: 100%; height: 100%;background: url(<?=base_url()?>img_pisos/<?=$row["idpiso"]?>/<?=$row["imagen"]?>) no-repeat center center; background-size: 100%;"><a href="#" role="link"><div style="width: 100%; height: 100%"></div></a></div>
       </div>
       <div class="small-9 cell">
 					<? if ($_SESSION["logeado"] == true) { ?>

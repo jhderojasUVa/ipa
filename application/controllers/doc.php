@@ -596,5 +596,109 @@ class Doc extends CI_Controller {
 		}
 
 	}
+
+	/*****************************************************************************
+
+	Funciones peligrosas de administracion
+
+	En principio estas no tendran boton o acceso pero se pueden ejecutar si es
+	"necesario"
+
+	Usadas para migrar al sistema nuevo si algun dia se hace
+
+	*/
+
+
+
+	public function coloca_en_directorio() {
+		// Funcion que revisa y coloca en directorios las imagenes que pueden estar sueltas
+		echo "<h1>Moviendo imagenes. Resultados</h1>";
+
+		//$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
+		$path = "/httdocs/ipa/img_pisos";
+
+		// Primero las recuperamos todas las imagenes e id
+		echo "1 Obteniendo todos los datos...<br/>";
+		$boyuyo = $this -> pisos_model -> devuelve_todas_imagenes_idpiso();
+		echo "1 Datos obtenidos...<br/>";
+		// Las recorremos
+		foreach ($boyuyo as $row) {
+
+			// Pillamos la imagen
+			$imagen = $row -> imagen;
+			$idpiso = $row -> idpiso;
+			echo "2 Obtenidos imagen e identificador de piso...";
+			if (file_exists($path."/".$imagen)) {
+				// El fichero NO esta en su sitio
+				// Creamos el directorio, si ya esta creado metera un E_WARNING como una casa
+				if (mkdir($path."/".$idpiso)) {
+					echo "3 Creado directorio para el piso...<br/>";
+				} else {
+					echo "3 NO CREADO directorio para el piso....<br/>";
+				}
+				// Lo movemos
+				rename($path."/".$imagen, $path."/".$idpiso."/".$imagen);
+				echo "3 Moviendo: ".$path."/".$idpiso."/".$imagen."<br />";
+			} else {
+				// El fichero esta en su sitio
+				// YUJU! Lo dejo por si acaso porque la verdad...
+				echo "<hr>No se mueve ".$idpiso."<hr>";
+			}
+		}
+	}
+
+	public function borra_imagenes_sin_duenyo() {
+		// Funcion que borra las imagenes que no tengan dueño
+		echo "<h1>Borrando imagenes sin dueño. Resultados</h1>";
+
+		//$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
+		$path = "/httdocs/ipa/img_pisos";
+
+		// En principio, con lo anterior que es necesario si o si, se limpia y se quedan
+		// en el directorio los que no son de nadie
+
+		// Eliminamos los ficheros del directorio
+		// Leemos el directorio
+		echo "Obtenemos todos los ficheros del directorio...<br/>";
+		$ficheritos = glob($path."/*");
+		// Para cada elemento del directorio
+		foreach ($ficheritos as $fichero) {
+			// Si es fichero
+			if (is_file($fichero)) {
+				echo "Es fichero...";
+				// Lo borramos
+				unlink($fichero);
+				echo "Borrado fichero: ".$fichero."<br/>";
+			} else {
+				echo "Es directorio, NO HACEMOS NADA<br/>";
+			}
+		}
+	}
+
+	public function imagen_sin_id() {
+		// Funcion que revisa si hay imagenes sin idpiso y elimina todo su contenido
+		echo "<h1>Borrado de imagenes sin piso asociado. Resultados</h1>";
+
+		$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
+
+		// Primero las recuperamos todas las imagenes e id
+		$boyuyo = $this -> pisos_model -> devuelve_todas_imagenes_idpiso();
+
+		// Recorremos el mandul
+		foreach ($boyuyo as $row) {
+			// Vemos si hay piso
+			if ($this -> pisos_model -> piso_existe($row -> idpiso)) {
+				// El piso existe no hacemos nada
+			} else {
+				// El piso no existe, hay que cepillarselo todo
+				// Primero el fichero
+				unlink($path."/".$row -> imagen);
+				// Luego la entrada en si
+				$this -> pisos_model -> del_imagen_piso_burro($row -> imagen, $row -> idpiso);
+				echo "Borrado: ".$row -> idpiso." - ".$row -> imagen."<br />";
+			}
+		}
+	}
+
 }
 ?>

@@ -24,7 +24,7 @@ $minuto = substr($fecha_insercion, 14, 2);
         <div class="slideshow">
 					<? if (count($imagenes)>0) { ?>
             	<? foreach ($imagenes as $row) { ?>
-								<div class="caja"><center><img src="<?=base_url()?>img_pisos/<?=$row -> imagen?>" alt="<?=$row -> descripcion?>" /></center></div>
+								<div class="caja"><center><img src="<?=base_url()?>img_pisos/<?=$row -> idpiso?>/<?=$row -> imagen?>" alt="<?=$row -> descripcion?>" /></center></div>
               <? } ?>
             <? } else { ?>
 							<div class="caja"><center><img src="<?=base_url()?>css/sin_piso.png" alt="el piso no tiene imagen" /></center></div>
