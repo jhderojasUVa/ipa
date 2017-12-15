@@ -302,9 +302,9 @@ class Pisos extends CI_Controller {
 			$datos["logeado"] = false;
 		}
 
-		$idpiso = $this -> input -> post("idpiso");
-		$precio = $this -> input -> post("precio");
-		$descripcion = $this -> input -> post("descripcion");
+		$idpiso = $this -> input -> post_get("idpiso");
+		$precio = $this -> input -> post_get("precio");
+		$descripcion = $this -> input -> post_get("descripcion");
 
 		if ($precio<>0 && $descripcion!="") {
 			$this -> precios_model -> add_precio($idpiso, $precio, $descripcion);
@@ -397,7 +397,7 @@ class Pisos extends CI_Controller {
 		}
 
 		// Imprescindible
-		$datos["idpiso"] = $this -> input -> post("idpiso");
+		$datos["idpiso"] = $this -> input -> post_get("idpiso");
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($datos["idpiso"]);
 		$datos["hay_error"] = false;
 		$datos["error"] = "";
@@ -407,7 +407,7 @@ class Pisos extends CI_Controller {
 		$this -> load -> view("footer", $datos);
 	}
 
-	public function addpiso3() {
+	public function addpiso3($ws = null) {
 		// Funcion para añadir imagen a un piso dado
 
 		// Lo primero el SSO de la UVa... ¡siempre!
@@ -428,8 +428,8 @@ class Pisos extends CI_Controller {
 		}
 
 		// Primero cogemos el ID del piso
-		$idpiso = $this -> input -> post("idpiso");
-		$descripcion = $this -> input -> post("descripcion");
+		$idpiso = $this -> input -> post_get("idpiso");
+		$descripcion = $this -> input -> post_get("descripcion");
 		$field_name = "upload";
 		if (!$this -> upload -> do_upload($field_name)) {
 			// Si falla mandamos por ajax el error y se lo mostramos al pollo
@@ -468,6 +468,7 @@ class Pisos extends CI_Controller {
 				$this -> imagenes -> load($path."/".$datos["upload_data"]["file_name"]);
 				$this -> imagenes -> resizeToWidth(800);
 				$this -> imagenes -> save($path."/".$idpiso."/".$datos["upload_data"]["file_name"]);
+				unlink ($path."/".$datos["upload_data"]["file_name"]);
 
 				// Metemos los datos en la bd
 				$this -> pisos_model -> add_imagen_piso($datos["upload_data"]["file_name"], $descripcion, $idpiso);
@@ -476,9 +477,15 @@ class Pisos extends CI_Controller {
 		}
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
-		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("mis/addpaso2", $datos);
-		$this -> load -> view("footer", $datos);
+		if ($ws = "json") {
+			header('Content-Type: application/json');
+			// Escupimos la respuesta
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("cabecera", $datos);
+			$this -> load -> view("mis/addpaso2", $datos);
+			$this -> load -> view("footer", $datos);
+		}
 	}
 
 	public function del_img($ws = null) {
@@ -503,7 +510,7 @@ class Pisos extends CI_Controller {
 
 		$usuario = $datos["usuario"];
 
-		$idpiso = $this -> input -> post("idpiso");
+		$idpiso = $this -> input -> post_get("idpiso");
 		$imagen_borrar = $this -> input -> post("imagen_borrar");
 		$descripcion_borrar = $this -> input -> post("descripcion_borrar");
 
@@ -538,10 +545,11 @@ class Pisos extends CI_Controller {
 	public function cambiarorden($ws = null) {
 		// Esta funcion sirve para mover el orden de las imagenes
 		// Primero sacamos los datos
-		$idpiso = $this -> input -> post("idpiso");
-		$nuevo = $this -> input -> post("nuevo");
-		$actual = $this -> input -> post("actual");
-		$fichero = $this -> input -> post("imagen");
+		// Hacemos un post_get para comernoslo entero
+		$idpiso = $this -> input -> post_get("idpiso");
+		$nuevo = $this -> input -> post_get("nuevo");
+		$actual = $this -> input -> post_get("actual");
+		$fichero = $this -> input -> post_get("imagen");
 
 		$total_imagenes = $this -> pisos_model -> total_imagenes_piso($idpiso);
 

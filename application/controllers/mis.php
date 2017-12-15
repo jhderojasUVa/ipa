@@ -52,6 +52,9 @@ class Mis extends CI_Controller {
 			$datos["logeado"] = false;
 		}
 
+		// Log del usuario
+		log_message("debug","mis_pisos >> idusuario=".$datos["usuario"]);
+
 		// Los datos del usuario del LDAP (por si acaso)
 		//$datos["datos_yo"] = $this -> ldap -> sacar_datos_ldap($datos["usuario"]);
 

@@ -658,3 +658,17 @@ li.active {
 .valign-middle > .columns, .valign-middle > [class*="column"] + [class*="column"]:last-child {
   float: none;
 }
+
+.verde {
+  color: #00ca19;
+  text-transform: uppercase;
+  border: 1px solid #00ca19;
+  padding: 5px;
+}
+
+.rojo {
+  color: #c7215a;
+  text-transform: uppercase;
+  border: 1px solid #c7215a;
+  padding: 5px;
+}

@@ -13,7 +13,7 @@ class Localizaciones_model extends CI_Model {
 		// Cargamos la base de datos
 		$this -> load -> database();
     }
-	
+
 	function show_localizaciones($forma) {
 		// Muestra las localizaciones
 		switch ($forma) {
@@ -27,19 +27,19 @@ class Localizaciones_model extends CI_Model {
 		$resultado = $this -> db -> query($sql);
 		return $resultado->result();
 	}
-	
+
 	function add_localizacion($ciudad) {
 		// Añade una ciudad nueva
 		$sql = "INSERT INTO localizaciones (localizacion) VALUES ('".$ciudad."')";
 		$resultado = $this -> db -> query($sql);
 	}
-	
+
 	function update_localizacion($idciudad, $ciudad) {
 		//Modifica el nombre de una ciudad
 		$sql = "UPDATE SET localizacion='".$ciudad."' FROM localizaciones WHERE idlocalizacion=".$idciudad;
 		$resultado = $this -> db -> query($sql);
 	}
-	
+
 	function mostrar_localizaciones_pisos() {
 		// Funcion que muestra las ciudades con cosas
 		$array_devolver = array();
@@ -58,42 +58,46 @@ class Localizaciones_model extends CI_Model {
 		}
 		return $array_devolver;
 	}
-	
+
 	function devuelve_ciudad($idpiso) {
 		// Función que devuelve la ciudad a traves de un id
 		$sql = "SELECT idlocalizacion FROM pisos WHERE id_piso=".$idpiso;
 		$resultado = $this -> db -> query($sql);
-		foreach ($resultado -> result() as $row) {
-			$idlocalizacion = $row -> idlocalizacion;
-		}
-		
-		$sql = "SELECT localizacion FROM localizaciones WHERE idlocalizacion=".$idlocalizacion;
-		$resultado = $this -> db -> query($sql);
-		foreach ($resultado -> result() as $row) {
-			$localizacion = $row -> localizacion;
-		}
-		
+    if ($resultado -> num_rows()>0) {
+  		foreach ($resultado -> result() as $row) {
+  			$idlocalizacion = $row -> idlocalizacion;
+  		}
+
+  		$sql = "SELECT localizacion FROM localizaciones WHERE idlocalizacion=".$idlocalizacion;
+  		$resultado = $this -> db -> query($sql);
+  		foreach ($resultado -> result() as $row) {
+  			$localizacion = $row -> localizacion;
+  		}
+    } else {
+      $localizacion = "";
+    }
+
 		return $localizacion;
 	}
-	
+
 	function saca_pisos_gps($idlocalizacion) {
 		// Funcion que saca lt, ln y descripcion por localizacion
 		$sql = "SELECT id_piso, descripcion, lt, ln FROM pisos WHERE idlocalizacion=".$idlocalizacion;
 		$resultado = $this -> db -> query($sql);
-		
+
 		$array = array();
 		foreach ($resultado -> result() as $row) {
 			$array[] = array ("idpiso" => $row ->id_piso, "descripcion" =>$row ->descripcion, "lt" => $row ->lt, "ln" => $row ->ln);
 		}
-		
+
 		return $array;
 	}
-	
+
 	function cantidad_saca_pisos_gps($idlocalizacion) {
 		// Funcion que saca lt, ln y descripcion por localizacion
 		$sql = "SELECT id_piso, descripcion, lt, ln FROM pisos WHERE idlocalizacion=".$idlocalizacion;
 		$resultado = $this -> db -> query($sql);
-		
+
 		return $resultado -> num_rows();
 	}
 }

@@ -5,7 +5,7 @@
 
 <script>
 function cambia_estado(idpiso) {
-	$.post("<?=base_url()?>index.php/ajax/ajax/cambia_ocupacion", {
+	$.post("<?=base_url()?>index.php/ajax/ajax/cambia_estado", {
 		id: idpiso
 		},function (data){
 			$("#cambia_estado_"+idpiso).html(data);
@@ -26,48 +26,50 @@ function show_modal(direccion) {
 		<div class="small-12 cell">
 			<h2>Mis pisos</h2>
 			<? if (count($pisos_usuario)>0) { // Si tiene pisos ?>
-				<div class="grid-x grid-margin-x">
-					<!-- imagen -->
-					<div class="small-12 medium-3 cell">
-						<div style="width: 100%; height: 100%;background: url(<?=base_url()?>img_pisos/<?=$row["imagen"]?>) no-repeat center center; background-size: 100%;"><a href="#" role="link"><div style="width: 100%; height: 100%"></div></a></div>
-					</div>
-					<!-- contenido -->
-					<div class="medium-8 cell">
-						<a href="<?=base_url()?>index.php/pisos/editpiso1?idpiso=<?=$row["idpiso"]?>" role="link">
-						<? if (strlen($row["descripcion"])>350) {
-							echo str_replace("]",":",str_replace("[","",substr($row["descripcion"], 0, 250)))." [...]";
-						} else {
-							echo str_replace("]",":",str_replace("[","",$row["descripcion"]));
-						}	?></a>
-						<!-- extras -->
-						<p class="text-right"><i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-video"></i>&nbsp;&nbsp;<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-wheelchair"></i></p>
-						<p><a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["idpiso"]?>" role="link" class="button">Vealo como un usuario IPA</a></p>
-						<p>Estado: <? if ($row["verificado"] == true) { ?>
-	            <strong>Este piso se muestra en IPA</strong>
-	            <? } else { ?>
-	            <strong>A la espera de ser verificado por IPA</strong>
-	            <? } ?>
-            </p>
-						<!-- localizacion -->
-						<div class="grid-x grid-margin-x">
-	            <div class="small-8 cell vertical-align">
-								<p><small><?=$row["direccion"]?> <?=$row["poblacion"]?></small></p>
-							</div>
-							<div class="small-4 cell text-right">
-								<p><a href="http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=<?=$row["direccion"]?>,España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=<?=$row["direccion"]?>,España&amp;t=m&amp;z=50&amp" class="button small" role="link" target="_blank"><i class="fi-marker"></i>&nbsp;&nbsp;Google maps</a></p>
+				<? foreach ($pisos_usuario as $row) { // Recorremos los pisos?>
+					<div class="grid-x grid-margin-x">
+						<!-- imagen -->
+						<div class="small-12 medium-3 cell">
+							<div style="width: 100%; height: 100%;background: url(<?=base_url()?>img_pisos/<?=$row["imagen"]?>) no-repeat center center; background-size: 100%;"><a href="#" role="link"><div style="width: 100%; height: 100%"></div></a></div>
+						</div>
+						<!-- contenido -->
+						<div class="medium-8 cell">
+							<a href="<?=base_url()?>index.php/pisos/editpiso1?idpiso=<?=$row["idpiso"]?>" role="link">
+							<? if (strlen($row["descripcion"])>350) {
+								echo str_replace("]",":",str_replace("[","",substr($row["descripcion"], 0, 250)))." [...]";
+							} else {
+								echo str_replace("]",":",str_replace("[","",$row["descripcion"]));
+							}	?></a>
+							<!-- extras -->
+							<p class="text-right"><i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-video"></i>&nbsp;&nbsp;<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-wheelchair"></i></p>
+							<p><a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["idpiso"]?>" role="link" class="button">Vealo como un usuario IPA</a></p>
+							<p>Estado: <? if ($row["verificado"] == true) { ?>
+		            <strong>Este piso se muestra en IPA</strong>
+		            <? } else { ?>
+		            <strong>A la espera de ser verificado por IPA</strong>
+		            <? } ?>
+	            </p>
+							<!-- localizacion -->
+							<div class="grid-x grid-margin-x">
+		            <div class="small-8 cell vertical-align">
+									<p><small><?=$row["direccion"]?> <?=$row["poblacion"]?></small></p>
+								</div>
+								<div class="small-4 cell text-right">
+									<p><a href="http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=<?=$row["direccion"]?>,España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=<?=$row["direccion"]?>,España&amp;t=m&amp;z=50&amp" class="button small" role="link" target="_blank"><i class="fi-marker"></i>&nbsp;&nbsp;Google maps</a></p>
+								</div>
 							</div>
 						</div>
+						<div class="medium-1 cell">
+							<div id="cambia_estado_<?=$row["idpiso"]?>">
+									<? if ($row["libre"] == true) { ?>
+											<a href="#" onclick="javascript:cambia_estado(<?=$row["idpiso"]?>)"><span class="verde">Libre</span></a>
+										<? } else {?>
+											<a href="#" onclick="javascript:cambia_estado(<?=$row["idpiso"]?>)"><span class="rojo">Ocupado</span></a>
+										<? } ?>
+								</div>
+						</div>
 					</div>
-					<div class="medium-1 cell">
-						<div id="cambia_estado_<?=$row["idpiso"]?>">
-								<? if ($row["libre"] == true) { ?>
-										<a href="#" onclick="javascript:cambia_estado(<?=$row["idpiso"]?>)"><span class="verde">Libre</span></a>
-									<? } else {?>
-										<a href="#" onclick="javascript:cambia_estado(<?=$row["idpiso"]?>)"><span class="rojo">Ocupado</span></a>
-									<? } ?>
-							</div>
-					</div>
-				</div>
+				<? } // Fin de recorrer pisos ?>
 			<? } else { // Si no tiene pisos ?>
 				<p>Lo sentimos, <strong>no tiene ningun piso a su nombre</strong>. Use el bot&oacute;n de a&ntilde;adir pisos para insertar un piso en la plataforma.</p>
 			<? } // Fin de si tiene o no tiene pisos ?>

@@ -46,7 +46,7 @@ function MM_validateForm() { //v4.0
 		<div class="grid-x grid-margin-x">
 				<input type="hidden" name="idpiso" value="<?=$idpiso?>" />
 				<ul class="menu simple">
-					<li>1. Descripcion</li>
+					<li><a href="<?=base_url()?>index.php/pisos/editpiso1?idpiso=<?=$idpiso?>" role="link">1. Descripcion</a></li>
 					<li class="active">2. Precio</li>
 					<li>3. Imagenes</li>
 					<li><input class="button" type="submit" name="enviar" value="continuar &raquo;" /></li>
@@ -78,29 +78,34 @@ function MM_validateForm() { //v4.0
 				</label>
 			</div>
 			<div class="small-12 medium-2 cell">
-				<label>
-					<input class="button" type="submit" name="precio_enviar" value="a&ntilde;adir precio" />
+				<label style="margin-top: 20px;">
+					<input class="button" onclick="pre_addprecio()" name="precio_enviar" value="a&ntilde;adir precio" />
 				</label>
 			</div>
 		</div>
 
 	<? if ($cant_precios_piso>0) { ?>
-		<div class="grid-x grid-margin-x precios_piso" style="margin-top:15px;margin-bottom:20px;">
+		<div class="grid-x grid-margin-x conjunto_precios_piso" style="margin-top:15px;">
 			<div class="small-12 cell">
 				<h2 class="headline">Precios anteriormente a&ntilde;adidos</h2>
 			</div>
-			<div class="precios">
-				<? foreach ($precios_piso as $row) { ?>
-					<div class="small-4 cell">
-						<?=$row -> precio?> &euro;
-					</div>
-					<div class="small-6 cell">
-						<?=$row -> descripcion?>
-					</div>
-					<div class="small-2 cell">
-						<a href="<?=base_url()?>index.php/pisos/borra_precio/?idpiso=<?=$idpiso?>&precio=<?=$row->precio?>&desc=<?=$row->descripcion?>&ok=1"><i class="fi-x"></i></a>
-					</div>
-				<? } ?>
+		</div>
+		<div class="grid-x grid-margin-x precios_piso" style="margin-bottom:20px;">
+			<div class="precios" style="margin: 0 auto;">
+					<table width="100">
+						<tr>
+							<td>Precio</td>
+							<td>Descripci&oacute;n</td>
+							<td></td>
+						</tr>
+					<? foreach ($precios_piso as $row) { ?>
+						<tr>
+							<td><?=trim($row -> precio)?> &euro;</td>
+							<td><?=trim($row -> descripcion)?></td>
+							<td><a onclick="javascript:borraprecio(<?=$idpiso?>,<?=$row->precio?>,'<?=$row->descripcion?>',1)"><i class="fi-x"></i></a></td>
+						</tr>
+					<? } ?>
+					</table>
 			</div>
 		</div>
 	<? } ?>
