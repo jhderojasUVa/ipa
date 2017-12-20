@@ -11,12 +11,16 @@ $(document).ready(function(){
     centerMode: true,
   });
 
+  // El tab de cambio de barrios
   cambia_tab("barrios");
+  // El listener del upload de ficheros
   listener_upload();
+  // El mejunje de subir la imagen
   $("#upload_file").on("submit", subeimagen());
 });
 
 function cambia_tab(tab) {
+  // Funcion que cambia el contenido de un tab
   // Ocultamos todos
   $(".opciones .barrios ul li").hide();
   $(".opciones .ciudades ul li").hide();
@@ -25,6 +29,8 @@ function cambia_tab(tab) {
 }
 
 function pre_addprecio() {
+  // Funcion de toma de datos para añadir un precio
+  // Si, lo podia haber metido dentro de la funcion principal, pero... ya sabesh
   var idpiso = $("input[name='idpiso']").val();
   var precio = $("input[name='precio']").val();
   var contenido = $("input[name='descripcion']").val();
@@ -34,6 +40,10 @@ function pre_addprecio() {
 function addprecio(idpiso, precio, contenido) {
   var resultado = "";
   // Funcion que añade un precio a un piso
+  // Necesario
+  // idpiso = id del piso
+  // precio = el precio (obvio)
+  // descripcion = la descripcion para el precio concreto
   $.ajax({
     url: "/index.php/pisos/addpiso2",
     data: {
@@ -53,13 +63,19 @@ function addprecio(idpiso, precio, contenido) {
     resultado += "</table>";
     $(".precios").html(resultado);
   }).fail(function(data) {
-    $(".precios").html("<h2>Lo sentimos</h2><p><strong>Ha habido un problema al añadir el precio</strong>. Por favor vuelva a intentarlo y si no funciona, pongase en contacto con el administrador.");
+    $(".precios").html("<h2>Lo sentimos</h2><p><strong>Ha habido un problema al añadir el precio</strong>.");
+    resultado += "<p>Por favor, pongase <a href='mailto:soporte-web@uva.es?Subject=Error en add precio'>en contacto con el administrador</a> indicando el procedimiento que ha seguido para reproducir el problema.</p>";
   });
 }
 
 function borraprecio(idpiso, precio, contenido, ok) {
   var resultado = "";
   // Funcion que borra un precio a un piso
+  // Necesario
+  // idpiso = el identificador del piso
+  // precio = el precio a borrar
+  // contenido = la descripcion
+  // ok = 1 que sino no borra (security reasons)
   $.ajax({
     url: "/index.php/pisos/borra_precio",
     data: {
@@ -80,58 +96,33 @@ function borraprecio(idpiso, precio, contenido, ok) {
     resultado += "</table>";
     $(".precios").html(resultado);
   }).fail(function(data){
-    $(".precios").html("<h2>Lo sentimos</h2><p><strong>Ha habido un problema al borrar el precio</strong>. Por favor vuelva a intentarlo y si no funciona, pongase en contacto con el administrador.");
+    $(".precios").html("<h2>Lo sentimos</h2><p><strong>Ha habido un problema al borrar el precio</strong>.");
+    resultado += "<p>Por favor, pongase <a href='mailto:soporte-web@uva.es?Subject=Error borrando precio'>en contacto con el administrador</a> indicando el procedimiento que ha seguido para reproducir el problema.</p>";
   });
 }
-/*
-function subeimagen() {
-  // Function que sube una imagen
-  // Cogemos las variables
-  var idpiso = $("input[name='idpiso']").val();
-  var fichero_imagen = $("input[name='upload']").val();
-  var descripcion = $("input[name='descripcion']").val();
-  // Paramos la propagacion y el evento del submit
-  event.stopPropagation();
-  event.preventDefault();
-  // Cambiamos el boton a que se esta haciendo
-  $("input[name='add_imagen']").val("Subiendo imagen <i class='fi-loop'></i>");
-  $.ajax({
-    url: "/index.php/pisos/addpiso3",
-    method: "POST",
-    data: {
-      idpiso: idpiso,
-      imagen: fichero_imagen,
-      descripcion: descripcion,
-      ws: "json"
-    }
-  }).done(function(data){
-    console.log(data);
-    var resultado = "";
-    $.each(data.imagenes_piso, function(i, item) {
-      resultado += "";
-    });
-    $(".imagenes_piso").html(resultado);
-    // Lo dejamos como antes el formulario
-    $("label[for=upload]").html("Seleccione el fichero");
-    $("label[for=upload]").removeClass("success");
-    $("input[name='add_imagen']").val("Subir imagen y añadir otra");
-    // Añadimos que se ha subido con exito
-    $(".nombre_fichero_upload").html("<p><i class='fi-ok'></i> Fichero subido con exito</p>");
-  }).fail(function(data){
-    alert("Lo sentimos.\r\nHa ocurrido un error.");
-  });
-}*/
 
 function subeimagen() {
+  // Funcion que sube la imagen en cuestion
+
+  // La respuesta, siempre vacia (manias)
   var resultado = "";
+  // Los valores que necesitamos, el idpiso y la descripcion
+  var idpiso = $("input[name='idpiso']").val();
+  var descripcion = $("input[name='descripcion']").val();
+  // Creamos la variable de los datos del formulario
   var datos = new FormData();
+  // Cambiamos el boton para que aparezca el icono de que esta subiendo
+  $("input[name='add_imagen']").val("Subiendo imagen <i class='fi-loop'></i>");
   $("#upload_file").submit(function(e){
     // Creamos los datos de envio
     datos.append("ws", "json");
+    // Pillamos el fichero, lo dejamos para si "hay mas" que nunca se sabe (subida multiple)
     jQuery.each(jQuery("input[name='upload']")[0].files, function (i, file) {
       datos.append("file-"+i, file);
     });
+    // Eliminamos que haga el submit el formulario
     e.preventDefault();
+    // El envio en si
     $.ajax({
       url: "/index.php/pisos/addpiso3",
       method: "POST",
@@ -141,9 +132,9 @@ function subeimagen() {
       contentType: false,
       processData: false,
     }).done(function(data){
-      //resultado = "Fichero enviado o al menos el PHP lo ha recibido";
+      // El WS ha respondido
       $.each(data.imagenes_piso, function(i, item){
-        // imagen, descripcion, orden
+        // Montamos el resultado
         resultado += "<img src='<?=base_url()?>img_pisos/"+item.imagen+"' alt='"+item.descripcion+"' width='130' class='imagenes' /><br /><center><em><p>"+item.descripcion+"</p></em><br /></center>";
         resultado += "<div id='formularios_img'>";
         resultado += "<a href='javascript:cambiaorden("+data.idpiso+", '"+item.imagen+"', "+(item.orden-1)+", "+ditem.orden+")' class='button' role='link'><i class='fi-arrow-left'></i></a>";
@@ -152,14 +143,17 @@ function subeimagen() {
         resultado += "<div id='clear'></div>";
         resultado += "</div>";
       });
+      resultado += "</div>"; // El div del cierre porque esta a la vieja usanza
       // Dejamos el formulario como antes
       $("label[for=upload]").html("Seleccione el fichero");
       $("label[for=upload]").removeClass("success");
       $("input[name='add_imagen']").val("Subir imagen y añadir otra");
       // Añadimos que se ha subido con exito
       $(".nombre_fichero_upload").html("<p><i class='fi-ok'></i> Fichero subido con exito</p>");
+      // Pintamos el resultado
+      $(".imagenes_piso").html(resultado);
     }).fail(function(data){
-      // Algo ha pasado
+      // Algo ha pasado hay que contarselo al usuario para que no se ponga nervioso
       resultado = "<h1>Lo sentimos</h1><p>Ha habido un error al subir su imagen.</p>";
       resultado += "<p>Por favor, pongase <a href='mailto:soporte-web@uva.es?Subject=Error subida de ficheros IPA'>en contacto con el administrador</a> indicando el procedimiento que ha seguido para reproducir el problema.</p>";
       $(".imagenes_piso").html(resultado);
@@ -179,9 +173,10 @@ function cambiaorden(idpiso, imagen, nuevo, actual) {
       ws: "json"
     }
   }).done(function(data) {
+    // El WS ha respondido
     var resultado = "<div id='trozo' class='final'>";
     $.each(data.imagenes_piso, function (i, item){
-      // imagen, descripcion, orden
+      // Montamos el tinglado
       resultado += "<img src='<?=base_url()?>img_pisos/"+item.imagen+"' alt='"+item.descripcion+"' width='130' class='imagenes' /><br /><center><em><p>"+item.descripcion+"</p></em><br /></center>";
       resultado += "<div id='formularios_img'>";
       resultado += "<a href='javascript:cambiaorden("+data.idpiso+", '"+item.imagen+"', "+(item.orden-1)+", "+ditem.orden+")' class='button' role='link'><i class='fi-arrow-left'></i></a>";
@@ -190,12 +185,13 @@ function cambiaorden(idpiso, imagen, nuevo, actual) {
       resultado += "<div id='clear'></div>";
       resultado += "</div>";
     });
-    resultado += "</div>";
+    resultado += "</div>"; // A la vieja usanza... esto hay que cambiarlo
     // Lo pintamos
     $(".imagenes_piso").html(resultado);
   }).fail(function(data){
-    // Si hay error lo mostramos
+    // Si hay error lo mostramos para que no se ponga nervioso
     resultado = "<h1>Lo sentimos</h1><p><strong>Ha habido un error</strong> cambiando el orden de las imagenes.</p>";
+    resultado += "<p>Por favor, pongase <a href='mailto:soporte-web@uva.es?Subject=Error cambiando orden de fichero'>en contacto con el administrador</a> indicando el procedimiento que ha seguido para reproducir el problema.</p>";
     $(".imagenes_piso").html(resultado);
   });
 }
@@ -203,6 +199,7 @@ function cambiaorden(idpiso, imagen, nuevo, actual) {
 function borraimagen(idpiso, imagen, descripcion) {
   // Funcion que borra una imagen
   var resultado;
+  // La peticion del asunto
   $.ajax({
     url: "/index.php/pisos/del_img",
     data: {
@@ -228,13 +225,15 @@ function borraimagen(idpiso, imagen, descripcion) {
     // Lo pintamos
     $(".imagenes_piso").html(resultado);
   }).fail(function(data){
-    // Si hay error lo mostramos
-    $(".imagenes_piso").html("<h1>Lo sentimos</h1><p><strong>Ha habido un error</strong> borrando la imagen de nuestro servidor.</p>");
+    // Si hay error lo mostramos que sino se pone nervioso
+    resultado += "<h1>Lo sentimos</h1><p><strong>Ha habido un error</strong> borrando la imagen de nuestro servidor.</p>";
+    resultado += "<p>Por favor, pongase <a href='mailto:soporte-web@uva.es?Subject=Error cambiando orden de fichero'>en contacto con el administrador</a> indicando el procedimiento que ha seguido para reproducir el problema.</p>";
+    $(".imagenes_piso").html(resultado);
   });
 }
 
 function listener_upload() {
-  // Funcion que mira si el upload cambia para poner el nombre en el label
+  // Funcion que mira si el upload cambia para poner el nombre en el label y dejarlo bonito
   // Buscamos el elemento y añadimos el listener
   $("#upload").change(function() {
     // Hacemos el cambio del texto y de formato en el label
