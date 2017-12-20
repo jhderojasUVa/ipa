@@ -17,4 +17,8 @@ Conexión a LDAP (libreria customizada en Codeigniter)
 ## Master puede funcionar o no
 Usar la rama master significa que puede funcionar... o no ya que es la rama de desarrollo.
 
-Recordad, si alguien quiere usar esto, ir al ultimo fork.
+Recordad, si alguien quiere usar esto, ir al ultimo branch.
+
+## Falta la base de datos
+
+No esta incorporado un .sql con la base de datos vacia.
