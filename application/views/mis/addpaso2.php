@@ -1,5 +1,36 @@
 
 <script>
+
+$(document).ready(function(){
+  /*var resultado = "";
+  var datos = new FormData();
+  $("#upload_file").submit(function(e){
+    // Creamos los datos de envio
+    datos.append("ws", "json");
+    jQuery.each(jQuery("input[name='upload']")[0].files, function (i, file) {
+      datos.append("file-"+i, file);
+    });
+    e.preventDefault();
+    $.ajax({
+      url: "<?=base_url()?>index.php/pisos/addpiso3",
+      method: "POST",
+      type: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+    }).done(function(data){
+      resultado = "Fichero enviado o al menos el PHP lo ha recibido";
+
+      $(".imagenes_piso").html(data);
+    }).fail(function(data){
+      resultado = "<h1>Lo sentimos</h1><p>Ha habido un error al subir su imagen.</p>";
+      resultado += "<p>Por favor, pongase <a href='mailto:soporte-web@uva.es?Subject=Error subida de ficheros IPA'>en contacto con el administrador</a> indicando el procedimiento que ha seguido para reproducir el problema.</p>";
+      $(".imagenes_piso").html(data);
+    });
+  });*/
+});
+
 function MM_validateForm() { //v4.0
   if (document.getElementById){
     var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
