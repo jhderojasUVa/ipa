@@ -35,6 +35,9 @@ function pre_addprecio() {
   var precio = $("input[name='precio']").val();
   var contenido = $("input[name='descripcion']").val();
   addprecio(idpiso, precio, contenido);
+  // Ponemos los valores a 0
+  $("input[name='precio']").val("");
+  $("input[name='descripcion']").val("");
 }
 
 function addprecio(idpiso, precio, contenido) {

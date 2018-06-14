@@ -69,17 +69,17 @@ function MM_validateForm() { //v4.0
 		<div class="grid-x grid-margin-x">
 			<div class="small-12 medium-4 cell">
 				<label>precio
-					<input type="number" name="precio" placeholder="50"/>
+					<input type="number" name="precio" required placeholder="50"/>
 				</label>
 			</div>
 			<div class="small-12 medium-6 cell">
 				<label>referente a
-					<input type="text" name="descripcion" size="20" maxlength="50"placeholder="habitacion doble" />
+					<input type="text" name="descripcion" size="20" maxlength="50" placeholder="habitacion doble" required/>
 				</label>
 			</div>
 			<div class="small-12 medium-2 cell">
 				<label style="margin-top: 20px;">
-					<input class="button" onclick="pre_addprecio()" name="precio_enviar" value="a&ntilde;adir precio" />
+					<input class="button" onClick="javascript:pre_addprecio()" name="precio_enviar" value="a&ntilde;adir precio" />
 				</label>
 			</div>
 		</div>
