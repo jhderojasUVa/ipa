@@ -21,10 +21,10 @@
 						<ul class="menu simple">
 							<li class="menu-text"><img src="<?=base_url()?>img/Secundaria_Roja.jpg" alt="Universidad de Valladolid" width="30">&nbsp;&nbsp;IPA UVa</li>
 							<li class="superior"><a href="<?=base_url()?>"><i class="fi-home"></i>&nbsp;&nbsp;Home</a></li>
-              <? if ($_SESSION["logeado"] == false) { ?>
+              <? if (!isset($_SESSION["logeado"]) || $_SESSION["logeado"] == false) { ?>
 							<li class="superior"><a href="<?=base_url()?>index.php/principal/haz_login"><i class="fi-torso"></i>&nbsp;&nbsp;Identificate</a></li>
               <? } ?>
-							<? if ($_SESSION["logeado"] == true) { ?>
+							<? if (isset($_SESSION["logeado"]) && $_SESSION["logeado"] == true) { ?>
               <li class="superior">
                 <form action="<?=base_url()?>index.php/buscar/busquedas">
                   <div class="input-group">

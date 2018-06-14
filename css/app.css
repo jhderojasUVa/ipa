@@ -405,6 +405,10 @@ a {
   background-color: #e6e6e6;
 }
 
+.slideshow .caja {
+  margin: 0 0.5em;
+}
+
 .slideshow .caja img {
   max-height: 420px;
 }

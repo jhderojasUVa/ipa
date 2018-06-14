@@ -72,7 +72,7 @@ class Principal extends CI_Controller {
 			// Pintamos la pagina de arriba a abajo
 			// Primero la oferta de pisos con imagenes, que son 5
 			$datos["pisos"] = $this -> pisos_model -> muestra_5_imagenes_piso();
-			$datos["ultimos_6"] = $this -> pisos_model -> muestra_ultimos_pisos(7);
+			$datos["ultimos_6"] = $this -> pisos_model -> muestra_ultimos_pisos(6);
 			$datos["barrios"] = $this -> barrios_model -> barrios_con_pisos();
 			$datos["ciudades"] = $this -> localizaciones_model -> mostrar_localizaciones_pisos();
 
