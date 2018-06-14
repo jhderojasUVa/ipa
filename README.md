@@ -8,7 +8,7 @@ v1.0 > Codeigniter + custom CSS
 
 v2.0 > Codeigniter + Foundation (Estamos en este punto)
 
-v2.5 (futura) > Codeigniter > WebServices > Angular X (se la version que este en ese momento) > Foundation (Web components)
+v2.5 (futura) > Codeigniter > WebServices > Angular X o React (se la versión que este en ese momento aunque ahora dudo si implementar react + redux o angular) > Foundation (Web components)
 
 ## Necesidades
 Base de datos MySQL.
