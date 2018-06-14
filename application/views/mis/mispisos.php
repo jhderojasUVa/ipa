@@ -1,8 +1,4 @@
 <? $this -> load -> helper("url"); ?>
-
-
-<!-- THE OLD FASHION WAY -->
-
 <script>
 function cambia_estado(idpiso) {
 	$.post("<?=base_url()?>index.php/ajax/ajax/cambia_estado", {
