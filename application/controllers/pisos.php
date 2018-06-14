@@ -74,6 +74,7 @@ class Pisos extends CI_Controller {
 			$datos["idpiso"] = $id_piso;
 		}
 
+
 		if (isset($datos["idpiso"])) {
 			// Si ha ido todo correcto
 
@@ -95,11 +96,12 @@ class Pisos extends CI_Controller {
 
 			// Y ahora mostrar la paginita
 
-			if ($ws="json") {
+			if ($ws == "json") {
 				// Cambiamos la cabecera a JSON de respuesta
 				header('Content-Type: application/json');
 				// Escupimos la respuesta
 				echo json_encode($datos);
+				log_message("debug", $datos);
 			} else {
 				$this -> load -> view("cabecera", $datos);
 				$this -> load -> view("producto", $datos);
@@ -108,10 +110,11 @@ class Pisos extends CI_Controller {
 
 		} else {
 
-			if ($ws="json") {
+			if ($ws == "json") {
 				// Cambiamos la cabecera a JSON de respuesta
 				header('Content-Type: application/json');
 				// Escupimos la respuesta
+				log_message("debug", $datos);
 				echo json_encode($datos);
 			} else {
 				// Sino a la pagina de error
@@ -316,7 +319,7 @@ class Pisos extends CI_Controller {
 		$datos["precios_piso"] = $this -> precios_model -> show_precios($datos["idpiso"]);
 		$datos["cant_precios_piso"] = $this -> precios_model -> cant_show_precios($datos["idpiso"]);
 
-		if ($ws = "json") {
+		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
 			echo json_encode($datos);
@@ -365,7 +368,7 @@ class Pisos extends CI_Controller {
 		$datos["precios_piso"] = $this -> precios_model -> show_precios($datos["idpiso"]);
 		$datos["cant_precios_piso"] = $this -> precios_model -> cant_show_precios($datos["idpiso"]);
 
-		if ($ws = "json") {
+		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
 			echo json_encode($datos);
@@ -477,7 +480,7 @@ class Pisos extends CI_Controller {
 		}
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
-		if ($ws = "json") {
+		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
 			echo json_encode($datos);
@@ -529,7 +532,7 @@ class Pisos extends CI_Controller {
 		$datos["error"] = "";
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
-		if ($ws = "json") {
+		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
 			echo json_encode($datos);
@@ -566,7 +569,7 @@ class Pisos extends CI_Controller {
 		$datos["error"] = "";
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
-		if ($ws = "json") {
+		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
 			echo json_encode($datos);
@@ -664,7 +667,7 @@ class Pisos extends CI_Controller {
 		$datos["cant_precios_piso"] = count($datos["precios_piso"]);
 
 		// Y ahora mostrar la paginita
-		if ($ws = "json") {
+		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
 			echo json_encode($datos);

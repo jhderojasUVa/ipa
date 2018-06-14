@@ -40,6 +40,8 @@ class Buscar extends CI_Controller {
 	public function busquedas($ws = null) {
 		// Funcion para buscar
 
+		echo ($ws);
+
 		// Con esto comprobamos si esta logeado o no
 		if ($this -> sesiones_usuarios -> esta_logeado() == true) {
 			if ($_SESSION["uva"] == true) {
@@ -115,7 +117,7 @@ class Buscar extends CI_Controller {
 
 		$datos["ciudades"] = $this -> localizaciones_model -> show_localizaciones("cualquiera");
 
-		if ($ws = "json") {
+		if ($ws == "json") {
 			// Cambiamos la cabecera a JSON de respuesta
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
@@ -218,7 +220,7 @@ class Buscar extends CI_Controller {
 
 		$datos["ciudades"] = $this -> localizaciones_model -> show_localizaciones("cualquiera");
 
-		if ($ws = "json") {
+		if ($ws == "json") {
 			// Cambiamos la cabecera a JSON de respuesta
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
