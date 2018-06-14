@@ -31,3 +31,5 @@ Compendio de cosas:
 - Creados los web services (o al menos la mayoria) para el front end para cuando la web se pase a componentes web.
 - Zona de la administracion no pasada a nuevo formato (aun).
 - Terminando la zona de "mi", es decir, cuando entras autentificado, tu zona con tus cosas (tus pisos, tus comentarios...).
+- No esta limpiada la morralla de ficheros (imagenes, estilos) de la v1.0 que no se usan ahora.
+- No esta optimizada (se pretende usar lighthouse de Chrome para ello).
