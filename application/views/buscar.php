@@ -142,8 +142,10 @@
 			<div class="small-12 cell">
 				<h2 class="headline">No hay resultados</h2>
 				<p>No se han encontrado resultados de su busqueda. Por favor, <strong>pruebe a refinar su busqueda</strong> con menos palabras o refine su busqueda con el menu inferior.</p>
-				<li>Si ha escrito una frase compleja, pruebe a reducir el n&uacute;mero de terminos: "piso grande" &gt; "grande".</li>
-				<li>No incorpore las particulas "calle", "avenida", "paseo" o sus abreviaturas.</li>
+				<ul>
+					<li>Si ha escrito una frase compleja, pruebe a reducir el n&uacute;mero de terminos: "piso grande" &gt; "grande".</li>
+					<li>No incorpore las particulas "calle", "avenida", "paseo" o sus abreviaturas.</li>
+				</ul>
 			</div>
 		<? } ?>
 	</div>
