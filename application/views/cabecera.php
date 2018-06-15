@@ -41,7 +41,7 @@
               <li class="superior">
                 <form action="<?=base_url()?>index.php/buscar/busquedas">
                   <div class="input-group">
-                    <input class="input-group-field" type="search" placeholder="Buscar en IPA">
+                    <input class="input-group-field" type="search" <? if (isset($q)) { ?>value="<?=$q?>"<? } ?>placeholder="Buscar en IPA">
                       <div class="input-group-button">
                       <input type="submit" class="button" value="Buscar">
                       </div>

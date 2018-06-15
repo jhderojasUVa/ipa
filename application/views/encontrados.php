@@ -86,7 +86,6 @@
                       break;
                   } ?>
                 <? } // fin del for ?>
-                <!--<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-video"></i>&nbsp;&nbsp;<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-wheelchair"></i>-->
               </p>
 						<? } // Solo el dueño o gente de la uva pueden verlo ?>
 					<? } // Solo los autentificados tienen el privilegio de ver estas cosas ?>
