@@ -15,7 +15,7 @@
     // Service worker para cache de ficheros
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          navigator.serviceWorker.register('service.js')
+          navigator.serviceWorker.register('/js/sw/service-worker.js')
           .then(function(registration) {
            // Successful registration
           }).catch(function(err) {
