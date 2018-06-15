@@ -159,7 +159,7 @@ class Pisos_model extends CI_Model {
 	function show_imagenes_piso($idpiso) {
 		// Funcion que devuelve las imagenes de un piso
 		// Lo hemos limitado a 5
-		$sql = "SELECT imagen, descripcion, orden FROM imagenes_pisos WHERE idpiso=".$idpiso." ORDER BY orden LIMIT 5";
+		$sql = "SELECT idpiso, imagen, descripcion, orden FROM imagenes_pisos WHERE idpiso=".$idpiso." ORDER BY orden LIMIT 5";
 		$resultado = $this -> db -> query($sql);
 		return $resultado -> result();
 	}
