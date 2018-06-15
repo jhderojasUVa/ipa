@@ -13,10 +13,10 @@ class Barrios_model extends CI_Model {
 		// Cargamos la base de datos
 		$this -> load -> database();
     }
-	
+
 	function show_barrios($orden) {
 		// Funcion que devuelve los barrios segun un orden
-		
+
 		switch ($orden) {
 			case "nombre":
 				$sql = "SELECT DISTINCT barrio, idbarrio, idlocalizacion FROM barrios ORDER BY barrio";
@@ -26,21 +26,21 @@ class Barrios_model extends CI_Model {
 				$sql = "SELECT DISTINCT barrio, idbarrio, idlocalizacion FROM barrios";
 				$sql = "SELECT DISTINCT barrio, idbarrio, idlocalizacion FROM barrios ORDER BY barrio";
 		}
-		
+
 		$resultado = $this -> db -> query($sql);
 		return $resultado -> result();
 	}
-	
+
 	function add_barrio($localizacion, $barrio) {
 		// Funcion que añade un barrio nuevo si mete una localización
-		
+
 		$sql2 = "INSERT INTO barrios (idlocalizacion, barrio) VALUES (".$localizacion.", '".$barrio."')";
 		$resultado = $this -> db -> query($sql);
 	}
-	
+
 	function del_barrio($barrio) {
 		// Funcion que borra un barrio y por lo tanto borrara todos los pisos
-		
+
 		// Primero borramos los pisos y por lo tanto, primero las imagenes de los pisos
 		// No la borramos del HD por si acaso
 		$sql = "SELECT idpiso FROM pisos WHERE idbarrio=".$barrio;
@@ -49,22 +49,22 @@ class Barrios_model extends CI_Model {
 			$sql_borra_piso = "DELETE FROM imagenes_pisos WHERE idpiso =".$row->idpiso;
 			$resultado_borrado = $this -> db -> query($sql_borra_piso);
 		}
-		
+
 		// Ahora borramos los pisos
 		$sql = "DELETE FROM pisos WHERE idbarrio=".$barrio;
 		$resultado = $this -> db -> query($sql);
-		
+
 		// Y por ultimo el barrio en si
 		$sql = "DELETE FROM barrios WHERE idbarrio=".$barrio;
 		$resultado = $this -> db -> query($sql);
 	}
-	
+
 	function update_barrio($idbarrio, $barrio) {
 		// Modificar el nombre de un barrio
 		$sql = "UPDATE set barrio='".$barrio."' WHERE idbarrio=".$idbarrio;
 		$resultado = $this -> db -> query($sql);
 	}
-	
+
 	function barrios_con_pisos() {
 		// Muestra los barrios que tienen pisos o false en caso de que no haya ninguno
 		// Primero sacamos los pisos con barrios diferentes
@@ -75,7 +75,7 @@ class Barrios_model extends CI_Model {
 			// Se que se podria hacer con un inner join, pero los odio, los odio y los sigo odiando
 			$array_barrios_pisos = array();
 			foreach ($resultado -> result() as $row) {
-				$sql2 = "SELECT idlocalizacion, barrio FROM barrios WHERE idbarrio=".$row -> idbarrio;
+				$sql2 = "SELECT idlocalizacion, barrio FROM barrios WHERE idbarrio=".$row -> idbarrio." ORDER BY idlocalizacion";
 				$resultado2 = $this -> db -> query($sql2);
 				foreach ($resultado2 -> result() as $row2) {
 					$sql3 = "SELECT localizacion FROM localizaciones WHERE idlocalizacion=".$row2 -> idlocalizacion;
@@ -92,7 +92,7 @@ class Barrios_model extends CI_Model {
 			return false;
 		}
 	}
-	
+
 	function devuelve_barrio($idpiso) {
 		// Devuelve el nombre del barrio con el identifcador del piso
 		$sql = "SELECT idbarrio FROM pisos WHERE id_piso=".$idpiso;
@@ -100,13 +100,13 @@ class Barrios_model extends CI_Model {
 		foreach ($resultado -> result() as $row) {
 			$idbarrio = $row -> idbarrio;
 		}
-		
+
 		$sql = "SELECT barrio FROM barrios WHERE idbarrio=".$idbarrio;
 		$resultado = $this -> db -> query($sql);
 		foreach ($resultado -> result() as $row) {
 			$barrio = $row -> barrio;
 		}
-		
+
 		return $barrio;
 	}
 }
