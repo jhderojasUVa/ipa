@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="<?=base_url()?>css/slick.css">
     <link rel="stylesheet" href="<?=base_url()?>css/slick-theme.css">
     <link rel="stylesheet" href="<?=base_url()?>css/app.css">
+    <script>
+    // Service worker para cache de ficheros
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service.js')
+          .then(function(registration) {
+           // Successful registration
+          }).catch(function(err) {
+           // Failed registration, service worker won’t be installed
+          });
+        });
+      }
+    </script>
   </head>
   <body>
 		<!-- header md & lg -->
