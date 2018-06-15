@@ -27,7 +27,7 @@ $minuto = substr($fecha_insercion, 14, 2);
 								<div class="caja"><center><img src="<?=base_url()?>img_pisos/<?=$row -> idpiso?>/<?=$row -> imagen?>" alt="<?=$row -> descripcion?>" /></center></div>
               <? } ?>
             <? } else { ?>
-							<div class="caja"><center><img src="<?=base_url()?>css/sin_piso.png" alt="el piso no tiene imagen" /></center></div>
+							<div class="caja"><center><img src="http://via.placeholder.com/350x450?text=sin+imagen" alt="el piso no tiene imagen" /></center></div>
             <? } ?>
         </div>
       </div>
