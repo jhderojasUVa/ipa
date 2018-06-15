@@ -33,3 +33,4 @@ Compendio de cosas:
 - Terminando la zona de "mi", es decir, cuando entras autentificado, tu zona con tus cosas (tus pisos, tus comentarios...).
 - No esta limpiada la morralla de ficheros (imagenes, estilos) de la v1.0 que no se usan ahora.
 - No esta optimizada (se pretende usar lighthouse de Chrome para ello).
+- Se pretende, por si se pasa a PWA, tener el service worker para la cache de ficheros.
