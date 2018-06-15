@@ -517,6 +517,7 @@ a {
   background-color: #dfdfdf;
   padding-right: 5px;
   padding-left: 5px;
+  width: 35px;
 }
 
 .ultimas_ofertas .card .texto {
@@ -703,4 +704,20 @@ li.active {
 .iconos_rojos a:hover {
   color: white;
   background-color: #e5134b;
+}
+
+ul.extras {
+  margin: 0;
+  padding: 0;
+}
+
+ul.extras li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+ul.extras .extras {
+  background-color: #dfdfdf;
+  padding: 5px;
+  width: 35px;
 }

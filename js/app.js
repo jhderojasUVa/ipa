@@ -1,10 +1,10 @@
 $(document).ready(function(){
   $(".slideshow").slick({
     autoplay: true,
-    autoplayspeed: 800,
+    autoplayspeed: 3000,
     dots: true,
     arrows: true,
-    speed: 300,
+    speed: 800,
     infinite: true,
     slidesToShow: 1,
     variableWidth: true,

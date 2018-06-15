@@ -104,51 +104,51 @@
 										<li>
 											<? switch ($extras[$i2]) {
 												case 'Cocina':
-													?>Icono cocina<?
+													?><img class="extras" src="<?=base_url()?>img/icons/009-cocina.png" alt="Cocina" /><?
 													break;
 
 													case 'Frigo':
-														?>Icono frigo<?
+														?><img class="extras" src="<?=base_url()?>img/icons/004-frigorifico.png" alt="Frigorigico" /><?
 														break;
 
 													case 'Lavadora':
-														?>Icono lavadora<?
+														?><img class="extras" src="<?=base_url()?>img/icons/010-lavadora.png" alt="Lavadora" /><?
 														break;
 
 													case 'Vajilla':
-														?>Icono vajilla<?
+														?><img class="extras" src="<?=base_url()?>img/icons/005-vajilla.png" alt="Vajilla" /><?
 														break;
 
 													case 'Cama':
-														?>Icono cama<?
+														?><img class="extras" src="<?=base_url()?>img/icons/006-cama.png" alt="Cama" /><?
 														break;
 
 													case 'Bano':
-														?>Icono Baño<?
+														?><img class="extras" src="<?=base_url()?>img/icons/011-servicio.png" alt="Baño" /><?
 														break;
 
 													case 'Horno':
-														?>Icono horno<?
+														?><img class="extras" src="<?=base_url()?>img/icons/008-horno.png" alt="Horno" /><?
 														break;
 
 													case 'Secadora':
-														?>Icono secadora<?
+														?><img class="extras" src="<?=base_url()?>img/icons/012-secadora.png" alt="Secadora" /><?
 														break;
 
 													case 'TV':
-														?>Icono tv<?
+														?><img class="extras" src="<?=base_url()?>img/icons/002-television.png" alt="TV" /><?
 														break;
 
 													case 'Telefono':
-														?>Icono tv<?
+														?><img class="extras" src="<?=base_url()?>img/icons/003-phone.png" alt="Telefono" /><?
 														break;
 
 													case 'WIFI':
-														?>Icono tv<?
+														?><img class="extras" src="<?=base_url()?>img/icons/001-wifi.png" alt="Internet" /><?
 														break;
 
 													case 'Compartido':
-														?>Icono tv<?
+														?><img class="extras" src="<?=base_url()?>img/icons/013-compartido.png" alt="Compartido" /><?
 														break;
 
 												default:
@@ -156,10 +156,6 @@
 													break;
 											} ?>
 										</li>
-                  <li><i class="extras fi-male-female"></i></li>
-                  <li><i class="extras fi-telephone"></i></li>
-                  <li><i class="extras fi-laptop"></i></li>
-                  <li><i class="extras fi-credit-card"></i></li>
 								<? }  // fin del for ?>
                 </ul>
               </div>
