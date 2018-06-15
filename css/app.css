@@ -529,9 +529,8 @@ a {
 
 .ultimas_ofertas .card .extras {
   background-color: #dfdfdf;
-  padding-right: 5px;
-  padding-left: 5px;
-  width: 35px;
+  padding: 5px;
+  width: 25px;
 }
 
 .ultimas_ofertas .card .texto {
@@ -551,7 +550,7 @@ a {
 }
 
 .ultimas_ofertas .opciones li {
-  margin-right: 0.2em;
+  margin: 0.2em;
   float: right;
   list-style-type: none;
 }
@@ -733,5 +732,5 @@ ul.extras li {
 ul.extras .extras, p.extras .extras {
   background-color: #dfdfdf;
   padding: 5px;
-  width: 35px;
+  width: 25px;
 }
