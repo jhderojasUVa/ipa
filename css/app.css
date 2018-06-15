@@ -730,7 +730,7 @@ ul.extras li {
   list-style-type: none;
 }
 
-ul.extras .extras {
+ul.extras .extras, p.extras .extras {
   background-color: #dfdfdf;
   padding: 5px;
   width: 35px;

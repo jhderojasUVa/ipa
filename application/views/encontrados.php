@@ -29,7 +29,65 @@
 					<? } // fin del if de si esta logeado o no?>
 					<? if ($_SESSION["logeado"] == true) { ?>
 						<? if (($this -> pisos_model ->  es_piso_usuario($usuario, $row["idpiso"]) == true) || ($_SESSION["uva"] == true)) { ?>
-							<p class="text-right"><i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-video"></i>&nbsp;&nbsp;<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-wheelchair"></i></p>
+							<p class="text-right extras">
+                <? $extras = explode("|", $row["extras"]); ?>
+                <? for ($i2=0;$i2<count($extras);$i2++) { ?>
+                <? switch ($extras[$i2]) {
+                  case 'Cocina':
+                      ?><img class="extras" src="<?=base_url()?>img/icons/009-cocina.png" alt="Cocina" /><?
+                      break;
+
+                      case 'Frigo':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/004-frigorifico.png" alt="Frigorigico" /><?
+                        break;
+
+                      case 'Lavadora':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/010-lavadora.png" alt="Lavadora" /><?
+                        break;
+
+                      case 'Vajilla':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/005-vajilla.png" alt="Vajilla" /><?
+                        break;
+
+                      case 'Cama':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/006-cama.png" alt="Cama" /><?
+                        break;
+
+                      case 'Bano':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/011-servicio.png" alt="Baño" /><?
+                        break;
+
+                      case 'Horno':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/008-horno.png" alt="Horno" /><?
+                        break;
+
+                      case 'Secadora':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/012-secadora.png" alt="Secadora" /><?
+                        break;
+
+                      case 'TV':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/002-television.png" alt="TV" /><?
+                        break;
+
+                      case 'Telefono':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/003-phone.png" alt="Telefono" /><?
+                        break;
+
+                      case 'WIFI':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/001-wifi.png" alt="Internet" /><?
+                        break;
+
+                      case 'Compartido':
+                        ?><img class="extras" src="<?=base_url()?>img/icons/013-compartido.png" alt="Compartido" /><?
+                        break;
+
+                    default:
+                      # code...
+                      break;
+                  } ?>
+                <? } // fin del for ?>
+                <!--<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-video"></i>&nbsp;&nbsp;<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-wheelchair"></i>-->
+              </p>
 						<? } // Solo el dueño o gente de la uva pueden verlo ?>
 					<? } // Solo los autentificados tienen el privilegio de ver estas cosas ?>
           <div class="grid-x grid-margin-x">

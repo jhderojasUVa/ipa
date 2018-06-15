@@ -219,27 +219,12 @@ function show_modal(direccion) {
                         <option value="0">No</option>
                     </select>
                 </div>
-                <!--
-                <div id="trozo">
-                	<p>Barrio</p>
-                     <select name="barrio">
-                        <option value="1">Delicias (Valladolid)</option>
-                        <option value="2">La Oberuela (Valladolid)</option>
-                        <option value="3">Rondilla (Valladolid)</option>
-                        <option value="4">Belen (Valladolid)</option>
-                        <option value="5">Centro (Palencia)</option>
-                        <option value="6">El Carmen (Palencia)</option>
-                        <option value="7">Las Casas (Soria)</option>
-                        <option value="8">Los Pajaritos (Soria)</option>
-                        <option value="9">San Lorenzo (Segovia)</option>
-                        <option value="10">El Salvador (Segovia)</option>
-                    </select>
-                </div>
-                -->
+
                 <div id="trozo">
                 	<p>CP</p><br />
                     <input name="cp" type="text" size="5" maxlength="5" value="<?=$cp?>"/>
                 </div>
+
                 <div id="trozo">
                 	<p>Ciudad</p><br />
                     <select name="ciudad">
@@ -254,11 +239,14 @@ function show_modal(direccion) {
                         <? } ?>
                     </select>
                 </div>
+
                 <div id="clear"></div>
+
                 <div id="trozo">
                 	<p>Precio: <input type="text" name="cantidad" id="cantidad" style="border:0; color:#f6931f; font-weight:bold; background: #d7d8d9;" value="<?=$rango?>" /></p>
                     <div id="precio"></div>
                 </div>
+								
               	<div id="trozo_boton">
                 	<br /><br /><br />
                 	<right><input type="submit" value="Refinar busqueda" class="boton"/></right>
