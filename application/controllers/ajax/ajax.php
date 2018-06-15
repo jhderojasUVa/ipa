@@ -30,12 +30,12 @@ class Ajax extends CI_Controller {
 		echo "Esta pagina no se puede cargar directamente";
 	}
 
-	public function comprueba_user() {
+	public function comprueba_user($ws = null) {
 		$usuario_comprobar = $this -> input -> post("usuario");
 
 		if ($usuario_comprobar =="") {
 			// Usuario vacio va a ser que no
-			$datos["respuesta"] = "<span class='rojo_ok'>Vacio</span>";
+			$datos["respuesta"] = "<span class=\"rojo_ok\">Vacio</span>";
 		} else {
 			// Usuario con cosas
 			if ($this -> usuarios_model -> comprueba($usuario_comprobar) == true) {
@@ -45,7 +45,11 @@ class Ajax extends CI_Controller {
 			}
 		}
 
-		$this -> load -> view("ajax/usuario", $datos);
+		if ($ws == "json") {
+			echo json_encode($datos);
+		} else {
+			$this -> load -> view("ajax/usuario", $datos);
+		}
 	}
 
 	public function cambia_estado() {

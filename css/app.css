@@ -664,16 +664,43 @@ li.active {
   float: none;
 }
 
-.verde {
+.verde, .verde_ok {
   color: #00ca19;
   text-transform: uppercase;
   border: 1px solid #00ca19;
   padding: 5px;
 }
 
-.rojo {
+.rojo, .rojo_ok {
   color: #c7215a;
   text-transform: uppercase;
   border: 1px solid #c7215a;
   padding: 5px;
+}
+
+.iconos_azul a {
+  font-size: 1.5em;
+  border: 1px solid #007cd1;
+  padding: 0.2em 0.4em !important;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.iconos_azul a:hover {
+  color: white;
+  background-color: #007cd1;
+}
+
+.iconos_rojos a {
+  font-size: 1.5em;
+  color: #e5134b;
+  border: 1px solid #e5134b;
+  padding: 0.2em 0.4em !important;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.iconos_rojos a:hover {
+  color: white;
+  background-color: #e5134b;
 }
