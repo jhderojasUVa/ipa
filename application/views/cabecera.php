@@ -38,16 +38,18 @@
 							<li class="superior"><a href="<?=base_url()?>index.php/principal/haz_login"><i class="fi-torso"></i>&nbsp;&nbsp;Identificate</a></li>
               <? } ?>
 							<? if (isset($_SESSION["logeado"]) && $_SESSION["logeado"] == true) { ?>
+              <? if (!isset($q)) { ?>
               <li class="superior">
                 <form action="<?=base_url()?>index.php/buscar/busquedas">
                   <div class="input-group">
-                    <input class="input-group-field" type="search" <? if (isset($q)) { ?>value="<?=$q?>"<? } ?>placeholder="Buscar en IPA">
+                    <input class="input-group-field" type="search" name="q" placeholder="Buscar en IPA">
                       <div class="input-group-button">
                       <input type="submit" class="button" value="Buscar">
                       </div>
                     </div>
                 </form>
               </li>
+              <? } ?>
 							<li>|</li>
 							<li class="superior"><a href="<?=base_url()?>index.php/mis/mispisos" role="menuitem">Mis pisos</a></li>
 							<li class="superior"><a href="<?=base_url()?>index.php/mis/miscomentarios" role="menuitem">Mis comentarios</a></li>
