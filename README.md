@@ -34,3 +34,4 @@ Compendio de cosas:
 - No esta limpiada la morralla de ficheros (imagenes, estilos) de la v1.0 que no se usan ahora.
 - No esta optimizada (se pretende usar lighthouse de Chrome para ello).
 - Se pretende, por si se pasa a PWA, tener el service worker para la cache de ficheros (primera version subida, sin los fetchs en la aplicacion para que los saque de la cache).
+- Unidades de test!. No hay ninguna, ni para el PHP ni para el JS.
