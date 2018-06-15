@@ -174,6 +174,40 @@ $minuto = substr($fecha_insercion, 14, 2);
 	      </div>
 	    </div>
 
+			<!-- explicacion -->
+			<div class="grid-container iconografia show-for-medium" style="margin-bottom: 40px;">
+				<div class="grid-x">
+					<div class="small-12">
+						<h2 class="headline">Significado de los iconos</h2>
+						<ul class="extras">
+							<li><img class="extras" src="<?=base_url()?>img/icons/009-cocina.png" alt="Cocina" /> Cocina</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/004-frigorifico.png" alt="Frigorigico" /> Frigorifico</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/010-lavadora.png" alt="Lavadora" /> Lavadora</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/012-secadora.png" alt="Secadora" /> Secadora</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/008-horno.png" alt="Horno" /> Horno</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/005-vajilla.png" alt="Vajilla" /> Vajilla</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/006-cama.png" alt="Cama" /> Ropa de Cama</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/011-servicio.png" alt="Baño" /> Baño</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/002-television.png" alt="TV" /> Televisi&oacute;n</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/003-phone.png" alt="Telefono" /> Tel&eacute;fono</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/001-wifi.png" alt="Internet" /> Conexi&oacute;n a Internet</li>
+							<li>|</li>
+							<li><img class="extras" src="<?=base_url()?>img/icons/013-compartido.png" alt="Compartido" /> Piso Compartido</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
 			<!-- Comentarios -->
 			<div class="grid-container comentarios" style="margin-bottom: 20px;">
 	      <div class="grid-x">

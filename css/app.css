@@ -492,6 +492,20 @@ a {
   background-color: #5f4037;
 }
 
+.iconografia {
+  border: 1px solid #e9e9e9;
+  padding: 1.5em;
+  margin-top: 25px;
+}
+
+.iconografia .headline {
+  border-bottom: 1px dotted #d2d2d2;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 1.6em;
+}
+
 .comentarios .headline {
   border-bottom: 1px dotted #d2d2d2;
   padding-bottom: 0.2em;
