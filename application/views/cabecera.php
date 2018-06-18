@@ -56,7 +56,7 @@
 							<li class="superior"><a href="<?=base_url()?>index.php/mis/miscomentarios" role="menuitem">Mis comentarios</a></li>
 							<? if ($_SESSION["uva"]==0) { ?><li class="superior"><a href="<?=base_url()?>index.php/principal/vermisdatos" role="menuitem">Mis datos</a></li><? } ?>
 							<li class="superior"><a href="<?=base_url()?>index.php/principal/logout" role="menuitem">Salir</a></li>
-							<li class="superior"><a href="<?=base_url()?>index.php/doc/cambiartipo" role="menuitem">Administración</a></li>
+							<? if ($_SESSION["fue_admin"]==true) { ?><li class="superior"><a href="<?=base_url()?>index.php/doc/cambiartipo" role="menuitem">Administración</a></li><? } ?>
 							<? } ?>
 						</ul>
 					</div>
