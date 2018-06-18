@@ -36,8 +36,7 @@ function show_modal(direccion) {
 							} else {
 								echo str_replace("]",":",str_replace("[","",$row["descripcion"]));
 							}	?></a>
-							<!-- extras -->
-							<p class="text-right"><i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-video"></i>&nbsp;&nbsp;<i class="extras fi-telephone"></i>&nbsp;&nbsp;<i class="extras fi-wheelchair"></i></p>
+							<!-- extras no los ponemos -->
 							<p><a href="<?=base_url()?>index.php/pisos/producto_piso?id=<?=$row["idpiso"]?>" role="link" class="button">Vealo como un usuario IPA</a></p>
 							<p>Estado: <? if ($row["verificado"] == true) { ?>
 		            <strong>Este piso se muestra en IPA</strong>
