@@ -122,7 +122,6 @@ function borraimagen(idpiso, imagen, descripcion) {
     }
   }).done(function(data) {
     // Montamos el resultado por resultado
-    console.log(data);
     var resultado = "<div id='trozo' class='final'>";
     $.each(data.imagenes_piso, function(i, item){
       // No es la mejor forma, pero vale para enterarnos
