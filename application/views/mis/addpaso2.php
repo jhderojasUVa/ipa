@@ -1,34 +1,9 @@
-
+<script src="<?=base_url()?>js/ficheros.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
 $(document).ready(function(){
-  /*var resultado = "";
-  var datos = new FormData();
-  $("#upload_file").submit(function(e){
-    // Creamos los datos de envio
-    datos.append("ws", "json");
-    jQuery.each(jQuery("input[name='upload']")[0].files, function (i, file) {
-      datos.append("file-"+i, file);
-    });
-    e.preventDefault();
-    $.ajax({
-      url: "<?=base_url()?>index.php/pisos/addpiso3",
-      method: "POST",
-      type: "POST",
-      data: datos,
-      cache: false,
-      contentType: false,
-      processData: false,
-    }).done(function(data){
-      resultado = "Fichero enviado o al menos el PHP lo ha recibido";
-
-      $(".imagenes_piso").html(data);
-    }).fail(function(data){
-      resultado = "<h1>Lo sentimos</h1><p>Ha habido un error al subir su imagen.</p>";
-      resultado += "<p>Por favor, pongase <a href='mailto:soporte-web@uva.es?Subject=Error subida de ficheros IPA'>en contacto con el administrador</a> indicando el procedimiento que ha seguido para reproducir el problema.</p>";
-      $(".imagenes_piso").html(data);
-    });
-  });*/
+  subeimagen();
 });
 
 function MM_validateForm() { //v4.0
@@ -74,6 +49,7 @@ function finalizar() {
 </form>
 
 <form action="<?=base_url()?>index.php/pisos/addpiso3" id="upload_file" method="post" enctype="multipart/form-data" onsubmit="MM_validateForm('descripcion','','R');return document.MM_returnValue">
+<!--<form onsubmit="MM_validateForm('descripcion','','R');return document.MM_returnValue">-->
 <input type="hidden" name="idpiso" value="<?=$idpiso?>" />
   <div class="grid-container contenido">
     <div class="grid-x grid-margin-x">
@@ -117,13 +93,15 @@ function finalizar() {
     <div class="small-12 cell imagenes_piso">
       <? foreach ($imagenes_piso as $row) { // Esto es un apaño y hay que AJAXearlo?>
         <div id="trozo" class="final">
-            <img src="<?=base_url()?>img_pisos/<?=$row -> imagen?>" alt="<?=$row -> descripcion?>" width="130" class="imagenes" /><br /><center><em><p><?=$row -> descripcion?></p></em><br /></center>
+          <div style="width:140px; margin: 0 0.5em; float: left;">
+            <center><img src="<?=base_url()?>img_pisos/<?=$row -> idpiso?>/<?=$row -> imagen?>" alt="<?=$row -> descripcion?>" width="130" class="imagenes" /><br /><em><p><?=$row -> descripcion?></p></em><br /></center>
               <div id="formularios_img">
                 <a href="javascript:cambiaorden(<?=$idpiso?>, '<?=$row -> imagen?>', <?=($row -> orden)-1?>, <?=$row->orden?>)" class="button" role="link"><i class="fi-arrow-left"></i></a>
                 <a href="javascript:cambiaorden(<?=$idpiso?>, '<?=$row -> imagen?>', <?=($row -> orden)+1?>, <?=$row->orden?>)" class="button" role="link"><i class="fi-arrow-right"></i></a>
-                <a href="javascript:borraimagen(<?=$idpiso?>, '<?=$row -> imagen?>', '<?=$row -> descripcion?>')" class="button" role="link"><i class="fi-arrow-left"></i></a>
+                <a href="javascript:borraimagen(<?=$idpiso?>, '<?=$row -> imagen?>', '<?=$row -> descripcion?>')" class="button" role="link"><i class="fi-x"></i></a>
                 <div id="clear"></div>
               </div>
+            </div>
           </div> <!-- fin trozo -->
           <? $temp++;
           if ($temp>=3) {

@@ -1,5 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
+//$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
+$path = "/httdocs/ipa/img_pisos";
 
 class Pisos extends CI_Controller {
 
@@ -434,6 +435,12 @@ class Pisos extends CI_Controller {
 		$idpiso = $this -> input -> post_get("idpiso");
 		$descripcion = $this -> input -> post_get("descripcion");
 		$field_name = "upload";
+		$ws = $this -> input -> post_get("ws");
+
+		//$config["upload_path"] = $path;
+
+		//log_message('debug', '===== path ='.$path);
+
 		if (!$this -> upload -> do_upload($field_name)) {
 			// Si falla mandamos por ajax el error y se lo mostramos al pollo
 			$datos = array("error" => $this -> upload -> display_errors());
@@ -461,15 +468,23 @@ class Pisos extends CI_Controller {
 			//$path = $this -> upload -> item("upload_path");
 			//echo "-----".$path."-----";
 
+			//$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
+			$path = "/httdocs/ipa/img_pisos";
+
 			/*
 			***********************************************************************************************************************
 			*/
 
-			if ($this -> imagenes -> cantidad_show_imagenes_piso <= 5) {
+			if ($this -> pisos_model -> cantidad_show_imagenes_piso($datos["idpiso"]) <= 5) {
 
 				//$this -> imagenes -> load($path."/".$idpiso."/".$datos["upload_data"]["file_name"]);
 				$this -> imagenes -> load($path."/".$datos["upload_data"]["file_name"]);
 				$this -> imagenes -> resizeToWidth(800);
+				if (!is_dir($path."/".$idpiso)) {
+					// Creamos el directorio
+					mkdir($path."/".$idpiso, 0777);
+				}
+
 				$this -> imagenes -> save($path."/".$idpiso."/".$datos["upload_data"]["file_name"]);
 				unlink ($path."/".$datos["upload_data"]["file_name"]);
 
@@ -495,6 +510,8 @@ class Pisos extends CI_Controller {
 		// Esta funcion borra una imagen subida
 		// Lo hacemos a traves de un formulario porque asi los pollos no ven que es una url e intentan inyectar algo que se me haya pasado
 
+		$path = "/httdocs/ipa/img_pisos";
+
 		// Lo primero el SSO de la UVa... ¡siempre!
 		if ($this -> sesiones_usuarios -> esta_logeado() == true) {
 			if ($_SESSION["uva"] == true) {
@@ -515,6 +532,7 @@ class Pisos extends CI_Controller {
 
 		$idpiso = $this -> input -> post_get("idpiso");
 		$imagen_borrar = $this -> input -> post("imagen_borrar");
+		$ws = $this -> input -> post("ws");
 		$descripcion_borrar = $this -> input -> post("descripcion_borrar");
 
 		// Borramos la imagen
@@ -553,6 +571,7 @@ class Pisos extends CI_Controller {
 		$nuevo = $this -> input -> post_get("nuevo");
 		$actual = $this -> input -> post_get("actual");
 		$fichero = $this -> input -> post_get("imagen");
+		$ws = $this -> input -> post_get("ws");
 
 		$total_imagenes = $this -> pisos_model -> total_imagenes_piso($idpiso);
 

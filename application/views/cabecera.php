@@ -17,9 +17,10 @@
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/js/sw/service-worker.js')
           .then(function(registration) {
-           // Successful registration
+           // Registrado perfectamente
           }).catch(function(err) {
-           // Failed registration, service worker won’t be installed
+           // Error al registrar el service worker
+           console.log('Error al registrar el Service Worker: '+err);
           });
         });
       }

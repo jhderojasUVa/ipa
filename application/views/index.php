@@ -93,7 +93,7 @@
             <div class="card">
 
               <!--<div style="width: 100%; height: 100%;background: url(<?=$ultimos_6[$i]["imagen"]?>) no-repeat center center; background-size: 100%;"><div style="width: 100%; height: 200px;"></div></div>-->
-							<div style="width: 100%; height: 100%;background: url(<?=base_url()?><?=$ultimos_6[$i]["imagen"]?>) no-repeat center center; background-size: 100%;"><div style="width: 100%; height: 200px;"></div></div>
+							<div style="width: 100%; height: 100%;background: url(<?=base_url()?><?=$ultimos_6[$i]["idpiso"]?>/<?=$ultimos_6[$i]["imagen"]?>) no-repeat center center; background-size: 100%;"><div style="width: 100%; height: 200px;"></div></div>
 
 							<div class="card-section">
                 <p class="texto"><?=str_replace("[Plazas ofertadas]", "", str_replace("[Número habitaciones]", "", str_replace("[Datos del inmueble]", "", $ultimos_6[$i]["descripcion"])))?></p>

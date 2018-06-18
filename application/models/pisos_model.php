@@ -545,6 +545,7 @@ class Pisos_model extends CI_Model {
 
 	function mostar_pisos_no_validados() {
 		// Funcion que muestra los pisos no validados
+    // FUNCION PARA ADMIN
 		$piso = array();
 		$sql = "SELECT * FROM pisos WHERE verificado=false";
 		$resultado_1 = $this -> db -> query($sql);
@@ -750,6 +751,7 @@ class Pisos_model extends CI_Model {
 	}
 
 	function buscar_piso_ajax($q) {
+    // Funcion que busca ousis que esten verificados
 		$sql = "SELECT id_piso, calle, numero, piso FROM pisos WHERE calle like '%".$q."%' AND verificado = true ORDER BY fecha DESC LIMIT 5";
 		$resultado = $this -> db -> query($sql);
 		if ($resultado -> num_rows() >0) {
@@ -761,6 +763,7 @@ class Pisos_model extends CI_Model {
 
 	function validar_piso($idpiso) {
 		// Funcion 	que valida un piso
+    // PARA ADMIN
 		$sql = "UPDATE pisos SET verificado=true WHERE id_piso=".$idpiso;
 		$resultado = $this -> db -> query($sql);
 	}
@@ -809,6 +812,7 @@ class Pisos_model extends CI_Model {
   }
 
   function piso_existe($idpiso) {
+    // Funcion que comprueba la existencia de un piso
     $sql = "SELECT idpiso FROM pisos WHERE idpiso=".$idpiso;
     $resultado = $this -> db -> query($sql);
     if ($resultado -> num_rows()>0) {

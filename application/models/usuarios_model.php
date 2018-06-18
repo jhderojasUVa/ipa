@@ -134,6 +134,7 @@ class Usuarios_model extends CI_Model {
 
 	function usuarios_no_activados () {
 		// Funcion que devuelve los usuarios que no han sido activados
+    // FUNCION PARA ADMIN
 		$sql = "SELECT * FROM usuarios WHERE verificado=false";
 		$resultado = $this -> db -> query($sql);
 
@@ -142,6 +143,7 @@ class Usuarios_model extends CI_Model {
 
 	function activar_user($idu) {
 		// Funcion que activa/valida un usuario
+    // FUNCION PARA ADMIN
 		$sql = "UPDATE usuarios SET verificado=1 WHERE idu=".$idu;
 		$resultado = $this -> db -> query($sql);
 	}
@@ -160,6 +162,7 @@ class Usuarios_model extends CI_Model {
 
 	function buscar_usuario($q) {
 		// Funcion que devuelve los datos de uno o varios usuarios por nombre, apellido, direccion o nombre de usuario
+    // FUNCION PARA ADMIN
 		$sql = "SELECT * FROM usuarios WHERE nombre like '%".$q."%' OR apellidos like '%".$q."%' OR direccion like '%".$q."%' OR usuario like '%".$q."%'";
 		/*echo $sql;*/
 		$resultado = $this -> db -> query($sql);
@@ -169,6 +172,7 @@ class Usuarios_model extends CI_Model {
 
 	function buscar_correo($q, $verificado) {
 		// Funcion que devuelve los datos de uno o varios usuarios por el correo
+    // FUNCION PARA ADMIN
 		$sql = "SELECT * FROM usuarios WHERE email like '%".$q."%' AND verificado='".$verificado."'";
 		$resultado = $this -> db -> query($sql);
 
@@ -177,6 +181,7 @@ class Usuarios_model extends CI_Model {
 
 	function enviar_a_todos($verificado) {
 		// Funcion que busca todos los usuarios y los devuelve si estan verificados o no
+    // FUNCION PARA ADMIN
 		$sql = "SELECT * FROM usuarios WHERE verificado='".$verificado."'";
 		$resultado = $this -> db -> query($sql);
 
