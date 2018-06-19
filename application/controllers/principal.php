@@ -317,6 +317,7 @@ class Principal extends CI_Controller {
 		$ok = 1;
 
 		if ($email!="" && $login!="") {
+
 			// Comprobamos que no nos la quiere meter doblada en el correo
 			if ($this -> usuarios_model -> comprueba_mail($email) == true) {
 				$ok = 0;
@@ -351,7 +352,6 @@ class Principal extends CI_Controller {
 
 
 		if ($this -> input -> post("ok")==1 && $ok == 1) {
-
 			// Ahora lo metemos en la bd
 			$this -> usuarios_model -> add_usuario($nombre, $apellidos, $login, $password, $direccion, $tlf, $email, $dni);
 

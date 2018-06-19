@@ -32,8 +32,6 @@ function comprueba_usuario() {
 
 function comprueba_form() {
 	// Funcion para comprobar el formulario
-	//comprobar_clave();
-
 	var hay_error = 0;
 	var texto_err = "";
 
@@ -83,16 +81,18 @@ function comprueba_form() {
 		texto_err+="Es necesario un DNI.\r\n";
 	}
 
-	if ($("input[name='condiciones']").attr("checked")!="checked") {
+	if (document.getElementById("condiciones").checked != true) {
 		hay_error=1;
-		texto_err+="\r\n------------------\r\nDebe de aceptar las condiciones del servicio para poder darse de alta\r\n------------------";
+		texto_err+="Debe de aceptar las condiciones del servicio para poder darse de alta\r\n";
 	}
 
 	if (hay_error==1) {
-		alert("Se encontraron los siguientes errores\r\n-------------\r\n"+texto_err);
+		alert("Lo sentimos. Se encontraron los siguientes errores:\r\n\r\n"+texto_err);
 		return false;
 	} else {
-		document.usuario.submit();
+		//document.usuario.submit();
+		$("#formusuario").submit();
+		//return false;
 	}
 }
 
@@ -112,13 +112,28 @@ label {
 	border: none;
 }
 </style>
+<? if ($errores!="") { ?>
+	<div class="grid-container" style="margin-top: 20px;">
+		<div class="grid-x grid-margin-x">
+			<div class="small-12 cell">
+				<span class="rojo"><strong>¡Wops!, ha habido un problema con su solicitud</strong>:</span>
+				<p>
+					<ul>
+						<?=$errores?>
+					</ul>
+				</p>
+			</div>
+		</div>
+	</div>
+<? } ?>
 
 <div class="grid-container" style="margin-top: 20px;">
 	<div class="grid-x grid-margin-x">
 		<div class="small-12 cell">
 			<h2>Alta de nuevo usuario</h2>
 			<p>Por favor, rellene el siguiente formulario para darse de alta en la plataforma IPA. Le recordamos que si es usted miembro de la comunidad universitaria (UVa) puede acceder sin darse de alta con sus contrase&ntilde;as de <a href="https://miportal.uva.es">Mi Portal UVa</a>.</p>
-			<form action="<?=base_url()?>index.php/buscar/busquedas" method="post">
+			<form action="<?=base_url()?>index.php/principal/alta_nueva" id="formusuario" name="usuario" method="post" onsubmit="comprueba_form();return false;">
+				<input type="hidden" name="ok" value="1" />
 				<div class="grid-x grid-padding-x">
 					<div class="small-12 medium-6 cell">
 						<label>Nombre
@@ -165,8 +180,8 @@ label {
 							<input tyoe="text" name="dni" id="dni" maxlenght="9" size="9" placeholder="098765432F" value="<?=$datos_del_usuario["dni"]?>"/>
 						</label>
 					</div>
-					<div class="small-12 cell">
-						<input type="checkbox" name="condiciones" style="margin-right: 0.3em;" value="1" />He leido <a href="<?=base_url()?>/NotaLegal.pdf" target="_blank">las condiciones de servicio</a> <span class="rojo">*</span>
+					<div class="small-12 cell" style="margin-top: 1em;">
+						<input type="checkbox" name="condiciones" id="condiciones" value="1" />&nbsp;&nbsp;He leido <a href="<?=base_url()?>/NotaLegal.pdf" target="_blank">las condiciones de servicio</a> <span class="rojo">*</span>
 					</div>
 					<div class="small-12 cell">
 						<input type="submit" class="button expanded" value="darse de alta en IPA" />
@@ -182,7 +197,7 @@ label {
 		<div class="small-12 cell">
 			<p>
 				<span class="rojo">Todos los campos son necesarios.</span><br />
-				<span class="rojo">* Es necesario activar el checkbox de las condiciones de servicio.</span><br />
+				<span class="rojo">* Es necesario aceptar las condiciones de servicio.</span><br />
 			</p>
 		</div>
 	</div>
