@@ -225,6 +225,7 @@ $minuto = substr($fecha_insercion, 14, 2);
 						</form>
 					</div>
 				<? } // Fin de ser de la UVa para formulario de envio de quejas ?>
+				<div class="todos_comentarios">
 				<? foreach ($comentarios as $row) { ?>
 					<div class="small-12 cell comentario">
 		        <h4><?=$row["nombre"]["nombre"]?> </h4>
@@ -236,6 +237,7 @@ $minuto = substr($fecha_insercion, 14, 2);
 						<? } // Fin de si spam ?>
 		      </div>
 				<? } ?>
+				</div> <!-- fin grupo comentarios -->
 			</div><!-- Fin de los comentarios -->
 
 

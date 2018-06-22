@@ -96,10 +96,6 @@
     <form action="<?=base_url()?>index.php/doc/buscar" method="post">
     	<input type="text" name="q" placeholder="buscar ..." size="90" class="caja"/>
         <input type="submit" value="realizar busqueda" class="boton"/>
-        <!--
-        <br />
-        <input type="radio" name="imagen" value="1" /> buscar imagen <input type="radio" name="imagen" value="2" /> buscar piso
-        -->
     </form>
     <h1>A&ntilde;adir nuevo piso</h1>
     <form action="<?=base_url()?>index.php/doc/addpiso" method="post">

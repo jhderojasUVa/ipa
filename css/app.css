@@ -734,3 +734,48 @@ ul.extras .extras, p.extras .extras {
   padding: 5px;
   width: 25px;
 }
+
+.cabecera_uva {
+  background-color: #005d8c;
+  color: white;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.cabecera_uva h1.uvalogo {
+  font-size: 1.8em;
+  color: white;
+}
+
+.cabecera_uva ul {
+  margin: 0;
+  padding: 0;
+}
+
+.cabecera_uva ul li {
+  list-style-type: none;
+  display: inline-block;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.cabecera_uva .cabecera_uva_letras {
+  font-size: 1em;
+  margin-right: 0.7em;
+  float:left;
+  line-height: 0.8;
+}
+
+.cabecera_uva .cabecera_uva_letras a {
+  font-size: 0.8em;
+}
+
+.cabecera_uva a, .cabecera_uva a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.cabecera_uva .uva_icon {
+  font-size: 1.6em;
+}

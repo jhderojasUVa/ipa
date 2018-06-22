@@ -115,3 +115,26 @@ function listener_upload() {
     $(".nombre_fichero_upload").html("<p><strong>Fichero</strong>: <small>"+this.files[0].name+"</small></p>");
   });
 }
+
+function sube_comentario() {
+  // Funcion que sube un comentario por ajax
+  var texto_comentario = $("textarea[name='comentario']").val();
+  var idpiso = $("input[name='idpiso']").val();
+  $.ajax({
+    url: "/index.php/pisos/comentarios",
+    type: "POST",
+    data: {
+      idpiso: idpiso,
+      comentario: texto_comentario
+    }
+  }).done(function(data) {
+    resultado = "";
+    $.each(data.comentarios, function (i, item) {
+      resultado += "<div class=\"small-12 cell comentario\">";
+      resultado += "<h4>"+item.nombre.nombre+"</h4>";
+      resultado += "<p>"+item.comentario+"</p>";
+
+      resultado += "</div>";
+    });
+  });
+}
