@@ -85,19 +85,24 @@ $(document).ready(function() {
 							data: [<? for ($i=0;$i<count($pisos_mes_actual_nouva);$i++) {?><?=$pisos_mes_actual_nouva[$i][1]?>,<? } ?>]
 						}]
 	});
-	  
+
 });
 
 function formatea() {
 	var fechainicio = $("#anoi").val()+"-"+$("#mesi").val()+"-"+$("#diai").val();
 	var fechafin = $("#anof").val()+"-"+$("#mesf").val()+"-"+$("#diaf").val();
-		
+
 	$("#fechainicio").attr("value", fechainicio);
-	
+
 	$("#fechafin").attr("value=",fechafin);
 	document.submit();
 }
 </script>
+<style>
+.highcharts-container {
+	z-index: -1000;
+}
+</style>
 </head>
 
 <body>
@@ -118,7 +123,7 @@ function formatea() {
             <td align="right"><?=$totales_pisos_hoy?></td>
         </tr>
     </table>
-    
+
     <table align="center" width="350">
     	<tr>
         	<td align="left"><strong>Pisos totales por usuarios UVa hoy</strong></td>
@@ -129,7 +134,7 @@ function formatea() {
             <td align="right"><?=$totales_pisos_uva_siempre?></td>
         </tr>
     </table>
-    
+
     <table align="center" width="350">
     	<tr>
         	<td align="left"><strong>Pisos totales por usuarios IPA hoy</strong></td>
@@ -140,7 +145,7 @@ function formatea() {
             <td align="right"><?=$totales_pisos_nouva_siempre?></td>
         </tr>
     </table>
-    
+
     <table align="center" width="350">
     	<tr>
         	<td align="left"><strong>Usuarios totales en la plataforma</strong></td>
@@ -151,7 +156,7 @@ function formatea() {
             <td align="right"><?=$totales_pisos_siempre?></td>
         </tr>
     </table>
-    
+
     </div>
     <div id="grafico_generales">
     </div>
