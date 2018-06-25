@@ -88,7 +88,6 @@ class Mis extends CI_Controller {
 			$datos["logeado"] = false;
 		}
 
-		$datos["q"] = "";
 		$datos["mis_comentarios"] = $this -> comentarios_model -> show_comentario_usuario($datos["usuario"]);
 		//$datos["cantidad_mis_comentarios"] = $this -> comentarios_model -> show_cantidad_comentario_usuario($datos["usuario"]);
 		$datos["cantidad_mis_comentarios"] = count($datos["mis_comentarios"]);
@@ -133,9 +132,12 @@ class Mis extends CI_Controller {
 				$password = $this -> input -> post("password");
 				$this -> usuarios_model -> cambia_campo("password", $password, $idu);
 
-				$this -> load -> view("cabecera", $datos);
+				// Recuperamos los datos del usuario para el correo
+				$datos["datos_usuario"] = $this -> usuarios_model -> devuelve_datos_usuario_id($idu);
+
+				$this -> load -> view("cabecera");
 				$this -> load -> view("mis/misdatos_ok");
-				$this -> load -> view("footer", $datos);
+				$this -> load -> view("footer");
 			}
 
 			// Si quiere cambiar datos del usuarios
@@ -153,9 +155,12 @@ class Mis extends CI_Controller {
 				$dni = strtoupper($this -> input -> post("dni"));
 				$this -> usuarios_model -> cambia_campo("dni", $dni, $idu);
 
-				$this -> load -> view("cabecera", $datos);
-				$this -> load -> view("mis/misdatos_ok");
-				$this -> load -> view("footer", $datos);
+				// Recuperamos los datos del usuario para el correo
+				$datos["datos_usuario"] = $this -> usuarios_model -> devuelve_datos_usuario_id($idu);
+
+				$this -> load -> view("cabecera");
+				$this -> load -> view("mis/misdatos_ok", $datos);
+				$this -> load -> view("footer");
 			}
 
 		} else {

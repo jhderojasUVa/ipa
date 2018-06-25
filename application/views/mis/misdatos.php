@@ -115,7 +115,7 @@ function comprueba_form() {
 				<!-- apellidos -->
 				<div class="row">
 					<div class="large-12 columns">
-						<label>Usuario
+						<label>Usuario (no se puede modificar)
 							<input name="apellidos" type="text" id="login" disabled laceholder="login" max="40" maxlength="40" value="<?=$usuario?>"/>
 						</label>
 					</div>
@@ -159,6 +159,7 @@ function comprueba_form() {
 					</div>
 				</div>
 			</form> <!-- fin del form -->
+			<p><strong>Atenci&oacute;n</strong>: si necesita cambiar alguno de sus datos anteriores, por seguridad y para poder comprobar su identidad, pongase en contacto con <a href="mailto:ipa.asuntos.sociales@uva.es?subject=Cambiar mis datos, usuario: <?=$usuario?>">ipa.asuntos.sociales@uva.es</a> indicando su usuario y el porque de dicho cambio.</p>
 	</div>
 </div>
 
@@ -180,7 +181,7 @@ function comprueba_form() {
 				<div class="row">
 					<div class="large-12 columns">
 						<label>Repita la contrase&ntilde;a
-							<input name="password2" type="password" id="password" max="20" size="20" maxlength="20" />
+							<input name="password2" type="password" id="password2" max="20" size="20" maxlength="20" />
 						</label>
 					</div>
 				</div>
