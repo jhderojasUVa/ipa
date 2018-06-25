@@ -28,30 +28,31 @@
   </head>
   <body>
     <!-- header UVa -->
-    <div class="grid-container full cabecera_uva">
+    <div class="grid-container full cabecera_uva show-for-medium">
       <div class="grid-container">
-
-      <div class="grid-x align-middle">
-        <div class="cell small-1">
-          <a href="http://www.uva.es" role="link"><i class="fi-home"></i></a>
-        </div>
-        <div class="cell small-5">
-          <h1 class="uvalogo"><strong>Universidad</strong> de <strong>Valladolid</strong></h1>
-        </div>
-        <div class="cell small-6" style="text-align: right;">
-          <ul>
-            <li>|</li>
-            <li><div class="cabecera_uva_letras" style="width: 60px;padding-top: 7px;"><a href="http://directorio.uva.es" role="link">Directorio</a></div><a href="http://directorio.uva.es" role="link" class="uva_icon"><i class="fi-results-demographics"></i></a></li>
-            <li>|</li>
-            <li><div class="cabecera_uva_letras" style="width: 80px;""><a href="https://miportal.uva.es" role="link">Comunidad Universitaria</div><a href="https://miportal.uva.es" role="link" class="uva_icon"><i class="fi-lock"></i></a></li>
-            <li>|</li>
-            <li><a href="http://www.uva.es/buscador.html" role="link" class="uva_icon"><i class="fi-magnifying-glass"></i></a></li>
-            <li>|</li>
-          </ul>
+        <div class="grid-x align-middle">
+          <div class="cell small-1">
+            <a href="http://www.uva.es" role="link"><i class="fi-home"></i></a>
+          </div>
+          <div class="cell small-5">
+            <h1 class="uvalogo"><strong>Universidad</strong> de <strong>Valladolid</strong></h1>
+          </div>
+          <div class="cell small-6" style="text-align: right;">
+            <ul>
+              <li>|</li>
+              <li><div class="cabecera_uva_letras" style="width: 60px;padding-top: 7px;"><a href="http://directorio.uva.es" role="link">Directorio</a></div><a href="http://directorio.uva.es" role="link" class="uva_icon"><i class="fi-results-demographics"></i></a></li>
+              <li>|</li>
+              <li><div class="cabecera_uva_letras" style="width: 80px;"><a href="https://miportal.uva.es" role="link">Comunidad Universitaria</div><a href="https://miportal.uva.es" role="link" class="uva_icon"><i class="fi-lock"></i></a></li>
+              <li>|</li>
+              <li><a href="http://www.uva.es/buscador.html" role="link" class="uva_icon"><i class="fi-magnifying-glass"></i></a></li>
+              <li>|</li>
+            </ul>
+          </div>
         </div>
       </div>
-
-      </div>
+    </div>
+    <div class="grid-container full cabecera_uva show-for-small-only">
+      <div style="height:5px;"></div>
     </div>
 
 		<!-- header md & lg -->
