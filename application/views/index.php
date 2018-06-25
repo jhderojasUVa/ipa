@@ -100,6 +100,7 @@
                 <ul class="opciones">
 									<?
 									$extras = explode("|",$ultimos_6[$i]["extras"]);
+									sort($extras);
 									for ($i2=0;$i2<count($extras);$i2++) { ?>
 										<li>
 											<? switch ($extras[$i2]) {
