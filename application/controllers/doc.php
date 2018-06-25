@@ -456,12 +456,9 @@ class Doc extends CI_Controller {
 					}
 				}
 			}
-			/*for ($i= $this -> input -> post("mesi")) {
-			}*/
-			//log_message("DEBUG", "meses diferencia = ".$meses_diferencia);
 
 			// Seguimos y buscamos dias y meses
-			for ($aux = 0; $aux<=$mes_diferencia; $aux++) {
+			for ($aux = 0; $aux<=$meses_diferencia; $aux++) {
 			}
 
 			$this -> load -> view("doc/estadisticas", $datos);
