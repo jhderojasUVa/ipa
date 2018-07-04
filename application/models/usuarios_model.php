@@ -229,5 +229,18 @@ class Usuarios_model extends CI_Model {
       }
     }
   }
+
+  public function ver_usuarios_no_ipa() {
+    // Funcion que muestra los usuarios que no son IPA, vamos los de la uva
+    // FUNCION PARA ADMIN
+
+    $sql = "SELECT * FROM usuarios WHERE idu like 'e%'";
+    $resultado = $this -> db -> query($sql);
+    if ($resultado -> num_rows()>0) {
+      return $resultado -> result();
+    } else {
+      return false;
+    }
+  }
 }
 ?>
