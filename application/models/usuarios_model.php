@@ -192,7 +192,7 @@ class Usuarios_model extends CI_Model {
     // Funcion que borra usuarios de una fecha hacia atras
     // FUNCION PARA ADMIN
 
-    $path = "";
+    $path = $this -> config -> item("upload_path"); // En beta necesario poner el path, en guay lo leemos del config
 
     // Lo primero seria eliminar los pisos del usuario
     $sql_idu = "SELECT idu FROM usuarios WHERE fechaalta <='".$fecha."'";
