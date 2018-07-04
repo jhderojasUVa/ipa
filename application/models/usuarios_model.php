@@ -192,8 +192,41 @@ class Usuarios_model extends CI_Model {
     // Funcion que borra usuarios de una fecha hacia atras
     // FUNCION PARA ADMIN
 
+    $path = "";
+
     // Lo primero seria eliminar los pisos del usuario
-    
+    $sql_idu = "SELECT idu FROM usuarios WHERE fechaalta <='".$fecha."'";
+    $resultado = $this -> db -> query($sql_idu);
+    if ($resultado -> num_rows()>0) {
+      for ($resultado -> result() as $row) {
+        // Comentarios y amigos
+        $sql_comentarios = "DELETE FROM comentarios WHERE idusuario=".$row -> idu;
+        $resultado_comentario = $this -> db -> query($sql_comentarios);
+        $sql_denuncias = "DELETE FROM denuncias WHERE iddenunciante=".$row -> idu;
+        $resultado_denuncias = $this -> db -> query($sql_denuncias);
+        // Eliminamos las imagenes
+        // Primero los ficheros
+        $sql_pisos = "SELECT id_piso FROM pisos WHERE idusuario=".$row -> idu;
+        $resultado_pisos = $this -> db -> query($sql_pisos);
+        if ($resultado_pisos -> num_rows()>0) {
+          // Si hay pisos, necesitamos las imagenes
+          for ($resultado_pisos -> result() as $row_pisos) {
+            $sql_imagenes = "SELECT imagen FROM imagenes_piso WHERE idpiso=".$row_pisos -> id_piso;
+            $resultado_imagenes = $this -> db -> query($sql_imagenes);
+            if ($resultado_imagenes -> num_rows()>0) {
+              for ($resultado_imagenes -> result() as $row_imagenes) {
+                  unlink($path."/".$row -> idu."/".$row_imagenes -> imagen);
+              }
+            }
+            // Lo eliminamos de la BD
+            $sql_elimina_imagenes = "DELETE FROM imagenes_piso WHERE idpiso=".$row_pisos -> id_piso;
+            $resultado_borrado = $this -> db -> query($sql_elimina_imagenes);
+          } // Fin de borrar las imagenes y dejarlo como una patena
+        }
+        // Eliminamos los pisos que tenga
+        $sql_elimina_pisos = "DELETE FROM pisos WHERE idusuario=".$row -> idu;
+      }
+    }
   }
 }
 ?>
