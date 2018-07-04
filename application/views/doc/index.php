@@ -101,14 +101,16 @@
     <form action="<?=base_url()?>index.php/doc/addpiso" method="post">
     <input type="submit" value="añadir piso" class="boton"/>
     </form>
-		<h1>Utilidades de mantenimiento extras y paso de v1 a v2 de IPA</h1>
-		<p>¡Cuidado al usar estas utilidades!. El resultado es una pagina con el resultado a chorron, te tocara retroceder a las bravas en el navegador. Estan puesto en el orden que seria conveniente usarlas.</p>
-		<p><strong>¡Asegurate de que antes hay copia de seguridad de todo esto porque no hay vuelta atras!</strong></p>
-		<ul>
-			<li>1. <a href="<?=base_url()?>index.php/doc/coloca_en_directorio">Coloca las imagenes del raiz en directorio del piso correspondiente</a></li>
-			<li>2. <a href="<?=base_url()?>index.php/doc/imagen_sin_id">Elimina imagenes sin piso</a></li>
-			<li>3. <a href="<?=base_url()?>index.php/doc/borra_imagenes_sin_duenyo">Elimina las imagenes que no tienen dueño. Diferencia del anterior es que son las que estan en bruto en el directorio donde se almacenan todas</a></li>
-		</ul>
+		<div style="border: 1px solid red; padding: 20px;">
+			<h1>Utilidades de mantenimiento extras y paso de v1 a v2 de IPA</h1>
+			<p>¡Cuidado al usar estas utilidades!. El resultado es una pagina con el resultado a chorron, te tocara retroceder a las bravas en el navegador. Estan puesto en el orden que seria conveniente usarlas.</p>
+			<p><strong>¡Asegurate de que antes hay copia de seguridad de todo esto porque no hay vuelta atras!</strong></p>
+			<ul style="padding: 30px; text-align: left;">
+				<li>1. <a href="<?=base_url()?>index.php/doc/coloca_en_directorio">Coloca las imagenes del raiz en directorio del piso correspondiente</a></li>
+				<li>2. <a href="<?=base_url()?>index.php/doc/imagen_sin_id">Elimina imagenes sin piso</a></li>
+				<li>3. <a href="<?=base_url()?>index.php/doc/borra_imagenes_sin_duenyo">Elimina las imagenes que no tienen dueño. Diferencia del anterior es que son las que estan en bruto en el directorio donde se almacenan todas</a></li>
+			</ul>
+		</div>
 </div>
 </body>
 </html>

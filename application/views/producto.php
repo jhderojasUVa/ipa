@@ -63,7 +63,7 @@ $minuto = substr($fecha_insercion, 14, 2);
 					<!-- derecha -->
 	        <div class="medium-4 small-12 cell">
 	          <h2 class="headline">Contenido</h2>
-						<? if (count($extras)>0) { ?>
+						<? if (count($extras)>0) { sort($extras);?>
 							<ul class="extras">
 							<? for ($i2=0;$i2<count($extras);$i2++) { ?>
 								<li>
