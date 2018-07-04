@@ -225,6 +225,7 @@ class Usuarios_model extends CI_Model {
         }
         // Eliminamos los pisos que tenga
         $sql_elimina_pisos = "DELETE FROM pisos WHERE idusuario=".$row -> idu;
+        $resultado_elimina_pisos = $this -> db -> query($sql_elimina_pisos);
       }
     }
   }
