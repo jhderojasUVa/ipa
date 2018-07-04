@@ -187,5 +187,13 @@ class Usuarios_model extends CI_Model {
 
 		return $resultado -> result();
 	}
+
+  function borrar_usuarios_fecha($fecha) {
+    // Funcion que borra usuarios de una fecha hacia atras
+    // FUNCION PARA ADMIN
+
+    // Lo primero seria eliminar los pisos del usuario
+    
+  }
 }
 ?>

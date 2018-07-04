@@ -21,7 +21,11 @@ Recordad, si alguien quiere usar esto, ir al ultimo branch.
 
 ## Falta la base de datos
 
-No esta incorporado un .sql con la base de datos vacia.
+```
+sql/ipa.sql
+```
+
+En este fichero se encuentra la estructura (esta sin datos, obviamente) de la base de datos.
 
 ## Punto en el que esta el Master
 
