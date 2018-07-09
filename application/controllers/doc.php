@@ -594,6 +594,17 @@ class Doc extends CI_Controller {
 
 	}
 
+	public function ver_pisos_uva() {
+		// Funcion que muestra los pisos de los UVa, la cantidad de ellos
+
+		$usuario = $this -> ssouva -> login();
+		$datos["usuario"] = $usuario;
+
+		if ($this -> admin_model -> es_admin($usuario)>0) {
+			$datos["usuarios_uva"] = $this -> model -> pisos_model -> show_pisos_usuario_uva();
+		}
+	}
+
 	/*****************************************************************************
 
 	Funciones peligrosas de administracion

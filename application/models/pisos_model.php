@@ -821,5 +821,17 @@ class Pisos_model extends CI_Model {
       return false;
     }
   }
+
+  function show_pisos_usuario_uva() {
+    // Funcion que devuelve la cantidad de pisos que tienen los usuarios UVa
+    //$sql = "SELECT * FROM pisos WHERE idusuario like 'e%'";
+    $sql = "SELECT idusuario, count(id_piso) AS pisos_totales FROM pisos WHERE idusuario LIKE 'e%' GROUP BY idusuario";
+    $resultado = $this -> db -> query($sql);
+    if ($resultado -> num_rows()>0) {
+      return $resultado -> result();
+    } else {
+      return false;
+    }
+  }
 }
 ?>
