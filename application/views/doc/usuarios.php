@@ -71,6 +71,25 @@
     	<p><strong>No se han encontrado resultados de su busqueda!</strong></p>
     <? } ?>
     <? } // Fin de mostrar resultados?>
+		<!-- usuario UVa -->
+		<? if ($usuarios_uva) { ?>
+		<div class="contenido">
+			<h1>Usuarios UVa que tienen piso</h1>
+			<p>Si todo va bien, aqui tienes una lista de los usuarios de la UVa con pisos por sus DNI</p>
+			<table>
+				<th>
+					<td>Identificador</td>
+					<td>Numero de pisos</td>
+				</th>
+				<? foreach ($usuarios_uva as $row) { ?>
+					<tr>
+						<td><a href="<?=base_url()?>doc/ver_pisos_usuarios_nouva" role="link"><?=$row -> idusuario?></a></td>
+						<td><?=$row -> pisos_totales?></td>
+					</tr>
+				<? } ?>
+			</table>
+		</div>
+		<? } ?>
     <hr />
     <h1>Busca un usuario para editarlo</h1>
     <p>Se busca en el nombre, apellido, direccion, nombre de usuario. Dejar vacio para mostrar <strong>toda la lista de usuarios</strong> (esto puede llevar tiempo).</p>

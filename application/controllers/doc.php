@@ -346,6 +346,7 @@ class Doc extends CI_Controller {
 				$datos["q"] = $this -> input -> post("q");
 				$datos["resultados"] = $this -> usuarios_model -> buscar_usuario($datos["q"]);
 			}
+			$datos["usuarios_uva"] = $this -> usuarios_model -> show_pisos_usuario_uva();
 			$datos["usuarios_no"] = $this -> usuarios_model -> usuarios_no_activados();
 			$this -> load -> view("doc/usuarios", $datos);
 		}
