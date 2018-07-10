@@ -472,7 +472,7 @@ class Doc extends CI_Controller {
 		$datos["usuario"] = $usuario;
 		if ($this -> admin_model -> es_admin($usuario)>0) {
 			// Cogemos el usuario
-			$idabuscar = $this -> input -> get("idusuario");
+			$idabuscar = $this -> input -> post_get("idusuario");
 			$datos["busqueda"] = $this -> pisos_model -> pisos_usuario($idabuscar);
 			$datos["q"] = "";
 
