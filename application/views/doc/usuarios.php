@@ -83,7 +83,7 @@
 				</th>
 				<? foreach ($usuarios_uva as $row) { ?>
 					<tr>
-						<td><a href="<?=base_url()?>doc/ver_pisos_usuarios_nouva" role="link"><?=$row -> idusuario?></a></td>
+						<td><a href="<?=base_url()?>doc/mostrar_pisos_usuario?idusuario=<?=$row -> idusuario?>" role="link"><?=$row -> idusuario?></a></td>
 						<td><?=$row -> pisos_totales?></td>
 					</tr>
 				<? } ?>

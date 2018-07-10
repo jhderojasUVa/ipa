@@ -399,7 +399,7 @@ class Doc extends CI_Controller {
 			$datos["ayer"] = $ayer;
 			$datos["hoy"] = $hoy;
 
-			log_message("DEBUG","ayer = ".$ayer." | hoy = ".$hoy);
+			//log_message("DEBUG","ayer = ".$ayer." | hoy = ".$hoy);
 
 			//$datos["totales_usuarios_hoy"] = $this -> estadisticas_model -> cantidad_usuarios($fechainicio, $fechafin);
 			//$datos["totales_pisos_hoy"] = $this -> estadisticas_model -> cantidad_pisos($fechainicio, $fechafin);
@@ -603,6 +603,18 @@ class Doc extends CI_Controller {
 
 		if ($this -> admin_model -> es_admin($usuario)>0) {
 			$datos["usuarios_uva"] = $this -> model -> pisos_model -> show_pisos_usuario_uva();
+		}
+	}
+
+	public function ver_pisos_usuarios_uva() {
+		// FUncion que muestra los pisos de un determinado usuario UVa
+
+		$usuario = $this -> ssouva -> login();
+		$datos["usuario"] = $usuario;
+
+		if ($this -> admin_model -> es_admin($usuario)>0) {
+			$idu = $this -> input -> get('idu');
+			$datos["pisos"] = $this -> model -> pisos_model -> show_pisos_pollo($idu);
 		}
 	}
 
