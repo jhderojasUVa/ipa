@@ -12,7 +12,7 @@ class SlideshowComponent extends React.Component {
 
   componentWillMount() {
     return fetch ('/index.php/componentes/slideshow/slideshow')
-            .then((response) => reponse.json())
+            .then((response) => response.json())
             .then((responsejson) => {
               this.setState({
                 isloading: false,
