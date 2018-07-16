@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Slideshow extends CI_Controller {
+class Portada extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -32,7 +32,7 @@ class Slideshow extends CI_Controller {
   public function slideshow() {
     // Funcion que devuelve el JSON necesario para el componente del slideshow
 
-    $datos["ultimos_6"] = $this -> pisos_model -> muestra_5_imagenes_piso(6);
+    $datos["slideshow"] = $this -> pisos_model -> muestra_5_imagenes_piso(6);
 
     // Cambiamos la cabecera a JSON de respuesta
     header('Content-Type: application/json');
@@ -40,5 +40,16 @@ class Slideshow extends CI_Controller {
     echo json_encode($datos);
 
   }
+
+	public function ultimos_6() {
+		// Funcion que debuelve el JSON necesario para los ultimos 6 pisos
+
+		$datos["ultimos_6"] = this -> pisos_model -> muestra_ultimos_pisos(6);
+
+		// Cambiamos la cabecera a JSON de respuesta
+    header('Content-Type: application/json');
+    // Escupimos la respuesta
+    echo json_encode($datos);
+	}
 
 }
