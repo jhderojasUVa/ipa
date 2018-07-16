@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //$path = "/servicios/samba/silos/silo1/aplicaciones/ebayuva/img_pisos";
-$path = "/httdocs/ipa/img_pisos";
+//$path = "/httdocs/ipa/img_pisos";
 
 class Pisos extends CI_Controller {
 
