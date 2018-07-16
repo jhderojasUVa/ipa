@@ -27,6 +27,8 @@ class Ultimos6Pisos extends React.Component {
 
   render() {
 
+    var hostname = window.location.hostname;
+
     if (this.state.isloading == false) {
       var totalcards = this.state.ultimos_6.foreach((datospisos, index) => {
         var extras = datospisos.extras.split('|');
@@ -35,40 +37,40 @@ class Ultimos6Pisos extends React.Component {
         extras.foreach((datosextras, index) => {
           switch (datosextras) {
             case 'Cocina':
-              extras_img.push('<img class="extras" src="/img/icons/009-cocina.png" alt="Cocina" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/009-cocina.png" alt="Cocina" />');
               break;
             case 'Frigo':
-              extras_img.push('<img class="extras" src="/img/icons/004-frigorifico.png" alt="Frigorigico" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/004-frigorifico.png" alt="Frigorigico" />');
               break;
             case 'Lavadora':
-              extras_img.push('<img class="extras" src="/img/icons/010-lavadora.png" alt="Lavadora" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/010-lavadora.png" alt="Lavadora" />');
               break;
             case 'Vajilla':
-              extras_img.push('<img class="extras" src="/img/icons/005-vajilla.png" alt="Vajilla" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/005-vajilla.png" alt="Vajilla" />');
               break;
             case 'Cama':
-              extras_img.push('<img class="extras" src="/img/icons/006-cama.png" alt="Cama" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/006-cama.png" alt="Cama" />');
               break;
             case 'Bano':
-              extras_img.push('<img class="extras" src="/img/icons/011-servicio.png" alt="Baño" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/011-servicio.png" alt="Baño" />');
               break;
             case 'Horno':
-              extras_img.push('<img class="extras" src="/img/icons/008-horno.png" alt="Horno" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/008-horno.png" alt="Horno" />');
               break;
             case 'Secadora':
-              extras_img.push('<img class="extras" src="/img/icons/012-secadora.png" alt="Secadora" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/012-secadora.png" alt="Secadora" />');
               break;
             case 'TV':
-              extras_img.push('<img class="extras" src="/img/icons/002-television.png" alt="TV" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/002-television.png" alt="TV" />');
               break;
             case 'Telefono':
-              extras_img.push('<img class="extras" src="/img/icons/003-phone.png" alt="Telefono" />');
+              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/003-phone.png" alt="Telefono" />');
               break;
             case 'WIFI':
               extras_img.push('<img class="extras" src="/img/icons/001-wifi.png" alt="Internet" />');
               break;
             case 'Compartido':
-              extras_img.push('<img class="extras" src="<?=base_url()?>img/icons/013-compartido.png" alt="Compartido" />');
+              extras_img.push('<img class="extras" src="'+hostname+'img/icons/013-compartido.png" alt="Compartido" />');
               break
             default:
               break;
@@ -77,28 +79,29 @@ class Ultimos6Pisos extends React.Component {
         var divstyle = {
           width: '100%',
           height: '100%',
-          backgroundImage: `url(/img_pisos/${datospisos.idpiso}/${datospisos.imagen})`,
+          backgroundImage: `url(${hostname}/img_pisos/${datospisos.idpiso}/${datospisos.imagen})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover'
         }
         return (
-          <div className="medium-cell"
-          <div className="card">
-            <div style={divstyle}></div>
-            <div className="card-section">
-              <p className="texto">
-                {datospisos.descripcion.replace('[Plazas ofertadas]', '').replace('[Número habitaciones]', '').replace('[Datos del inmueble]', '')}
-              </p>
-              <ul className="opciones">
-                <li>{datosextras}</li>
-              </ul>
-            </div>
-            <div className="card-section">
-            <center>
-              <a href=`/index.php/pisos/producto_piso?id=${datospisos.idpiso}` className="button" role="link">Ver piso</a>
-              <a href=`http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=${datospisos.direccion}&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=${datospisos.direccion}&amp;t=m&amp;z=50&amp` className="button" role="link" target="_blank">Google Maps</a>
-            </center>
+          <div className="medium-4 cell">
+            <div className="card">
+              <div style={divstyle}></div>
+              <div className="card-section">
+                <p className="texto">
+                  {datospisos.descripcion.replace('[Plazas ofertadas]', '').replace('[Número habitaciones]', '').replace('[Datos del inmueble]', '')}
+                </p>
+                <ul className="opciones">
+                  <li>{datosextras}</li>
+                </ul>
+              </div>
+              <div className="card-section">
+              <center>
+                <a href=`${hostname}/index.php/pisos/producto_piso?id=${datospisos.idpiso}` className="button" role="link">Ver piso</a>
+                <a href=`http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=${datospisos.direccion}&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=${datospisos.direccion}&amp;t=m&amp;z=50&amp` className="button" role="link" target="_blank">Google Maps</a>
+              </center>
+              </div>
             </div>
           </div>
         )

@@ -26,12 +26,15 @@ class SlideshowComponent extends React.Component {
   }
 
   render() {
+
+    var hostname = window.location.hostname;
+
     if (this.state.isloading == false) {
       var imagesSlideshow = this.state.slideshowdata.foreach((datospiso, index) => {
         return (
           <div className="caja" key={index}>
-            <a href=`/index.php/pisos/producto_piso?id=${datospiso.id_piso}` role="link">
-              <img src=`/img_pisos/${datospiso.id_piso}/${datospiso.imagen}` alt={datospiso.descripcion} />
+            <a href=`${hostname}/index.php/pisos/producto_piso?id=${datospiso.id_piso}` role="link">
+              <img src=`${hostname}/img_pisos/${datospiso.id_piso}/${datospiso.imagen}` alt={datospiso.descripcion} />
             </a>
           </div>
         )
