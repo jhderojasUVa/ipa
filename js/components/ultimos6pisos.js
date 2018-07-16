@@ -122,4 +122,4 @@ class Ultimos6Pisos extends React.Component {
 
 }
 
-export default Ultimos6Pisos;
+ReactDOM.render(<Ultimos6Pisos />, document.getElementById("ultimos_6_pisos"));
