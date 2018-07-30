@@ -83,7 +83,7 @@
 			</div>
 		</div>
 
-		<? if (count($ultimos_6)>0) {?>
+<? if (count($ultimos_6)>0) {?>
 		<!-- ultimas ofertas -->
 		<div class="ultimas_ofertas">
       <div class="grid-container">
@@ -185,3 +185,19 @@
       </div>
     </div>
 	<? } // fin de si hay ultimos ?>
+
+	<!-- ultimos 6 -->
+	<div class="ultimas_ofertas">
+		<div class="grid-container">
+			<div class="grid-x grid-margin-x">
+				<div class="medium-12 cell">
+					<h2 class="headline">Últimos pisos</h2>
+				</div>
+			</div>
+			<!-- casas destacadas -->
+			<div class="grid-x grid-margin-x">
+				<Ultimos6Pisos />
+			</div>
+		</div>
+	</div>
+	<script src="<?=base_url()?>js/components/ultimos6pisosComponent.js"></script>
