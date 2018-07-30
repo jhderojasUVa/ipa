@@ -19,6 +19,14 @@
       </div>
     </div>
 
+		<!-- Slideshow component -->
+		<div class="grid-x">
+			<div class="cell" style="overflow: hidden;">
+				<SlideshowComponent />
+			</div>
+		</div>
+		<script src="<?=base_url()?>js/components/slideshowComponent.js"></script>
+
 		<!-- Buscador -->
 		<div class="buscador align-middle">
       <form action="<?=base_url()?>index.php/buscar/busquedas" method="post">
