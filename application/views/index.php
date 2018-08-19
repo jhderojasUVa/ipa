@@ -1,5 +1,6 @@
 <? $this -> load -> helper ("url"); ?>
 
+		<? /*
 		<!-- Slideshow -->
 		<div class="grid-x">
       <div class="cell" style="overflow: hidden;">
@@ -18,7 +19,7 @@
         </div>
       </div>
     </div>
-
+		*/ ?>
 		<!-- Slideshow component -->
 		<div class="grid-x">
 			<div class="cell" style="overflow: hidden;">
@@ -83,6 +84,7 @@
 			</div>
 		</div>
 
+<? /*
 <? if (count($ultimos_6)>0) {?>
 		<!-- ultimas ofertas -->
 		<div class="ultimas_ofertas">
@@ -185,6 +187,7 @@
       </div>
     </div>
 	<? } // fin de si hay ultimos ?>
+*/ ?>
 
 	<!-- ultimos 6 -->
 	<div class="ultimas_ofertas">
