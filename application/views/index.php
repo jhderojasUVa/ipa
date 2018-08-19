@@ -38,6 +38,8 @@
 					</div>
 				</div>
 				<div class="grid-x grid-margin-x">
+					<BarriosciudadesComponent />
+					<? /*
 					<div class="medium-12 cell barrios">
 						<ul>
 							<? if ($barrios==false) { ?>
@@ -60,9 +62,12 @@
 	            <? } // fin del if ?>
 						</ul>
 					</div>
+					*/ ?>
+
 				</div>
 			</div>
 		</div>
+		<script src="<?=base_url()?>js/components/barriosCiudadesComponent.js"></script>
 
 	<!-- ultimos 6 -->
 	<div class="ultimas_ofertas">

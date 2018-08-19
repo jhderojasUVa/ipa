@@ -38,28 +38,47 @@ class BarriosciudadesComponent extends React.Component {
     var hostname = window.location.hostname;
 
     if (this.state.isloading == false) {
-      var imagesSlideshow = this.state.slideshowdata.foreach((datospiso, index) => {
+      var barrios = this.state.barrios.foreach((datosbarrio, index) => {
         return (
-          <div className="caja" key={index}>
-            <a href=`${hostname}/index.php/pisos/producto_piso?id=${datospiso.id_piso}` role="link">
-              <img src=`${hostname}/img_pisos/${datospiso.id_piso}/${datospiso.imagen}` alt={datospiso.descripcion} />
+          <li key={index}>
+            <a href=`${hostname}index.php/principal/barrios?id=${datosbarrio.idbarrio}` role="link">
+              ${datosbarrio.barrio} (${datosbarrio.ciudad})
             </a>
-          </div>
+          </li>
         )
-      })
+      });
+      var ciudades = var barrios = this.state.ciudades.foreach((datosciudad, index) => {
+        return (
+          <li key={index}>
+            <a href=`${hostname}index.php/principal/ciudades?id=${datosciudad.idlocalizacion}` role="link">
+              ${datosciudad.localizacion}
+            </a>
+          </li>
+        )
+      });
     };
 
     if (this.state.isloading === false) {
       // Si ya ha cargado
       return (
-        <div className="slideshow">
-          {imagesSlideshow}
+        <div className="medium-12 cell barrios">
+          <ul>
+            {barrios}
+          </ul>
+        </div>
+        <div className="medium-12 cell ciudades">
+          <ul>
+            {ciudades}
+          </ul>
         </div>
       );
     } else {
       // Si esta cargando
       return (
-        <div className="slideshow">
+        <div className="medium-12 cell barrios">
+          <p>Cargando... espere por favor...</p>
+        </div>
+        <div className="medium-12 cell ciudades">
           <p>Cargando... espere por favor...</p>
         </div>
       );
