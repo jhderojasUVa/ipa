@@ -18,6 +18,7 @@ class BarriosciudadesComponent extends React.Component {
   }
 
   componentWillMount() {
+    // Seria aqui bueno poner el hostname??
     return fetch ('/index.php/componentes/portada/barriosciudades')
             .then((response) => response.json())
             .then((responsejson) => {
@@ -35,7 +36,7 @@ class BarriosciudadesComponent extends React.Component {
 
   render() {
 
-    var hostname = window.location.hostname;
+    let hostname = window.location.hostname;
 
     if (this.state.isloading == false) {
       var barrios = this.state.barrios.foreach((datosbarrio, index) => {
