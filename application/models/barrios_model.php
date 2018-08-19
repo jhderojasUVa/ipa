@@ -93,6 +93,18 @@ class Barrios_model extends CI_Model {
 		}
 	}
 
+  function ciudades_con_pisos() {
+    // Muestra las ciudades que tienen pisos
+    $sql = "SELECT DISTINCT idlocalizacion, localizacion FROM localizaciones ORDER BY localizacion";
+    $resultado = $this -> db -> query($sql);
+    if ($resultado -> num_rows() > 0) {
+      // Si hay resultados
+      return $resultado -> result();
+    } else {
+      return false;
+    }
+  }
+
 	function devuelve_barrio($idpiso) {
 		// Devuelve el nombre del barrio con el identifcador del piso
 		$sql = "SELECT idbarrio FROM pisos WHERE id_piso=".$idpiso;
