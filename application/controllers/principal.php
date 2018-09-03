@@ -24,35 +24,42 @@ class Principal extends CI_Controller {
 
 	}
 
+	// Esta aplicacion requiere una mejora ya que el logueado o no
+	// esta todo asociado a las cookies de la persona algo que
+	// es preferible de XSS
+	// Una refactorizacion deberia incluir un id unico (uniqid) revisable por
+	// el servidor (codeigniter lo hace ya, pero mejor probarlo nosotros)
+
 	public function index() {
 		// Funcion principal que muestra el home
 
 		// Con esto comprobamos si esta logeado o no
+		// Seguro que se puede refactorizar mucho mejor
 		if ($this -> sesiones_usuarios -> esta_logeado() == true) {
+			// Si esta logueado (leer cookie/sesion)
+			// Leemos si es de la UVa
 			$this -> sesiones_usuarios -> es_uva();
 			if ($_SESSION["uva"] == true) {
 				// Discriminamos si se ha logeado via SSO
+				// Y leeemos sus datos y sus cosas
 				$datos["usuario"] = $this -> ssouva -> login();
 			} else {
 				// O si ha entrado por el sistema de autentificacion local
 				$datos["usuario"] = $_SESSION["idu"];
 			}
-			//$datos["logeado"] = true;
 			$_SESSION["logeado"] = true;
 		} else {
 			// O no esta autentificado
+			// Por si acaso decimos que no
 			$datos["usuario"] = 0;
-			//$datos["logeado"] = false;
 			$_SESSION["uva"] = false;
 			$_SESSION["logeado"] = false;
 		}
 
-		//log_message("DEBUG", ">>>>>>>>>>>>>>>> usuario: ".$datos["usuario"]." | DATOS DEV:".$this -> admin_model -> es_admin($datos["usuario"]));
-
 		// Cosas de sesiones y si es admin o no
 		if ($this -> admin_model -> es_admin($datos["usuario"])>0) {
 			// Es admin
-			//$_SESSION["es_admin"] = true;
+			// Le ponemos que esta logeado en las cookies
 			$_SESSION["logeado"] = true;
 		} else {
 			// No es admin
@@ -472,5 +479,14 @@ class Principal extends CI_Controller {
     $letra = $letras[$resto];
     return $letra;
 	}
+
+	function revisaSiEstaLogueado($id, $uniqid) {
+		// Funcion que revisa si esta logueado y devuelve
+		// true = SI lo esta
+		// false = si va a ser que NO
+		// entradas
+		// $id = identificador del usuario
+		// $uniqid = identificador unico del servidor
+		}
 
 }
