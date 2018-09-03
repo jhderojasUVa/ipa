@@ -39,30 +39,6 @@
 				</div>
 				<div class="grid-x grid-margin-x">
 					<BarriosciudadesComponent />
-					<? /*
-					<div class="medium-12 cell barrios">
-						<ul>
-							<? if ($barrios==false) { ?>
-	            	<li>Lo sentimos. No existen pisos aun.</li>
-	            <? } else { ?>
-		            <? for ($i=0;$i<count($barrios);$i++) { ?>
-		            	<li><a href="<?=base_url()?>index.php/principal/barrios?id=<?=$barrios[$i]["idbarrio"]?>"><?=$barrios[$i]["barrio"]?> (<?=$barrios[$i]["ciudad"]?>)</a></li>
-								<? } // fin del for ?>
-	            <? } // fin del if ?>
-						</ul>
-					</div>
-					<div class="medium-12 cell ciudades">
-						<ul>
-							<? if (count($ciudades)>0) {?>
-		            <? for ($i=0;$i<count($ciudades);$i++) { ?>
-		            	<li><a href="<?=base_url()?>index.php/principal/ciudades?id=<?=$ciudades[$i]["idlocalizacion"]?>"><?=$ciudades[$i]["localizacion"]?></a></li>
-		            <? } // fin del for ?>
-	            <? } else { ?>
-	            	<li>Lo sentimos. No existen pisos aun.</li>
-	            <? } // fin del if ?>
-						</ul>
-					</div>
-					*/ ?>
 
 				</div>
 			</div>
