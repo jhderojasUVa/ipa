@@ -198,7 +198,7 @@ class Usuarios_model extends CI_Model {
     $sql_idu = "SELECT idu FROM usuarios WHERE fechaalta <='".$fecha."'";
     $resultado = $this -> db -> query($sql_idu);
     if ($resultado -> num_rows()>0) {
-      for ($resultado -> result() as $row) {
+      foreach ($resultado -> result() as $row) {
         // Comentarios y amigos
         $sql_comentarios = "DELETE FROM comentarios WHERE idusuario=".$row -> idu;
         $resultado_comentario = $this -> db -> query($sql_comentarios);
@@ -210,11 +210,11 @@ class Usuarios_model extends CI_Model {
         $resultado_pisos = $this -> db -> query($sql_pisos);
         if ($resultado_pisos -> num_rows()>0) {
           // Si hay pisos, necesitamos las imagenes
-          for ($resultado_pisos -> result() as $row_pisos) {
+          foreach ($resultado_pisos -> result() as $row_pisos) {
             $sql_imagenes = "SELECT imagen FROM imagenes_piso WHERE idpiso=".$row_pisos -> id_piso;
             $resultado_imagenes = $this -> db -> query($sql_imagenes);
             if ($resultado_imagenes -> num_rows()>0) {
-              for ($resultado_imagenes -> result() as $row_imagenes) {
+              foreach ($resultado_imagenes -> result() as $row_imagenes) {
                   unlink($path."/".$row -> idu."/".$row_imagenes -> imagen);
               }
             }
