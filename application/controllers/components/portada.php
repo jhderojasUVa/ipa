@@ -52,4 +52,16 @@ class Portada extends CI_Controller {
     echo json_encode($datos);
 	}
 
+	public function barriosciudades() {
+		// Funcion que devuelve todas las ciudades y barrios de las ciudades
+
+		$datos["barrios"] = $this -> barrios_model -> barrios_con_pisos();
+		$datos["ciudades"] = $this -> barrios_model -> ciudades_con_pisos();
+
+		// Cambiamos la cabecera a JSON de respuesta
+    header('Content-Type: application/json');
+    // Escupimos la respuesta
+    echo json_encode($datos);
+	}
+
 }

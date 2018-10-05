@@ -53,6 +53,7 @@ class Ajax extends CI_Controller {
 	}
 
 	public function cambia_estado() {
+		// Funcion que cambia el estado de un piso
 		$datos["idpiso"] = $this -> input -> post("id");
 		if ($datos["idpiso"]=="") {
 
@@ -77,7 +78,6 @@ class Ajax extends CI_Controller {
 				foreach ($resultados as $row) {
 					echo "<a href=\"".base_url()."index.php/pisos/producto_piso?id=".$row -> id_piso."\">".$row -> calle." ".$row -> numero."</a><br>";
 				}
-				//echo "<hr><a onclick=\"javascript:cerrar_popup()\">cerrar</a>";
 			} else {
 				// Borramos la caja de resultados y tal
 			}

@@ -6,6 +6,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPA Información de Pisos en Alquiler. Universidad de Valladolid</title>
+    <!-- React base -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!-- Polyfill -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <!-- General CSS -->
     <link rel="stylesheet" href="<?=base_url()?>css/foundation.css">
     <link rel="stylesheet" href="<?=base_url()?>css/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="<?=base_url()?>css/slick.css">
