@@ -3,10 +3,11 @@
 		<!-- Slideshow component -->
 		<div class="grid-x">
 			<div class="cell" style="overflow: hidden;">
-				<SlideshowComponent />
+				<div id="slideshowcomponent"></div>
+				<!--<SlideshowComponent />-->
 			</div>
 		</div>
-		<script src="<?=base_url()?>js/components/slideshowComponent.js"></script>
+		<script type="text/babel" src="<?=base_url()?>js/components/slideshowComponent.js"></script>
 
 		<!-- Buscador -->
 		<div class="buscador align-middle">
@@ -43,7 +44,7 @@
 				</div>
 			</div>
 		</div>
-		<script src="<?=base_url()?>js/components/barriosCiudadesComponent.js"></script>
+		<!-- <script type="text/babel" src="<?=base_url()?>js/components/barriosCiudadesComponent.js"></script> -->
 
 	<!-- ultimos 6 -->
 	<div class="ultimas_ofertas">
@@ -59,4 +60,4 @@
 			</div>
 		</div>
 	</div>
-	<script src="<?=base_url()?>js/components/ultimos6pisosComponent.js"></script>
+	<!-- <script type="text/babel" src="<?=base_url()?>js/components/ultimos6pisosComponent.js"></script> -->

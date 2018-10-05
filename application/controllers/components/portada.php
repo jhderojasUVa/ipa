@@ -44,7 +44,7 @@ class Portada extends CI_Controller {
 	public function ultimos_6() {
 		// Funcion que debuelve el JSON necesario para los ultimos 6 pisos
 
-		$datos["ultimos_6"] = this -> pisos_model -> muestra_ultimos_pisos(6);
+		$datos["ultimos_6"] = $this -> pisos_model -> muestra_ultimos_pisos(6);
 
 		// Cambiamos la cabecera a JSON de respuesta
     header('Content-Type: application/json');

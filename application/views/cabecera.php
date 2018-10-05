@@ -7,8 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPA Información de Pisos en Alquiler. Universidad de Valladolid</title>
     <!-- React base -->
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- Production -->
+    <!--<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>-->
+    <!-- Development -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Babel -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <!-- Polyfill -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>

@@ -2,7 +2,7 @@
 
 class SlideshowComponent extends React.Component {
 
-  contructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       slideshowdata: [],
@@ -11,9 +11,10 @@ class SlideshowComponent extends React.Component {
   }
 
   componentWillMount() {
-    return fetch ('/index.php/componentes/portada/slideshow')
+    return fetch ('/index.php/components/portada/slideshow')
             .then((response) => response.json())
             .then((responsejson) => {
+              console.log(responsejson.slideshow);
               this.setState({
                 isloading: false,
                 slideshowdata: responsejson.slideshow
@@ -28,34 +29,27 @@ class SlideshowComponent extends React.Component {
   render() {
 
     var hostname = window.location.hostname;
+    var imagesSlideshow;
 
     if (this.state.isloading == false) {
-      var imagesSlideshow = this.state.slideshowdata.foreach((datospiso, index) => {
+      imagesSlideshow = this.state.slideshowdata.map((datospiso, index) => {
+        let theHref = 'http://' + hostname + '/index.php/pisos/producto_piso?id=' + datospiso.id_piso;
+        let imgHref = 'http://' + hostname + '/img_pisos/' + datospiso.id_piso + '/' + datospiso.imagen;
         return (
           <div className="caja" key={index}>
-            <a href=`${hostname}/index.php/pisos/producto_piso?id=${datospiso.id_piso}` role="link">
-              <img src=`${hostname}/img_pisos/${datospiso.id_piso}/${datospiso.imagen}` alt={datospiso.descripcion} />
+            <a href={theHref} role="link">
+              <img src={imgHref} alt={datospiso.descripcion} />
             </a>
           </div>
         )
-      })
+      });
     };
 
-    if (this.state.isloading === false) {
-      // Si ya ha cargado
-      return (
-        <div className="slideshow">
-          {imagesSlideshow}
-        </div>
-      );
-    } else {
-      // Si esta cargando
-      return (
-        <div className="slideshow">
-          <p>Cargando... espere por favor...</p>
-        </div>
-      );
-    }
+    return (
+      <div className="slideshow">
+        {imagesSlideshow}
+      </div>
+    );
   }
 }
 

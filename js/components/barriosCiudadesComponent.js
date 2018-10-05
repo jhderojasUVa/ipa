@@ -2,7 +2,7 @@
 
 class BarriosciudadesComponent extends React.Component {
 
-  contructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       barrios: [],
@@ -42,8 +42,8 @@ class BarriosciudadesComponent extends React.Component {
       var barrios = this.state.barrios.foreach((datosbarrio, index) => {
         return (
           <li key={index}>
-            <a href=`${hostname}index.php/principal/barrios?id=${datosbarrio.idbarrio}` role="link">
-              ${datosbarrio.barrio} (${datosbarrio.ciudad})
+            <a href='{hostname}index.php/principal/barrios?id=${datosbarrio.idbarrio}' role="link">
+              {datosbarrio.barrio} ({datosbarrio.ciudad})
             </a>
           </li>
         )
@@ -51,8 +51,8 @@ class BarriosciudadesComponent extends React.Component {
       var ciudades = var barrios = this.state.ciudades.foreach((datosciudad, index) => {
         return (
           <li key={index}>
-            <a href=`${hostname}index.php/principal/ciudades?id=${datosciudad.idlocalizacion}` role="link">
-              ${datosciudad.localizacion}
+            <a href='{hostname}index.php/principal/ciudades?id={datosciudad.idlocalizacion}' role="link">
+              {datosciudad.localizacion}
             </a>
           </li>
         )
