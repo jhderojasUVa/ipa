@@ -3,6 +3,7 @@
 class SlideshowComponent extends React.Component {
 
   constructor(props) {
+    // construimos la clase
     super(props);
     this.state = {
       slideshowdata: [],
@@ -11,13 +12,26 @@ class SlideshowComponent extends React.Component {
   }
 
   componentWillMount() {
+    // Antes de montar, hacemos el fetch
     return fetch ('/index.php/components/portada/slideshow')
             .then((response) => response.json())
             .then((responsejson) => {
-              console.log(responsejson.slideshow);
               this.setState({
                 isloading: false,
                 slideshowdata: responsejson.slideshow
+              });
+              // Esta es una ñapa para que pinte el carrousel de forma correcta
+              // tras el fetch
+              $('.slideshow').slick({
+                autoplay: true,
+                autoplayspeed: 3000,
+                dots: true,
+                arrows: true,
+                speed: 800,
+                infinite: true,
+                slidesToShow: 1,
+                variableWidth: true,
+                centerMode: true,
               });
             })
             .catch((error) => {
@@ -26,13 +40,17 @@ class SlideshowComponent extends React.Component {
             });
   }
 
+  componentDidMount() {
+  }
+
   render() {
-
+    // Renderizado
+    // Cogemos el hostname
     var hostname = window.location.hostname;
-    var imagesSlideshow;
 
+    // Si ya ha cargado los datos, montamos el tinglado
     if (this.state.isloading == false) {
-      imagesSlideshow = this.state.slideshowdata.map((datospiso, index) => {
+      var imagesSlideshow = this.state.slideshowdata.map((datospiso, index) => {
         let theHref = 'http://' + hostname + '/index.php/pisos/producto_piso?id=' + datospiso.id_piso;
         let imgHref = 'http://' + hostname + '/img_pisos/' + datospiso.id_piso + '/' + datospiso.imagen;
         return (
@@ -46,8 +64,12 @@ class SlideshowComponent extends React.Component {
     };
 
     return (
-      <div className="slideshow">
-        {imagesSlideshow}
+      <div className="grid-x">
+        <div className="cell">
+          <div className="slideshow">
+            {imagesSlideshow}
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,12 +1,7 @@
 <? $this -> load -> helper ("url"); ?>
 
 		<!-- Slideshow component -->
-		<div class="grid-x">
-			<div class="cell" style="overflow: hidden;">
-				<div id="slideshowcomponent"></div>
-				<!--<SlideshowComponent />-->
-			</div>
-		</div>
+		<div id="slideshowcomponent"></div>
 		<script type="text/babel" src="<?=base_url()?>js/components/slideshowComponent.js"></script>
 
 		<!-- Buscador -->
@@ -39,12 +34,12 @@
 					</div>
 				</div>
 				<div class="grid-x grid-margin-x">
-					<BarriosciudadesComponent />
+					<div id="barriosciudadescomponent"></div>
 
 				</div>
 			</div>
 		</div>
-		<!-- <script type="text/babel" src="<?=base_url()?>js/components/barriosCiudadesComponent.js"></script> -->
+		<script type="text/babel" src="<?=base_url()?>js/components/barriosCiudadesComponent.js"></script>
 
 	<!-- ultimos 6 -->
 	<div class="ultimas_ofertas">

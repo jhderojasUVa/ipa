@@ -779,3 +779,7 @@ ul.extras .extras, p.extras .extras {
 .cabecera_uva .uva_icon {
   font-size: 1.6em;
 }
+
+.conoverflow {
+  overflow: hidden;
+}

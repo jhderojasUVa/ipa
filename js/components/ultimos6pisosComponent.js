@@ -30,7 +30,7 @@ class Ultimos6Pisos extends React.Component {
     var hostname = window.location.hostname;
 
     if (this.state.isloading == false) {
-      var totalcards = this.state.ultimos_6.foreach((datospisos, index) => {
+      var totalcards = this.state.ultimos_6.map((datospisos, index) => {
         var extras = datospisos.extras.split('|');
         var extras_img = [];
         extras.sort();

@@ -6,8 +6,8 @@ class BarriosciudadesComponent extends React.Component {
     super(props);
     this.state = {
       barrios: [],
-      ciudades: []
-      isloading: true,
+      ciudades: [],
+      isloading: true
     }
 
     this.onChangeHandler = this.onChangeHandler.bind();
@@ -39,7 +39,7 @@ class BarriosciudadesComponent extends React.Component {
     let hostname = window.location.hostname;
 
     if (this.state.isloading == false) {
-      var barrios = this.state.barrios.foreach((datosbarrio, index) => {
+      var barrios = this.state.barrios.map((datosbarrio, index) => {
         return (
           <li key={index}>
             <a href='{hostname}index.php/principal/barrios?id=${datosbarrio.idbarrio}' role="link">
@@ -48,7 +48,7 @@ class BarriosciudadesComponent extends React.Component {
           </li>
         )
       });
-      var ciudades = var barrios = this.state.ciudades.foreach((datosciudad, index) => {
+      var ciudades = var barrios = this.state.ciudades.map((datosciudad, index) => {
         return (
           <li key={index}>
             <a href='{hostname}index.php/principal/ciudades?id={datosciudad.idlocalizacion}' role="link">
