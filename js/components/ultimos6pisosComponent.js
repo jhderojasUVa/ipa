@@ -31,6 +31,9 @@ class Ultimos6Pisos extends React.Component {
     // El hostname
     var hostname = window.location.hostname;
 
+    // Fragmentos
+    const Fragment = React.Fragment;
+
     if (this.state.isloading == false) {
       var totalcards = this.state.ultimos_6.map((datospisos, index) => {
         let extras = datospisos.extras.split('|');
@@ -124,7 +127,7 @@ class Ultimos6Pisos extends React.Component {
               <div style={divStyleBack}><div style={divStyleFront}></div></div>
               <div className="card-section">
                 <p className="texto">
-                  {datospisos.descripcion.substr(1, 50).replace('[Plazas ofertadas]', '').replace('[Número habitaciones]', '').replace('[Datos del inmueble]', '').replace('[Tipo de calefacción]', '').replace('[Comunidad]', 'Comunidad: ')}...
+                  {datospisos.descripcion.replace('[Plazas ofertadas]', '').replace('[Número habitaciones]', '').replace('[Datos del inmueble]', '').replace('[Tipo de calefacción]', '').replace('[Comunidad]', 'Comunidad: ').substr(1, 60)}...
                 </p>
                 <ul className="opciones">
                   {extrasPiso}
@@ -144,15 +147,15 @@ class Ultimos6Pisos extends React.Component {
 
     if (this.state.isloading == false) {
       return (
-        <div className="Ultimos6Pisos">
+        <Fragment>
           {totalcards}
-        </div>
+        </Fragment>
       );
     } else {
       return (
-        <div className="Ultimos6Pisos">
+        <Fragment>
           <p>Cargando ultimos pisos...</p>
-        </div>
+        </Fragment>
       );
     }
   }
