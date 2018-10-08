@@ -51,8 +51,8 @@
 			</div>
 			<!-- casas destacadas -->
 			<div class="grid-x grid-margin-x">
-				<Ultimos6Pisos />
+				<div id="ultimos_6_pisos"></div>
 			</div>
 		</div>
 	</div>
-	<!-- <script type="text/babel" src="<?=base_url()?>js/components/ultimos6pisosComponent.js"></script> -->
+	<script type="text/babel" src="<?=base_url()?>js/components/ultimos6pisosComponent.js"></script>

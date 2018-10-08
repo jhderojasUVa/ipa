@@ -11,8 +11,6 @@ $(document).ready(function(){
     centerMode: true,
   });
 
-  // El tab de cambio de barrios
-  cambia_tab("barrios");
   // El listener del upload de ficheros
   listener_upload();
   // El mejunje de subir la imagen

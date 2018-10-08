@@ -35,8 +35,8 @@ class SlideshowComponent extends React.Component {
               });
             })
             .catch((error) => {
-              alert('Oh!\n\rHa habido un error al cargar el JSON del slideshow');
-              throw new Error('Ha habido un error al cargar el JSON del slideshow:\n\r' + error);
+              alert('Oh!\n\rHa habido un error al pintar el slideshow');
+              throw new Error('Ha habido un error al crear el componente del slideshow:\n\r' + error);
             });
   }
 

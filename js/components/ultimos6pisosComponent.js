@@ -3,15 +3,17 @@
 class Ultimos6Pisos extends React.Component {
 
   constructor(props) {
+    // Constructor
     super(props);
     this.state = {
       ultimos_6_pisos: [],
-      isloading: true;
+      isloading: true
     }
   }
 
   componentWillMount() {
-    return fetch ('/index.php/componentes/portada/ultimos_6')
+    // Fetch de los datos
+    return fetch ('/index.php/components/portada/ultimos_6')
             .then((response) => response.json())
             .then((responsejson) => {
               this.setState({
@@ -20,86 +22,118 @@ class Ultimos6Pisos extends React.Component {
               });
             })
             .catch((error) => {
-              alert('Oh!\n\rHa habido un error al cargar el JSON de los ultimos pisos');
-              throw new Error('Ha habido un error al cargar el JSON de los ultimos pisos:\n\r' + error);
+              alert('Oh!\n\rHa habido un error pintando ultimos pisos');
+              throw new Error('Ha habido un error al crear el componente de los ultimos pisos:\n\r' + error);
             });
   }
 
   render() {
-
+    // El hostname
     var hostname = window.location.hostname;
 
     if (this.state.isloading == false) {
       var totalcards = this.state.ultimos_6.map((datospisos, index) => {
-        var extras = datospisos.extras.split('|');
-        var extras_img = [];
-        extras.sort();
-        extras.foreach((datosextras, index) => {
+        let extras = datospisos.extras.split('|');
+
+        let extrasPiso = extras.map((datosextras, index) => {
+          // El case de las cosas
           switch (datosextras) {
             case 'Cocina':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/009-cocina.png" alt="Cocina" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/009-cocina.png" alt="Cocina" /></li>
+              );
               break;
             case 'Frigo':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/004-frigorifico.png" alt="Frigorigico" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/004-frigorifico.png" alt="Frigorigico" /></li>
+              );
               break;
             case 'Lavadora':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/010-lavadora.png" alt="Lavadora" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/010-lavadora.png" alt="Lavadora" /></li>
+              );
               break;
             case 'Vajilla':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/005-vajilla.png" alt="Vajilla" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/005-vajilla.png" alt="Vajilla" /></li>
+              );
               break;
             case 'Cama':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/006-cama.png" alt="Cama" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/006-cama.png" alt="Cama" /></li>
+              );
               break;
             case 'Bano':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/011-servicio.png" alt="Baño" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/011-servicio.png" alt="Baño" /></li>
+              );
               break;
             case 'Horno':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/008-horno.png" alt="Horno" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/008-horno.png" alt="Horno" /></li>
+              );
               break;
             case 'Secadora':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/012-secadora.png" alt="Secadora" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/012-secadora.png" alt="Secadora" /></li>
+              );
               break;
             case 'TV':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/002-television.png" alt="TV" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/002-television.png" alt="TV" /></li>
+              );
               break;
             case 'Telefono':
-              extras_img.push('<img class="extras" src="'+hostname+'/img/icons/003-phone.png" alt="Telefono" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/003-phone.png" alt="Telefono" /></li>
+              );
               break;
             case 'WIFI':
-              extras_img.push('<img class="extras" src="/img/icons/001-wifi.png" alt="Internet" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/001-wifi.png" alt="Internet" /></li>);
               break;
             case 'Compartido':
-              extras_img.push('<img class="extras" src="'+hostname+'img/icons/013-compartido.png" alt="Compartido" />');
+              return(
+                <li key={index}><img class="extras" src="/img/icons/013-compartido.png" alt="Compartido" /></li>
+              );
               break
             default:
               break;
           }
         });
-        var divstyle = {
+
+        let divStyleBack = {
           width: '100%',
           height: '100%',
-          backgroundImage: `url(${hostname}/img_pisos/${datospisos.idpiso}/${datospisos.imagen})`,
+          backgroundImage: 'url(http://'+ hostname +'/img_pisos/'+ datospisos.idpiso +'/'+ datospisos.imagen +')',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover'
         }
+
+        let divStyleFront = {
+          height: '250px'
+        }
+
+        let pisoHref = 'http://'+ hostname +'/index.php/pisos/producto_piso?id='+ datospisos.idpiso;
+        let pisoGmap = 'http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q='+ datospisos.direccion +'&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ datospisos.direccion +'&amp;t=m&amp;z=50&amp';
+
         return (
           <div className="medium-4 cell">
             <div className="card">
-              <div style={divstyle}></div>
+              <div style={divStyleBack}><div style={divStyleFront}></div></div>
               <div className="card-section">
                 <p className="texto">
-                  {datospisos.descripcion.replace('[Plazas ofertadas]', '').replace('[Número habitaciones]', '').replace('[Datos del inmueble]', '')}
+                  {datospisos.descripcion.substr(1, 50).replace('[Plazas ofertadas]', '').replace('[Número habitaciones]', '').replace('[Datos del inmueble]', '').replace('[Tipo de calefacción]', '').replace('[Comunidad]', 'Comunidad: ')}...
                 </p>
                 <ul className="opciones">
-                  <li>{datosextras}</li>
+                  {extrasPiso}
                 </ul>
               </div>
               <div className="card-section">
               <center>
-                <a href=`${hostname}/index.php/pisos/producto_piso?id=${datospisos.idpiso}` className="button" role="link">Ver piso</a>
-                <a href=`http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=${datospisos.direccion}&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=${datospisos.direccion}&amp;t=m&amp;z=50&amp` className="button" role="link" target="_blank">Google Maps</a>
+                <a href={pisoHref} className="button" role="link">Ver piso</a>&nbsp;
+                <a href={pisoGmap} className="button" role="link" target="_blank">Google Maps</a>
               </center>
               </div>
             </div>
@@ -117,7 +151,7 @@ class Ultimos6Pisos extends React.Component {
     } else {
       return (
         <div className="Ultimos6Pisos">
-          <p>Cargando...</p>
+          <p>Cargando ultimos pisos...</p>
         </div>
       );
     }
