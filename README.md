@@ -60,3 +60,5 @@ Compendio de cosas:
 - No esta optimizada (se pretende usar lighthouse de Chrome para ello).
 - Se pretende, por si se pasa a PWA, tener el service worker para la cache de ficheros (primera version subida, sin los fetchs en la aplicacion para que los saque de la cache). Recordad, necesita entonces HTTPS.
 - Unidades de test!. No hay ninguna, ni para el PHP ni para el JS.
+- Se esta intentado usar camelCase en las notaciones de funciones y variables como estandar porque ya toca usar un estandar.
+- Se intentara usar PSR (https://www.php-fig.org/psr/) para el PHP ahora o en un futuro... vamos a partir de ahora, pese a que hay cosas que no me gustan un pimiento.
