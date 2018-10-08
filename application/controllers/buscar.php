@@ -40,8 +40,6 @@ class Buscar extends CI_Controller {
 	public function busquedas($ws = null) {
 		// Funcion para buscar
 
-		echo ($ws);
-
 		// Con esto comprobamos si esta logeado o no
 		if ($this -> sesiones_usuarios -> esta_logeado() == true) {
 			if ($_SESSION["uva"] == true) {

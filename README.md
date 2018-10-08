@@ -14,7 +14,22 @@ v1.0 > Codeigniter + custom CSS
 
 v2.0 > Codeigniter + Foundation (responsive)
 
-v2.5 (aqui) > Codeigniter > WebServices > Angular X o React (Estamos en este punto) (se la versión que este en ese momento aunque ahora dudo si implementar react + redux o angular o incluso vue, ahora que hay una "lucha entre ellos") > Foundation (Web components)
+v2.5 (aqui) > Codeigniter > WebServices > React (Estamos en este punto) > Foundation (Web components)
+
+Se ha elegido React ya que finalmente lo primero que necesitamos es una libreria de visualización más que un framework con MVC completo. Se iran creando los componentes uno a uno.
+
+Tambien se ira limpiando toda la morralla de paso de una versión a otra que da un poco de verguencita verlo.
+
+## Front End
+Como se ha indicado parte del front esta realizado con React. En la carpeta 'js/components' se encuentran los componentes separados por ficheros.
+
+addpisoComponent.js > (En proceso) Componente para la inserccion de pisos en 3 fases
+
+barriosCiudadesComponent.js > Componente que muestra una lista con los barrios y ciudades que tienen pisos anunciados en la plataforma
+
+slideshowComponent.js > Componente del slideshow. Este componente usa slick como slideshow (y por lo tanto necesita JQuery por el parche metido)
+
+ultimos6pisosComponent.js > Componente que muestra los ultimos 6 pisos en la plataforma
 
 ## Necesidades
 Base de datos MySQL.
@@ -40,8 +55,7 @@ En este fichero se encuentra la estructura (esta sin datos, obviamente) de la ba
 Compendio de cosas:
 
 - Mejorando la administracion para los usuarios de la entidad (ver, borrar pisos, esas cosas).
-- No hemos elegido que tipo de framework de JS vamos a usar (¿y si usamos webcomponents a lo vanilla?)
-- No esta limpiada la morralla que no se necesita de la version 1.0 (ouch!).
+- No esta limpiada la morralla que no se necesita de la version 1.0 (ouch!) ni tampoco de la 2.0 (mas ouch!).
 - Zona de la administracion no pasada a nuevo formato (aun) y valoramos no hacerlo (o si).
 - No esta optimizada (se pretende usar lighthouse de Chrome para ello).
 - Se pretende, por si se pasa a PWA, tener el service worker para la cache de ficheros (primera version subida, sin los fetchs en la aplicacion para que los saque de la cache). Recordad, necesita entonces HTTPS.
