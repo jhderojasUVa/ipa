@@ -2,7 +2,7 @@
 
 		<!-- Slideshow component -->
 		<div id="slideshowcomponent"></div>
-		<!--<script type="text/babel" src="<?=base_url()?>js/components/slideshowComponent.js"></script>-->
+		<script type="text/babel" src="<?=base_url()?>js/components/slideshowComponent.js"></script>
 
 		<!-- Buscador -->
 		<div class="buscador align-middle">
@@ -51,7 +51,6 @@
 			</div>
 			<!-- casas destacadas -->
 			<div class="grid-x grid-margin-x" id="ultimos_6_pisos">
-				<!--<div id="ultimos_6_pisos"></div>-->
 			</div>
 		</div>
 	</div>

@@ -45,18 +45,20 @@ class BarriosciudadesComponent extends React.Component {
 
     if (this.state.isloading == false) {
       var barrios = this.state.barrios.map((datosbarrio, index) => {
+        let hrefBarrio = 'http://'+ hostname +'/index.php/principal/barrios?id='+ datosbarrio.idbarrio;
         return (
           <li key={index}>
-            <a href='{hostname}index.php/principal/barrios?id=${datosbarrio.idbarrio}' role="link">
+            <a href={hrefBarrio} role="link">
               {datosbarrio.barrio} ({datosbarrio.ciudad})
             </a>
           </li>
         )
       });
       var ciudades = this.state.ciudades.map((datosciudad, index) => {
+        let hrefCiudad = 'http://'+ hostname +'/index.php/principal/ciudades?id='+datosciudad.idlocalizacion;
         return (
           <li key={index}>
-            <a href='{hostname}index.php/principal/ciudades?id={datosciudad.idlocalizacion}' role="link">
+            <a href={hrefCiudad} role="link">
               {datosciudad.localizacion}
             </a>
           </li>
@@ -85,7 +87,7 @@ class BarriosciudadesComponent extends React.Component {
       return (
         <Fragment>
           <div className="medium-12 cell">
-            <p>Cargando... espere por favor...</p>
+            <p className="text-center"><img src="http://ipa.uva.es/img/loading2.gif" alt="Cargando..." width="150"/> Cargando... espere por favor...</p>
           </div>
         </Fragment>
       );

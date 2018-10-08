@@ -154,7 +154,7 @@ class Ultimos6Pisos extends React.Component {
     } else {
       return (
         <Fragment>
-          <p>Cargando ultimos pisos...</p>
+          <p className="text-center"><img src="http://ipa.uva.es/img/loading2.gif" alt="Cargando..." width="150"/>  Cargando ultimos pisos...</p>
         </Fragment>
       );
     }
