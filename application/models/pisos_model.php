@@ -308,13 +308,9 @@ class Pisos_model extends CI_Model {
 
 	function muestra_5_imagenes_piso() {
 		// Funcion que devuelve 5 imagenes de los ultimos pisos añadidos y en caso de que no, la imagen estandar
-//<<<<<<< HEAD
-		//$sql = "SELECT DISTINCT (imagenes_pisos.idpiso), imagenes_pisos.imagen, imagenes_pisos.descripcion FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso=pisos.id_piso AND pisos.verificado=true ORDER BY idpiso DESC LIMIT 10";
-		//$sql = "SELECT DISTINCT imagenes_pisos.idpiso FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso=pisos.id_piso AND pisos.verificado=true AND pisos.libre=1 ORDER BY idpiso DESC, orden LIMIT 10";
-		//$sql = "SELECT DISTINCT imagenes_pisos.idpiso FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso = pisos.id_piso AND pisos.verificado=TRUE AND pisos.libre=1 ORDER BY imagenes_pisos.idpiso LIMIT 10";
-//=======
+
 		$sql = "SELECT DISTINCT imagenes_pisos.idpiso FROM imagenes_pisos, pisos WHERE imagenes_pisos.idpiso = pisos.id_piso AND pisos.verificado=TRUE AND pisos.libre=1 ORDER BY imagenes_pisos.idpiso LIMIT 10";
-//>>>>>>> origin/master
+
 		$resultado = $this -> db -> query($sql);
 		// Devolvemos las imagenes o la imagen vacia en caso de que no haya datos
 		if ($resultado -> num_rows()>0) {
@@ -326,7 +322,6 @@ class Pisos_model extends CI_Model {
 				}
 			}
 			return $array_devolver;
-			//return $resultado -> result();
 		} else {
 			$array_devolver[] = array("id_piso" => 0, "imagen" => "sin_piso.png", "descripcion" => "no existen pisos aun");
 			return $array_devolver;
@@ -348,7 +343,6 @@ class Pisos_model extends CI_Model {
 					$array_devolver[] = array ("idpiso" => $row->id_piso, "descripcion" =>$row->descripcion, "direccion" => $row->calle.", ".$row->piso." (".$row2->localizacion.")");
 				}
 			}
-
 			return $array_devolver;
 		} else {
 			// No hay sugus devuelvo falso
@@ -785,7 +779,7 @@ class Pisos_model extends CI_Model {
 		// Cambia un piso de libre a ocupado y viceversa, vamos que cambia el estado
 		// Primero pillamos el estado asi porque tal y pascual
 		$sql = "SELECT libre FROM pisos WHERE id_piso=".$idpiso;
-		log_message("DEBUG",$sql);
+
 		$resultado = $this -> db -> query($sql);
 		foreach ($resultado -> result() as $row) {
 			$estado = $row -> libre;

@@ -31,6 +31,13 @@ class Barrios_model extends CI_Model {
 		return $resultado -> result();
 	}
 
+  function showBarriosLocalizaciones() {
+    // Funcion que devuelve los barrios y las localizaciones todas juntas
+    $sql = "select barrios.idbarrio, barrios.barrio, localizaciones.idlocalizacion, localizaciones.localizacion FROM barrios INNER JOIN localizaciones ON barrios.idlocalizacion = localizaciones.idlocalizacion";
+    $resultado = $this -> db -> query($sql);
+    return $resultado -> result();
+  }
+
 	function add_barrio($localizacion, $barrio) {
 		// Funcion que añade un barrio nuevo si mete una localización
 
