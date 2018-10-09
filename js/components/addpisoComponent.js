@@ -16,7 +16,25 @@ class Pasador extends React.Component {
       // del webservice y tal, se pasa por props que cambian esto
       datos: {
         inmueble: {
-          descripcion: '',
+          descripcion: `[Datos del inmueble]
+
+                        [Número habitaciones]
+
+                        [Plazas ofertadas]
+
+                        [Tipo de calefacción]
+
+                        [Comunidad incluida]
+
+                        [Mobiliario]
+
+                        [Otros]
+
+                        [Preguntar por]
+                        Nombre y Apellidos
+
+                        [Email]
+                        `,
           calle: '',
           numero: '',
           piso: '',
@@ -27,6 +45,7 @@ class Pasador extends React.Component {
           barrio: '',
           extras: []
         },
+        libre: 0,
         precios: [],
         imagenes: []
       }
@@ -49,7 +68,7 @@ class Pasador extends React.Component {
   componentWillMount() {
     // Lectura en caso de que se este editando y lo metemos en el almacen de datos para todos
     if (this.props.editar.id) {
-      // Se supone que lo esta editando
+      // Se supone que lo esta editando, sin hay que ver como tratamos el "NO"
       return fetch ('/index.php/components/mis/datosPiso', {
                 method: 'POST',
                 body: {
@@ -59,28 +78,34 @@ class Pasador extends React.Component {
               })
               .then((response) => response.json())
               .then((responsejson) => {
-                let extras = responsejson.inmueble.extras.split('|');
                 this.setState({
                   // Aqui van los datos!!!
-                  datos.inmueble: {
-                    descripcion: responsejson.inmueble.descripcion,
-                    calle: responsejson.inmueble.calle,
-                    numero: responsejson.inmueble.numero,
-                    piso: responsejson.inmueble.piso,
-                    letra: responsejson.inmueble.eltra,
-                    codigoPostal: responsejson.inmueble.cp,
-                    localidad: responsejson.inmueble.idlocalizacion,
-                    tlfContacto: responsejson.inmueble.tlf,
-                    barrio: responsejson.inmueble.idbarrio,
-                    extras: extras
+                  datos: {
+                    inmueble {
+                      descripcion: responsejson.inmueble.descripcion,
+                      calle: responsejson.inmueble.calle,
+                      numero: responsejson.inmueble.numero,
+                      piso: responsejson.inmueble.piso,
+                      letra: responsejson.inmueble.eltra,
+                      codigoPostal: responsejson.inmueble.cp,
+                      localidad: responsejson.inmueble.idlocalizacion,
+                      tlfContacto: responsejson.inmueble.tlf,
+                      barrio: responsejson.inmueble.idbarrio,
+                      extras: responsejson.inmueble.extras.split('|')
+                    },
+                    libre: responsejson.inmueble.libre,
+                    precios: responsejson.precios,
+                    imagenes: responsejson.imagenes
                   }
                 });
-
               })
               .catch((error) => {
                 alert('Oh!\n\rHa habido un error al pintar el editor de datos');
                 throw new Error('Ha habido un error al crear el componente del editor de datos:\n\r' + error);
               });
+    } else {
+      // En principio nada, pero nunca se sabe si se quiere hacer algo
+      // ya sabes, fiate de la virgen y no corras
     }
   }
 
@@ -136,10 +161,18 @@ class Paso1 extends React.Component {
     // Fragmentos
     const Fragment = React.Fragment;
 
-    var contenidos = this.state.contenido.map((objeto, index) =>{
-      return(
-        <input key={index} type="checkbox" name="contenido[]" value="Cocina" />&nbsp;{objeto}<br />
-      );
+    var contenidos = this.state.contenido.map((objeto, index) => {
+      if (this.props.datos.extras.includes(objeto)) {
+        // Si lo tiene puesto
+        return(
+          <input key={index} type="checkbox" checked="checked" name="contenido[]" value={objeto} />&nbsp;{objeto}<br />
+        );
+      } else {
+        // Si no lo tiene puesto
+        return(
+          <input key={index} type="checkbox" name="contenido[]" value={objeto} />&nbsp;{objeto}<br />
+        );
+      }
     });
 
     let selectorCiudad, selector Barrio;
@@ -153,6 +186,16 @@ class Paso1 extends React.Component {
       selectorBarrio = barriosCiudades.map(());
     }
 
+    let estaLibrePiso = () => {
+      if (this.props.datos.libre == 0) {
+        return(
+          <input type="checkbox" name="libre" value="1" />&nbsp;Existen plazas libres
+        );
+      } else {
+        <input type="checkbox" checked="checked" name="libre" value="1" />&nbsp;Existen plazas libres
+      }
+    }
+
     if (this.props.visible == true) {
       return (
         <Fragment>
@@ -160,13 +203,13 @@ class Paso1 extends React.Component {
           <div className="grid-x grid-margin-x">
             <div className="small-12 medium-8 cell">
               <h2 className="headline">Descripci&oacute;n</h2>
-              <textarea width="100%" cols="40" rows="18" name="descripcion"><?=$descripcion?></textarea>
+              <textarea width="100%" cols="40" rows="18" name="descripcion">{this.props.datos.inmueble.descripcion}</textarea>
             </div>
             <div className="small-12 medium-4 cell">
               <h2 className="headline">Contenido</h2>
                 {contenidos}
               <div id="libre">
-                <input type="checkbox" name="libre" value="1" />&nbsp;Existen plazas libres
+                {estaLibrePiso}
               </div>
             </div>
           </div>
@@ -177,15 +220,15 @@ class Paso1 extends React.Component {
                 <fieldset className="fieldset">
                   <legend><i className="fi-home"></i> Direcci&oacute;n</legend>
                   <label for="calle">calle</label>
-                  <input id="calle" name="calle" type="text" className="form_boton" placeholder="C/Falsa" value="<?=$calle?>" />
+                  <input id="calle" name="calle" type="text" className="form_boton" placeholder="C/Falsa" value={this.props.datos.inmueble.calle} />
                   <label for="numero">numero</label>
-                  <input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value="<?=$numero?>" size="3" maxlength="3"/>
+                  <input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={this.props.datos.inmueble.numero} size="3" maxlength="3"/>
                   <label for="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
-                  <input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value="<?=$piso?>" size="2" maxlength="2"/>
+                  <input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={this.props.datos.inmueble.piso} size="2" maxlength="2"/>
                   <label for="letra">letra
-                    <input name="letra" type="text" id="letra" placeholder="A" value="<?=$letra?>" size="2"/>
+                    <input name="letra" type="text" id="letra" placeholder="A" value={this.props.datos.inmueble.letra} size="2"/>
                     <label for="cp">codigo costal (CP)</label>
-                    <input name="cp" type="text" id="cp" placeholder="00000" value="<?=$cp?>" size="5" maxlength="5" />
+                    <input name="cp" type="text" id="cp" placeholder="00000" value={this.props.datos.inmueble.cp} size="5" maxlength="5" />
                     <label for="localidad">localidad</label>
                     <select name="localidad" id="localidad" className="form_boton">
                       <? foreach ($localidades as $row) { ?>
@@ -197,7 +240,7 @@ class Paso1 extends React.Component {
                       <? } ?>
                     </select>
                     <label for="tlf">tel&eacute;fono de contacto</label>
-                    <input name="tlf" type="text" id="tlf" placeholder="983423000" value="<?=$tlf?>" size="10" maxlength="9" />
+                    <input name="tlf" type="text" id="tlf" placeholder="983423000" value={this.props.datos.inmueble.tlf} size="10" maxlength="9" />
                     <label for="barrio">barrio</label>
                     <select name="barrio" id="barrio" className="form_boton">
                       <? foreach ($barrios as $row) { ?>
