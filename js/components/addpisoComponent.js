@@ -161,7 +161,8 @@ class Paso1 extends React.Component {
     // Fragmentos
     const Fragment = React.Fragment;
 
-    var contenidos = this.state.contenido.map((objeto, index) => {
+    // Elemento para los extras o contenidos del inmueble
+    let contenidos = this.state.contenido.map((objeto, index) => {
       if (this.props.datos.extras.includes(objeto)) {
         // Si lo tiene puesto
         return(
@@ -175,6 +176,7 @@ class Paso1 extends React.Component {
       }
     });
 
+    // Elemento para el selector de ciudad
     let selectorCiudad, selector Barrio;
     if (this.state.isCiudadSelected == true) {
       selectorCiudad = ciudades.map((ciudad, index) => {
@@ -186,6 +188,7 @@ class Paso1 extends React.Component {
       selectorBarrio = barriosCiudades.map(());
     }
 
+    // Elemento para si el piso esta libre o no
     let estaLibrePiso = () => {
       if (this.props.datos.libre == 0) {
         return(
