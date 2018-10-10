@@ -1,6 +1,9 @@
 // Añadir piso Component
 // Este componente reamente son 4 componentes, es decir, es un componente padre con 4 componentes hijos
 
+// Revisar
+// https://codepen.io/gaearon/pen/vXdGmd?editors=1010
+
 // Pasador (donde estan todos los pasos), el componente padre y almacen de datos
 class Pasador extends React.Component {
   constructor(props) {
@@ -177,7 +180,7 @@ class Paso1 extends React.Component {
     });
 
     // Elemento para el selector de ciudad
-    let selectorCiudad, selector Barrio;
+    let selectorCiudad, selectorBarrio;
     if (this.state.isCiudadSelected == true) {
       selectorCiudad = ciudades.map((ciudad, index) => {
         return(
@@ -186,6 +189,12 @@ class Paso1 extends React.Component {
       });
     } else {
       selectorBarrio = barriosCiudades.map(());
+    }
+    // Si ha seleccionado la ciudad ponemos sus barrios
+    if (selectorCiudad) {
+      selectorBarrio = ciudad.filter((elemento) => {
+        return ;
+      });
     }
 
     // Elemento para si el piso esta libre o no
