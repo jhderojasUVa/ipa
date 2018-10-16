@@ -39,6 +39,15 @@ class Mis extends CI_Controller {
     echo json_encode($datos);
 	}
 
+	public function devuelveCiudades() {
+			// Funcion que devuelve las ciudades en JSON
+			$datos["ciudades"] = $this -> barrios_model -> showCiudades();
+			// Cambiamos la cabecera a JSON de respuesta
+	    header('Content-Type: application/json');
+	    // Escupimos la respuesta
+	    echo json_encode($datos);
+	}
+
   public function datosPiso() {
     // Devuelve todos los datos de un inmueble
 

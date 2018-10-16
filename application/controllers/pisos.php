@@ -200,7 +200,8 @@ class Pisos extends CI_Controller {
 		$datos["barrios"] = $this -> barrios_model -> show_barrios("nombre");
 
 		$this -> load -> view("cabecera", $datos);
-		$this -> load -> view("mis/addpaso1", $datos);
+		//$this -> load -> view("mis/addpaso1", $datos);
+		$this -> load -> view("mis/add",$datos);
 		$this -> load -> view("footer", $datos);
 	}
 

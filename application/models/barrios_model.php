@@ -31,9 +31,17 @@ class Barrios_model extends CI_Model {
 		return $resultado -> result();
 	}
 
+  function showCiudades() {
+    // Funcion que devuelve las ciudades que tenemos
+    $sql = "SELECT DISTINCT idlocalizacion, localizacion FROM localizaciones ORDER BY localizacion";
+
+    $resultado = $this -> db -> query($sql);
+    return $resultado -> result();
+  }
+
   function showBarriosLocalizaciones() {
     // Funcion que devuelve los barrios y las localizaciones todas juntas
-    $sql = "select barrios.idbarrio, barrios.barrio, localizaciones.idlocalizacion, localizaciones.localizacion FROM barrios INNER JOIN localizaciones ON barrios.idlocalizacion = localizaciones.idlocalizacion";
+    $sql = "SELECT barrios.idbarrio, barrios.barrio, localizaciones.idlocalizacion, localizaciones.localizacion FROM barrios INNER JOIN localizaciones ON barrios.idlocalizacion = localizaciones.idlocalizacion";
     $resultado = $this -> db -> query($sql);
     return $resultado -> result();
   }

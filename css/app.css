@@ -783,3 +783,8 @@ ul.extras .extras, p.extras .extras {
 .conoverflow {
   overflow: hidden;
 }
+
+.plazasLibres {
+  cursor: pointer;
+  font-weight: bold;
+}
