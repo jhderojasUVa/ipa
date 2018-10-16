@@ -34,7 +34,8 @@ Nombre y Apellidos
   },
   libre: 0,
   precios: [],
-  imagenes: []
+  imagenes: [],
+  id: 0
 }
 
 // Ruta de migas, donde te dice en que paso estas
@@ -619,6 +620,24 @@ class Pasador extends React.Component {
                 })
               });
         });
+
+        // Comprobamos si esta retrocediendo para leerlo todo
+        if (datos.id != 0) {
+          fetch('/index.php/components/mis/datosPiso', {
+            method: 'POST',
+            body: {
+              id: datos.id
+            }
+          })
+          .then((respuesta) => {
+            console.log(respuesta);
+            return respuesta.json();
+          })
+          .catch((error) => {
+            alert('Ha habido un error consultando los datos del inmueble\r\nError: '+ error);
+            throw 'Ha habido un error al consultar los datos del inmueble. '+ error;
+          })
+        }
   }
 
   change1a2() {
