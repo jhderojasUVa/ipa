@@ -1,3 +1,4 @@
+// Componente del añadir piso (que son 4)
 // Objeto singleton que contiene los datos
 var datos = {
   inmueble: {
@@ -104,6 +105,10 @@ class Paso1 extends React.Component {
         descripcion: '',
         calle: '',
         numero: 0,
+        piso: '',
+        letra: '',
+        cp: '',
+        tlfContacto: ''
       }
     }
 
@@ -114,7 +119,12 @@ class Paso1 extends React.Component {
 
     this.handleDescripcion = this.handleDescripcion.bind(this);
     this.handleCalle = this.handleCalle.bind(this);
-    this.handleNumero = this.habdleNumero.bind(this);
+    this.handleNumero = this.handleNumero.bind(this);
+    this.handlePiso = this.handlePiso.bind(this);
+    this.handleLetra = this.handleLetra.bind(this);
+    this.handleCp = this.handleCp.bind(this);
+    this.handleTlfContacto = this.handleTlfContacto.bind(this);
+
   }
 
   handleLibres(e) {
@@ -139,7 +149,31 @@ class Paso1 extends React.Component {
   handleNumero(e) {
     // Cambia el storage del numero
     datos.inmueble.numero = e.target.value;
-    this.setState({inmueble: {numero: e.target.value}})
+    this.setState({inmueble: {numero: e.target.value}});
+  }
+
+  handlePiso(e) {
+    // Cambia el storage del piso
+    datos.inmueble.piso = e.target.value;
+    this.setState({inmueble: {piso: e.target.value}});
+  }
+
+  handleLetra(e) {
+    // Cambia el storage de la letra
+    datos.inmueble.letra = e.target.value;
+    this.setState({inmueble: {letra: e.target.value}});
+  }
+
+  handleCp(e) {
+    // Cambia el storage del cp
+    datos.inmueble.cp = e.target.value;
+    this.setState({inmueble: {cp: e.target.value}});
+  }
+
+  handleTlfContacto(e) {
+    // Cambia el storage del telefono de contact
+    datos.inmueble.tlfContacto = e.target.value;
+    this.setState({inmueble: {tlfContacto: e.target.value}});
   }
 
   changeSelectCiudades(e) {
@@ -235,7 +269,7 @@ class Paso1 extends React.Component {
               <h2 className="headline">Contenido</h2>
                 {contenidos}
               <div id="libre" onClick={this.handleLibres}>
-                {datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}
+                <button className="button large alert">{datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}</button>
               </div>
             </div>
 
@@ -245,15 +279,15 @@ class Paso1 extends React.Component {
     						<label htmlFor="calle">calle</label>
     						<input id="calle" name="calle" type="text" className="form_boton" onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
     						<label htmlFor="numero">n&uacute;mero</label>
-    						<input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={datos.inmueble.numero} size="3" maxLength="3"/>
+    						<input name="numero" type="text" className="form_boton" id="numero" placeholder="22" onChange={this.handleNumero} value={datos.inmueble.numero} size="3" maxLength="3"/>
     						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
-    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={datos.inmueble.piso} size="2" maxLength="2"/>
+    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" onChange={this.handlePiso} value={datos.inmueble.piso} size="2" maxLength="2"/>
     						<label htmlFor="letra">letra</label>
-    							<input name="letra" type="text" id="letra" placeholder="A" value={datos.inmueble.letra} size="2"/>
+    							<input name="letra" type="text" id="letra" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
     							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
-    							<input name="cp" type="text" id="cp" placeholder="00000" value={datos.inmueble.cp} size="5" maxLength="5" />
+    							<input name="cp" type="text" id="cp" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.cp} size="5" maxLength="5" />
     							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
-    							<input name="tlf" type="text" id="tlf" placeholder="983423000" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+    							<input name="tlf" type="text" id="tlf" placeholder="983423000" onChange={this.handleTlfContacto} value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
                   <label htmlFor="localidad">localidad</label>
                   <select name="localidad" id="localidad" className="form_boton" onChange={this.changeSelectCiudades}>
                     <option>Selecciona una ciudad</option>
@@ -286,7 +320,7 @@ class Paso1 extends React.Component {
               <h2 className="headline">Contenido</h2>
                 {contenidos}
               <div id="libre" onClick={this.handleLibres}>
-                {datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}
+                <button className="button large alert">{datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}</button>
               </div>
             </div>
 
@@ -294,17 +328,17 @@ class Paso1 extends React.Component {
 
     						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
     						<label htmlFor="calle">calle</label>
-    						<input id="calle" name="calle" type="text" className="form_boton" onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
+    						<input id="calle" name="calle" data-tooltip title="Introduzca el nombre de la calle" type="text" className="form_boton" onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
     						<label htmlFor="numero">n&uacute;mero</label>
-    						<input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={datos.inmueble.numero} size="3" maxLength="3"/>
+    						<input name="numero" type="text" className="form_boton" id="numero" onChange={this.handleNumero} placeholder="22" value={datos.inmueble.numero} size="3" maxLength="3"/>
     						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
-    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={datos.inmueble.piso} size="2" maxLength="2"/>
+    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" onChange={this.handlePiso} value={datos.inmueble.piso} size="2" maxLength="2"/>
     						<label htmlFor="letra">letra</label>
-    							<input name="letra" type="text" id="letra" placeholder="A" value={datos.inmueble.letra} size="2"/>
+    							<input name="letra" type="text" id="letra" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
     							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
-    							<input name="cp" type="text" id="cp" placeholder="00000" value={datos.inmueble.cp} size="5" maxLength="5" />
+    							<input name="cp" type="text" id="cp" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.cp} size="5" maxLength="5" />
     							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
-    							<input name="tlf" type="text" id="tlf" placeholder="983423000" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+    							<input name="tlf" type="text" id="tlf" placeholder="983423000" onChange={this.handleTlfContacto} alue={datos.inmueble.tlfContacto} size="10" maxLength="9" />
                   <label htmlFor="localidad">localidad</label>
                   <select name="localidad" id="localidad" className="form_boton" onChange={this.changeSelectCiudades}>
                     <option>Selecciona una ciudad</option>
@@ -337,32 +371,31 @@ class Paso1 extends React.Component {
               <h2 className="headline">Contenido</h2>
                 {contenidos}
               <div id="libre" onClick={this.handleLibres} className="plazasLibres">
-                {datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}
+                <button className="button large alert">{datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}</button>
               </div>
             </div>
 
             <div className="small-12 cell">
-
     						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
     						<label htmlFor="calle">calle</label>
-    						<input id="calle" name="calle" type="text" className="form_boton" onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
+    						<input id="calle" name="calle" type="text" className="form_boton" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Ponga el nombre de la calle sin escribir calle o c/ o paseo o avenida, etc..." onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
     						<label htmlFor="numero">n&uacute;mero</label>
-    						<input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={datos.inmueble.numero} size="3" maxLength="3"/>
+    						<input name="numero" type="text" className="form_boton" id="numero" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí va el número de su portal" placeholder="22" onChange={this.handleNumero} value={datos.inmueble.numero} size="3" maxLength="3"/>
     						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
-    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={datos.inmueble.piso} size="2" maxLength="2"/>
+    						<input name="piso" type="text" className="form_boton" id="piso" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí la altura de su piso, ponga A para un ático o B para un bajo" placeholder="2" onChange={this.handlePiso} value={datos.inmueble.piso} size="2" maxLength="2"/>
     						<label htmlFor="letra">letra</label>
-    							<input name="letra" type="text" id="letra" placeholder="A" value={datos.inmueble.letra} size="2"/>
+    							<input name="letra" type="text" id="letra" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Escriba aquí la letra de su inmueble" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
     							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
-    							<input name="cp" type="text" id="cp" placeholder="00000" value={datos.inmueble.cp} size="5" maxLength="5" />
+    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.cp} size="5" maxLength="5" />
     							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
-    							<input name="tlf" type="text" id="tlf" placeholder="983423000" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+    							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
                   <label htmlFor="localidad">localidad</label>
-                  <select name="localidad" id="localidad" className="form_boton" onChange={this.changeSelectCiudades}>
+                  <select name="localidad" id="localidad" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione una ciudad en el desplegable para ver los barrios" className="form_boton" onChange={this.changeSelectCiudades}>
                     <option>Selecciona una ciudad</option>
                     {ciudades}
                   </select>
                   <label htmlFor="barrio">barrio</label>
-                  <select name="barrio" id="barrio" className="form_boton" onChange={this.changeSelectBarrios}>
+                  <select name="barrio" id="barrio" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione un barrio de la ciudad previamente seleccionada" className="form_boton" onChange={this.changeSelectBarrios}>
                     <option>Selecciona un barrio</option>
                     {barrios}
                   </select>
