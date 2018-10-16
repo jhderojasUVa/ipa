@@ -1,328 +1,46 @@
-// Añadir piso Component
-// Este componente reamente son 4 componentes, es decir, es un componente padre con 4 componentes hijos
+// Objeto singleton que contiene los datos
+var datos = {
+  inmueble: {
+    descripcion: `[Datos del inmueble]
 
-// Revisar
-// https://codepen.io/gaearon/pen/vXdGmd?editors=1010
+[Número habitaciones]
 
-// Pasador (donde estan todos los pasos), el componente padre y almacen de datos
-class Pasador extends React.Component {
-  constructor(props) {
-    super(props);
+[Plazas ofertadas]
 
-    this.state = {
-      visiblePaso1: true,
-      visiblePaso2: false,
-      visiblePaso3: false,
-      pasoVisible: 1,
-      // Creamos un almacen de datos coherente para todos los subcomponentes (child components)
-      // con los datos del inmueble, de esta forma si se edita, los podemos coger
-      // del webservice y tal, se pasa por props que cambian esto
-      datos: {
-        inmueble: {
-          descripcion: `[Datos del inmueble]
+[Tipo de calefacción]
 
-                        [Número habitaciones]
+[Comunidad incluida]
 
-                        [Plazas ofertadas]
+[Mobiliario]
 
-                        [Tipo de calefacción]
+[Otros]
 
-                        [Comunidad incluida]
+[Preguntar por]
+Nombre y Apellidos
 
-                        [Mobiliario]
+[Email]
 
-                        [Otros]
-
-                        [Preguntar por]
-                        Nombre y Apellidos
-
-                        [Email]
-                        `,
-          calle: '',
-          numero: '',
-          piso: '',
-          letra: '',
-          codigoPostal: '',
-          localidad: '',
-          tlfContacto: '',
-          barrio: '',
-          extras: []
-        },
-        libre: 0,
-        precios: [],
-        imagenes: []
-      }
-    }
-
-    this.changeState = this.changeState.bind(this);
-    this.changeSiVisibleONo = this.this.changeSiVisibleONo.bind(this);
-  }
-
-  changeState(elQue, valor) {
-    // Cambia a uno o varios valores del state a traves de lo que le envian
-
-  }
-
-  changeSiVisibleONo(elQue, valor) {
-    // Cambia a visible (o no) lo que sea
-
-  }
-
-  componentWillMount() {
-    // Lectura en caso de que se este editando y lo metemos en el almacen de datos para todos
-    if (this.props.editar.id) {
-      // Se supone que lo esta editando, sin hay que ver como tratamos el "NO"
-      return fetch ('/index.php/components/mis/datosPiso', {
-                method: 'POST',
-                body: {
-                  ws: 'json',
-                  id: this.props.editar.id
-                }
-              })
-              .then((response) => response.json())
-              .then((responsejson) => {
-                this.setState({
-                  // Aqui van los datos!!!
-                  datos: {
-                    inmueble {
-                      descripcion: responsejson.inmueble.descripcion,
-                      calle: responsejson.inmueble.calle,
-                      numero: responsejson.inmueble.numero,
-                      piso: responsejson.inmueble.piso,
-                      letra: responsejson.inmueble.eltra,
-                      codigoPostal: responsejson.inmueble.cp,
-                      localidad: responsejson.inmueble.idlocalizacion,
-                      tlfContacto: responsejson.inmueble.tlf,
-                      barrio: responsejson.inmueble.idbarrio,
-                      extras: responsejson.inmueble.extras.split('|')
-                    },
-                    libre: responsejson.inmueble.libre,
-                    precios: responsejson.precios,
-                    imagenes: responsejson.imagenes
-                  }
-                });
-              })
-              .catch((error) => {
-                alert('Oh!\n\rHa habido un error al pintar el editor de datos');
-                throw new Error('Ha habido un error al crear el componente del editor de datos:\n\r' + error);
-              });
-    } else {
-      // En principio nada, pero nunca se sabe si se quiere hacer algo
-      // ya sabes, fiate de la virgen y no corras
-    }
-  }
-
-  render() {
-    // Fragmentos
-    const Fragment = React.Fragment;
-
-    return (
-        <Fragment>
-          <Breadcrumb paso={this.state.pasoVisible} />
-          <Paso1 visible={this.state.visiblePaso1} datos={this.state.datos} changeState={this.changeState} changeSiVisibleONo={this.changeSiVisibleONo} />
-          <Paso2 visible={this.state.visiblePaso2} datos={this.state.datos} changeState={this.changeState} changeSiVisibleONo={this.changeSiVisibleONo} />
-          <Paso3 visible={this.state.visiblePaso3} datos={this.state.datos} changeState={this.changeState} changeSiVisibleONo={this.changeSiVisibleONo} />
-        </Fragment>
-    );
-  }
+`,
+    calle: '',
+    numero: '',
+    piso: '',
+    letra: '',
+    codigoPostal: '',
+    ciudad: 0,
+    tlfContacto: '',
+    barrio: 0,
+    extras: []
+  },
+  libre: 0,
+  precios: [],
+  imagenes: []
 }
 
-ReactDOM.render(<Pasador />, document.getElementById("insertar_piso"));
-
-// Paso 1 Component
-// Datos del piso
-class Paso1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isloading: true,
-      contenido: ['Cocina', 'Frigo', 'Lavadora', 'Vajilla', 'Cama', 'Horno', 'Secadora', 'Bano', 'TV', 'Tlf', 'WIFI', 'Compartido'],
-      barriosCiudades: [],
-      ciudades: [],
-      isCiudadSelected: false
-    }
-  }
-
-  componentWillMount() {
-    return fetch ('/index.php/components/mis/devuelveCiudadesBarrios')
-            .then((response) => response.json())
-            .then((responsejson) => {
-              this.setState({
-                isloading: false,
-                barriosCiudades: responsejson.barriosCiudades
-                ciudades: responsejson.barriosCiudades.filter((item, index, self) => self.indexOf(item) === index;)
-              });
-            })
-            .catch((error) => {
-              alert('Oh!\n\rHa habido un error al pintar el primero paso');
-              throw new Error('Ha habido un error al crear el componente del primer paso de la introduccion de datos:\n\r' + error);
-            });
-  }
-
-  render() {
-
-    // Fragmentos
-    const Fragment = React.Fragment;
-
-    // Elemento para los extras o contenidos del inmueble
-    let contenidos = this.state.contenido.map((objeto, index) => {
-      if (this.props.datos.extras.includes(objeto)) {
-        // Si lo tiene puesto
-        return(
-          <input key={index} type="checkbox" checked="checked" name="contenido[]" value={objeto} />&nbsp;{objeto}<br />
-        );
-      } else {
-        // Si no lo tiene puesto
-        return(
-          <input key={index} type="checkbox" name="contenido[]" value={objeto} />&nbsp;{objeto}<br />
-        );
-      }
-    });
-
-    // Elemento para el selector de ciudad
-    let selectorCiudad, selectorBarrio;
-    if (this.state.isCiudadSelected == true) {
-      selectorCiudad = ciudades.map((ciudad, index) => {
-        return(
-          <option key={index} value={ciudad.idlocalizacion}>{ciudad.localizcion}/option>
-        );
-      });
-    } else {
-      selectorBarrio = barriosCiudades.map(());
-    }
-    // Si ha seleccionado la ciudad ponemos sus barrios
-    if (selectorCiudad) {
-      selectorBarrio = ciudad.filter((elemento) => {
-        return ;
-      });
-    }
-
-    // Elemento para si el piso esta libre o no
-    let estaLibrePiso = () => {
-      if (this.props.datos.libre == 0) {
-        return(
-          <input type="checkbox" name="libre" value="1" />&nbsp;Existen plazas libres
-        );
-      } else {
-        <input type="checkbox" checked="checked" name="libre" value="1" />&nbsp;Existen plazas libres
-      }
-    }
-
-    if (this.props.visible == true) {
-      return (
-        <Fragment>
-        <div className="grid-container contenido">
-          <div className="grid-x grid-margin-x">
-            <div className="small-12 medium-8 cell">
-              <h2 className="headline">Descripci&oacute;n</h2>
-              <textarea width="100%" cols="40" rows="18" name="descripcion">{this.props.datos.inmueble.descripcion}</textarea>
-            </div>
-            <div className="small-12 medium-4 cell">
-              <h2 className="headline">Contenido</h2>
-                {contenidos}
-              <div id="libre">
-                {estaLibrePiso}
-              </div>
-            </div>
-          </div>
-
-
-            <div className="grid-x grid-margin-x">
-              <div className="small-12 cell">
-                <fieldset className="fieldset">
-                  <legend><i className="fi-home"></i> Direcci&oacute;n</legend>
-                  <label for="calle">calle</label>
-                  <input id="calle" name="calle" type="text" className="form_boton" placeholder="C/Falsa" value={this.props.datos.inmueble.calle} />
-                  <label for="numero">numero</label>
-                  <input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={this.props.datos.inmueble.numero} size="3" maxlength="3"/>
-                  <label for="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
-                  <input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={this.props.datos.inmueble.piso} size="2" maxlength="2"/>
-                  <label for="letra">letra
-                    <input name="letra" type="text" id="letra" placeholder="A" value={this.props.datos.inmueble.letra} size="2"/>
-                    <label for="cp">codigo costal (CP)</label>
-                    <input name="cp" type="text" id="cp" placeholder="00000" value={this.props.datos.inmueble.cp} size="5" maxlength="5" />
-                    <label for="localidad">localidad</label>
-                    <select name="localidad" id="localidad" className="form_boton">
-                      <? foreach ($localidades as $row) { ?>
-                        <? if ($idlocalidad == $row -> idlocalizacion) { ?>
-                          <option value="<?=$row -> idlocalizacion?>" selected="selected"><?=$row -> localizacion?></option>
-                        <? } else { ?>
-                          <option value="<?=$row -> idlocalizacion?>"><?=$row -> localizacion?></option>
-                        <? } ?>
-                      <? } ?>
-                    </select>
-                    <label for="tlf">tel&eacute;fono de contacto</label>
-                    <input name="tlf" type="text" id="tlf" placeholder="983423000" value={this.props.datos.inmueble.tlf} size="10" maxlength="9" />
-                    <label for="barrio">barrio</label>
-                    <select name="barrio" id="barrio" className="form_boton">
-                      <? foreach ($barrios as $row) { ?>
-                        <? if ($idbarrio == $row -> idbarrio) { ?>
-                          <option value="<?=$row -> idbarrio?>" selected="selected"><?=$row -> barrio?></option>
-                        <? } else { ?>
-                          <option value="<?=$row -> idbarrio?>"><?=$row -> barrio?></option>
-                        <? } ?>
-                      <? } ?>
-                    </select>
-                  </fieldset>
-                </div>
-              </div>
-            </div>
-        </Fragment>
-      );
-    }
-  }
-}
-
-ReactDOM.render(<Paso1 />, document.getElementById("ultimos_6_pisos"));
-
-// Paso 2 Component
-// Precios del piso
-class Paso2 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false;
-      nextVisible: false;
-    }
-  }
-
-  render() {
-    if (this.state.visible == true) {
-      return (
-        <Button onClick={this.props.handleFromChild} />
-        <Paso3 visible={true} />
-      );
-    }
-  }
-}
-
-// Paso 3 Component
-// Imagenes del piso
-class Paso3 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false;
-      nextVisible: false;
-    }
-  }
-
-  render() {
-    if (this.state.visible == true) {
-      return (
-
-      );
-    }
-  }
-}
-
-// De un paso a otro (breadcrumb)
-// Imagenes del piso
+// Ruta de migas, donde te dice en que paso estas
 class Breadcrumb extends React.Component {
   constructor(props) {
     super(props);
   }
-
 
   render() {
     // Fragmentos
@@ -369,6 +87,479 @@ class Breadcrumb extends React.Component {
           </Fragment>
       );
     }
+  }
+}
+
+// Primer paso, donde el usuario mete la descripcion, telefono, calle, ciudad, barrio, y las cosas que tiene
+class Paso1 extends React.Component {
+  constructor(props) {
+    super(props);
+    // Estado temporal de esta parte
+    this.state = {
+      contenido: ['Cocina', 'Frigo', 'Lavadora', 'Vajilla', 'Cama', 'Horno', 'Secadora', 'Bano', 'TV', 'Tlf', 'WIFI', 'Compartido'],
+      barrios: [],
+      ciudad: 0,
+      barrio: 0,
+      inmueble: {
+        descripcion: '',
+        calle: '',
+        numero: 0,
+      }
+    }
+
+    // Handles del formulario (que son muchos)
+    this.handleLibres = this.handleLibres.bind(this);
+    this.changeSelectCiudades = this.changeSelectCiudades.bind(this);
+    this.changeSelectBarrios = this.changeSelectBarrios.bind(this);
+
+    this.handleDescripcion = this.handleDescripcion.bind(this);
+    this.handleCalle = this.handleCalle.bind(this);
+    this.handleNumero = this.habdleNumero.bind(this);
+  }
+
+  handleLibres(e) {
+    // Cambia si esta libre o no
+    (datos.libre == 1 ? datos.libre = 0 : datos.libre = 1);
+    // Necesitamos re renderizar el componente (ouch!)
+    this.forceUpdate();
+  }
+
+  handleDescripcion(e) {
+    // Cambia la descripcion
+    datos.inmueble.descripcion = e.target.value;
+    this.setState({inmueble: {descripcion: e.target.value}});
+  }
+
+  handleCalle(e) {
+    // Cambia el storage de la calle
+    datos.inmueble.calle = e.target.value;
+    this.setState({inmueble: {calle: e.target.value}});
+  }
+
+  handleNumero(e) {
+    // Cambia el storage del numero
+    datos.inmueble.numero = e.target.value;
+    this.setState({inmueble: {numero: e.target.value}})
+  }
+
+  changeSelectCiudades(e) {
+    // Cuando cambia la ciudad en el select
+    let barriostmp = this.props.datos.consulta.filter((item, index) => {
+        if (item.idlocalizacion == e.target.value) {
+          return item;
+        }
+      });
+
+    barriostmp.sort((a,b) => {
+      if (a.barrio > b.barrio) {
+        return 1;
+      } else if (a.barrio < b.barrio) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    this.setState({
+      barrios: barriostmp,
+      ciudad: e.target.value
+    });
+    // Metemos la ciudad
+    datos.inmueble.ciudad = e.target.value;
+
+  }
+
+  changeSelectBarrios(e) {
+    // Cuando elige el barrio
+    // Metemos el barrio
+    datos.inmueble.barrio = e.target.value;
+    // Cambiamos los estados
+    this.setState({
+      ciudad: e.target.value,
+      barrio: e.target.value
+    });
+  }
+
+  render() {
+    // Fragmentos
+    const Fragment = React.Fragment;
+
+    // Si esta visible
+    if (this.props.visible === true) {
+      var ciudades, barrios, contenidos, descripcion, estaLibrePiso;
+      // Rellena la ciudad
+      if (this.props.datos.ciudades && this.props.datos.ciudades.length > 0) {
+        ciudades = this.props.datos.ciudades.map((item, index) => {
+          return (
+            <option key={index} value={item.idlocalizacion}>{item.localizacion}</option>
+          )
+        })
+      }
+      // Rellena el barrio segun lo elegido
+      if (this.state.barrios.length > 0) {
+        barrios = this.state.barrios.map((item, index) => {
+          return(
+            <option key={index} value={item.idbarrio}>{item.barrio}</option>
+          )
+        });
+      }
+
+      // Los contenidos
+      let contenidos = this.state.contenido.map((objeto, index) => {
+        if (datos.inmueble.extras.length > 0 && datos.imueble.extras.includes(objeto)) {
+          // Si lo tiene puesto
+          return(
+            <Fragment>
+              <input type="checkbox" checked="checked" name="contenido[]" value={objeto} /> {objeto}<br/>
+            </Fragment>
+          );
+        } else {
+          // Si no lo tiene puesto
+          return(
+            <Fragment>
+              <input type="checkbox" name="contenido[]" value={objeto}/> {objeto}<br/>
+            </Fragment>
+          );
+        }
+      });
+
+      if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio == 0) {
+        return (
+          <Fragment>
+
+            <div className="small-12 medium-8 cell">
+              <h2 className="headline">Descripci&oacute;n</h2>
+              <textarea width="100%" cols="40" rows="18" name="descripcion" onChange={this.handleDescripcion} value={datos.inmueble.descripcion}></textarea>
+            </div>
+
+            <div className="small-12 medium-4 cell">
+              <h2 className="headline">Contenido</h2>
+                {contenidos}
+              <div id="libre" onClick={this.handleLibres}>
+                {datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}
+              </div>
+            </div>
+
+            <div className="small-12 cell">
+
+    						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
+    						<label htmlFor="calle">calle</label>
+    						<input id="calle" name="calle" type="text" className="form_boton" onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
+    						<label htmlFor="numero">n&uacute;mero</label>
+    						<input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={datos.inmueble.numero} size="3" maxLength="3"/>
+    						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
+    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={datos.inmueble.piso} size="2" maxLength="2"/>
+    						<label htmlFor="letra">letra</label>
+    							<input name="letra" type="text" id="letra" placeholder="A" value={datos.inmueble.letra} size="2"/>
+    							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
+    							<input name="cp" type="text" id="cp" placeholder="00000" value={datos.inmueble.cp} size="5" maxLength="5" />
+    							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
+    							<input name="tlf" type="text" id="tlf" placeholder="983423000" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+                  <label htmlFor="localidad">localidad</label>
+                  <select name="localidad" id="localidad" className="form_boton" onChange={this.changeSelectCiudades}>
+                    <option>Selecciona una ciudad</option>
+                    {ciudades}
+                  </select>
+                  <label htmlFor="barrio">barrio</label>
+                  <select name="barrio" id="barrio" className="form_boton" onChange={this.changeSelectBarrios}>
+                    <option>Selecciona un barrio</option>
+                    {barrios}
+                  </select>
+
+    					</div>
+
+              <div className="small-12 cell">
+                <button className="button right" disabled="disabled">Continuar en el Paso 2</button>
+              </div>
+
+          </Fragment>
+        );
+      } else if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio != 0) {
+        return (
+          <Fragment>
+
+            <div className="small-12 medium-8 cell">
+              <h2 className="headline">Descripci&oacute;n</h2>
+              <textarea width="100%" cols="40" rows="18" name="descripcion" onChange={this.handleDescripcion} value={datos.inmueble.descripcion}></textarea>
+            </div>
+
+            <div className="small-12 medium-4 cell">
+              <h2 className="headline">Contenido</h2>
+                {contenidos}
+              <div id="libre" onClick={this.handleLibres}>
+                {datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}
+              </div>
+            </div>
+
+            <div className="small-12 cell">
+
+    						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
+    						<label htmlFor="calle">calle</label>
+    						<input id="calle" name="calle" type="text" className="form_boton" onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
+    						<label htmlFor="numero">n&uacute;mero</label>
+    						<input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={datos.inmueble.numero} size="3" maxLength="3"/>
+    						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
+    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={datos.inmueble.piso} size="2" maxLength="2"/>
+    						<label htmlFor="letra">letra</label>
+    							<input name="letra" type="text" id="letra" placeholder="A" value={datos.inmueble.letra} size="2"/>
+    							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
+    							<input name="cp" type="text" id="cp" placeholder="00000" value={datos.inmueble.cp} size="5" maxLength="5" />
+    							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
+    							<input name="tlf" type="text" id="tlf" placeholder="983423000" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+                  <label htmlFor="localidad">localidad</label>
+                  <select name="localidad" id="localidad" className="form_boton" onChange={this.changeSelectCiudades}>
+                    <option>Selecciona una ciudad</option>
+                    {ciudades}
+                  </select>
+                  <label htmlFor="barrio">barrio</label>
+                  <select name="barrio" id="barrio" className="form_boton" onChange={this.changeSelectBarrios}>
+                    <option>Selecciona un barrio</option>
+                    {barrios}
+                  </select>
+
+    					</div>
+
+              <div className="small-12 cell">
+                <button className="button right " onClick={this.props.change1a2}>Continuar en el Paso 2</button>
+              </div>
+
+          </Fragment>
+        );
+      } else {
+        return (
+          <Fragment>
+
+            <div className="small-12 medium-8 cell">
+              <h2 className="headline">Descripci&oacute;n</h2>
+              <textarea width="100%" cols="40" rows="18" name="descripcion" onChange={this.handleDescripcion} value={datos.inmueble.descripcion}></textarea>
+            </div>
+
+            <div className="small-12 medium-4 cell">
+              <h2 className="headline">Contenido</h2>
+                {contenidos}
+              <div id="libre" onClick={this.handleLibres} className="plazasLibres">
+                {datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}
+              </div>
+            </div>
+
+            <div className="small-12 cell">
+
+    						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
+    						<label htmlFor="calle">calle</label>
+    						<input id="calle" name="calle" type="text" className="form_boton" onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
+    						<label htmlFor="numero">n&uacute;mero</label>
+    						<input name="numero" type="text" className="form_boton" id="numero" placeholder="22" value={datos.inmueble.numero} size="3" maxLength="3"/>
+    						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
+    						<input name="piso" type="text" className="form_boton" id="piso" placeholder="2" value={datos.inmueble.piso} size="2" maxLength="2"/>
+    						<label htmlFor="letra">letra</label>
+    							<input name="letra" type="text" id="letra" placeholder="A" value={datos.inmueble.letra} size="2"/>
+    							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
+    							<input name="cp" type="text" id="cp" placeholder="00000" value={datos.inmueble.cp} size="5" maxLength="5" />
+    							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
+    							<input name="tlf" type="text" id="tlf" placeholder="983423000" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+                  <label htmlFor="localidad">localidad</label>
+                  <select name="localidad" id="localidad" className="form_boton" onChange={this.changeSelectCiudades}>
+                    <option>Selecciona una ciudad</option>
+                    {ciudades}
+                  </select>
+                  <label htmlFor="barrio">barrio</label>
+                  <select name="barrio" id="barrio" className="form_boton" onChange={this.changeSelectBarrios}>
+                    <option>Selecciona un barrio</option>
+                    {barrios}
+                  </select>
+
+    					</div>
+
+              <div className="small-12 cell">
+                <button className="button right" disabled="disabled">Continuar en el Paso 2</button>
+              </div>
+
+          </Fragment>
+        );
+      }
+
+
+    }
 
   }
 }
+
+class Paso2 extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    if (this.props.visible === true) {
+      return (
+        <div className="Paso2">
+
+        <h5>Paso2</h5>
+        <strong>IDCiudad: {datos.inmueble.ciudad}</strong><br/>
+        <strong>IDBarrio: {datos.inmueble.barrio}</strong>
+        <br/>
+        <button onClick={this.props.change2a1}>Ir al paso 1</button>
+        <button onClick={this.props.change2a3}>Ir al paso 3</button>
+        </div>
+      );
+    } else {
+      return (
+        <h5>Paso 2 no visible</h5>
+      );
+    }
+
+  }
+}
+
+class Paso3 extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      caca: 1
+    }
+
+  }
+
+  render() {
+    if (this.props.visible === true) {
+      return (
+        <div className="Paso3">
+
+        <h5>Paso3</h5>
+        <button onClick={this.props.change3a2}>Ir al paso 2</button>
+        </div>
+      );
+    } else {
+      return (
+        <h5>Paso 3 no visible</h5>
+      );
+    }
+
+  }
+}
+
+class Pasador extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visiblePaso1: true,
+      visiblePaso2: false,
+      visiblePaso3: false,
+      paso: 1,
+      datos: {
+        consulta: [],
+        ciudades: [],
+        ciudad: [],
+        barrio: []
+      }
+    }
+
+    this.change1a2 = this.change1a2.bind(this);
+    this.change2a3 = this.change2a3.bind(this);
+
+    this.change2a1 = this.change2a1.bind(this);
+    this.change3a2 = this.change3a2.bind(this);
+  }
+
+  componentWillMount() {
+    fetch('/index.php/components/mis/devuelveCiudadesBarrios')
+        .then((respuesta) => respuesta.json())
+        .then((respuestajson) => {
+          this.setState({
+            datos: {
+              consulta: respuestajson.barriosCiudades,
+              ciudades: [],
+              ciudad: [],
+              barrio: []
+            }
+          })
+        })
+        .then(() => {
+          fetch('/index.php/components/mis/devuelveCiudades')
+              .then((respuesta) => respuesta.json())
+              .then((respuestajson) => {
+                this.setState({
+                  datos: {
+                    consulta: this.state.datos.consulta,
+                    ciudades: respuestajson.ciudades,
+                    ciudad: [],
+                    barrio: []
+                  }
+                })
+              });
+        });
+  }
+
+  change1a2() {
+    this.setState ({
+      visiblePaso1: false,
+      visiblePaso2: true,
+      visiblePaso3: false,
+      paso: 2
+    });
+  }
+
+  change2a3() {
+    this.setState ({
+      visiblePaso1: false,
+      visiblePaso2: false,
+      visiblePaso3: true,
+      paso: 3
+    });
+  }
+
+  change2a1() {
+    this.setState ({
+      visiblePaso1: true,
+      visiblePaso2: false,
+      visiblePaso3: false,
+      paso: 1
+    });
+  }
+
+  change3a2() {
+    this.setState ({
+      visiblePaso1: false,
+      visiblePaso2: true,
+      visiblePaso3: false,
+      paso: 2
+    });
+  }
+
+  render() {
+
+    return (
+      <div className="App">
+
+      <div className="grid-container contenido">
+    		<div className="grid-x grid-margin-x">
+    			<div className="small-12 medium-8 cell">
+            <Breadcrumb paso={this.state.paso} />
+          </div>
+        </div>
+      </div>
+
+      <div className="grid-container contenido">
+    		<div className="grid-x grid-margin-x">
+          <Paso1 visible={this.state.visiblePaso1} datos={this.state.datos} change1a2={this.change1a2} />
+        </div>
+      </div>
+
+      <Paso2 visible={this.state.visiblePaso2} datos={this.state.datos} change2a3={this.change2a3} change2a1={this.change2a1} />
+      <Paso3 visible={this.state.visiblePaso3} datos={this.state.datos} change3a2={this.change3a2}/>
+      </div>
+    );
+  }
+}
+
+function App() {
+
+  return (
+    <div>
+      <Pasador />
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('addpiso'));
