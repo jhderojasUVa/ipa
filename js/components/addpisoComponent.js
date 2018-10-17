@@ -167,7 +167,7 @@ class Paso1 extends React.Component {
 
   handleCp(e) {
     // Cambia el storage del cp
-    datos.inmueble.cp = e.target.value;
+    datos.inmueble.codigoPostal = e.target.value;
     this.setState({inmueble: {cp: e.target.value}});
   }
 
@@ -215,17 +215,20 @@ class Paso1 extends React.Component {
   }
 
   componentWillMount() {
-    if (datos.id != 0) {
+    /*if (datos.id != 0) {
 
-    }
+    }*/
   }
 
   render() {
+
+    console.log(this.props.paso);
+
     // Fragmentos
     const Fragment = React.Fragment;
 
     // Si esta visible
-    if (this.props.visible === true) {
+    if (this.props.paso === 1) {
       var ciudades, barrios, contenidos, descripcion, estaLibrePiso;
       // Rellena la ciudad
       if (this.props.datos.ciudades && this.props.datos.ciudades.length > 0) {
@@ -242,38 +245,42 @@ class Paso1 extends React.Component {
             <option key={index} value={item.idbarrio}>{item.barrio}</option>
           )
         });
+
+        // Los contenidos
+        let contenidos = this.state.contenido.map((objeto, index) => {
+          if (datos.inmueble.extras.length > 0 && datos.imueble.extras.includes(objeto)) {
+            // Si lo tiene puesto
+            return(
+              <Fragment>
+                <input type="checkbox" checked="checked" name="contenido[]" value={objeto} /> {objeto}<br/>
+              </Fragment>
+            );
+          } else {
+            // Si no lo tiene puesto
+            return(
+              <Fragment>
+                <input type="checkbox" name="contenido[]" value={objeto}/> {objeto}<br/>
+              </Fragment>
+            );
+          }
+        });
       }
 
-      // Los contenidos
-      let contenidos = this.state.contenido.map((objeto, index) => {
-        if (datos.inmueble.extras.length > 0 && datos.imueble.extras.includes(objeto)) {
-          // Si lo tiene puesto
-          return(
-            <Fragment>
-              <input type="checkbox" checked="checked" name="contenido[]" value={objeto} /> {objeto}<br/>
-            </Fragment>
-          );
-        } else {
-          // Si no lo tiene puesto
-          return(
-            <Fragment>
-              <input type="checkbox" name="contenido[]" value={objeto}/> {objeto}<br/>
-            </Fragment>
-          );
-        }
-      });
+      console.log('caca');
 
+      // Configuramos el boton de ir al siguiente paso
       let nextButton;
 
-      if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio == 0 && this.props.visible == true) {
+      // Planteamos las posibilidades del boton de siguiente
+      if ((datos.inmueble.ciudad != 0 && datos.inmueble.barrio == 0 && this.props.visible == true) || (this.props.visible == true)) {
         nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2</button>;
       } else if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio != 0 && this.props.visible == true) {
-        nextButton = <button className="button right" onClick={this.props.change1a2}>Continuar en el Paso 2</button>
-      } else if (this.props.visible == true) {
-        nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2</button>;
+        nextButton = <button className="button right" onClick={this.props.change1a2}>Continuar en el Paso 2</button>;
+      } else {
+        nextButton = <button className="button right" disabled="disabled">Deshabilitado</button>;
       }
 
-      if (this.props.visible == true) {
+      if (this.props.paso === 1) {
         return (
           <Fragment>
 
@@ -323,14 +330,12 @@ class Paso1 extends React.Component {
 
           </Fragment>
         );
-      }{
-        return null;
       }
-
-
+    } else {
+      // Estamos viendo otro paso
+      return null;
     }
-
-  }
+  } // Fin del render
 }
 
 class Paso2 extends React.Component {
@@ -364,10 +369,13 @@ class Paso2 extends React.Component {
 
   handleAddprecio(e) {
     // Añade el precio en el storage
-    datos.precios.push({
-      precio: this.state.precio,
-      descripcion: this.state.descripcion
-    });
+    if (this.state.precio != '' && this.state.descripcion != '') {
+      datos.precios.push({
+        precio: this.state.precio,
+        descripcion: this.state.descripcion
+      });
+    }
+
     // Pone a default el estado
     this.setState({
       precio: '',
@@ -384,13 +392,14 @@ class Paso2 extends React.Component {
   }
 
   componentWillMount() {
-    if (datos.id != 0) {
+    /*if (datos.id != 0) {
 
-    }
+    }*/
   }
 
   render() {
     // Fragmentos
+
     const Fragment = React.Fragment;
 
     let mostrarPrecios = datos.precios.map((item, index) => {
@@ -405,9 +414,7 @@ class Paso2 extends React.Component {
       );
     });
 
-    if (this.props.visible === true) {
-      //console.log(datos);
-
+    if (this.props.paso === 2) {
       return (
         <Fragment>
 
@@ -425,13 +432,13 @@ class Paso2 extends React.Component {
 
         <div className="small-12 medium-6 cell">
   				<label>referente a
-  					<input type="text" name="descripcion" size="20" maxlength="50" placeholder="habitacion doble" required/>
+  					<input type="text" name="descripcion" size="20" maxLength="50" placeholder="habitacion doble" required/>
   				</label>
   			</div>
 
         <div className="small-12 medium-2 cell">
-  				<label style="margin-top: 20px;">
-  					<input className="button" onClick="javascript:pre_addprecio()" name="precio_enviar" value="a&ntilde;adir precio" />
+  				<label className="marginTop20">
+  					<input className="button" onClick={this.handleAddprecio} name="precio_enviar" defaultValue="a&ntilde;adir precio" />
   				</label>
   			</div>
 
@@ -440,14 +447,18 @@ class Paso2 extends React.Component {
   			</div>
 
         <div className="small-12 cell">
-          <div className="precios" style="margin: 0 auto;">
+          <div className="precios" className="margin0Auto">
               <table width="100">
-                <tr>
-                  <td>Precio</td>
-                  <td>Descripci&oacute;n</td>
-                  <td></td>
-                </tr>
-                {mostrarPrecios}
+                <thead>
+                  <tr>
+                    <td>Precio</td>
+                    <td>Descripci&oacute;n</td>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {mostrarPrecios}
+                </tbody>
                 </table>
           </div>
         </div>
@@ -464,6 +475,8 @@ class Paso2 extends React.Component {
       return null;
     };
 
+    //return(<p>Caca de la vaca</p>);
+
   }
 }
 
@@ -474,7 +487,7 @@ class Paso3 extends React.Component {
   }
 
   render() {
-    if (this.props.visible === true) {
+    if (this.props.paso === 3) {
       return (
         <div className="Paso3">
 
@@ -494,10 +507,7 @@ class Pasador extends React.Component {
     super(props);
 
     this.state = {
-      visiblePaso1: true,
-      visiblePaso2: false,
-      visiblePaso3: false,
-      paso: 1,
+      paso: 2,
       datos: {
         consulta: [],
         ciudades: [],
@@ -514,7 +524,7 @@ class Pasador extends React.Component {
   }
 
   componentWillMount() {
-
+    // Realizamos las consultas genericas para todos los pasos
     fetch('/index.php/components/mis/devuelveCiudadesBarrios')
         .then((respuesta) => respuesta.json())
         .then((respuestajson) => {
@@ -543,7 +553,7 @@ class Pasador extends React.Component {
         });
 
         // Comprobamos si esta retrocediendo para leerlo todo
-        if (datos.id != 0) {
+        /*if (datos.id != 0) {
           fetch('/index.php/components/mis/datosPiso', {
             method: 'POST',
             body: {
@@ -558,66 +568,66 @@ class Pasador extends React.Component {
             alert('Ha habido un error consultando los datos del inmueble\r\nError: '+ error);
             throw 'Ha habido un error al consultar los datos del inmueble. '+ error;
           })
-        }
+        }*/
   }
 
   change1a2() {
     this.setState ({
-      visiblePaso1: false,
-      visiblePaso2: true,
-      visiblePaso3: false,
       paso: 2
     });
   }
 
   change2a3() {
     this.setState ({
-      visiblePaso1: false,
-      visiblePaso2: false,
-      visiblePaso3: true,
       paso: 3
     });
   }
 
   change2a1() {
     this.setState ({
-      visiblePaso1: true,
-      visiblePaso2: false,
-      visiblePaso3: false,
       paso: 1
     });
   }
 
   change3a2() {
     this.setState ({
-      visiblePaso1: false,
-      visiblePaso2: true,
-      visiblePaso3: false,
       paso: 2
     });
   }
 
   render() {
+    //console.log('1='+this.state.visiblePaso1+' 2='+this.state.visiblePaso2+' 3='+this.state.visiblePaso3);
+
+    console.log('paso = '+this.state.paso);
 
     return (
       <div className="App">
 
-      <div className="grid-container contenido">
-    		<div className="grid-x grid-margin-x">
-    			<div className="small-12 medium-8 cell">
-            <Breadcrumb paso={this.state.paso} />
+        <div className="grid-container contenido">
+      		<div className="grid-x grid-margin-x">
+      			<div className="small-12 medium-8 cell">
+              <Breadcrumb paso={this.state.paso} />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="grid-container contenido">
-    		<div className="grid-x grid-margin-x">
-          <Paso1 visible={this.state.visiblePaso1} datos={this.state.datos} change1a2={this.change1a2} />
+        <div className="grid-container contenido">
+      		<div className="grid-x grid-margin-x">
+            <Paso1 paso={this.state.paso} datos={this.state.datos} change1a2={this.change1a2} />
+          </div>
         </div>
-      </div>
+        <div className="grid-container contenido">
+      		<div className="grid-x grid-margin-x">
+            <Paso2 paso={this.state.paso} datos={this.state.datos} change2a3={this.change2a3} change2a1={this.change2a1} />
+          </div>
+        </div>
 
-      <Paso2 visible={this.state.visiblePaso2} datos={this.state.datos} change2a3={this.change2a3} change2a1={this.change2a1} />
-      <Paso3 visible={this.state.visiblePaso3} datos={this.state.datos} change3a2={this.change3a2}/>
+        <div className="grid-container contenido">
+      		<div className="grid-x grid-margin-x">
+            <Paso3 paso={this.state.paso} datos={this.state.datos} change3a2={this.change3a2}/>
+          </div>
+        </div>
+
       </div>
     );
   }

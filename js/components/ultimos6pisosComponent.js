@@ -39,65 +39,66 @@ class Ultimos6Pisos extends React.Component {
         let extras = datospisos.extras.split('|');
 
         let extrasPiso = extras.map((datosextras, index) => {
+          let newIndex = Math.floor(index*(Math.random()*5000)+1);
           // El case de las cosas
           switch (datosextras) {
             case 'Cocina':
               return(
-                <li key={index}><img class="extras" src="/img/icons/009-cocina.png" alt="Cocina" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/009-cocina.png" alt="Cocina" /></li>
               );
               break;
             case 'Frigo':
               return(
-                <li key={index}><img class="extras" src="/img/icons/004-frigorifico.png" alt="Frigorigico" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/004-frigorifico.png" alt="Frigorigico" /></li>
               );
               break;
             case 'Lavadora':
               return(
-                <li key={index}><img class="extras" src="/img/icons/010-lavadora.png" alt="Lavadora" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/010-lavadora.png" alt="Lavadora" /></li>
               );
               break;
             case 'Vajilla':
               return(
-                <li key={index}><img class="extras" src="/img/icons/005-vajilla.png" alt="Vajilla" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/005-vajilla.png" alt="Vajilla" /></li>
               );
               break;
             case 'Cama':
               return(
-                <li key={index}><img class="extras" src="/img/icons/006-cama.png" alt="Cama" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/006-cama.png" alt="Cama" /></li>
               );
               break;
             case 'Bano':
               return(
-                <li key={index}><img class="extras" src="/img/icons/011-servicio.png" alt="Baño" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/011-servicio.png" alt="Baño" /></li>
               );
               break;
             case 'Horno':
               return(
-                <li key={index}><img class="extras" src="/img/icons/008-horno.png" alt="Horno" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/008-horno.png" alt="Horno" /></li>
               );
               break;
             case 'Secadora':
               return(
-                <li key={index}><img class="extras" src="/img/icons/012-secadora.png" alt="Secadora" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/012-secadora.png" alt="Secadora" /></li>
               );
               break;
             case 'TV':
               return(
-                <li key={index}><img class="extras" src="/img/icons/002-television.png" alt="TV" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/002-television.png" alt="TV" /></li>
               );
               break;
             case 'Telefono':
               return(
-                <li key={index}><img class="extras" src="/img/icons/003-phone.png" alt="Telefono" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/003-phone.png" alt="Telefono" /></li>
               );
               break;
             case 'WIFI':
               return(
-                <li key={index}><img class="extras" src="/img/icons/001-wifi.png" alt="Internet" /></li>);
+                <li key={newIndex}><img className="extras" src="/img/icons/001-wifi.png" alt="Internet" /></li>);
               break;
             case 'Compartido':
               return(
-                <li key={index}><img class="extras" src="/img/icons/013-compartido.png" alt="Compartido" /></li>
+                <li key={newIndex}><img className="extras" src="/img/icons/013-compartido.png" alt="Compartido" /></li>
               );
               break
             default:

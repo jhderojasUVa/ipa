@@ -49,7 +49,7 @@ class SlideshowComponent extends React.Component {
     var hostname = window.location.hostname;
 
     // Si ya ha cargado los datos, montamos el tinglado
-    if (this.state.isloading == false) {
+    if (this.state.isloading === false) {
       var imagesSlideshow = this.state.slideshowdata.map((datospiso, index) => {
         let theHref = 'http://' + hostname + '/index.php/pisos/producto_piso?id=' + datospiso.id_piso;
         let imgHref = 'http://' + hostname + '/img_pisos/' + datospiso.id_piso + '/' + datospiso.imagen;

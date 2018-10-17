@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".slideshow").slick({
+  /*$(".slideshow").slick({
     autoplay: true,
     autoplayspeed: 3000,
     dots: true,
@@ -9,7 +9,7 @@ $(document).ready(function(){
     slidesToShow: 1,
     variableWidth: true,
     centerMode: true,
-  });
+  });*/
 
   // El listener del upload de ficheros
   listener_upload();

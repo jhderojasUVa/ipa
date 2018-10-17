@@ -788,3 +788,12 @@ ul.extras .extras, p.extras .extras {
   cursor: pointer;
   font-weight: bold;
 }
+
+/* Para los precios */
+.marginTop20 {
+  margin-top: 20px;
+}
+
+.margin0Auto {
+  margin: 0 auto;
+}
