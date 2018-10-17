@@ -66,4 +66,30 @@ class Mis extends CI_Controller {
     echo json_encode($datos);
   }
 
+	public function devuelveDatosPiso() {
+
+		// Sacamos las cosas que nos interesan del POST
+    $idpiso = $this -> input -> post_get("id");
+
+		$datos["inmueble"] = $this -> pisos_model -> show_piso($idpiso);
+
+		// Cambiamos la cabecera a JSON de respuesta
+    header('Content-Type: application/json');
+    // Escupimos la respuesta
+    echo json_encode($datos);
+	}
+
+	public function devuelvePrecio() {
+
+		// Sacamos las cosas que nos interesan del POST
+    $idpiso = $this -> input -> post_get("id");
+
+		$datos["precios"] = $this -> precios_model -> show_precios($idpiso);
+
+		// Cambiamos la cabecera a JSON de respuesta
+    header('Content-Type: application/json');
+    // Escupimos la respuesta
+    echo json_encode($datos);
+	}
+
 }

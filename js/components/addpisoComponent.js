@@ -214,6 +214,12 @@ class Paso1 extends React.Component {
     });
   }
 
+  componentWillMount() {
+    if (datos.id != 0) {
+
+    }
+  }
+
   render() {
     // Fragmentos
     const Fragment = React.Fragment;
@@ -257,57 +263,17 @@ class Paso1 extends React.Component {
         }
       });
 
+      let nextButton;
+
       if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio == 0 && this.props.visible == true) {
-        return (
-          <Fragment>
-
-            <div className="small-12 medium-8 cell">
-              <h2 className="headline">Descripci&oacute;n</h2>
-              <textarea width="100%" cols="40" rows="18" name="descripcion" onChange={this.handleDescripcion} value={datos.inmueble.descripcion}></textarea>
-            </div>
-
-            <div className="small-12 medium-4 cell">
-              <h2 className="headline">Contenido</h2>
-                {contenidos}
-              <div id="libre" onClick={this.handleLibres} className="plazasLibres">
-                <button className="button large alert">{datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}</button>
-              </div>
-            </div>
-
-            <div className="small-12 cell">
-    						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
-    						<label htmlFor="calle">calle</label>
-    						<input id="calle" name="calle" type="text" className="form_boton" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Ponga el nombre de la calle sin escribir calle o c/ o paseo o avenida, etc..." onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
-    						<label htmlFor="numero">n&uacute;mero</label>
-    						<input name="numero" type="text" className="form_boton" id="numero" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí va el número de su portal" placeholder="22" onChange={this.handleNumero} value={datos.inmueble.numero} size="3" maxLength="3"/>
-    						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
-    						<input name="piso" type="text" className="form_boton" id="piso" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí la altura de su piso, ponga A para un ático o B para un bajo" placeholder="2" onChange={this.handlePiso} value={datos.inmueble.piso} size="2" maxLength="2"/>
-    						<label htmlFor="letra">letra</label>
-    							<input name="letra" type="text" id="letra" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Escriba aquí la letra de su inmueble" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
-    							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
-    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.cp} size="5" maxLength="5" />
-    							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
-    							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
-                  <label htmlFor="localidad">localidad</label>
-                  <select name="localidad" id="localidad" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione una ciudad en el desplegable para ver los barrios" className="form_boton" onChange={this.changeSelectCiudades}>
-                    <option>Selecciona una ciudad</option>
-                    {ciudades}
-                  </select>
-                  <label htmlFor="barrio">barrio</label>
-                  <select name="barrio" id="barrio" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione un barrio de la ciudad previamente seleccionada" className="form_boton" onChange={this.changeSelectBarrios}>
-                    <option>Selecciona un barrio</option>
-                    {barrios}
-                  </select>
-
-    					</div>
-
-              <div className="small-12 cell">
-                <button className="button right" disabled="disabled">Continuar en el Paso 2</button>
-              </div>
-
-          </Fragment>
-        );
+        nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2</button>;
       } else if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio != 0 && this.props.visible == true) {
+        nextButton = <button className="button right" onClick={this.props.change1a2}>Continuar en el Paso 2</button>
+      } else if (this.props.visible == true) {
+        nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2</button>;
+      }
+
+      if (this.props.visible == true) {
         return (
           <Fragment>
 
@@ -352,62 +318,12 @@ class Paso1 extends React.Component {
     					</div>
 
               <div className="small-12 cell">
-                <button className="button right" onClick={this.props.change1a2}>Continuar en el Paso 2</button>
+                {nextButton}
               </div>
 
           </Fragment>
         );
-      } else if (this.props.visible == true){
-        return (
-          <Fragment>
-
-            <div className="small-12 medium-8 cell">
-              <h2 className="headline">Descripci&oacute;n</h2>
-              <textarea width="100%" cols="40" rows="18" name="descripcion" onChange={this.handleDescripcion} value={datos.inmueble.descripcion}></textarea>
-            </div>
-
-            <div className="small-12 medium-4 cell">
-              <h2 className="headline">Contenido</h2>
-                {contenidos}
-              <div id="libre" onClick={this.handleLibres} className="plazasLibres">
-                <button className="button large alert">{datos.libre == 1 ? `NO Existen plazas libres` : `Existen plazas libres`}</button>
-              </div>
-            </div>
-
-            <div className="small-12 cell">
-    						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
-    						<label htmlFor="calle">calle</label>
-    						<input id="calle" name="calle" type="text" className="form_boton" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Ponga el nombre de la calle sin escribir calle o c/ o paseo o avenida, etc..." onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
-    						<label htmlFor="numero">n&uacute;mero</label>
-    						<input name="numero" type="text" className="form_boton" id="numero" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí va el número de su portal" placeholder="22" onChange={this.handleNumero} value={datos.inmueble.numero} size="3" maxLength="3"/>
-    						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
-    						<input name="piso" type="text" className="form_boton" id="piso" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí la altura de su piso, ponga A para un ático o B para un bajo" placeholder="2" onChange={this.handlePiso} value={datos.inmueble.piso} size="2" maxLength="2"/>
-    						<label htmlFor="letra">letra</label>
-    							<input name="letra" type="text" id="letra" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Escriba aquí la letra de su inmueble" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
-    							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
-    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.cp} size="5" maxLength="5" />
-    							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
-    							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
-                  <label htmlFor="localidad">localidad</label>
-                  <select name="localidad" id="localidad" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione una ciudad en el desplegable para ver los barrios" className="form_boton" onChange={this.changeSelectCiudades}>
-                    <option>Selecciona una ciudad</option>
-                    {ciudades}
-                  </select>
-                  <label htmlFor="barrio">barrio</label>
-                  <select name="barrio" id="barrio" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione un barrio de la ciudad previamente seleccionada" className="form_boton" onChange={this.changeSelectBarrios}>
-                    <option>Selecciona un barrio</option>
-                    {barrios}
-                  </select>
-
-    					</div>
-
-              <div className="small-12 cell">
-                <button className="button right" disabled="disabled">Continuar en el Paso 2</button>
-              </div>
-
-          </Fragment>
-        );
-      } else {
+      }{
         return null;
       }
 
@@ -467,6 +383,12 @@ class Paso2 extends React.Component {
     this.forceUpdate();
   }
 
+  componentWillMount() {
+    if (datos.id != 0) {
+
+    }
+  }
+
   render() {
     // Fragmentos
     const Fragment = React.Fragment;
@@ -484,7 +406,7 @@ class Paso2 extends React.Component {
     });
 
     if (this.props.visible === true) {
-      console.log(datos);
+      //console.log(datos);
 
       return (
         <Fragment>
@@ -552,7 +474,6 @@ class Paso3 extends React.Component {
   }
 
   render() {
-    console.log(datos);
     if (this.props.visible === true) {
       return (
         <div className="Paso3">
@@ -630,7 +551,7 @@ class Pasador extends React.Component {
             }
           })
           .then((respuesta) => {
-            console.log(respuesta);
+            //console.log(respuesta);
             return respuesta.json();
           })
           .catch((error) => {
