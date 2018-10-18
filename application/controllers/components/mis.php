@@ -81,10 +81,34 @@ class Mis extends CI_Controller {
 		$idlocalidad = $inputData["inmueble"]["ciudad"];
 		$idbarrio = $inputData["inmueble"]["barrio"];
 		$tlf = $inputData["inmueble"]["tlfContacto"];
+
+		$precios = $inputData["precios"];
 		$libre = $inputData["libre"];
 
-		if ($datos["logeado"] == true) {
+		$idpiso = $inputData["id"];
+
+		if ($datos["logeado"] == true && $idpiso == 0) {
+			// Estamos añadiendo uno nuevo y nos devuelve el ID
 			$datos["idpiso"] = $this -> pisos_model -> add_piso($descripcion, $calle, $numero, $piso, $letra, $cp, $idlocalidad, $idbarrio, $contenido, $tlf, $libre, $datos["usuario"], 0);
+			// Y los precios
+			for ($i = 0; $i < sizeof($precios); $i++) {
+				$this -> precios_model -> add_precio($datos["idpiso"], $precio[$i]["precio"], $precio[$i]["descripcion"]);
+			}
+
+		} elseif ($datos["logeado"] == true && $idpiso != 0) {
+			// Estamos modificando uno viejo
+			// Ñapeamos el id del piso que ya lo tenemos
+			$datos["idpiso"] = $idpiso;
+			$this -> pisos_model -> cambiar_piso($idpiso, $descripcion, $calle, $numero, $piso, $letra, $cp, $idlocalidad, $idbarrio, $contenido, $tlf, $libre);
+			// Y los precios
+			// Esto se puede refactorizar para solo las diferencias... pero mas adelante
+			// Primero los borramos
+			$this -> precios_model -> borrarTodosPrecios($datos["idpiso"]);
+			// Y luego los metemos
+			for ($i = 0; $i < sizeof($precios); $i++) {
+				$this -> precios_model -> add_precio($datos["idpiso"], $precio[$i]["precio"], $precio[$i]["descripcion"]);
+			}
+
 		}
 
 		// Respuesta

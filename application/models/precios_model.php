@@ -26,6 +26,12 @@ class Precios_model extends CI_Model {
 		$resultado = $this -> db -> query($sql);
 	}
 
+  function borrarTodosPrecios($idpiso) {
+    // Funcion que borra todos los precios de un piso determinado
+    $sql = "DELETE FROM pisos_precio WHERE idpiso='".$idpiso."'";
+    $resultado = $this -> db -> query($sql);
+  }
+
 	function show_precios($idpiso) {
 		// Funcion que muestra los precios y descripciones de un piso
 		$sql = "SELECT precio, descripcion FROM pisos_precio WHERE idpiso=".$idpiso;
