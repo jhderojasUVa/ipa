@@ -602,8 +602,9 @@ class Pasador extends React.Component {
       method: 'POST',
       body: datosEnString,
     })
-    .then((respuesta) => {
-      console.log(respuesta)
+    .then((respuesta) => respuesta.json())
+    .then((respuestajson) => {
+      datos.id = respuestajson.idpiso;
     });
 
     this.setState ({

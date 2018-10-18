@@ -51,6 +51,23 @@ class Mis extends CI_Controller {
 	public function addPiso() {
 		// Añade un piso
 
+		// Lo primero el SSO de la UVa... ¡siempre!
+		// Con esto comprobamos si esta logeado o no
+		if ($this -> sesiones_usuarios -> esta_logeado() == true) {
+			if ($_SESSION["uva"] == true) {
+				// Discriminamos si se ha logeado via SSO
+				$datos["usuario"] = $this -> ssouva -> login();
+			} else {
+				// O si ha entrado por el sistema de autentificacion local
+				$datos["usuario"] = $_SESSION["idu"];
+			}
+			$datos["logeado"] = true;
+		} else {
+			// O no esta autentificado
+			$datos["usuario"] = 0;
+			$datos["logeado"] = false;
+		}
+
 		// Toma de datos
 		$inputData = json_decode(trim(file_get_contents("php://input")), true);
 		// Repartimos los datos en su sitio
@@ -59,17 +76,22 @@ class Mis extends CI_Controller {
 		$numero = $inputData["inmueble"]["numero"];
 		$piso = $inputData["inmueble"]["piso"];
 		$letra = $inputData["inmueble"]["letra"];
-		$cp = $inputData["inmueble"]["cp"];
+		$cp = $inputData["inmueble"]["codigoPostal"];
 		$contenido = implode("|", $inputData["inmueble"]["extras"]);
+		$idlocalidad = $inputData["inmueble"]["ciudad"];
+		$idbarrio = $inputData["inmueble"]["barrio"];
+		$tlf = $inputData["inmueble"]["tlfContacto"];
 		$libre = $inputData["libre"];
 
-		log_message('DEBUG', $inputData["inmueble"]["descripcion"]);
+		if ($datos["logeado"] == true) {
+			$datos["idpiso"] = $this -> pisos_model -> add_piso($descripcion, $calle, $numero, $piso, $letra, $cp, $idlocalidad, $idbarrio, $contenido, $tlf, $libre, $datos["usuario"], 0);
+		}
 
 		// Respuesta
 		// Cambiamos la cabecera a JSON porque el mundo es un JSON continuo e inmutable
 		header('Content-Type: application/json');
 		// Escupimos la respuesta
-		//echo json_encode($datos);
+		echo json_encode($datos);
 	}
 
   public function datosPiso() {
