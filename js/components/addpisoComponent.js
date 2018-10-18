@@ -126,6 +126,8 @@ class Paso1 extends React.Component {
     this.handleCp = this.handleCp.bind(this);
     this.handleTlfContacto = this.handleTlfContacto.bind(this);
 
+    this.handleExtras = this.handleExtras.bind(this);
+
   }
 
   handleLibres(e) {
@@ -175,6 +177,20 @@ class Paso1 extends React.Component {
     // Cambia el storage del telefono de contact
     datos.inmueble.tlfContacto = e.target.value;
     this.setState({inmueble: {tlfContacto: e.target.value}});
+  }
+
+  handleExtras(e) {
+    // Metodo que mete elementos extras en el inmueble (ya sabes, cocina, wifi, compartido...)
+    // Primero a ver si esta metido
+    if (datos.inmueble.extras.includes(e.target.value)) {
+      // Si esta metido sacamos el indice
+      let indiceElemento = datos.inmueble.extras.indexOf(e.target.value);
+      // Y al guano
+      datos.inmueble.extras.splice(indiceElemento, 1);
+    } else {
+      // Si es nuevo, lo pusheamos
+      datos.inmueble.extras.push(e.target.value);
+    }
   }
 
   changeSelectCiudades(e) {
@@ -245,39 +261,37 @@ class Paso1 extends React.Component {
             <option key={index} value={item.idbarrio}>{item.barrio}</option>
           )
         });
-
-        // Los contenidos
-        let contenidos = this.state.contenido.map((objeto, index) => {
-          if (datos.inmueble.extras.length > 0 && datos.imueble.extras.includes(objeto)) {
-            // Si lo tiene puesto
-            return(
-              <Fragment>
-                <input type="checkbox" checked="checked" name="contenido[]" value={objeto} /> {objeto}<br/>
-              </Fragment>
-            );
-          } else {
-            // Si no lo tiene puesto
-            return(
-              <Fragment>
-                <input type="checkbox" name="contenido[]" value={objeto}/> {objeto}<br/>
-              </Fragment>
-            );
-          }
-        });
       }
 
-      console.log('caca');
+      // Los contenidos
+      let contenidos = this.state.contenido.map((objeto, index) => {
+        if (datos.inmueble.extras.length > 0 && datos.imueble.extras.includes(objeto)) {
+          // Si lo tiene puesto
+          return(
+            <Fragment>
+              <input type="checkbox" checked="checked" name="contenido[]" onChange={this.handleExtras} value={objeto} /> {objeto}<br/>
+            </Fragment>
+          );
+        } else {
+          // Si no lo tiene puesto
+          return(
+            <Fragment>
+              <input type="checkbox" name="contenido[]" onChange={this.handleExtras} value={objeto}/> {objeto}<br/>
+            </Fragment>
+          );
+        }
+      });
 
       // Configuramos el boton de ir al siguiente paso
       let nextButton;
 
       // Planteamos las posibilidades del boton de siguiente
-      if ((datos.inmueble.ciudad != 0 && datos.inmueble.barrio == 0 && this.props.visible == true) || (this.props.visible == true)) {
-        nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2</button>;
-      } else if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio != 0 && this.props.visible == true) {
+      if ((datos.inmueble.ciudad != 0 && datos.inmueble.barrio == 0 && this.props.paso == 1) || (this.props.visible == true)) {
+        nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2 (selecciona barrio)</button>;
+      } else if (datos.inmueble.ciudad != 0 && datos.inmueble.barrio != 0 && this.props.paso == 1) {
         nextButton = <button className="button right" onClick={this.props.change1a2}>Continuar en el Paso 2</button>;
       } else {
-        nextButton = <button className="button right" disabled="disabled">Deshabilitado</button>;
+        nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2 (selecciona ciudad y barrio)</button>;
       }
 
       if (this.props.paso === 1) {
@@ -384,9 +398,11 @@ class Paso2 extends React.Component {
     // Forzamos el pintado
     this.forceUpdate();
   }
-  handleDeletePrecio(index, e) {
+
+
+  handleDeletePrecio(index) {
     // Se carga del array el precio
-    datos.splice(index, 1);
+    datos.precios.splice(index, 1);
     // Forzamos el pintado
     this.forceUpdate();
   }
@@ -398,8 +414,10 @@ class Paso2 extends React.Component {
   }
 
   render() {
+    console.log('========================================')
+    console.log('PASO 2');
+    console.log(datos);
     // Fragmentos
-
     const Fragment = React.Fragment;
 
     let mostrarPrecios = datos.precios.map((item, index) => {
@@ -408,7 +426,7 @@ class Paso2 extends React.Component {
           <tr key={index}>
             <td>{item.precio} &euro;</td>
             <td>{item.descripcion}</td>
-            <td><a onClick={this.handleDeletePrecio(index)}><i className="fi-x"></i></a></td>
+            <td><a onClick={this.handleDeletePrecio.bind(this, index)}><i className="fi-x"></i></a></td>
           </tr>
         </Fragment>
       );
@@ -426,13 +444,13 @@ class Paso2 extends React.Component {
 
         <div className="small-12 medium-4 cell">
   				<label>precio
-  					<input type="number" name="precio" required placeholder="50"/>
+  					<input type="number" name="precio" onChange={this.handlePrecio} value={this.state.precio} required placeholder="50"/>
   				</label>
   			</div>
 
         <div className="small-12 medium-6 cell">
   				<label>referente a
-  					<input type="text" name="descripcion" size="20" maxLength="50" placeholder="habitacion doble" required/>
+  					<input type="text" name="descripcion" onChange={this.handleDescripcion} value={this.state.descripcion} size="20" maxLength="50" placeholder="habitacion doble" required/>
   				</label>
   			</div>
 
@@ -451,7 +469,7 @@ class Paso2 extends React.Component {
               <table width="100">
                 <thead>
                   <tr>
-                    <td>Precio</td>
+                    <td width="50%">Precio</td>
                     <td>Descripci&oacute;n</td>
                     <td></td>
                   </tr>
@@ -507,7 +525,7 @@ class Pasador extends React.Component {
     super(props);
 
     this.state = {
-      paso: 2,
+      paso: 1,
       datos: {
         consulta: [],
         ciudades: [],
@@ -575,6 +593,7 @@ class Pasador extends React.Component {
     this.setState ({
       paso: 2
     });
+    console.log(datos);
   }
 
   change2a3() {
