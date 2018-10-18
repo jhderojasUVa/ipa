@@ -489,8 +489,6 @@ class Paso2 extends React.Component {
       return null;
     };
 
-    //return(<p>Caca de la vaca</p>);
-
   }
 }
 
@@ -501,13 +499,18 @@ class Paso3 extends React.Component {
   }
 
   render() {
+    // Fragmentos
+    const Fragment = React.Fragment;
+
     if (this.props.paso === 3) {
       return (
-        <div className="Paso3">
+        <Fragment>
 
-        <h5>Paso3</h5>
-        <button className="button right" onClick={this.props.change3a2}>Volver al paso anterior</button>
-        </div>
+
+          <button className="button right" onClick={this.props.change3a2}>Volver al paso anterior</button>
+          &nbsp;
+          <button className="button right" onClick={this.handleFinish}>Finalizar</button>
+        </Fragment>
       );
     } else {
       return null;
@@ -586,14 +589,18 @@ class Pasador extends React.Component {
   }
 
   change1a2() {
+    // Cambiamos al paso 2
     this.setState ({
       paso: 2
     });
   }
 
   change2a3() {
+    // Metemos el piso en la BD o le modificamos segun tengamos o no ID
+
+    // Primero stringificamos el objeto de los datos
     let datosEnString = JSON.stringify(datos);
-    console.log(datosEnString);
+    // Luego hacemos el fetch de los datos para recibir el ID
     fetch('/index.php/components/mis/addPiso', {
       headers: {
         'Accept': 'application/json',
@@ -604,21 +611,27 @@ class Pasador extends React.Component {
     })
     .then((respuesta) => respuesta.json())
     .then((respuestajson) => {
+      // La vuelta siempre es el ID del piso
       datos.id = respuestajson.idpiso;
     });
-
+    // Y nos vamos al paso 3
     this.setState ({
       paso: 3
     });
   }
 
   change2a1() {
+    // Cambiamos al paso 1
     this.setState ({
       paso: 1
     });
   }
 
   change3a2() {
+    // Cambiamos al paso 2
+    // Si, ya se que este es igual que el paso 1 a 2 pero por concoordancia de lo que creamos lo metemos otra vez
+    // Vamos que se puede refactorizar y eliminar este, pero leyendo el codigo nos podriamos hacer un lio
+    // y por eso lo conservamos
     this.setState ({
       paso: 2
     });

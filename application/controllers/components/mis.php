@@ -92,7 +92,7 @@ class Mis extends CI_Controller {
 			$datos["idpiso"] = $this -> pisos_model -> add_piso($descripcion, $calle, $numero, $piso, $letra, $cp, $idlocalidad, $idbarrio, $contenido, $tlf, $libre, $datos["usuario"], 0);
 			// Y los precios
 			for ($i = 0; $i < sizeof($precios); $i++) {
-				$this -> precios_model -> add_precio($datos["idpiso"], $precio[$i]["precio"], $precio[$i]["descripcion"]);
+				$this -> precios_model -> add_precio($datos["idpiso"], $precios[$i]["precio"], $precios[$i]["descripcion"]);
 			}
 
 		} elseif ($datos["logeado"] == true && $idpiso != 0) {
@@ -106,7 +106,7 @@ class Mis extends CI_Controller {
 			$this -> precios_model -> borrarTodosPrecios($datos["idpiso"]);
 			// Y luego los metemos
 			for ($i = 0; $i < sizeof($precios); $i++) {
-				$this -> precios_model -> add_precio($datos["idpiso"], $precio[$i]["precio"], $precio[$i]["descripcion"]);
+				$this -> precios_model -> add_precio($datos["idpiso"], $precios[$i]["precio"], $precios[$i]["descripcion"]);
 			}
 
 		}
