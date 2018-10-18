@@ -183,14 +183,13 @@ class Paso1 extends React.Component {
     // Metodo que mete elementos extras en el inmueble (ya sabes, cocina, wifi, compartido...)
     // Primero a ver si esta metido
     if (datos.inmueble.extras.includes(e.target.value)) {
-      // Si esta metido sacamos el indice
-      let indiceElemento = datos.inmueble.extras.indexOf(e.target.value);
-      // Y al guano
-      datos.inmueble.extras.splice(indiceElemento, 1);
+      // Metodo ES6 de eliminar cosas, filtrando y mostrando lo que sea diferente!
+      datos.inmueble.extras = datos.inmueble.extras.filter(objeto => objeto !== e.target.value);
     } else {
       // Si es nuevo, lo pusheamos
       datos.inmueble.extras.push(e.target.value);
     }
+
   }
 
   changeSelectCiudades(e) {
@@ -237,9 +236,6 @@ class Paso1 extends React.Component {
   }
 
   render() {
-
-    console.log(this.props.paso);
-
     // Fragmentos
     const Fragment = React.Fragment;
 
@@ -265,18 +261,21 @@ class Paso1 extends React.Component {
 
       // Los contenidos
       let contenidos = this.state.contenido.map((objeto, index) => {
-        if (datos.inmueble.extras.length > 0 && datos.imueble.extras.includes(objeto)) {
-          // Si lo tiene puesto
+        // Parece que peta al tirar directamente del objeto y hay que hacer una copia
+        // Vamos, otra cosa a refactorizar mas adelante
+        let cosas = datos.inmueble.extras;
+        if (cosas.length > 0 && cosas.includes(objeto) === true) {
+          // Si esta, a true que va
           return(
             <Fragment>
-              <input type="checkbox" checked="checked" name="contenido[]" onChange={this.handleExtras} value={objeto} /> {objeto}<br/>
+              <input type="checkbox" checked="checked" name="extras" onChange={this.handleExtras} value={objeto} /> {objeto}<br/>
             </Fragment>
           );
         } else {
           // Si no lo tiene puesto
           return(
             <Fragment>
-              <input type="checkbox" name="contenido[]" onChange={this.handleExtras} value={objeto}/> {objeto}<br/>
+              <input type="checkbox" name="extras" onChange={this.handleExtras} value={objeto}/> {objeto}<br/>
             </Fragment>
           );
         }
@@ -414,9 +413,6 @@ class Paso2 extends React.Component {
   }
 
   render() {
-    console.log('========================================')
-    console.log('PASO 2');
-    console.log(datos);
     // Fragmentos
     const Fragment = React.Fragment;
 
@@ -593,10 +589,23 @@ class Pasador extends React.Component {
     this.setState ({
       paso: 2
     });
-    console.log(datos);
   }
 
   change2a3() {
+    let datosEnString = JSON.stringify(datos);
+    console.log(datosEnString);
+    fetch('/index.php/components/mis/addPiso', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: datosEnString,
+    })
+    .then((respuesta) => {
+      console.log(respuesta)
+    });
+
     this.setState ({
       paso: 3
     });
@@ -615,10 +624,7 @@ class Pasador extends React.Component {
   }
 
   render() {
-    //console.log('1='+this.state.visiblePaso1+' 2='+this.state.visiblePaso2+' 3='+this.state.visiblePaso3);
-
-    console.log('paso = '+this.state.paso);
-
+    // Generico de la App
     return (
       <div className="App">
 

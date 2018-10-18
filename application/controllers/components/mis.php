@@ -34,7 +34,7 @@ class Mis extends CI_Controller {
 
     $datos["barriosCiudades"] = $this -> barrios_model -> showBarriosLocalizaciones();
 		// Cambiamos la cabecera a JSON de respuesta
-    header('Content-Type: application/json');
+    header("Content-Type: application/json");
     // Escupimos la respuesta
     echo json_encode($datos);
 	}
@@ -43,9 +43,33 @@ class Mis extends CI_Controller {
 			// Funcion que devuelve las ciudades en JSON
 			$datos["ciudades"] = $this -> barrios_model -> showCiudades();
 			// Cambiamos la cabecera a JSON de respuesta
-	    header('Content-Type: application/json');
+	    header("Content-Type: application/json");
 	    // Escupimos la respuesta
 	    echo json_encode($datos);
+	}
+
+	public function addPiso() {
+		// Añade un piso
+
+		// Toma de datos
+		$inputData = json_decode(trim(file_get_contents("php://input")), true);
+		// Repartimos los datos en su sitio
+		$descripcion = $inputData["inmueble"]["descripcion"];
+		$calle = $inputData["inmueble"]["calle"];
+		$numero = $inputData["inmueble"]["numero"];
+		$piso = $inputData["inmueble"]["piso"];
+		$letra = $inputData["inmueble"]["letra"];
+		$cp = $inputData["inmueble"]["cp"];
+		$contenido = implode("|", $inputData["inmueble"]["extras"]);
+		$libre = $inputData["libre"];
+
+		log_message('DEBUG', $inputData["inmueble"]["descripcion"]);
+
+		// Respuesta
+		// Cambiamos la cabecera a JSON porque el mundo es un JSON continuo e inmutable
+		header('Content-Type: application/json');
+		// Escupimos la respuesta
+		//echo json_encode($datos);
 	}
 
   public function datosPiso() {
@@ -61,7 +85,7 @@ class Mis extends CI_Controller {
     $datos["precios"] = $this -> precios_model -> show_precios($idpiso);
 
     // Cambiamos la cabecera a JSON de respuesta
-    header('Content-Type: application/json');
+    header("Content-Type: application/json");
     // Escupimos la respuesta
     echo json_encode($datos);
   }
@@ -74,7 +98,7 @@ class Mis extends CI_Controller {
 		$datos["inmueble"] = $this -> pisos_model -> show_piso($idpiso);
 
 		// Cambiamos la cabecera a JSON de respuesta
-    header('Content-Type: application/json');
+    header("Content-Type: application/json");
     // Escupimos la respuesta
     echo json_encode($datos);
 	}
@@ -87,7 +111,7 @@ class Mis extends CI_Controller {
 		$datos["precios"] = $this -> precios_model -> show_precios($idpiso);
 
 		// Cambiamos la cabecera a JSON de respuesta
-    header('Content-Type: application/json');
+    header("Content-Type: application/json");
     // Escupimos la respuesta
     echo json_encode($datos);
 	}
