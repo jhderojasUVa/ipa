@@ -496,6 +496,115 @@ class Paso3 extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      file: {
+        file: '',
+        descripcion: '',
+      },
+      files: [],
+      boton: false
+    }
+
+    this.handleDrop = this.handleDrop.bind(this);
+    this.handleOnDragOver = this.handleOnDragOver.bind(this);
+    this.handleChangeDescripcion = this.handleChangeDescripcion.bind(this);
+    this.handleFinish = this.handleFinish.bind(this);
+  }
+
+  handleDrop(event) {
+    // Esta funcion añade los ficheros cuando haces drop (que no hay stop)
+
+    // Variable que almacena los ficheros
+    let files = []
+
+    // Primero quitamos lo que hace de serie
+    event.preventDefault();
+
+    // Luego añadimos los ficheros, como depende del navegador hay dos formas
+    if (event.dataTransfer.items) {
+      // Usando el metodo de los items, el nuevo
+      // este es muy sencillo cuando se ve si es un fichero
+      for (let i = 0; i < event.dataTransfer.items.length; i++) {
+        if (event.dataTransfer.items[i].kind === 'file') {
+          let file = event.dataTransfer.items[i].getAsFile();
+          files.push({
+            name: file.name,
+            data: file
+          });
+        }
+      }
+    } else {
+      // usando el interface de dataTransfer el de files
+      for (let i = 0; i < event.dataTransfer.files.length; i++) {
+        let file = event.dataTransfer.files[i];
+        files.push({
+          name: file.name,
+          data: file
+        });
+      }
+    }
+
+    let dondeVaLaImagen = document.getElementById('drop_zone');
+    dondeVaLaImagen.src = URL.createObjectURL(file);
+
+
+    // Siempre limpia la casa cuando acabes
+    removeDragData(event)
+  }
+
+  handleOnDragOver(event) {
+    // Nunca es tarde para prevenir lo que hace por defecto
+    event.preventDefault();
+  }
+
+  handleUpload() {
+    // La subida del fichero
+
+    const formData = new FormData();
+    files.forEach((itemfichero) => {
+      formData.append('upload', itemfichero.data);
+      formData.append('idpiso', datos.id);
+      formData.append('ws', 'json');
+      fetch('/index.php/pisos/addpiso3', {
+        method: 'POST',
+        body: formData
+      })
+      .then((respuesta) => respuesta.json)
+      .then((respuestajson) => {
+        respuestajson.imagenes_piso.forEach((itemImagen) => {
+          datos.imagenes.push({
+            imagen: itemImagen.imagen,
+            descripcion: itemImagen.descripcion,
+            orden: itemImagen.orden
+          });
+        });
+      })
+      .catch((error) => {
+        alert('Lo sentimos:\r\nHa ocurrido un error al subir la imagen');
+        throw 'Ha ocurrido un error al subir la imagen: '+ error;
+      });
+    })
+  }
+
+  handleChangeDescripcion(event) {
+    // Cambia la descripcion o la actualiza
+    this.setState({
+      file: {
+        descripcion: event.target.value
+      }
+    });
+    // Si hay manduco, el boton estara true
+    if (event.target.value != '') {
+      this.setState({
+        boton: true
+      });
+    }
+  }
+
+  handleFinish() {
+    // Como se supone que todas las imagenes se van a ir subiendo cada vez que
+    // ponga una en el drop del fichero, esto solo le indica al backend que ha acabado
+    // para enviar los correspondientes correos y esas cosas
   }
 
   render() {
@@ -503,9 +612,32 @@ class Paso3 extends React.Component {
     const Fragment = React.Fragment;
 
     if (this.props.paso === 3) {
+
+      if (this.state.boton === true) {
+        boton = <button className="button right" onClick={this.handleFinish}>Añadir imagen</button>
+      } else {
+        boton = <button className="button right" onClick={this.handleFinish} disable="disabled">Añadir imagen</button>
+      }
+
+      let ficheros_mostrar = this.state.imagenes.map((item, key) => {
+        let url = '/img_pisos/' + +datos.imagenes_piso.id + '/' + datos.imagenes_piso.imagen;
+        return (
+          <li key={key}><img src={url} /></li>
+        );
+      })
+
       return (
         <Fragment>
 
+          <div className="grid-container contenido">
+        		<div className="grid-x grid-margin-x">
+        			<div className="small-12 medium-8 cell">
+                <div onDrop={this.handleDrop} onDragOver={this.handleOnDragOver} className="dragOver" id="drop_zone"></div>
+                <input type="text" name="descripcion" onChange={this.handleChangeDescripcion} />
+                {boton}
+              </div>
+            </div>
+          </div>
 
           <button className="button right" onClick={this.props.change3a2}>Volver al paso anterior</button>
           &nbsp;
@@ -569,23 +701,39 @@ class Pasador extends React.Component {
               });
         });
 
-        // Comprobamos si esta retrocediendo para leerlo todo
-        /*if (datos.id != 0) {
-          fetch('/index.php/components/mis/datosPiso', {
-            method: 'POST',
-            body: {
-              id: datos.id
-            }
+        let theURL = new URL(window.location.href);
+        let URLparameter = parseInt(theURL.searchParameters.get("idpiso"));
+
+        if (URLparameter == NaN || URLparameter == 0 || datos.id == 0) {
+
+        } else if (datos.id != 0) {
+          // Tenemos id con lo que tenemos que leerlo toooodo toooodo
+          fetch('/index.php/components/mis/datosPiso?id' + datos.id, {
+            method: 'GET'
           })
           .then((respuesta) => {
-            //console.log(respuesta);
             return respuesta.json();
+          })
+          .then((respuestajson) => {
+            datos.inmueble.descripcion = respuestajson.inmueble.descripcion;
+            datos.inmueble.calle = respuestajson.inmueble.calle;
+            datos.inmueble.piso = respuestajson.inmueble.piso;
+            datos.inmueble.letra = respuestajson.inmueble.letra;
+            datos.inmueble.codigoPostal = respuestajson.inmueble.cp;
+            datos.inmueble.ciudad = respuestajson.inmueble.idlocalizacion;
+            datos.inmueble.barrio = respuestajson.inmueble.idbarrio;
+            datos.inmueble.tlfContacto = respuestajson.inmueble.tlf;
+            datos.precios = respuestajson.precios;
+            datos.imagenes = respuestajson.imagenes;
           })
           .catch((error) => {
             alert('Ha habido un error consultando los datos del inmueble\r\nError: '+ error);
             throw 'Ha habido un error al consultar los datos del inmueble. '+ error;
-          })
-        }*/
+          });
+        } else {
+          // Ha habido una cagada muu gorda
+          alert('Si has llegado aqui es mejor que corras!');
+        }
   }
 
   change1a2() {
@@ -686,3 +834,16 @@ function App() {
 //let idPisoGenerico = getAttributte('idpiso');
 
 ReactDOM.render(<App />, document.getElementById('addpiso'));
+
+// Extras
+// Funciones extras
+function removeDragData(event) {
+  // Funcion que elimina los datos del drag
+  // por cualquiera de los dos metodos necesarios
+
+  if (event.dataTransfer.items) {
+    event.dataTransfer.items.clear();
+  } else {
+    event.dataTransfer.clearData();
+  }
+}

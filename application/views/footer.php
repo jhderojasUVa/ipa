@@ -44,6 +44,7 @@
 <script src="<?=base_url()?>js/vendor/foundation.js"></script>
 <!--<script src="<?=base_url()?>js/slick.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+<script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 <script src="<?=base_url()?>js/app.js"></script>
 </body>
 </html>

@@ -797,3 +797,12 @@ ul.extras .extras, p.extras .extras {
 .margin0Auto {
   margin: 0 auto;
 }
+
+/* Paso 3 dropzone */
+#drop_zone {
+  width: 250px;
+  height: 250px;
+  border: 1px dashed #d2d2d2;
+  padding: 0.5em;
+  margin: 1em;
+}

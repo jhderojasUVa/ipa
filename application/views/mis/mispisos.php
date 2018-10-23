@@ -30,7 +30,8 @@ function show_modal(direccion) {
 						</div>
 						<!-- contenido -->
 						<div class="medium-8 cell">
-							<a href="<?=base_url()?>index.php/pisos/editpiso1?idpiso=<?=$row["idpiso"]?>" role="link">
+							<!--<a href="<?=base_url()?>index.php/pisos/editpiso1?idpiso=<?=$row["idpiso"]?>" role="link">-->
+							<a href="<?=base_url()?>index.php/pisos/showaddpiso1?idpiso=<?=$row["idpiso"]?>" role="link">
 							<? if (strlen($row["descripcion"])>250) {
 								echo str_replace("]",":",str_replace("[","",substr($row["descripcion"], 0, 250)))." [...]";
 							} else {

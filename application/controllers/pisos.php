@@ -494,11 +494,13 @@ class Pisos extends CI_Controller {
 				// Cargamos todas las imagenes para pasarlas
 			}
 		}
+		log_message('debug', 'idpiso = '.$idpiso);
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
 		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
+			log_message('debug', json_encode($datos));
 			echo json_encode($datos);
 		} else {
 			$this -> load -> view("cabecera", $datos);
