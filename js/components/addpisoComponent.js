@@ -229,10 +229,10 @@ class Paso1 extends React.Component {
     });
   }
 
-  componentWillMount() {
-    /*if (datos.id != 0) {
+  componentDidMount() {
+  }
 
-    }*/
+  componentWillMount() {
   }
 
   render() {
@@ -245,17 +245,49 @@ class Paso1 extends React.Component {
       // Rellena la ciudad
       if (this.props.datos.ciudades && this.props.datos.ciudades.length > 0) {
         ciudades = this.props.datos.ciudades.map((item, index) => {
-          return (
-            <option key={index} value={item.idlocalizacion}>{item.localizacion}</option>
-          )
+          if (item.idlocalizacion == datos.inmueble.ciudad) {
+            return (
+              <option key={index} selected="selected" value={item.idlocalizacion}>{item.localizacion}</option>
+            )
+          } else {
+            return (
+              <option key={index} value={item.idlocalizacion}>{item.localizacion}</option>
+            )
+          }
         })
       }
       // Rellena el barrio segun lo elegido
+      // Venga de donde venga rellenamos la variable barrio
+      // Si es un piso nuevo lo sacamos de la busqueda y el state del cambio
       if (this.state.barrios.length > 0) {
         barrios = this.state.barrios.map((item, index) => {
-          return(
-            <option key={index} value={item.idbarrio}>{item.barrio}</option>
-          )
+          if (item.idbarrio == datos.inmueble.barrio) {
+            return(
+              <option key={index} selected="selected" value={item.idbarrio}>{item.barrio}</option>
+            )
+          } else {
+            return(
+              <option key={index} value={item.idbarrio}>{item.barrio}</option>
+            )
+          }
+        });
+      // Si es un piso editado lo sacamos del identificador
+      } else if (datos.inmueble.barrio != 0) {
+        let barriostmp = this.props.datos.consulta.filter((item, index) => {
+          if (item.idlocalizacion == datos.inmueble.ciudad) {
+            return item;
+          }
+        });
+        barrios = barriostmp.map((item, index) => {
+          if (item.idbarrio == datos.inmueble.barrio) {
+            return(
+              <option key={index} selected="selected" value={item.idbarrio}>{item.barrio}</option>
+            )
+          } else {
+            return(
+              <option key={index} value={item.idbarrio}>{item.barrio}</option>
+            )
+          }
         });
       }
 
@@ -321,7 +353,7 @@ class Paso1 extends React.Component {
     						<label htmlFor="letra">letra</label>
     							<input name="letra" type="text" id="letra" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Escriba aquí la letra de su inmueble" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
     							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
-    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.cp} size="5" maxLength="5" />
+    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.codigoPostal} size="5" maxLength="5" />
     							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
     							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
                   <label htmlFor="localidad">localidad</label>
@@ -701,28 +733,28 @@ class Pasador extends React.Component {
               });
         });
 
-        let theURL = new URL(window.location.href);
-        let URLparameter = parseInt(theURL.searchParameters.get("idpiso"));
+        // Comprobamos si esta editando, si lo esta, esta enviando un ID
+        let idpisoGet = parseInt(window.location.search.substring(1).split('=')[1]);
 
-        if (URLparameter == NaN || URLparameter == 0 || datos.id == 0) {
-
-        } else if (datos.id != 0) {
+        if (idpisoGet == 0 && datos.id == 0) {
+          alert('Piso nuevo');
+        } else if (datos.id != 0 || idpisoGet != 0) {
+          datos.id = idpisoGet;
           // Tenemos id con lo que tenemos que leerlo toooodo toooodo
-          fetch('/index.php/components/mis/datosPiso?id' + datos.id, {
+          fetch('/index.php/components/mis/datosPiso?id=' + datos.id, {
             method: 'GET'
           })
-          .then((respuesta) => {
-            return respuesta.json();
-          })
+          .then((respuesta) => respuesta.json())
           .then((respuestajson) => {
-            datos.inmueble.descripcion = respuestajson.inmueble.descripcion;
-            datos.inmueble.calle = respuestajson.inmueble.calle;
-            datos.inmueble.piso = respuestajson.inmueble.piso;
-            datos.inmueble.letra = respuestajson.inmueble.letra;
-            datos.inmueble.codigoPostal = respuestajson.inmueble.cp;
-            datos.inmueble.ciudad = respuestajson.inmueble.idlocalizacion;
-            datos.inmueble.barrio = respuestajson.inmueble.idbarrio;
-            datos.inmueble.tlfContacto = respuestajson.inmueble.tlf;
+            // Rellenamos los datos
+            datos.inmueble.descripcion = respuestajson.inmueble[0].descripcion;
+            datos.inmueble.calle = respuestajson.inmueble[0].calle;
+            datos.inmueble.piso = respuestajson.inmueble[0].piso;
+            datos.inmueble.letra = respuestajson.inmueble[0].letra;
+            datos.inmueble.codigoPostal = respuestajson.inmueble[0].cp;
+            datos.inmueble.ciudad = respuestajson.inmueble[0].idlocalizacion;
+            datos.inmueble.barrio = respuestajson.inmueble[0].idbarrio;
+            datos.inmueble.tlfContacto = respuestajson.inmueble[0].tlf;
             datos.precios = respuestajson.precios;
             datos.imagenes = respuestajson.imagenes;
           })
