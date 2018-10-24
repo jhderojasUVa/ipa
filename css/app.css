@@ -806,3 +806,9 @@ ul.extras .extras, p.extras .extras {
   padding: 0.5em;
   margin: 0 auto;
 }
+
+.final .final_substilo {
+  width:140px;
+  margin: 0 0.5em;
+  float: left;
+}

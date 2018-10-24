@@ -525,6 +525,10 @@ class Paso2 extends React.Component {
 }
 
 class Paso3 extends React.Component {
+
+  // Para este componente podriamos haber usado ReadFile que mola mucho pero al final lo hemos hecho
+  // directamente... seguramente refactorizarlos con ReadFile sera la mejor opcion en un futuro proximo
+
   constructor(props) {
     super(props);
 
@@ -558,10 +562,6 @@ class Paso3 extends React.Component {
       for (let i = 0; i < event.dataTransfer.items.length; i++) {
         if (event.dataTransfer.items[i].kind === 'file') {
           let file = event.dataTransfer.items[i].getAsFile();
-          /*files.push({
-            name: file.name,
-            dataFile: file
-          });*/
           this.ficheros.push({
             name: file.name,
             dataFile: file
@@ -680,10 +680,25 @@ class Paso3 extends React.Component {
         boton = <button className="button right" onClick={this.handleUpload} disabled="disabled">Añadir imagen</button>
       }
 
-      if (this.state.files.length > 0) {
-        let ficheros_mostrar = this.state.files.map((item, key) => {
-          let url = '/img_pisos/' + +datos.imagenes_piso.id + '/' + datos.imagenes_piso.imagen;
+      if (datos.imagenes.length > 0) {
+        let ficheros_mostrar = datos.imagenes.map((item, key) => {
+          let url = '/img_pisos/' + datos.id+ '/' + item.imagen;
+
           return (
+            <div key={index} id="trozo" className="final">
+              <div className="final_substilo">
+                <img src={url} className="imagenes" width="130" /><br/>
+                <em>
+                  <p>{item.descripcion}</p>
+                </em>
+                <div id="formularios_img">
+                  <a href="javascript:cambiaorden(<?=$idpiso?>, '<?=$row -> imagen?>', <?=($row -> orden)-1?>, <?=$row->orden?>)" className="button" role="link"><i className="fi-arrow-left"></i></a>
+                  <a href="javascript:cambiaorden(<?=$idpiso?>, '<?=$row -> imagen?>', <?=($row -> orden)+1?>, <?=$row->orden?>)" className="button" role="link"><i className="fi-arrow-right"></i></a>
+                  <a href="javascript:borraimagen(<?=$idpiso?>, '<?=$row -> imagen?>', '<?=$row -> descripcion?>')" className="button" role="link"><i className="fi-x"></i></a>
+                  <div id="clear"></div>
+                </div>
+              </div>
+            </div>
             <li key={key}><img src={url} /></li>
           );
         })
@@ -707,6 +722,10 @@ class Paso3 extends React.Component {
             <button className="button right" onClick={this.props.change3a2}>Volver al paso anterior</button>
             &nbsp;
             <button className="button right" onClick={this.handleFinish}>Finalizar</button>
+          </div>
+
+          <div className="small-12 medium-8 cell">
+            {ficheros_mostrar}
           </div>
 
         </Fragment>
