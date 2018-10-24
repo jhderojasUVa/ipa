@@ -547,7 +547,7 @@ class Paso3 extends React.Component {
     // Esta funcion añade los ficheros cuando haces drop (que no hay stop)
 
     // Variable que almacena los ficheros
-    let files = []
+    var files = []
 
     // Primero quitamos lo que hace de serie
     event.preventDefault();
@@ -559,10 +559,19 @@ class Paso3 extends React.Component {
       for (let i = 0; i < event.dataTransfer.items.length; i++) {
         if (event.dataTransfer.items[i].kind === 'file') {
           let file = event.dataTransfer.items[i].getAsFile();
+          console.log(event.dataTransfer.items[i].name);
           files.push({
             name: file.name,
             data: file
           });
+          this.setState({
+            file: {
+              descripcion: this.state.file.descripcion,
+              file: file
+            }
+          });
+          let dondeVaLaImagen = document.getElementById('drop_image');
+          dondeVaLaImagen.src = window.URL.createObjectURL(file);
         }
       }
     } else {
@@ -573,12 +582,16 @@ class Paso3 extends React.Component {
           name: file.name,
           data: file
         });
+        this.setState({
+          file: {
+            descripcion: this.state.file.descripcion,
+            file: file
+          }
+        });
+        let dondeVaLaImagen = document.getElementById('drop_image');
+        dondeVaLaImagen.src = window.URL.createObjectURL(file);
       }
     }
-
-    let dondeVaLaImagen = document.getElementById('drop_zone');
-    dondeVaLaImagen.src = URL.createObjectURL(file);
-
 
     // Siempre limpia la casa cuando acabes
     removeDragData(event)
@@ -630,6 +643,10 @@ class Paso3 extends React.Component {
       this.setState({
         boton: true
       });
+    } else {
+      this.setState({
+        boton: false
+      });
     }
   }
 
@@ -643,37 +660,44 @@ class Paso3 extends React.Component {
     // Fragmentos
     const Fragment = React.Fragment;
 
-    if (this.props.paso === 3) {
+    let boton;
 
+    if (this.props.paso === 3) {
       if (this.state.boton === true) {
         boton = <button className="button right" onClick={this.handleFinish}>Añadir imagen</button>
       } else {
-        boton = <button className="button right" onClick={this.handleFinish} disable="disabled">Añadir imagen</button>
+        boton = <button className="button right" onClick={this.handleFinish} disabled="disabled">Añadir imagen</button>
       }
 
-      let ficheros_mostrar = this.state.imagenes.map((item, key) => {
-        let url = '/img_pisos/' + +datos.imagenes_piso.id + '/' + datos.imagenes_piso.imagen;
-        return (
-          <li key={key}><img src={url} /></li>
-        );
-      })
+      if (this.state.files.length > 0) {
+        let ficheros_mostrar = this.state.files.map((item, key) => {
+          let url = '/img_pisos/' + +datos.imagenes_piso.id + '/' + datos.imagenes_piso.imagen;
+          return (
+            <li key={key}><img src={url} /></li>
+          );
+        })
+
+      }
 
       return (
         <Fragment>
 
-          <div className="grid-container contenido">
-        		<div className="grid-x grid-margin-x">
-        			<div className="small-12 medium-8 cell">
-                <div onDrop={this.handleDrop} onDragOver={this.handleOnDragOver} className="dragOver" id="drop_zone"></div>
-                <input type="text" name="descripcion" onChange={this.handleChangeDescripcion} />
-                {boton}
-              </div>
-            </div>
+    			<div className="small-12 medium-12 cell">
+            <div onDrop={this.handleDrop} onDragOver={this.handleOnDragOver} className="dragOver" id="drop_zone"><img id="drop_image" src="/img/subir_fichero.png" alt="Arrastre el fichero aqui" width="100%"/></div>
+          </div>
+          <div className="small-12 medium-12 cell">
+            <label>Descripci&oacute;n de la imagen</label>
+            <input type="text" name="descripcion" onChange={this.handleChangeDescripcion} />
+            {boton}
           </div>
 
-          <button className="button right" onClick={this.props.change3a2}>Volver al paso anterior</button>
-          &nbsp;
-          <button className="button right" onClick={this.handleFinish}>Finalizar</button>
+
+    			<div className="small-12 medium-8 cell">
+            <button className="button right" onClick={this.props.change3a2}>Volver al paso anterior</button>
+            &nbsp;
+            <button className="button right" onClick={this.handleFinish}>Finalizar</button>
+          </div>
+
         </Fragment>
       );
     } else {
