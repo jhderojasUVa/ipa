@@ -528,11 +528,12 @@ class Paso3 extends React.Component {
   constructor(props) {
     super(props);
 
+    // Como es una class metemos aqui el array de los ficheros para que este en el objeto
+    // si, es una ñapa como un piano
+    this.ficheros = []
+
     this.state = {
-      file: {
-        file: '',
-        descripcion: '',
-      },
+      descripcion: '',
       files: [],
       boton: false
     }
@@ -540,14 +541,12 @@ class Paso3 extends React.Component {
     this.handleDrop = this.handleDrop.bind(this);
     this.handleOnDragOver = this.handleOnDragOver.bind(this);
     this.handleChangeDescripcion = this.handleChangeDescripcion.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
     this.handleFinish = this.handleFinish.bind(this);
   }
 
   handleDrop(event) {
     // Esta funcion añade los ficheros cuando haces drop (que no hay stop)
-
-    // Variable que almacena los ficheros
-    var files = []
 
     // Primero quitamos lo que hace de serie
     event.preventDefault();
@@ -559,16 +558,13 @@ class Paso3 extends React.Component {
       for (let i = 0; i < event.dataTransfer.items.length; i++) {
         if (event.dataTransfer.items[i].kind === 'file') {
           let file = event.dataTransfer.items[i].getAsFile();
-          console.log(event.dataTransfer.items[i].name);
-          files.push({
+          /*files.push({
             name: file.name,
-            data: file
-          });
-          this.setState({
-            file: {
-              descripcion: this.state.file.descripcion,
-              file: file
-            }
+            dataFile: file
+          });*/
+          this.ficheros.push({
+            name: file.name,
+            dataFile: file
           });
           let dondeVaLaImagen = document.getElementById('drop_image');
           dondeVaLaImagen.src = window.URL.createObjectURL(file);
@@ -578,20 +574,16 @@ class Paso3 extends React.Component {
       // usando el interface de dataTransfer el de files
       for (let i = 0; i < event.dataTransfer.files.length; i++) {
         let file = event.dataTransfer.files[i];
-        files.push({
+        this.ficheros.push({
           name: file.name,
-          data: file
-        });
-        this.setState({
-          file: {
-            descripcion: this.state.file.descripcion,
-            file: file
-          }
+          dataFile: file
         });
         let dondeVaLaImagen = document.getElementById('drop_image');
         dondeVaLaImagen.src = window.URL.createObjectURL(file);
       }
     }
+
+    //console.log(this.state.file.dataFile);
 
     // Siempre limpia la casa cuando acabes
     removeDragData(event)
@@ -605,41 +597,60 @@ class Paso3 extends React.Component {
   handleUpload() {
     // La subida del fichero
 
+    // Creamos el FormData
     const formData = new FormData();
-    files.forEach((itemfichero) => {
-      formData.append('upload', itemfichero.data);
-      formData.append('idpiso', datos.id);
-      formData.append('ws', 'json');
-      fetch('/index.php/pisos/addpiso3', {
-        method: 'POST',
-        body: formData
-      })
-      .then((respuesta) => respuesta.json)
-      .then((respuestajson) => {
+    // Damos de comer al formData
+    formData.append('upload', this.ficheros[0].dataFile);
+    formData.append('descripcion', this.state.descripcion);
+    formData.append('idpiso', datos.id);
+    formData.append('ws', 'json');
+
+    // Hacemos el fetch al WS
+
+    fetch('/index.php/pisos/addpiso3', {
+      method: 'POST',
+      body: formData
+    })
+    .then((respuesta) => respuesta.json())
+    .then((respuestajson) => {
+      // Vaciamos todas las imagenes porque nunca se sabe y fiate de la virgen
+      // y no corras
+      datos.imagenes = [];
+      // Si hay pisos de vuelta (que debe de haberlos siempre, pero ya se sabe)
+      if (respuestajson.imagenes_piso.length > 0) {
         respuestajson.imagenes_piso.forEach((itemImagen) => {
+          // Añadimos las imagenes al array
           datos.imagenes.push({
             imagen: itemImagen.imagen,
             descripcion: itemImagen.descripcion,
             orden: itemImagen.orden
           });
         });
-      })
-      .catch((error) => {
-        alert('Lo sentimos:\r\nHa ocurrido un error al subir la imagen');
-        throw 'Ha ocurrido un error al subir la imagen: '+ error;
-      });
+      }
     })
+    .catch((error) => {
+      alert('Lo sentimos:\r\nHa ocurrido un error al subir la imagen');
+      throw 'Ha ocurrido un error al subir la imagen: '+ error;
+    });
+
+    // Una vez hecho hay que poner las cosas por defecto
+    // Vaciamos el state
+    this.setState({
+      descripcion: ''
+    });
+    // Vaciamos los ficheros (esto se puede mejorar)
+    this.ficheros = [];
+    document.getElementById('drop_image').src = '/img/subir_fichero.png';
   }
 
   handleChangeDescripcion(event) {
     // Cambia la descripcion o la actualiza
     this.setState({
-      file: {
-        descripcion: event.target.value
-      }
+      descripcion: event.target.value
     });
+
     // Si hay manduco, el boton estara true
-    if (event.target.value != '') {
+    if (event.target.value != '' && this.ficheros[0].name.length > 0) {
       this.setState({
         boton: true
       });
@@ -664,9 +675,9 @@ class Paso3 extends React.Component {
 
     if (this.props.paso === 3) {
       if (this.state.boton === true) {
-        boton = <button className="button right" onClick={this.handleFinish}>Añadir imagen</button>
+        boton = <button className="button right" onClick={this.handleUpload}>Añadir imagen</button>
       } else {
-        boton = <button className="button right" onClick={this.handleFinish} disabled="disabled">Añadir imagen</button>
+        boton = <button className="button right" onClick={this.handleUpload} disabled="disabled">Añadir imagen</button>
       }
 
       if (this.state.files.length > 0) {
