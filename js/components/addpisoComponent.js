@@ -709,6 +709,9 @@ class Paso3 extends React.Component {
     // Como se supone que todas las imagenes se van a ir subiendo cada vez que
     // ponga una en el drop del fichero, esto solo le indica al backend que ha acabado
     // para enviar los correspondientes correos y esas cosas
+
+    alert('Los datos del piso han sido completados con exito.\r\nEn el menu de MIS PISOS puede verlo y modificarlo.');
+    window.location = 'http://ipa.uva.es';
   }
 
   handleChangeOrder(imagen, ordenNuevo, ordenViejo, event) {
