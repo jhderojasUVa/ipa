@@ -576,6 +576,8 @@ class Pisos extends CI_Controller {
 		$fichero = $this -> input -> post_get("imagen");
 		$ws = $this -> input -> post_get("ws");
 
+		log_message('debug', 'idpiso = '.$idpiso.' | nuevo = '.$nuevo.' | actual = '.$actual.' | fichero = '.$fichero);
+
 		$total_imagenes = $this -> pisos_model -> total_imagenes_piso($idpiso);
 
 		if ($nuevo<=0 || $nuevo>$total_imagenes) {

@@ -812,3 +812,9 @@ ul.extras .extras, p.extras .extras {
   margin: 0 0.5em;
   float: left;
 }
+
+.imagenes_subidas {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: #f9f9f9;
+}

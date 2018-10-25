@@ -564,6 +564,8 @@ class Paso3 extends React.Component {
       for (let i = 0; i < event.dataTransfer.items.length; i++) {
         if (event.dataTransfer.items[i].kind === 'file') {
           let file = event.dataTransfer.items[i].getAsFile();
+          // Usamos esto para el upload porque el estado no lo soporta
+          // principalmente porque le metemos un binario y se pone nervioso
           this.ficheros.push({
             name: file.name,
             dataFile: file
@@ -576,6 +578,8 @@ class Paso3 extends React.Component {
       // usando el interface de dataTransfer el de files
       for (let i = 0; i < event.dataTransfer.files.length; i++) {
         let file = event.dataTransfer.files[i];
+        // Usamos esto para el upload porque el estado no lo soporta
+        // principalmente porque le metemos un binario y se pone nervioso
         this.ficheros.push({
           name: file.name,
           dataFile: file
@@ -585,10 +589,43 @@ class Paso3 extends React.Component {
       }
     }
 
-    //console.log(this.state.file.dataFile);
-
     // Siempre limpia la casa cuando acabes
     removeDragData(event)
+
+    let datosEnString = JSON.stringify({id: datos.id});
+
+    // Parece ser que tenemos que re-leer todo el percal
+    // Esto estaria chachi usando un servicio o algo similar peeeeero
+    fetch('/index.php/components/mis/devuelveImagenes', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: datosEnString,
+    })
+    .then((respuesta) => respuesta.json())
+    .then((respuestajson) => {
+      datos.imagenes = [];
+      respuestajson.forEach((itemImagen) => {
+        datos.imagenes.push({
+          imagen: itemImagen.imagen,
+          descripcion: itemImagen.descripcion,
+          orden: itemImagen.orden
+        })
+      });
+      // Actualizamos el estado
+      this.setState({
+        files: datos.imagenes
+      });
+    })
+    .catch((error) => {
+      alert("Error al recuperar las imagenes. Error 0x012");
+      throw "Error al recuperar las imagenes: "+ error;
+    });
+
+    // Forzamos el updateo
+    this.forceUpdate();
   }
 
   handleOnDragOver(event) {
@@ -628,6 +665,10 @@ class Paso3 extends React.Component {
             orden: itemImagen.orden
           });
         });
+        // Actualizamos el estado
+        this.setState({
+          files: datos.imagenes
+        });
       }
     })
     .catch((error) => {
@@ -638,7 +679,8 @@ class Paso3 extends React.Component {
     // Una vez hecho hay que poner las cosas por defecto
     // Vaciamos el state
     this.setState({
-      descripcion: ''
+      descripcion: '',
+      files: datos.imagenes
     });
     // Vaciamos los ficheros (esto se puede mejorar)
     this.ficheros = [];
@@ -669,22 +711,47 @@ class Paso3 extends React.Component {
     // para enviar los correspondientes correos y esas cosas
   }
 
-  handleChangeOrder(imagen, ordeNuevo, ordenViejo, event) {
+  handleChangeOrder(imagen, ordenNuevo, ordenViejo, event) {
     // Cambia el orden de una imagen
     console.log('Cambiando el orden');
-    console.log('Imagen = '+imagen+ ' | OrdenNuevo = '+ordeNuevo+' | ordenViejo ='+ordenViejo);
+    console.log('Datos id='+datos.id+' | Imagen = '+imagen+ ' | OrdenNuevo = '+ordenNuevo+' | ordenViejo ='+ordenViejo);
 
+    // Creamos el formData
+    var formDataModify = new FormData();
+    // Lo damos de comer
+    formDataModify.append('idpiso', datos.id);
+    formDataModify.append('nuevo', ordenNuevo);
+    formDataModify.append('actual', ordenViejo);
+    formDataModify.append('imagen', imagen);
+    formDataModify.append('ws', 'json');
+
+    // Hacemos el cambio de orden
     fetch('/index.php/pisos/cambiarorden', {
-      method: 'POST'
+      method: 'POST',
+      body: formDataModify
     })
     .then((respuesta) => respuesta.json())
     .then((respuestajson) => {
-
+      datos.imagenes = [];
+      console.log(datos.imagenes);
+      respuestajson.imagenes_piso.forEach((itemImagen) => {
+        datos.imagenes.push({
+          imagen: itemImagen.imagen,
+          descripcion: itemImagen.descripcion,
+          orden: itemImagen.orden
+        });
+      });
+      this.setState({
+        files: datos.imagenes
+      });
     })
     .catch((error) => {
       alert('Ha habido un error al cambiar el orden');
       throw 'Ha habido un error al cambiar el ordern: '+ error;
     })
+
+    // Actualizamos
+    this.forceUpdate();
   }
 
   handleDeleteFile(imagen, descripcion, event) {
@@ -706,7 +773,7 @@ class Paso3 extends React.Component {
       }
 
       if (datos.imagenes.length > 0) {
-        console.log(datos.imagenes);
+        //console.log(datos.imagenes);
         ficheros_mostrar = datos.imagenes.map((item, index) => {
           let url = '/img_pisos/' + datos.id+ '/' + item.imagen;
 
@@ -718,9 +785,9 @@ class Paso3 extends React.Component {
                   <p>{item.descripcion}</p>
                 </em>
                 <div id="formularios_img">
-                  <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) - 1, item.orden)} className="button small" role="link"><i className="fi-arrow-left"></i></a>&nbsp;
-                  <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) + 1, item.orden)} className="button small" role="link"><i className="fi-arrow-right"></i></a>&nbsp;
-                  <a onClick={this.handleDeleteFile.bind(this, item.imagen, item.descripcion)} className="button small" role="link"><i className="fi-x"></i></a>
+                  <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) - 1, item.orden)} className="button tiny" role="link"><i className="fi-arrow-left"></i></a>&nbsp;
+                  <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) + 1, item.orden)} className="button tiny" role="link"><i className="fi-arrow-right"></i></a>&nbsp;
+                  <a onClick={this.handleDeleteFile.bind(this, item.imagen, item.descripcion)} className="button tiny" role="link"><i className="fi-x"></i></a>
                   <div id="clear"></div>
                 </div>
               </div>
@@ -728,6 +795,8 @@ class Paso3 extends React.Component {
           );
         })
 
+      } else {
+        fcheros_mostrar = <p>No ha subido ninguna imagen.</p>
       }
 
       return (
@@ -742,15 +811,14 @@ class Paso3 extends React.Component {
             {boton}
           </div>
 
+          <div className="small-12 medium-12 cell imagenes_subidas">
+            {ficheros_mostrar}
+          </div>
 
-    			<div className="small-12 medium-8 cell">
+          <div className="small-12 medium-12 cell">
             <button className="button right" onClick={this.props.change3a2}>Volver al paso anterior</button>
             &nbsp;
             <button className="button right" onClick={this.handleFinish}>Finalizar</button>
-          </div>
-
-          <div className="small-12 medium-8 cell">
-            {ficheros_mostrar}
           </div>
 
         </Fragment>
@@ -830,6 +898,7 @@ class Pasador extends React.Component {
             datos.inmueble.calle = respuestajson.inmueble[0].calle;
             datos.inmueble.piso = respuestajson.inmueble[0].piso;
             datos.inmueble.letra = respuestajson.inmueble[0].letra;
+            datos.inmueble.numero = respuestajson.inmueble[0].numero;
             datos.inmueble.codigoPostal = respuestajson.inmueble[0].cp;
             datos.inmueble.ciudad = respuestajson.inmueble[0].idlocalizacion;
             datos.inmueble.barrio = respuestajson.inmueble[0].idbarrio;

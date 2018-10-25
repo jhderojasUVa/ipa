@@ -162,4 +162,21 @@ class Mis extends CI_Controller {
     echo json_encode($datos);
 	}
 
+	public function devuelveImagenes() {
+
+		// Devuelve las imagenes de un piso determinado
+
+		// Toma de datos lo hacemos con un JSON que mola
+		$inputData = json_decode(trim(file_get_contents("php://input")), true);
+
+		$idpiso = $inputData["id"];
+		$datos["imagenes"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
+
+		// Cambiamos la cabecera a JSON de respuesta
+    header("Content-Type: application/json");
+    // Escupimos la respuesta
+    echo json_encode($datos);
+
+	}
+
 }
