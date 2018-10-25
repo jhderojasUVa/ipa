@@ -547,6 +547,8 @@ class Paso3 extends React.Component {
     this.handleChangeDescripcion = this.handleChangeDescripcion.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
     this.handleFinish = this.handleFinish.bind(this);
+    this.handleChangeOrder = this.handleChangeOrder.bind(this);
+    this.handleDeleteFile = this.handleDeleteFile.bind(this);
   }
 
   handleDrop(event) {
@@ -667,11 +669,34 @@ class Paso3 extends React.Component {
     // para enviar los correspondientes correos y esas cosas
   }
 
+  handleChangeOrder(imagen, ordeNuevo, ordenViejo, event) {
+    // Cambia el orden de una imagen
+    console.log('Cambiando el orden');
+    console.log('Imagen = '+imagen+ ' | OrdenNuevo = '+ordeNuevo+' | ordenViejo ='+ordenViejo);
+
+    fetch('/index.php/pisos/cambiarorden', {
+      method: 'POST'
+    })
+    .then((respuesta) => respuesta.json())
+    .then((respuestajson) => {
+
+    })
+    .catch((error) => {
+      alert('Ha habido un error al cambiar el orden');
+      throw 'Ha habido un error al cambiar el ordern: '+ error;
+    })
+  }
+
+  handleDeleteFile(imagen, descripcion, event) {
+    console.log('A la mierda punto com');
+    console.log('Imagen = '+imagen+' | descripcion = '+descripcion);
+  }
+
   render() {
     // Fragmentos
     const Fragment = React.Fragment;
 
-    let boton;
+    let boton, ficheros_mostrar;
 
     if (this.props.paso === 3) {
       if (this.state.boton === true) {
@@ -681,7 +706,8 @@ class Paso3 extends React.Component {
       }
 
       if (datos.imagenes.length > 0) {
-        let ficheros_mostrar = datos.imagenes.map((item, key) => {
+        console.log(datos.imagenes);
+        ficheros_mostrar = datos.imagenes.map((item, index) => {
           let url = '/img_pisos/' + datos.id+ '/' + item.imagen;
 
           return (
@@ -692,14 +718,13 @@ class Paso3 extends React.Component {
                   <p>{item.descripcion}</p>
                 </em>
                 <div id="formularios_img">
-                  <a href="javascript:cambiaorden(<?=$idpiso?>, '<?=$row -> imagen?>', <?=($row -> orden)-1?>, <?=$row->orden?>)" className="button" role="link"><i className="fi-arrow-left"></i></a>
-                  <a href="javascript:cambiaorden(<?=$idpiso?>, '<?=$row -> imagen?>', <?=($row -> orden)+1?>, <?=$row->orden?>)" className="button" role="link"><i className="fi-arrow-right"></i></a>
-                  <a href="javascript:borraimagen(<?=$idpiso?>, '<?=$row -> imagen?>', '<?=$row -> descripcion?>')" className="button" role="link"><i className="fi-x"></i></a>
+                  <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) - 1, item.orden)} className="button small" role="link"><i className="fi-arrow-left"></i></a>&nbsp;
+                  <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) + 1, item.orden)} className="button small" role="link"><i className="fi-arrow-right"></i></a>&nbsp;
+                  <a onClick={this.handleDeleteFile.bind(this, item.imagen, item.descripcion)} className="button small" role="link"><i className="fi-x"></i></a>
                   <div id="clear"></div>
                 </div>
               </div>
             </div>
-            <li key={key}><img src={url} /></li>
           );
         })
 
