@@ -713,8 +713,6 @@ class Paso3 extends React.Component {
 
   handleChangeOrder(imagen, ordenNuevo, ordenViejo, event) {
     // Cambia el orden de una imagen
-    console.log('Cambiando el orden');
-    console.log('Datos id='+datos.id+' | Imagen = '+imagen+ ' | OrdenNuevo = '+ordenNuevo+' | ordenViejo ='+ordenViejo);
 
     // Creamos el formData
     var formDataModify = new FormData();
@@ -733,7 +731,6 @@ class Paso3 extends React.Component {
     .then((respuesta) => respuesta.json())
     .then((respuestajson) => {
       datos.imagenes = [];
-      console.log(datos.imagenes);
       respuestajson.imagenes_piso.forEach((itemImagen) => {
         datos.imagenes.push({
           imagen: itemImagen.imagen,
@@ -748,15 +745,46 @@ class Paso3 extends React.Component {
     .catch((error) => {
       alert('Ha habido un error al cambiar el orden');
       throw 'Ha habido un error al cambiar el ordern: '+ error;
-    })
+    });
 
     // Actualizamos
     this.forceUpdate();
   }
 
   handleDeleteFile(imagen, descripcion, event) {
+    // Esto elimina la imagen
     console.log('A la mierda punto com');
     console.log('Imagen = '+imagen+' | descripcion = '+descripcion);
+
+    // Creamos el formData
+    var formDataModify = new FormData();
+    // Lo damos de comer
+    formDataModify.append('idpiso', datos.id);
+    formDataModify.append('imagen_borrar', imagen);
+    formDataModigy.append('descripcion_borrar', descripcion);
+    formDataModify.append('ws', 'json');
+
+    fetch('/index.php/pisos/del_img', {
+      method: 'POST',
+      body: formDataModify
+    })
+    .then((respuesta) => respuesta.json())
+    .then((respuestajson) => {
+      datos.imagenes = [];
+      respuestajson.imagenes_piso.forEach((itemImagen) => {
+        datos.imagenes.push({
+          imagen: itemImagen.imagen,
+          descripcion: itemImagen.descripcion,
+          orden: itemImagen.orden
+        });
+        this.setState({
+          files: datos.imagenes
+        });
+    })
+    .catch((error) => {
+      alert('Ha habido un error al eliminar la imagen');
+      throw 'Ha habido un error al eliminar la imagen: '+ error;
+    })
   }
 
   render() {
