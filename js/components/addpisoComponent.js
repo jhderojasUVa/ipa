@@ -325,6 +325,9 @@ class Paso1 extends React.Component {
         nextButton = <button className="button right" disabled="disabled">Continuar en el Paso 2 (selecciona ciudad y barrio)</button>;
       }
 
+      // Errores
+      //let hayErrores = compruebaPaso1(this.state.inmueble.calle, this.state.inmueble.numero, this.state.inmueble.cp, this.state.inmueble.tlfContacto);
+
       if (this.props.paso === 1) {
         return (
           <Fragment>
@@ -343,19 +346,20 @@ class Paso1 extends React.Component {
             </div>
 
             <div className="small-12 cell">
+              <form>
     						<legend><i className="fi-home"></i> Direcci&oacute;n</legend>
-    						<label htmlFor="calle">calle</label>
-    						<input id="calle" name="calle" type="text" className="form_boton" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Ponga el nombre de la calle sin escribir calle o c/ o paseo o avenida, etc..." onChange={this.handleCalle} placeholder="C/Falsa" value={datos.inmueble.calle} />
-    						<label htmlFor="numero">n&uacute;mero</label>
-    						<input name="numero" type="text" className="form_boton" id="numero" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí va el número de su portal" placeholder="22" onChange={this.handleNumero} value={datos.inmueble.numero} size="3" maxLength="3"/>
+    						<label htmlFor="calle">calle </label>
+    						<input id="calle" name="calle" type="text" className="form_boton" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Ponga el nombre de la calle sin escribir calle o c/ o paseo o avenida, etc..." onChange={this.handleCalle} required="required" placeholder="C/Falsa" value={datos.inmueble.calle} />
+    						<label htmlFor="numero">n&uacute;mero </label>
+    						<input name="numero" type="text" className="form_boton" id="numero" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí va el número de su portal" placeholder="22" onChange={this.handleNumero} required="required" value={datos.inmueble.numero} size="3" maxLength="3"/>
     						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
     						<input name="piso" type="text" className="form_boton" id="piso" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí la altura de su piso, ponga A para un ático o B para un bajo" placeholder="2" onChange={this.handlePiso} value={datos.inmueble.piso} size="2" maxLength="2"/>
     						<label htmlFor="letra">letra</label>
     							<input name="letra" type="text" id="letra" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Escriba aquí la letra de su inmueble" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
-    							<label htmlFor="cp">c&oacute;digo costal (CP)</label>
-    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} value={datos.inmueble.codigoPostal} size="5" maxLength="5" />
-    							<label htmlFor="tlf">tel&eacute;fono de contacto</label>
-    							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+    							<label htmlFor="cp">c&oacute;digo costal (CP) </label>
+    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} required="required" value={datos.inmueble.codigoPostal} size="5" maxLength="5" />
+    							<label htmlFor="tlf">tel&eacute;fono de contacto </label>
+    							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} required="required" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
                   <label htmlFor="localidad">localidad</label>
                   <select name="localidad" id="localidad" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione una ciudad en el desplegable para ver los barrios" className="form_boton" onChange={this.changeSelectCiudades}>
                     <option>Selecciona una ciudad</option>
@@ -366,7 +370,7 @@ class Paso1 extends React.Component {
                     <option>Selecciona un barrio</option>
                     {barrios}
                   </select>
-
+                </form>
     					</div>
 
               <div className="small-12 cell">
@@ -472,13 +476,13 @@ class Paso2 extends React.Component {
 
         <div className="small-12 medium-4 cell">
   				<label>precio
-  					<input type="number" name="precio" onChange={this.handlePrecio} value={this.state.precio} required placeholder="50"/>
+  					<input type="number" name="precio" onChange={this.handlePrecio} value={this.state.precio} required="required" placeholder="50"/>
   				</label>
   			</div>
 
         <div className="small-12 medium-6 cell">
   				<label>referente a
-  					<input type="text" name="descripcion" onChange={this.handleDescripcion} value={this.state.descripcion} size="20" maxLength="50" placeholder="habitacion doble" required/>
+  					<input type="text" name="descripcion" onChange={this.handleDescripcion} value={this.state.descripcion} size="20" maxLength="50" placeholder="habitacion doble" required="required"/>
   				</label>
   			</div>
 
@@ -756,8 +760,6 @@ class Paso3 extends React.Component {
 
   handleDeleteFile(imagen, descripcion, event) {
     // Esto elimina la imagen
-    console.log('A la mierda punto com');
-    console.log('Imagen = '+imagen+' | descripcion = '+descripcion);
 
     // Creamos el formData
     var formDataModify = new FormData();
@@ -780,14 +782,15 @@ class Paso3 extends React.Component {
           descripcion: itemImagen.descripcion,
           orden: itemImagen.orden
         });
-        this.setState({
-          files: datos.imagenes
-        });
+      });
+      this.setState({
+        files: datos.imagenes
+      });
     })
     .catch((error) => {
       alert('Ha habido un error al eliminar la imagen');
       throw 'Ha habido un error al eliminar la imagen: '+ error;
-    })
+    });
   }
 
   render() {
@@ -914,9 +917,11 @@ class Pasador extends React.Component {
         // Comprobamos si esta editando, si lo esta, esta enviando un ID
         let idpisoGet = parseInt(window.location.search.substring(1).split('=')[1]);
 
-        if (idpisoGet == 0 && datos.id == 0) {
-          alert('Piso nuevo');
-        } else if (datos.id != 0 || idpisoGet != 0) {
+
+        if (isNaN(idpisoGet) && datos.id == 0) {
+          // Es un piso nuevo
+          // Algo que he aprendido es dejar esto porque en un futuro no se sabe
+        } else if (datos.id != 0 || isNaN(idpisoGet) == false) {
           datos.id = idpisoGet;
           // Tenemos id con lo que tenemos que leerlo toooodo toooodo
           fetch('/index.php/components/mis/datosPiso?id=' + datos.id, {
@@ -1040,14 +1045,23 @@ function App() {
   );
 }
 
-// Pasando el ID del piso de alguna forma para cuando edite y asi re aprovechar todo esto
-//let elementoGenericoPiso = document.getElementById('addpiso');
-//let idPisoGenerico = getAttributte('idpiso');
-
+// Cuando un piso tenga ID se lo pasamos por get y cuando se monta, lo cargamos
 ReactDOM.render(<App />, document.getElementById('addpiso'));
 
 // Extras
 // Funciones extras
+
+function compruebaPaso1(calle, numero, cp, telefono) {
+  // Funcion que prueba si todo esta correcto
+  // ATENCION, true significa que esta mal!
+  return {
+    calle: calle.length === 0,
+    numero: numero.length === 0,
+    codigoPostal: cp.length === 0,
+    telefonoContacto: telefono.length === 0
+  };
+}
+
 function removeDragData(event) {
   // Funcion que elimina los datos del drag
   // por cualquiera de los dos metodos necesarios
