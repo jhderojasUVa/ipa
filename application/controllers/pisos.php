@@ -438,17 +438,11 @@ class Pisos extends CI_Controller {
 		$field_name = "upload";
 		$ws = $this -> input -> post_get("ws");
 
-		//$config["upload_path"] = $path;
-
-		//log_message('debug', '===== path ='.$path);
-
 		if (!$this -> upload -> do_upload($field_name)) {
 			// Si falla mandamos por ajax el error y se lo mostramos al pollo
 			$datos = array("error" => $this -> upload -> display_errors());
 			$datos["hay_error"] = true;
 			$datos["idpiso"] = $idpiso;
-			//$datos["imagenes_piso"] = array();
-			//$this -> load -> view("mis/addpaso2", $datos);
 		} else {
 			// Pillamos los datos de la subida
 			$datos = array("upload_data" => $this -> upload -> data());

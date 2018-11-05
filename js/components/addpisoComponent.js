@@ -443,9 +443,7 @@ class Paso2 extends React.Component {
   }
 
   componentWillMount() {
-    /*if (datos.id != 0) {
 
-    }*/
   }
 
   render() {
@@ -454,8 +452,8 @@ class Paso2 extends React.Component {
 
     let mostrarPrecios = datos.precios.map((item, index) => {
       return(
-        <Fragment>
-          <tr key={index}>
+        <Fragment key={index}>
+          <tr>
             <td>{item.precio} &euro;</td>
             <td>{item.descripcion}</td>
             <td><a onClick={this.handleDeletePrecio.bind(this, index)}><i className="fi-x"></i></a></td>
@@ -546,6 +544,7 @@ class Paso3 extends React.Component {
       boton: false
     }
 
+    this.handleFileChoose = this.handleFileChoose.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handleOnDragOver = this.handleOnDragOver.bind(this);
     this.handleChangeDescripcion = this.handleChangeDescripcion.bind(this);
@@ -553,6 +552,57 @@ class Paso3 extends React.Component {
     this.handleFinish = this.handleFinish.bind(this);
     this.handleChangeOrder = this.handleChangeOrder.bind(this);
     this.handleDeleteFile = this.handleDeleteFile.bind(this);
+  }
+
+  handleFileChoose(event) {
+    // Esta funcion trata el boton de subida en vez de el de dropeo y se usa a traves del label
+
+    // Vemos si ha subido un fichero
+    if (event.target.files[0]) {
+      let file = event.target.files[0];
+      this.ficheros.push({
+        name: file.name,
+        dataFile: file
+      });
+      let dondeVaLaImagen = document.getElementById('drop_image');
+      dondeVaLaImagen.src = window.URL.createObjectURL(file);
+    }
+
+    // Creamos el JSON para el envio
+    let datosEnString = JSON.stringify({id: datos.id});
+
+    // Parece ser que tenemos que re-leer todo el percal
+    // Esto estaria chachi usando un servicio o algo similar peeeeero
+    fetch('/index.php/components/mis/devuelveImagenes', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: datosEnString,
+    })
+    .then((respuesta) => respuesta.json())
+    .then((respuestajson) => {
+      datos.imagenes = [];
+      respuestajson.forEach((itemImagen) => {
+        datos.imagenes.push({
+          imagen: itemImagen.imagen,
+          descripcion: itemImagen.descripcion,
+          orden: itemImagen.orden
+        })
+      });
+      // Actualizamos el estado
+      this.setState({
+        files: datos.imagenes
+      });
+    })
+    .catch((error) => {
+      alert("Error al recuperar las imagenes. Error 0x012");
+      throw "Error al recuperar las imagenes: "+ error;
+    });
+
+    // Forzamos el updateo
+    this.forceUpdate();
   }
 
   handleDrop(event) {
@@ -830,14 +880,18 @@ class Paso3 extends React.Component {
         })
 
       } else {
-        fcheros_mostrar = <p>No ha subido ninguna imagen.</p>
+        ficheros_mostrar = <p>No ha subido ninguna imagen.</p>
       }
+
+
+      // <div onDrop={this.handleDrop} onDragOver={this.handleOnDragOver} className="dragOver" id="drop_zone"><img id="drop_image" src="/img/subir_fichero.png" alt="Arrastre el fichero aqui" width="100%"/></div>
 
       return (
         <Fragment>
 
     			<div className="small-12 medium-12 cell">
-            <div onDrop={this.handleDrop} onDragOver={this.handleOnDragOver} className="dragOver" id="drop_zone"><img id="drop_image" src="/img/subir_fichero.png" alt="Arrastre el fichero aqui" width="100%"/></div>
+            <div onDrop={this.handleDrop} onDragOver={this.handleOnDragOver} className="dragOver" id="drop_zone"><input type="file" id="upload_file" name="upload_file" className="hide" onChange={this.handleFileChoose} /><label htmlFor="upload_file"><img src="/img/subir_fichero.png" alt="Subir fichero" width="100%" id="drop_image"/></label></div>
+            <p className="text-center">Pulse de nuevo o arrastre una nueva imagen si quiere cambiarla</p>
           </div>
           <div className="small-12 medium-12 cell">
             <label>Descripci&oacute;n de la imagen</label>
