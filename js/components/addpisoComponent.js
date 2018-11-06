@@ -355,23 +355,23 @@ class Paso1 extends React.Component {
     						<label htmlFor="piso">piso (escriba <strong>B</strong> para un bajo y <strong>A</strong> para un &aacute;tico)</label>
     						<input name="piso" type="text" className="form_boton" id="piso" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Inserte aquí la altura de su piso, ponga A para un ático o B para un bajo" placeholder="2" onChange={this.handlePiso} value={datos.inmueble.piso} size="2" maxLength="2"/>
     						<label htmlFor="letra">letra</label>
-    							<input name="letra" type="text" id="letra" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Escriba aquí la letra de su inmueble" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
-    							<label htmlFor="cp">c&oacute;digo costal (CP) </label>
-    							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} required="required" value={datos.inmueble.codigoPostal} size="5" maxLength="5" />
-    							<label htmlFor="tlf">tel&eacute;fono de contacto </label>
-    							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} required="required" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
-                  <label htmlFor="localidad">localidad</label>
-                  <select name="localidad" id="localidad" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione una ciudad en el desplegable para ver los barrios" className="form_boton" onChange={this.changeSelectCiudades}>
-                    <option>Selecciona una ciudad</option>
-                    {ciudades}
-                  </select>
-                  <label htmlFor="barrio">barrio</label>
-                  <select name="barrio" id="barrio" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione un barrio de la ciudad previamente seleccionada" className="form_boton" onChange={this.changeSelectBarrios}>
-                    <option>Selecciona un barrio</option>
-                    {barrios}
-                  </select>
-                </form>
-    					</div>
+  							<input name="letra" type="text" id="letra" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Escriba aquí la letra de su inmueble" placeholder="A" onChange={this.handleLetra} value={datos.inmueble.letra} size="2"/>
+  							<label htmlFor="cp">c&oacute;digo costal (CP) </label>
+  							<input name="cp" type="text" id="cp" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Es necesario que ponga el codigo postal de su inmueble" placeholder="00000" onChange={this.handleCp} required="required" value={datos.inmueble.codigoPostal} size="5" maxLength="5" />
+  							<label htmlFor="tlf">tel&eacute;fono de contacto </label>
+  							<input name="tlf" type="text" id="tlf" placeholder="983423000" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Un telefono de contacto le ayudará a mejorar la comunicación" onChange={this.handleTlfContacto} required="required" value={datos.inmueble.tlfContacto} size="10" maxLength="9" />
+                <label htmlFor="localidad">localidad</label>
+                <select name="localidad" id="localidad" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione una ciudad en el desplegable para ver los barrios" className="form_boton" onChange={this.changeSelectCiudades}>
+                  <option>Selecciona una ciudad</option>
+                  {ciudades}
+                </select>
+                <label htmlFor="barrio">barrio</label>
+                <select name="barrio" id="barrio" data-tooltip aria-haspopup="true" className="has-tip-right" data-disable-hover="false" title="Seleccione un barrio de la ciudad previamente seleccionada" className="form_boton" onChange={this.changeSelectBarrios}>
+                  <option>Selecciona un barrio</option>
+                  {barrios}
+                </select>
+              </form>
+    				</div>
 
               <div className="small-12 cell">
                 {nextButton}
