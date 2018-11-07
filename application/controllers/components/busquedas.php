@@ -39,10 +39,6 @@ class Busqueda extends CI_Controller {
 		// Usaremos el metodo spotify para los generos para buscar por ciudades y barrios
 		// es decir barrio:ID o barrio:nombre
 
-		/*$sqlBase = "SELECT ";
-		$sqlFrom = " FROM pisos ";
-		$sqlWhere = " WHERE ";*/
-
 		$datos["q"] = $this -> input -> post_get('q');
 
 		// Primero lo pasamos por la piedra
@@ -64,6 +60,7 @@ class Busqueda extends CI_Controller {
 			}
 		} else {
 			// Si es una busqueda de palabras y tal
+			//$datos["resultado"] = $this -> pisos_model ->
 		}
 
 

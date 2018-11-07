@@ -100,4 +100,78 @@ class Analizadorsintactico {
     return is_numeric($string);
   }
 
+	function queryTexto($string) {
+    // Funcion que devuelve el texto que no es ciudad o barrio troceado
+		// Devuelve el array de las cosas que no son ni barrios ni ciudades para el SQL
+		// devuelve false si no hay nada
+
+    $trozos = array();
+    $trozostmp = explode("ciudad:", $string);
+
+    if ($trozostmp[0]) {
+      $textoSinMierda = preg_replace("/(\ben)|(\blas)|(\blos)|(\bel)|(\bla)|(\blo)|(ante)/", "", $trozostmp[0]);
+      $trozostmp2 = explode(" ", $textoSinMierda);
+      foreach ($trozostmp2 as $cacho) {
+        if ($cacho != "") {
+          array_push($trozos, $cacho);
+        }
+      }
+      return $trozos;
+    } else {
+      return false;
+    }
+  }
+
+  function troceador($string) {
+    // Funcion que devuelve un array troceado con los barrios y ciudades
+		// Trocea el string por "ciudad" y por "barrio"
+
+    $queryBusqueda = strtoupper($string);
+    $arrayReturn = array();
+    $splitCiudades = explode("CIUDAD:", $queryBusqueda);
+
+    foreach ($splitCiudades as $trozo) {
+      $tmp = explode("BARRIO:", $trozo);
+      foreach ($tmp as $trozotmp) {
+        if ($trozotmp != '') {
+          array_push($arrayReturn, $trozotmp);
+        }
+      }
+    }
+    return $arrayReturn;
+  }
+
+  function similitudes($arrayDatos, $arrayConQuienComparar) {
+    // Funcion que busca las similitudes
+		// Devuelve un array con las similitudes
+		// Necesita la funcion privada similitudes_sale
+
+    $returnArray = array();
+
+    foreach($arrayDatos as $rowCiudadesBusqueda) {
+      if ($rowCiudadesBusqueda != '') {
+        foreach($arrayConQuienComparar as $rowCiudadesArray) {
+
+          $resulttmp = similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda);
+
+          if ($resulttmp !='') {
+            array_push($returnArray, similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda));
+          }
+        }
+      }
+    }
+    return $returnArray;
+  }
+
+  private function similitudes_sale($origen, $destino) {
+    // Funcion que muestra aquellas con un 70% o mas de igualdad por Levenshtein
+		// Devuelve el string si tiene un 70% de coincidencia o mas sino devuelve false
+    $sim = similar_text(strtoupper($origen), strtoupper($destino), $perc);
+    if ($perc > 70) {
+      return $origen;
+    } else {
+      return false;
+    }
+  }
+
 }
