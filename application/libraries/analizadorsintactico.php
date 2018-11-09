@@ -51,25 +51,8 @@ class Analizadorsintactico {
     // Funcion que elimina cosas como "el", "la", "las"...
     // Devuelve el string sin eso
     if(!empty($string)) {
-      return preg_replace("/(el)|(la.)|(lo.)|(y)|(o)/", $string);
+      return preg_replace("/(\bel)|(\bla.)|(\blo.)|(\by\b)|(\bo\b)/", $string);
     }
-  }
-
-  function eliminaBarrioyCiudad($string){
-    // Funcion que elimina el barrio y a ciudad del string
-    $textoUsar = $string;
-    if(strstr("barrio:", $textoUsar) || strstr("ciudad:", $textoUsar)) {
-      if (strstr("barrios:", $textoUsar)) {
-        $arrayTmp = explode($textoUsar, "barrios:");
-        $textoUsar = implode(" ", $arrayTmp);
-      }
-      if (strstr("ciudad:", $textoUsar)) {
-        $arrayTmp = explode($textoUsar, "barrios:");
-        $textoUsar = implode(" ", $arrayTmp);
-      }
-    }
-
-    return $textoUsar;
   }
 
   function devuelveArrayWhere($string) {
@@ -77,11 +60,28 @@ class Analizadorsintactico {
     $arrayATrozos = explode($string, " ");
     $sql = " WHERE descripcion like '%".$string."%' ";
     foreach($arrayATrozos as $trozo) {
-      $sql = $sql + " OR descripcion LIKE '%".$trozo."%' OR calle LIKE '%".$trozo."%'";
+      $sql = $sql. " OR descripcion LIKE '%".$trozo."%' OR calle LIKE '%".$trozo."%' ";
     }
-
+		// Devolvemos el string del SQL
     return $sql;
   }
+
+	function devuelveSQLWheredeArray($array) {
+		// Funcion que devuelve el SQL montado de un array de cosas que le enviamos
+		// Esto se puede refactorizar, pero al final, las refactorizaciones hacen lo mismo
+
+		$sql = "";
+		// Recorremos a la vieja usanza
+		for ($i = 0; $i<size_of($array); $i++) {
+			if ($i == 0) {
+				$sql = $sql. " WHERE descripcion LIKE '%".$array[$i]."' OR calle LIKE '".$array[$i]."' ";
+			} else {
+				$sql = $sql. " OR descripcion LIKE '%".$array[$i]."%' OR calle LIKE '%".$array[$i]."%' ";
+			}
+		}
+		// Devolvemos el string del SQL
+		return $sql;
+	}
 
   function devuelveArrayBarrioCiudad($id, $tipo) {
     // Funcion que devuelve los datos necesarios de los barrios
@@ -109,15 +109,21 @@ class Analizadorsintactico {
     $trozostmp = explode("ciudad:", $string);
 
     if ($trozostmp[0]) {
-      $textoSinMierda = preg_replace("/(\ben)|(\blas)|(\blos)|(\bel)|(\bla)|(\blo)|(ante)/", "", $trozostmp[0]);
+			// Primero limpiamos el string
+      $textoSinMierda = preg_replace("/(\ben\b)|(\bel)|(\bla(\b|s))|(\blo(\b|s))|(\bante\b)|(\bo\b)|(\by\b)/", "", $trozostmp[0]);
+			// Luego separamos las "palabras"
       $trozostmp2 = explode(" ", $textoSinMierda);
+			// Para cada una (que no este vacia por dobles espaciados o similar)
       foreach ($trozostmp2 as $cacho) {
         if ($cacho != "") {
+					// La metemos en el array
           array_push($trozos, $cacho);
         }
       }
+			// Devolvemos el array
       return $trozos;
     } else {
+			// Por si algo ha pasado, devolvemos false
       return false;
     }
   }
@@ -126,41 +132,71 @@ class Analizadorsintactico {
     // Funcion que devuelve un array troceado con los barrios y ciudades
 		// Trocea el string por "ciudad" y por "barrio"
 
+		// Esto se puede refactorizar a algo mucho mas rapido
+
+		// Primero lo pasamos todo a mayusculas
     $queryBusqueda = strtoupper($string);
+		// Creamos el array de vuelta (empty)
     $arrayReturn = array();
+		// Separamos todo en las partes de ciudades
     $splitCiudades = explode("CIUDAD:", $queryBusqueda);
 
+		// Recorremos las ciudades para buscar los trozos de barrio
     foreach ($splitCiudades as $trozo) {
+			// Separamos los barrios
       $tmp = explode("BARRIO:", $trozo);
       foreach ($tmp as $trozotmp) {
         if ($trozotmp != '') {
+					// Si no esta vacio, lo metemos en el array
           array_push($arrayReturn, $trozotmp);
         }
       }
     }
-    return $arrayReturn;
+		// Devolvemos el array
+		if (size_of($arrayReturn) > 0) {
+			// Si no esta vacio
+			return $arrayReturn;
+		} else {
+			// Si esta vacio vamos a false
+			return false;
+		}
+
   }
 
   function similitudes($arrayDatos, $arrayConQuienComparar) {
     // Funcion que busca las similitudes
 		// Devuelve un array con las similitudes
 		// Necesita la funcion privada similitudes_sale
+		// Pensado para ciudades y barrios de ahi los nombres de las variables
 
+		// Primero el array de vuelta vacia
     $returnArray = array();
 
+		// Recorremos el array
     foreach($arrayDatos as $rowCiudadesBusqueda) {
+			// Siempre observamos si esta vacio o no, que nunca se sabe
       if ($rowCiudadesBusqueda != '') {
+				// Para cada uno de ellos
         foreach($arrayConQuienComparar as $rowCiudadesArray) {
-
+					// Hacemos la comparacion de Levenshtein a traves de nuestra otra funcion privada
           $resulttmp = similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda);
-
+					// Por si escupe blanco (esto se puede hacer en origen y asi deberia ser)
           if ($resulttmp !='') {
+						// Lo metemos en los resultados
             array_push($returnArray, similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda));
           }
         }
       }
     }
-    return $returnArray;
+		// Retorno (esto se podria mejorar ya que el else sobra y con devolver por defecto el false valdria)
+		if (size_of($returnArray) > 0) {
+			// Si hay datos
+			return $returnArray;
+		} else {
+			// Si no
+			return false;
+		}
+
   }
 
   private function similitudes_sale($origen, $destino) {
