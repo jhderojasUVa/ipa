@@ -758,7 +758,15 @@ class Pisos_model extends CI_Model {
   function buscar_piso_query($query) {
     // Funcion que busca un piso o grupo de pisos a traves de una query que le enviamos
     // le enviamos solo el WHERE en adelante
-    $sql = "SELECT id_piso, calle, numero, piso FROM pisos ";
+
+    // Devuelve las cantidades si va ok y sino false
+    $sql = "SELECT id_piso, calle, numero, piso FROM pisos ".$query;
+    $resultado = $this -> db -> query($sql);
+    if ($resultado -> num_rows() >0) {
+			return $resultado -> result();
+		} else {
+			return false;
+		}
   }
 
   function buscarBarrioCiudad($idDato, $que) {

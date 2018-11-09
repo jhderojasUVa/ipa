@@ -110,7 +110,7 @@ class Analizadorsintactico {
 
     if ($trozostmp[0]) {
 			// Primero limpiamos el string
-      $textoSinMierda = preg_replace("/(\ben\b)|(\bel)|(\bla(\b|s))|(\blo(\b|s))|(\bante\b)|(\bo\b)|(\by\b)/", "", $trozostmp[0]);
+      $textoSinMierda = preg_replace("/(\b(a|e|o|u)\ )|(\ben\b)|(\bun\b)|(\bde(\b|l))|(\bqu(|é|e)\b)|(\b(a|e)l\b)|(\bell(o|a)(\b|s))|(\bla(\b|s))|(\blo(\b|s))|(\bante\b)|(\bo\b)|(\by\b)|(\bes\b)|(\bsu\b)|(\,|\.|\;)/", "", $trozostmp[0]);
 			// Luego separamos las "palabras"
       $trozostmp2 = explode(" ", $textoSinMierda);
 			// Para cada una (que no este vacia por dobles espaciados o similar)
