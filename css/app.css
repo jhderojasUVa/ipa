@@ -398,6 +398,7 @@ a {
 
 .cabecera form {
   display: block;
+  margin-top: 15px;
 }
 
 .slideshow {
