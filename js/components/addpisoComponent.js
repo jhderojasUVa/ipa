@@ -373,9 +373,13 @@ class Paso1 extends React.Component {
               </form>
     				</div>
 
-              <div className="small-12 cell">
-                {nextButton}
-              </div>
+            <div className="small-12 cell">
+              <p>Se muestra en color <strong>rojo</strong> aquellos elementos que pueden estar mal.</p>
+            </div>
+
+            <div className="small-12 cell">
+              {nextButton}
+            </div>
 
           </Fragment>
         );

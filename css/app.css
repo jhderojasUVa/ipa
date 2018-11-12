@@ -799,6 +799,15 @@ ul.extras .extras, p.extras .extras {
   margin: 0 auto;
 }
 
+/* Paso 1, formulario required */
+input:required:invalid {
+  border: 1px solid red;
+}
+
+input:required:valid {
+  border: 1px solid green;
+}
+
 /* Paso 3 dropzone */
 #drop_zone {
   width: 250px;
