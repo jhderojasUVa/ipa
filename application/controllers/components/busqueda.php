@@ -14,10 +14,11 @@ class Busqueda extends CI_Controller {
 		$this -> load -> library("sesiones_usuarios");
 		$this -> load -> library("SSOUVa");
 		$this -> load -> library("LDAP");
+		$this -> load -> library("analizadorsintactico");
 
 		// Y la libreria
-		$this -> load -> library("upload", $config);
-		$this -> load -> library("pagination");
+		//$this -> load -> library("upload", $config);
+		//$this -> load -> library("pagination");
 	}
 
 	public function index() {
@@ -37,12 +38,12 @@ class Busqueda extends CI_Controller {
 		$datos["q"] = $this -> input -> post_get('q');
 
 		// Sacamos las ciudades y los barrios
-		$datos["ciudad_barrio"] = $this -> Analizadorsintactico -> troceador($datos["q"]);
+		$datos["ciudad_barrio"] = $this -> analizadorsintactico -> troceador($datos["q"]);
 		// Sacamos la busqueda, los elementos
-		$datos["palabrasQuery"] = $this -> Analizadorsintactico -> queryTexto($datos["q"]);
+		$datos["palabrasQuery"] = $this -> analizadorsintactico -> queryTexto($datos["q"]);
 
 		// Query de la busqueda
-		$query_busqueda = $this -> Analizadorsintactico -> devuelveSQLWheredeArray($datos["palabrasQuery"]);
+		$query_busqueda = $this -> analizadorsintactico -> devuelveSQLWheredeArray($datos["palabrasQuery"]);
 		// Pasamos la query al modelo
 		$datos["resultados"] = $this -> pisos_model -> buscar_piso_query($query_busqueda);
 

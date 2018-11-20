@@ -72,7 +72,7 @@ class Analizadorsintactico {
 
 		$sql = "";
 		// Recorremos a la vieja usanza
-		for ($i = 0; $i<size_of($array); $i++) {
+		for ($i = 0; $i < sizeof($array); $i++) {
 			if ($i == 0) {
 				$sql = $sql. " WHERE descripcion LIKE '%".$array[$i]."' OR calle LIKE '".$array[$i]."' ";
 			} else {
@@ -153,7 +153,7 @@ class Analizadorsintactico {
       }
     }
 		// Devolvemos el array
-		if (size_of($arrayReturn) > 0) {
+		if (sizeof($arrayReturn) > 0) {
 			// Si no esta vacio
 			return $arrayReturn;
 		} else {

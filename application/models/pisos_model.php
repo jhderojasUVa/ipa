@@ -790,12 +790,15 @@ class Pisos_model extends CI_Model {
           $resultado2 = $this -> db -> query($sql2);
           // Si hay imagen la metemos, sino, una falsa
           if ($resultado2 -> num_rows() > 0) {
-            $imagen = $resultado2 -> result() -> imagen;
+            //$imagen = $resultado2 -> result() -> imagen;
+            foreach ($resultado2 -> result() as $row2) {
+              $imagen = $row2 -> imagen;
+            }
           } else {
             $imagen = "sin_imagen.png";
           }
           // Pusheamos el array con el elemento
-          arrayVuelta[] = array(
+          $arrayVuelta[] = array(
             "idpiso" => $row -> id_piso,
             "descripcion" => $row -> descripcion,
             "direccion" => $row -> calle .", ". $row -> numero,
@@ -807,7 +810,7 @@ class Pisos_model extends CI_Model {
           );
       }
       // Devolvemos el array completito
-      return arrayVuelta;
+      return $arrayVuelta;
 		} else {
       // Si no hay nada, devolvemos un false como una casa
 			return false;
