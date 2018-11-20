@@ -758,13 +758,58 @@ class Pisos_model extends CI_Model {
   function buscar_piso_query($query) {
     // Funcion que busca un piso o grupo de pisos a traves de una query que le enviamos
     // le enviamos solo el WHERE en adelante
+    // $query = la query creada desde la otra parte del back
+    // Devuelve el array completo o false si no hay nada
+
+    // Intentos de SQL que no quiero perder...
+    // SELECT id_piso, pisos.descripcion, calle, numero, cp, extras, idlocalizacion, libre, imagenes_pisos.imagen FROM pisos INNER JOIN imagenes_pisos ON pisos.id_piso = imagenes_pisos.idpiso ORDER BY pisos.id_piso
+    // SELECT imagenes_piso.idpiso, imagenes_piso.imagen, pisos.id_piso, pisos.descripcion FROM (SELECT * FROM imagenes_pisos LIMIT 1) imagenes_piso RIGHT JOIN pisos ON pisos.id_piso = imagenes_piso.idpiso
+    // SELECT imagenes_piso.imagen, pisos.id_piso, pisos.descripcion FROM (SELECT * FROM imagenes_pisos LIMIT 1) imagenes_piso RIGHT JOIN pisos ON pisos.id_piso = imagenes_piso.idobjeto
+    // SELECT imagenes_piso.imagen, pisos.id_piso, pisos.descripcion FROM (SELECT idpiso, imagen FROM imagenes_pisos LIMIT 1) imagenes_piso RIGHT JOIN pisos ON pisos.id_piso = imagenes_piso.idpiso
+    // SELECT * FROM (SELECT (DISTINCT idpiso), imagenes FROM imagenes_pisos)  FULL JOIN pisos ON idpiso = pisos.id_piso
 
     // Devuelve las cantidades si va ok y sino false
-    $sql = "SELECT id_piso, calle, numero, piso FROM pisos ".$query;
+    // Esto se tiene que poder refactorizar con una sola sentencia SQL, sino es una mierda como un
+    // piano
+
+    // Como esta busqueda tambien mete los barrios y las localizaciones, ya pensaremos como sacarlas
+    // Seguramente con un array en el front...
+
+    // Creamos la variable
+    $arrayVuelta = array();
+
+    // Hacemos el SQL principal
+    $sql = "SELECT id_piso, descripcion, calle, numero, cp, extras, idbarrio, idlocalizacion, libre FROM pisos ".$query;
+    // Ejecutamos la query
     $resultado = $this -> db -> query($sql);
-    if ($resultado -> num_rows() >0) {
-			return $resultado -> result();
+    // Recorremos para sacar las imagenes con una query secundaria
+    // Aqui esta la mierda que hay que unir con una unica query
+    if ($resultado -> num_rows() > 0) {
+      foreach ($resultado -> result() as $row) {
+          $sql2 = "SELECT imagen FROM imagenes_pisos WHERE idpiso = ".$row -> id_piso." LIMIT 1";
+          $resultado2 = $this -> db -> query($sql2);
+          // Si hay imagen la metemos, sino, una falsa
+          if ($resultado2 -> num_rows() > 0) {
+            $imagen = $resultado2 -> result() -> imagen;
+          } else {
+            $imagen = "sin_imagen.png";
+          }
+          // Pusheamos el array con el elemento
+          arrayVuelta[] = array(
+            "idpiso" => $row -> id_piso,
+            "descripcion" => $row -> descripcion,
+            "direccion" => $row -> calle .", ". $row -> numero,
+            "cp" => $row -> cp,
+            "idlocalizacion" => $row -> idlocalizacion,
+            "idbarrio" => $row -> idbarrio,
+            "libre" => $row -> libre,
+            "imagern" => $imagen
+          );
+      }
+      // Devolvemos el array completito
+      return arrayVuelta;
 		} else {
+      // Si no hay nada, devolvemos un false como una casa
 			return false;
 		}
   }
