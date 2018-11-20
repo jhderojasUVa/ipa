@@ -806,7 +806,8 @@ class Pisos_model extends CI_Model {
             "idlocalizacion" => $row -> idlocalizacion,
             "idbarrio" => $row -> idbarrio,
             "libre" => $row -> libre,
-            "imagern" => $imagen
+            "extras" => $row -> extras,
+            "imagen" => $imagen
           );
       }
       // Devolvemos el array completito

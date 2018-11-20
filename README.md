@@ -59,6 +59,8 @@ En este fichero se encuentra la estructura (esta sin datos, obviamente) de la ba
 
 ## Punto en el que esta el Master
 
+Recordad que se esta usando el developer del React!. Dudo mucho que, salvo en explotación, use la versión de explotación de React y que pase el codigo por Babel. Cuando este la versión finalizada, recordad el hacer ambos pasos, primero poner el React en explotación, el polyfill y, sobre todo pasarlo por Babel para que sea ES2015 compatible (para los viejos clientes web).
+
 Compendio de cosas:
 
 - Mejorando la administracion para los usuarios de la entidad (ver, borrar pisos, esas cosas).
@@ -70,3 +72,8 @@ Compendio de cosas:
 - Se esta intentado usar camelCase en las notaciones de funciones y variables como estandar porque ya toca usar un estandar.
 - Se intentara usar PSR (https://www.php-fig.org/psr/) para el PHP ahora o en un futuro... vamos a partir de ahora, pese a que hay cosas que no me gustan un pimiento.
 - Se quiere crear una libreria que use las API de Google de Machine Learning que ayudaria a desgranar el texto enviado por los usuarios de forma que reconozca palabras, frases, nombres de barrios, ciudades... esas cosas. Se plantea el uso de AutoML Natural Language de Google o Cloud Natural Language (https://cloud.google.com/natural-language).
+
+
+## Futuro?
+
+Quizas, en un futuro, con Electron, se cree una versión de la aplicacion de escritorio/movil aunque no se descarta el uso de React Native (o si, quien sabe).
