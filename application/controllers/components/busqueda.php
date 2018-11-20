@@ -46,6 +46,8 @@ class Busqueda extends CI_Controller {
 		$query_busqueda = $this -> analizadorsintactico -> devuelveSQLWheredeArray($datos["palabrasQuery"]);
 		// Pasamos la query al modelo
 		$datos["resultados"] = $this -> pisos_model -> buscar_piso_query($query_busqueda);
+		// Total de datos
+		$datos["total"] = sizeof($datos["resultados"]);
 
 		// Cambiamos la cabecera a JSON de respuesta
     header('Content-Type: application/json');
