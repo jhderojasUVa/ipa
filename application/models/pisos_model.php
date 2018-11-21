@@ -818,6 +818,45 @@ class Pisos_model extends CI_Model {
 		}
   }
 
+  function ejecutaQueryRaw($query) {
+    // Esta funcion es malisima, en serio, da asco
+    // Y es que ejecuta una query directamente
+    // Devuelve el resultado si vale y false si es vacia
+
+    $resultado = $this -> db -> query($query);
+    if ($resultado -> num_rows() > 0) {
+      return $resultado -> result();
+    }
+    return false;
+  }
+
+  function devuelveSqlBarrioCiudad($arrayDatos) {
+    // Funcion web que hace el SQL que añade y busca los barrios y ciudades puestas en texto
+
+    // Ante todo el array de resultado multiloquesea;
+    $arrayRetornar = array();
+
+    // Primero las ciudades
+    // Una sentencia que devuelve 0 para el OR
+    $sql = "SELECT idlocalizacion FROM localizaciones WHERE 0 ";
+    foreach ($arrayDatos as $row) {
+      $sql = $sql . " OR upper(localizacion) LIKE '%". trim(strtoupper($row)) ."%'";
+    }
+
+    array_push($arrayRetornar, $sql);
+
+    // Ahora repetimos para barrios
+    $sql = "SELECT idbarrio FROM barrios WHERE 0 ";
+    foreach ($arrayDatos as $row) {
+      $sql = $sql . " OR upper(barrio) like '%". trim(strtoupper($row)) ."%'";
+    }
+
+    array_push($arrayRetornar, $sql);
+
+    // Devolvemos el array
+    return $arrayRetornar;
+  }
+
   function buscarBarrioCiudad($idDato, $que) {
     // Funcion que busca y muestra por una ciudad o un barrio
     // Necesita:
