@@ -755,10 +755,11 @@ class Pisos_model extends CI_Model {
 		}
 	}
 
-  function buscar_piso_query($query) {
+  function buscar_piso_query($queryPrimaria, $querySecundaria) {
     // Funcion que busca un piso o grupo de pisos a traves de una query que le enviamos
     // le enviamos solo el WHERE en adelante
-    // $query = la query creada desde la otra parte del back
+    // $queryPrimaria = la query creada desde la otra parte del back (ahi van las palabras sueltas)
+    // $querySecundaria = la query con los ids de barrios y ciudades (array multidimensional)
     // Devuelve el array completo o false si no hay nada
 
     // Intentos de SQL que no quiero perder...
@@ -779,7 +780,25 @@ class Pisos_model extends CI_Model {
     $arrayVuelta = array();
 
     // Hacemos el SQL principal
-    $sql = "SELECT id_piso, descripcion, calle, numero, cp, extras, idbarrio, idlocalizacion, libre FROM pisos ".$query;
+    $sql = "SELECT id_piso, descripcion, calle, numero, cp, extras, idbarrio, idlocalizacion, libre FROM pisos ".$queryPrimaria;
+
+    // Ahora el secundario
+    foreach ($querySecundaria as $row) {
+      $sql = $sql . " AND (";
+        for ($i = 0; $i < sizeof($row); $i++) {
+          if ($i !=0) {
+            $sql = $sql. " OR";
+          }
+          if (isset($row[$i] -> idbarrio)) {
+            $sql = $sql. " idbarrio ='".$row[$i] -> idbarrio."'";
+          } elseif (isset($row[$i] -> idlocalizacion)) {
+            $sql = $sql. " idlocalizacion ='".$row[$i] -> idlocalizacion."'";
+          }
+        }
+      $sql = $sql . ")";
+    }
+
+    //echo "FINAL: ".$sql;
     // Ejecutamos la query
     $resultado = $this -> db -> query($sql);
     // Recorremos para sacar las imagenes con una query secundaria

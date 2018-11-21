@@ -70,15 +70,20 @@ class Analizadorsintactico {
 		// Funcion que devuelve el SQL montado de un array de cosas que le enviamos
 		// Esto se puede refactorizar, pero al final, las refactorizaciones hacen lo mismo
 
-		$sql = "";
+		$sql = " WHERE 0 OR (";
 		// Recorremos a la vieja usanza
-		for ($i = 0; $i < sizeof($array); $i++) {
+		$i = 0;
+		foreach ($array as $row) {
 			if ($i == 0) {
-				$sql = $sql. " WHERE descripcion LIKE '%".$array[$i]."' OR calle LIKE '".$array[$i]."' ";
+				$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+				$i++;
 			} else {
-				$sql = $sql. " OR descripcion LIKE '%".$array[$i]."%' OR calle LIKE '%".$array[$i]."%' ";
+				$sql = $sql . " OR descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
 			}
 		}
+
+		$sql = $sql .")";
+
 		// Devolvemos el string del SQL
 		return $sql;
 	}
@@ -110,7 +115,6 @@ class Analizadorsintactico {
 
     if ($trozostmp[0]) {
 			// Primero limpiamos el string
-      //$textoSinMierda = preg_replace("/(\b(a|e|o|u)\ )|(\ben\b)|(\bun\b)|(\bde(\b|l))|(\bqu(|é|e)\b)|(\b(a|e)l\b)|(\bell(o|a)(\b|s))|(\bla(\b|s))|(\blo(\b|s))|(\bante\b)|(\bo\b)|(\by\b)|(\bes\b)|(\bsu\b)|(\,|\.|\;)|\x{201C}|\x{201D}/", "", $trozostmp[0]);
 			$textoSinMierda = preg_replace("/(\b(a|e|o|u)\ )|(\ben\b)|(\bun\b)|(\bde(\b|l))|(\bqu(|é|e)\b)|(\b(a|e)l\b)|(\bell(o|a)(\b|s))|(\bla(\b|s))|(\blo(\b|s))|(\bante\b)|(\bo\b)|(\by\b)|(\bes\b)|(\bsu\b)|(\,|\.|\;)/", "", $trozostmp[0]);
 			// Luego separamos las "palabras"
       $trozostmp2 = explode(" ", $textoSinMierda);

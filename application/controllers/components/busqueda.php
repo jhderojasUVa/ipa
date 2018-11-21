@@ -53,7 +53,7 @@ class Busqueda extends CI_Controller {
 		// Query de la busqueda
 		$query_busqueda = $this -> analizadorsintactico -> devuelveSQLWheredeArray($datos["palabrasQuery"]);
 		// Pasamos la query al modelo
-		$datos["resultados"] = $this -> pisos_model -> buscar_piso_query($query_busqueda);
+		$datos["resultados"] = $this -> pisos_model -> buscar_piso_query($query_busqueda, $datos["IdBarriosCiudades"]);
 
 		// Total de datos
 		if ($datos["resultados"] == false) {
