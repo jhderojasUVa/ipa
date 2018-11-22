@@ -141,6 +141,10 @@ class Analizadorsintactico {
     // Funcion que devuelve un array troceado con los barrios y ciudades
 		// Trocea el string por "ciudad" y por "barrio"
 
+		// Por diseño, lo de ciudad y barrio tiene que ir al final... que esto hay que cambiarlo
+		$dondeEstaCiudad = strpos(strtoupper($string), "CIUDAD:");
+		$string = substr($string, $dondeEstaCiudad, -($dondeEstaCiudad-3));
+
 		// Esto se puede refactorizar a algo mucho mas rapido
 
 		// Primero lo pasamos todo a mayusculas
@@ -157,10 +161,11 @@ class Analizadorsintactico {
       foreach ($tmp as $trozotmp) {
         if ($trozotmp != '') {
 					// Si no esta vacio, lo metemos en el array
-          array_push($arrayReturn, $trozotmp);
+          array_push($arrayReturn, trim($trozotmp));
         }
       }
     }
+
 		// Devolvemos el array
 		if (sizeof($arrayReturn) > 0) {
 			// Si no esta vacio
