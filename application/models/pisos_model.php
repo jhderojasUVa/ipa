@@ -784,18 +784,37 @@ class Pisos_model extends CI_Model {
 
     // Ahora el secundario
     foreach ($querySecundaria as $row) {
-      $sql = $sql . " AND (";
+
+      if ($row) {
+        // Detecta que haya contenido
+        // Asi no mete un AND vacio
+        // Ñapa man, ñapa man
+        $sql = $sql . " AND (";
+      }
+
         for ($i = 0; $i < sizeof($row); $i++) {
           if ($i !=0) {
+            // Si no es el primer elemento hay que meter un OR
             $sql = $sql. " OR";
           }
           if (isset($row[$i] -> idbarrio)) {
+            // Si es un barrio
             $sql = $sql. " idbarrio ='".$row[$i] -> idbarrio."'";
           } elseif (isset($row[$i] -> idlocalizacion)) {
+            // Si es una ciudad o localizacion
             $sql = $sql. " idlocalizacion ='".$row[$i] -> idlocalizacion."'";
+          } else {
+            // Resto se deja porque nunca se sabe
           }
+
         }
-      $sql = $sql . ")";
+
+      if ($row) {
+        // Detecta que haya contenido
+        // Ñapa man, ñapa man
+        $sql = $sql . ")";
+      }
+
     }
 
     // Acabamos con la ordenacion (las ultimas, mas modernas seran las primeras)

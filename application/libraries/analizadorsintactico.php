@@ -143,7 +143,9 @@ class Analizadorsintactico {
 
 		// Por diseño, lo de ciudad y barrio tiene que ir al final... que esto hay que cambiarlo
 		$dondeEstaCiudad = strpos(strtoupper($string), "CIUDAD:");
-		$string = substr($string, $dondeEstaCiudad, -($dondeEstaCiudad-3));
+		if ($dondeEstaCiudad > 0) {
+			$string = substr($string, $dondeEstaCiudad, strlen($string));
+		}
 
 		// Esto se puede refactorizar a algo mucho mas rapido
 
@@ -155,16 +157,31 @@ class Analizadorsintactico {
     $splitCiudades = explode("CIUDAD:", $queryBusqueda);
 
 		// Recorremos las ciudades para buscar los trozos de barrio
-    foreach ($splitCiudades as $trozo) {
-			// Separamos los barrios
-      $tmp = explode("BARRIO:", $trozo);
-      foreach ($tmp as $trozotmp) {
-        if ($trozotmp != '') {
-					// Si no esta vacio, lo metemos en el array
-          array_push($arrayReturn, trim($trozotmp));
-        }
-      }
-    }
+		if (sizeof($splitCiudades) > 1) {
+			// Si hay ciudades en la query
+			foreach ($splitCiudades as $trozo) {
+				// Separamos los barrios
+	      $tmp = explode("BARRIO:", $trozo);
+	      foreach ($tmp as $trozotmp) {
+	        if ($trozotmp != "") {
+						// Si no esta vacio, lo metemos en el array
+	          array_push($arrayReturn, trim($trozotmp));
+	        }
+	      }
+	    }
+		} else {
+			// Si no hay ciudad y solo hay barrio en la query
+			$dondeEstaBarrio = strpos($queryBusqueda, "BARRIO:");
+			if ($dondeEstaBarrio > 0) {
+				$queryBusqueda = substr($queryBusqueda, $dondeEstaBarrio, strlen($queryBusqueda));
+				$splitBarrios = explode("BARRIO:", $queryBusqueda);
+				foreach ($splitBarrios as $trozotmp) {
+					if ($trozotmp != "") {
+						array_push($arrayReturn, trim($trozotmp));
+					}
+				}
+			}
+		}
 
 		// Devolvemos el array
 		if (sizeof($arrayReturn) > 0) {
