@@ -798,7 +798,9 @@ class Pisos_model extends CI_Model {
       $sql = $sql . ")";
     }
 
-    //echo "FINAL: ".$sql;
+    // Acabamos con la ordenacion (las ultimas, mas modernas seran las primeras)
+    $sql = $sql . " ORDER BY fecha DESC";
+
     // Ejecutamos la query
     $resultado = $this -> db -> query($sql);
     // Recorremos para sacar las imagenes con una query secundaria

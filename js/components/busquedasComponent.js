@@ -11,7 +11,10 @@ class Busquedas extends React.Component {
       },
       itemsPerPage: 10,
       page: 1,
-      isLoading: true
+      isLoading: true,
+      query: '',
+      idbarrio: 0,
+      idlocalizacion: 0
     }
   }
 
@@ -32,13 +35,15 @@ class Busquedas extends React.Component {
       case 'q':
         // Si es una query de texto estandar
         formData.append('q', datosBusqueda);
-        fetch('/index.php/components/busquedas', {
+        fetch('/index.php/components/busquedas/busquedas', {
           method: 'POST',
           body: formData
         })
         .then((respuesta) => respuesta.json())
         .then((respuestajson) => {
-
+          this.setState({
+            query: datosBusqueda
+          });
         })
         .catch((error) => {
           alert('Ha habido un error al realizar las busquedas\r\nError Bx01q');
@@ -54,7 +59,9 @@ class Busquedas extends React.Component {
         })
         .then((respuesta) => respuesta.json())
         .then((respuestajson) => {
-
+          this.setState({
+            idbarrio: datosBusqueda
+          });
         })
         .catch((error) => {
           alert('Ha habido un error al realizar las busquedas\r\nError Bx02b');
@@ -70,7 +77,9 @@ class Busquedas extends React.Component {
         })
         .then((respuesta) => respuesta.json())
         .then((respuestajson) => {
-
+          this.setState({
+            idlocalizacion: datosBusqueda
+          });
         })
         .catch((error) => {
           alert('Ha habido un error al realizar las busquedas\r\nError Bx03c');
@@ -78,12 +87,6 @@ class Busquedas extends React.Component {
         });
         break;
     }
-
-
-
-
-    // Fetch
-    //fetch('index.php/buscar')
   }
 
   componentDidMount() {
@@ -94,13 +97,17 @@ class Busquedas extends React.Component {
     let Fragment = React.Fragment;
 
     if (isLoading === false) {
+      return (
+        <Fragment>
+        </Fragment>
+      );
 
     } else {
       return (
         <Fragment>
           <p className="text-center"><img src="http://ipa.uva.es/img/loading2.gif" alt="Cargando..." width="150"/>  Estamos buscando, por favor espere...</p>
         </Fragment>
-      )
+      );
     }
 
   }

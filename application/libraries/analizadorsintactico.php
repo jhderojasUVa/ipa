@@ -70,20 +70,24 @@ class Analizadorsintactico {
 		// Funcion que devuelve el SQL montado de un array de cosas que le enviamos
 		// Esto se puede refactorizar, pero al final, las refactorizaciones hacen lo mismo
 
-		$sql = " WHERE 0 OR (";
-		// Recorremos a la vieja usanza
-		$i = 0;
-		foreach ($array as $row) {
-			if ($i == 0) {
-				$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
-				$i++;
-			} else {
-				$sql = $sql . " OR descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+		if (sizeof($array) > 1) {
+			$sql = " WHERE 0 OR (";
+			// Recorremos a la vieja usanza
+			$i = 0;
+
+			foreach ($array as $row) {
+				if ($i == 0) {
+					$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+					$i++;
+				} else {
+					$sql = $sql . " OR descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+				}
 			}
+
+			$sql = $sql .")";
+		} else {
+			$sql = " WHERE 1";
 		}
-
-		$sql = $sql .")";
-
 		// Devolvemos el string del SQL
 		return $sql;
 	}
