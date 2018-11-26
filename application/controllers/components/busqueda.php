@@ -35,22 +35,22 @@ class Busqueda extends CI_Controller {
 		$datos["q"] = $this -> input -> post_get('q');
 
 		// Sacamos las ciudades y los barrios
-		$datos["ciudadesBarrios"] = $this -> analizadorsintactico -> troceador($datos["q"]);
+		$datos["separadoOriginalCiudadesBarrios"] = $this -> analizadorsintactico -> troceador($datos["q"]);
 		// Sacamos la busqueda, los elementos
 		$datos["palabrasQuery"] = $this -> analizadorsintactico -> queryTexto($datos["q"]);
 
 		// Query de los barrios y pisos (es un array lo que se devuelve)
-		$datos["IdBarriosCiudades"] = array();
-		$query_busqueda_barrios_pisos = $this -> pisos_model -> devuelveSqlBarrioCiudad($datos["ciudadesBarrios"]);
+		$datos["idBarriosCiudades"] = array();
+		$query_busqueda_barrios_pisos = $this -> pisos_model -> devuelveSqlBarrioCiudad($datos["separadoOriginalCiudadesBarrios"]);
 
 		foreach ($query_busqueda_barrios_pisos as $row) {
-			array_push($datos["IdBarriosCiudades"], $this -> pisos_model -> ejecutaQueryRaw($row));
+			array_push($datos["idBarriosCiudades"], $this -> pisos_model -> ejecutaQueryRaw($row));
 		}
 
 		// Query de la busqueda
 		$query_busqueda = $this -> analizadorsintactico -> devuelveSQLWheredeArray($datos["palabrasQuery"]);
 		// Pasamos la query al modelo
-		$datos["resultados"] = $this -> pisos_model -> buscar_piso_query($query_busqueda, $datos["IdBarriosCiudades"]);
+		$datos["resultados"] = $this -> pisos_model -> buscar_piso_query($query_busqueda, $datos["idBarriosCiudades"]);
 
 		// Total de datos
 		if ($datos["resultados"] == false) {

@@ -70,7 +70,7 @@ class Analizadorsintactico {
 		// Funcion que devuelve el SQL montado de un array de cosas que le enviamos
 		// Esto se puede refactorizar, pero al final, las refactorizaciones hacen lo mismo
 
-		if (sizeof($array) > 1) {
+		if (sizeof($array) > 0) {
 			$sql = " WHERE 0 OR (";
 			// Recorremos a la vieja usanza
 			$i = 0;
@@ -115,7 +115,15 @@ class Analizadorsintactico {
 		// devuelve false si no hay nada
 
     $trozos = array();
-    $trozostmp = explode("ciudad:", $string);
+
+		// Primero si hay ciudad o barrio
+		if (strpos($string, "ciudad:") > 0) {
+			// Si hay ciudad
+			$trozostmp = explode("ciudad:", $string);
+		} elseif (strpos($string, "barrio:") > 0) {
+			// Si hay barrio
+			$trozostmp = explode("barrio:", $string);
+		}
 
     if ($trozostmp[0]) {
 			// Primero limpiamos el string

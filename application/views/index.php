@@ -6,7 +6,7 @@
 
 		<!-- Buscador -->
 		<div class="buscador align-middle">
-      <form action="<?=base_url()?>index.php/buscar/busquedas" method="post">
+      <form action="<?=base_url()?>index.php/buscar/busquedas" method="get">
         <div class="grid-container">
           <div class="grid-x">
             <div class="medium-12 cell">

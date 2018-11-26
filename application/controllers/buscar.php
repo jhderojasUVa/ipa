@@ -38,6 +38,30 @@ class Buscar extends CI_Controller {
 	}
 
 	public function busquedas($ws = null) {
+
+		if ($this -> sesiones_usuarios -> esta_logeado() == true) {
+			if ($_SESSION["uva"] == true) {
+				// Discriminamos si se ha logeado via SSO
+				$datos["usuario"] = $this -> ssouva -> login();
+			} else {
+				// O si ha entrado por el sistema de autentificacion local
+				$datos["usuario"] = $_SESSION["idu"];
+			}
+			$datos["logeado"] = true;
+		} else {
+			// O no esta autentificado
+			$datos["usuario"] = 0;
+			$datos["logeado"] = false;
+		}
+
+		$datos["q"] = $this -> input -> post_get("q");
+
+		$this -> load -> view("cabecera", $datos);
+		$this -> load -> view("buscar", $datos);
+		$this -> load -> view("footer", $datos);
+	}
+
+	/*public function busquedas($ws = null) {
 		// Funcion para buscar
 
 		// Con esto comprobamos si esta logeado o no
@@ -125,7 +149,7 @@ class Buscar extends CI_Controller {
 			$this -> load -> view("buscar", $datos);
 			$this -> load -> view("footer", $datos);
 		}
-	}
+	}*/
 
 	public function refinar($ws = null) {
 		// Funcion de refinamiento de busqueda
