@@ -123,6 +123,9 @@ class Analizadorsintactico {
 		} elseif (strpos($string, "barrio:") > 0) {
 			// Si hay barrio
 			$trozostmp = explode("barrio:", $string);
+		} else {
+			// Si solo hay texto
+			$trozostmp = [$string];
 		}
 
     if ($trozostmp[0]) {

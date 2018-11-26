@@ -38,6 +38,7 @@ class Busquedas extends React.Component {
     fetch('/index.php/components/busqueda/busqueda?q='+datosBusqueda)
       .then((respuesta) =>  respuesta.json())
       .then((respuestaJSON) => {
+        console.log(respuestaJSON);
         // Cambiamos el estado del componente con el resultado
         this.setState({
           resultados: respuestaJSON.resultados,
@@ -222,8 +223,6 @@ class Busquedas extends React.Component {
         <li key={key} className={key == this.state.page ? 'active' : 'no_active'}><a href="#" onClick={this.handlePaginacion.bind(this, key)}>{item + 1}</a></li>
       )
     });
-
-    console.log(encontrados.length);
 
     if (this.state.isLoading === false && encontrados.lenght > 0) {
       let stylePaginacion = {
