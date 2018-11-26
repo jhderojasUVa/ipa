@@ -38,7 +38,6 @@ class Busquedas extends React.Component {
     fetch('/index.php/components/busqueda/busqueda?q='+datosBusqueda)
       .then((respuesta) =>  respuesta.json())
       .then((respuestaJSON) => {
-        console.log(respuestaJSON);
         // Cambiamos el estado del componente con el resultado
         this.setState({
           resultados: respuestaJSON.resultados,
@@ -224,7 +223,7 @@ class Busquedas extends React.Component {
       )
     });
 
-    if (this.state.isLoading === false && encontrados.lenght > 0) {
+    if (this.state.isLoading === false && encontrados.length > 0) {
       let stylePaginacion = {
         marginTop: '1em'
       }
@@ -259,9 +258,11 @@ class Busquedas extends React.Component {
       ]
       let randomImg = arrayImgRandom[Math.floor((Math.random()*arrayImgRandom.length)+1)];
 
+      console.log(randomImg);
+
       return (
         <Fragment>
-          <h2><strong>Sin resultados</strong></h2>
+          <h2 className="borderBottom">Sin resultados</h2>
           <div className="grid-x grid-margin-x">
             <div className="small-12 medium-4 cell">
               <p className="text-center"><img src={randomImg} width="320" /></p>
