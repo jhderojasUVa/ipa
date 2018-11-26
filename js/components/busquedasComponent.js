@@ -66,140 +66,145 @@ class Busquedas extends React.Component {
     var hostname = window.location.hostname;
 
     // Por donde comenzamos, el elemento por el que comenzamos
-    var ItemInicio = (this.state.page)*this.state.itemsPerPage;
+    var ItemInicio = (this.state.page) * this.state.itemsPerPage;
 
-    // Los elementos encontrados hechos trocitos para mostrar para la paginacion
-    let encontrados = this.state.resultados.slice(ItemInicio, (ItemInicio + this.state.itemsPerPage)).map((elemento) => {
-      // Estilo del 100% en ancho y alto para las imagenes (si, esto se puede pasar a un CSS, I know)
-      let style100 = {
-        width: '100%',
-        height: '100%'
-      }
-
-      if (elemento.imagen == 'sin_imagen.png') {
-        // Si no tiene imagen
-        var divStyle = {
+    // Discriminemos si hay resultados o no
+    if (this.state.resultados.length > 0){
+      // Los elementos encontrados hechos trocitos para mostrar para la paginacion
+      var encontrados = this.state.resultados.slice(ItemInicio, (ItemInicio + this.state.itemsPerPage)).map((elemento) => {
+        // Estilo del 100% en ancho y alto para las imagenes (si, esto se puede pasar a un CSS, I know)
+        let style100 = {
           width: '100%',
-          height: '100%',
-          background: 'url(http://via.placeholder.com/350x350?text=sin+imagen) no-repeat center center',
-          backgroundSize: '100%'
+          height: '100%'
         }
-      } else {
-        // Si tiene imagen
-        var divStyle = {
-          width: '100%',
-          height: '100%',
-          background: 'url(http://ipa.uva.es/img_pisos/'+ elemento.idpiso +'/'+ elemento.imagen +') no-repeat center center',
-          backgroundSize: '100%'
+
+        if (elemento.imagen == 'sin_imagen.png') {
+          // Si no tiene imagen
+          var divStyle = {
+            width: '100%',
+            height: '100%',
+            background: 'url(http://via.placeholder.com/350x350?text=sin+imagen) no-repeat center center',
+            backgroundSize: '100%'
+          }
+        } else {
+          // Si tiene imagen
+          var divStyle = {
+            width: '100%',
+            height: '100%',
+            background: 'url(http://ipa.uva.es/img_pisos/'+ elemento.idpiso +'/'+ elemento.imagen +') no-repeat center center',
+            backgroundSize: '100%'
+          }
         }
-      }
 
-      // La URL del piso
-      let hrefPiso = hostname + 'index.php/pisos/producto_piso?id=' + elemento.idpiso;
+        // La URL del piso
+        let hrefPiso = hostname + 'index.php/pisos/producto_piso?id=' + elemento.idpiso;
 
-      // Descripcion del piso antes de hacerla cochinadas
-      let descripcionPiso = ''
+        // Descripcion del piso antes de hacerla cochinadas
+        let descripcionPiso = ''
 
-      // Ponemos ... si es grande o nada si no lo es
-      // Meramente estetico, vamos
-      if (elemento.descripcion.length > 250) {
-        descripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '') + ' ...';
-      } else {
-        descripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '');
-      }
-
-      // Los elementos extras, los iconos
-      // Vamos estetico estetico estetico pero es lo que le mola al usuario
-      // Dividimos por el separador para sacar cada elemento
-      let extras = elemento.extras.split('|');
-      // Pintamos cada elemento
-      let extrasPiso = extras.map((datosextras, index) => {
-        // El case de las cosas
-        switch (datosextras) {
-          case 'Cocina':
-            return(
-              <img className="extras" src="/img/icons/009-cocina.png" alt="Cocina" key={index} />
-            );
-            break;
-          case 'Frigo':
-            return(
-              <img className="extras" src="/img/icons/004-frigorifico.png" alt="Frigorigico" key={index} />
-            );
-            break;
-          case 'Lavadora':
-            return(
-              <img className="extras" src="/img/icons/010-lavadora.png" alt="Lavadora" key={index} />
-            );
-            break;
-          case 'Vajilla':
-            return(
-              <img className="extras" src="/img/icons/005-vajilla.png" alt="Vajilla" key={index} />
-            );
-            break;
-          case 'Cama':
-            return(
-              <img className="extras" src="/img/icons/006-cama.png" alt="Cama" key={index} />
-            );
-            break;
-          case 'Bano':
-            return(
-              <img className="extras" src="/img/icons/011-servicio.png" alt="Baño" key={index} />
-            );
-            break;
-          case 'Horno':
-            return(
-              <img className="extras" src="/img/icons/008-horno.png" alt="Horno" key={index} />
-            );
-            break;
-          case 'Secadora':
-            return(
-              <img className="extras" src="/img/icons/012-secadora.png" alt="Secadora" key={index} />
-            );
-            break;
-          case 'TV':
-            return(
-              <img className="extras" src="/img/icons/002-television.png" alt="TV" key={index} />
-            );
-            break;
-          case 'Telefono':
-            return(
-              <img className="extras" src="/img/icons/003-phone.png" alt="Telefono" key={index} />
-            );
-            break;
-          case 'WIFI':
-            return(
-              <img className="extras" src="/img/icons/001-wifi.png" alt="Internet" key={index} />
-            );
-            break;
-          case 'Compartido':
-            return(
-              <img className="extras" src="/img/icons/013-compartido.png" alt="Compartido" key={index} />
-            );
-            break
-          default:
-            break;
+        // Ponemos ... si es grande o nada si no lo es
+        // Meramente estetico, vamos
+        if (elemento.descripcion.length > 250) {
+          descripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '') + ' ...';
+        } else {
+          descripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '');
         }
-      });
 
-      // Montado de la URL de la direccion
-      let urlGoogleMaps = 'http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q='+ elemento.direccion +',España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ elemento.direccion + ',España&amp;t=m&amp;z=50&amp';
+        // Los elementos extras, los iconos
+        // Vamos estetico estetico estetico pero es lo que le mola al usuario
+        // Dividimos por el separador para sacar cada elemento
+        let extras = elemento.extras.split('|');
+        // Pintamos cada elemento
+        let extrasPiso = extras.map((datosextras, index) => {
+          // El case de las cosas
+          switch (datosextras) {
+            case 'Cocina':
+              return(
+                <img className="extras" src="/img/icons/009-cocina.png" alt="Cocina" key={index} />
+              );
+              break;
+            case 'Frigo':
+              return(
+                <img className="extras" src="/img/icons/004-frigorifico.png" alt="Frigorigico" key={index} />
+              );
+              break;
+            case 'Lavadora':
+              return(
+                <img className="extras" src="/img/icons/010-lavadora.png" alt="Lavadora" key={index} />
+              );
+              break;
+            case 'Vajilla':
+              return(
+                <img className="extras" src="/img/icons/005-vajilla.png" alt="Vajilla" key={index} />
+              );
+              break;
+            case 'Cama':
+              return(
+                <img className="extras" src="/img/icons/006-cama.png" alt="Cama" key={index} />
+              );
+              break;
+            case 'Bano':
+              return(
+                <img className="extras" src="/img/icons/011-servicio.png" alt="Baño" key={index} />
+              );
+              break;
+            case 'Horno':
+              return(
+                <img className="extras" src="/img/icons/008-horno.png" alt="Horno" key={index} />
+              );
+              break;
+            case 'Secadora':
+              return(
+                <img className="extras" src="/img/icons/012-secadora.png" alt="Secadora" key={index} />
+              );
+              break;
+            case 'TV':
+              return(
+                <img className="extras" src="/img/icons/002-television.png" alt="TV" key={index} />
+              );
+              break;
+            case 'Telefono':
+              return(
+                <img className="extras" src="/img/icons/003-phone.png" alt="Telefono" key={index} />
+              );
+              break;
+            case 'WIFI':
+              return(
+                <img className="extras" src="/img/icons/001-wifi.png" alt="Internet" key={index} />
+              );
+              break;
+            case 'Compartido':
+              return(
+                <img className="extras" src="/img/icons/013-compartido.png" alt="Compartido" key={index} />
+              );
+              break
+            default:
+              break;
+          }
+        });
 
-      // El montaje del asunto (del elemento)
-      return (
-        <div className="grid-x grid-margin-x elemento" key={elemento.idpiso}>
-          <div className="small-12 medium-3 cell">
-           <div style={divStyle}><a href="#" role="link"><div style={style100}></div></a></div>
-         </div>
-         <div className="small-9 cell">
-          <p><a href={hrefPiso} role="link">{descripcionPiso}</a></p>
-          <p className="text-right extras">{extrasPiso}</p>
-          <div className="small-4 cell text-right">
-            <p><a href={urlGoogleMaps} className="button small" role="link" target="_blank"><i className="fi-marker"></i>&nbsp;&nbsp;Google Maps</a></p>
+        // Montado de la URL de la direccion
+        let urlGoogleMaps = 'http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q='+ elemento.direccion +',España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ elemento.direccion + ',España&amp;t=m&amp;z=50&amp';
+
+        // El montaje del asunto (del elemento)
+        return (
+          <div className="grid-x grid-margin-x elemento" key={elemento.idpiso}>
+            <div className="small-12 medium-3 cell">
+             <div style={divStyle}><a href="#" role="link"><div style={style100}></div></a></div>
+           </div>
+           <div className="small-9 cell">
+            <p><a href={hrefPiso} role="link">{descripcionPiso}</a></p>
+            <p className="text-right extras">{extrasPiso}</p>
+            <div className="small-4 cell text-right">
+              <p><a href={urlGoogleMaps} className="button small" role="link" target="_blank"><i className="fi-marker"></i>&nbsp;&nbsp;Google Maps</a></p>
+            </div>
+           </div>
           </div>
-         </div>
-        </div>
-      );
-    });
+        );
+      });
+    } else {
+      var encontrados = []
+    }
 
     // Paginacion
     // Calculamos el numero de paginas
@@ -213,13 +218,14 @@ class Busquedas extends React.Component {
 
     // Creamos la paginacion
     let paginacionElementos = arrayTmpPaginacion.map((item, key) => {
-      console.log(key);
       return (
         <li key={key} className={key == this.state.page ? 'active' : 'no_active'}><a href="#" onClick={this.handlePaginacion.bind(this, key)}>{item + 1}</a></li>
       )
     });
 
-    if (this.state.isLoading === false) {
+    console.log(encontrados.length);
+
+    if (this.state.isLoading === false && encontrados.lenght > 0) {
       let stylePaginacion = {
         marginTop: '1em'
       }
@@ -240,7 +246,39 @@ class Busquedas extends React.Component {
           </Fragment>
         );
       }
+    } else if (this.state.isLoading === false && encontrados.length == 0) {
+      let arrayImgRandom = [
+        'https://media.giphy.com/media/OUEaBMDGNueha/200w_d.gif',
+        'https://media.giphy.com/media/qNQFUVIKAt9Ek/giphy.gif',
+        'https://media.giphy.com/media/LtyywqYw5NgNq/giphy.gif',
+        'https://media.giphy.com/media/PyRe0PRZtXGOA/giphy.gif',
+        'https://media.giphy.com/media/nlwmJQjtbfNZu/giphy-downsized.gif',
+        'https://media.giphy.com/media/slbQo8QFOUi1W/giphy-downsized.gif',
+        'https://media.giphy.com/media/IVDYYv6Cto6LS/200w_d.gif',
+        'https://media.giphy.com/media/GnqgAJvlpkK76/200w_d.gif',
+        'https://media.giphy.com/media/WClVp8rnMThvi/200w_d.gif'
+      ]
+      let randomImg = arrayImgRandom[Math.floor((Math.random()*arrayImgRandom.length)+1)];
 
+      return (
+        <Fragment>
+          <h2><strong>Sin resultados</strong></h2>
+          <div className="grid-x grid-margin-x">
+            <div className="small-12 medium-4 cell">
+              <p className="text-center"><img src={randomImg} width="320" /></p>
+            </div>
+            <div className="small-12 medium-8 cell">
+              <p>Lo sentimos, <strong>no se han encontrado resultados de su busqueda</strong>.</p>
+              <p>Pruebe a modificar su busqueda:</p>
+              <ul>
+                <li>Pruebe a poner palabras más simples.</li>
+                <li>Revise que ciudad y por que barrio este buscando, quizas no exista ese barrio en esa ciudad.</li>
+                <li>Busque sinonimos de las palabras que este buscando.</li>
+              </ul>
+            </div>
+          </div>
+        </Fragment>
+      );
     } else {
       return (
         <Fragment>
