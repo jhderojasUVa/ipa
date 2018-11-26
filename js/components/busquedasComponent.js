@@ -105,7 +105,7 @@ class Busquedas extends React.Component {
       if (elemento.descripcion.length > 250) {
         descripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '') + ' ...';
       } else {
-        escripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '');
+        descripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '');
       }
 
       // Los elementos extras, los iconos
@@ -207,24 +207,40 @@ class Busquedas extends React.Component {
 
     // Creamos un array temporal con las paginas
     let arrayTmpPaginacion = []
-    for (let i = 0; i <= paginas; i++) {
+    for (let i = 0; i <= (paginas-1); i++) {
       arrayTmpPaginacion.push(i);
     }
 
     // Creamos la paginacion
     let paginacionElementos = arrayTmpPaginacion.map((item, key) => {
+      console.log(key);
       return (
-        <li key={key}><a href="#" onClick={this.handlePaginacion.bind(this, key)}>{item}</a></li>
+        <li key={key} className={key == this.state.page ? 'active' : 'no_active'}><a href="#" onClick={this.handlePaginacion.bind(this, key)}>{item + 1}</a></li>
       )
     });
 
     if (this.state.isLoading === false) {
-      return (
-        <Fragment>
-          {encontrados}
-          {paginacionElementos}
-        </Fragment>
-      );
+      let stylePaginacion = {
+        marginTop: '1em'
+      }
+
+      if (paginacionElementos.length > 1) {
+        return (
+          <Fragment>
+            {encontrados}
+            <ul className="pagination text-center" style={stylePaginacion}>
+              {paginacionElementos}
+            </ul>
+          </Fragment>
+        );
+      } else {
+        return (
+          <Fragment>
+            {encontrados}
+          </Fragment>
+        );
+      }
+
     } else {
       return (
         <Fragment>
