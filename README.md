@@ -38,6 +38,8 @@ Si se ejecuta bajo PHP 5.3.X es necesario algunos cambios como el poner todos lo
 
 Se han creado librerias especificas para la conexion al LDAP de la Universidad de Valladolid, otra libreria especifica para revisar los DNI y ver que son de verdad, otra libreria especifica para el tratamiento de imagenes, otra libreria para el envio de correos personalizados y una ultima para la gestion de las sesiones de usuario (aparte de la cookie del SSO de la Universidad de Valladolid, claro).
 
+Se ha creado una mini libreria con un analizador sintactico bastante básico que ayuda a sacar y diferenciar las ciudades y los barrios del resto de palabras de las busquedas. Es muy básico y da un poco de penita.
+
 ## Necesidades
 Base de datos MySQL.
 Conexión a LDAP (libreria customizada en Codeigniter), vamos, un SSO que en el caso de esta aplicacion es el de la Universidad de Valladolid.
