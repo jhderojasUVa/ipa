@@ -93,7 +93,8 @@ class Ultimos6Pisos extends React.Component {
               break;
             case 'WIFI':
               return(
-                <li key={index}><img className="extras" src="/img/icons/001-wifi.png" alt="Internet" /></li>);
+                <li key={index}><img className="extras" src="/img/icons/001-wifi.png" alt="Internet" /></li>
+              );
               break;
             case 'Compartido':
               return(

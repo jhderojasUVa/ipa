@@ -9,9 +9,20 @@ class Busquedas extends React.Component {
       idBarriosCiudades: [],
       // Datos de configuracion del componente
       itemsPerPage: 10,
-      page: 1,
+      page: 0,
       isLoading: true
     }
+
+    // Paginacion
+    this.handlePaginacion = this.handlePaginacion.bind(this);
+  }
+
+  handlePaginacion(indice, event) {
+    // Handle de la paginacion que simplemente, cambia la pagina
+    event.preventDefault();
+    this.setState({
+      page: indice
+    })
   }
 
   componentWillMount() {
@@ -50,11 +61,16 @@ class Busquedas extends React.Component {
   render() {
     // Fragmento React
     let Fragment = React.Fragment;
+
     // El hostname que nunca se sabe
     var hostname = window.location.hostname;
 
-    // Los elementos encontrados
-    let encontrados = this.state.resultados.map((elemento) => {
+    // Por donde comenzamos, el elemento por el que comenzamos
+    var ItemInicio = (this.state.page)*this.state.itemsPerPage;
+
+    // Los elementos encontrados hechos trocitos para mostrar para la paginacion
+    let encontrados = this.state.resultados.slice(ItemInicio, (ItemInicio + this.state.itemsPerPage)).map((elemento) => {
+      // Estilo del 100% en ancho y alto para las imagenes (si, esto se puede pasar a un CSS, I know)
       let style100 = {
         width: '100%',
         height: '100%'
@@ -78,11 +94,97 @@ class Busquedas extends React.Component {
         }
       }
 
-      console.log(divStyle);
-
+      // La URL del piso
       let hrefPiso = hostname + 'index.php/pisos/producto_piso?id=' + elemento.idpiso;
-      let descripcionPiso = elemento.descripcion.replace('[', ':').replace(']', '').substr(0, 250);
 
+      // Descripcion del piso antes de hacerla cochinadas
+      let descripcionPiso = ''
+
+      // Ponemos ... si es grande o nada si no lo es
+      // Meramente estetico, vamos
+      if (elemento.descripcion.length > 250) {
+        descripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '') + ' ...';
+      } else {
+        escripcionPiso = elemento.descripcion.substr(0, 250).replace('[', '').replace(']', '');
+      }
+
+      // Los elementos extras, los iconos
+      // Vamos estetico estetico estetico pero es lo que le mola al usuario
+      // Dividimos por el separador para sacar cada elemento
+      let extras = elemento.extras.split('|');
+      // Pintamos cada elemento
+      let extrasPiso = extras.map((datosextras, index) => {
+        // El case de las cosas
+        switch (datosextras) {
+          case 'Cocina':
+            return(
+              <img className="extras" src="/img/icons/009-cocina.png" alt="Cocina" key={index} />
+            );
+            break;
+          case 'Frigo':
+            return(
+              <img className="extras" src="/img/icons/004-frigorifico.png" alt="Frigorigico" key={index} />
+            );
+            break;
+          case 'Lavadora':
+            return(
+              <img className="extras" src="/img/icons/010-lavadora.png" alt="Lavadora" key={index} />
+            );
+            break;
+          case 'Vajilla':
+            return(
+              <img className="extras" src="/img/icons/005-vajilla.png" alt="Vajilla" key={index} />
+            );
+            break;
+          case 'Cama':
+            return(
+              <img className="extras" src="/img/icons/006-cama.png" alt="Cama" key={index} />
+            );
+            break;
+          case 'Bano':
+            return(
+              <img className="extras" src="/img/icons/011-servicio.png" alt="Baño" key={index} />
+            );
+            break;
+          case 'Horno':
+            return(
+              <img className="extras" src="/img/icons/008-horno.png" alt="Horno" key={index} />
+            );
+            break;
+          case 'Secadora':
+            return(
+              <img className="extras" src="/img/icons/012-secadora.png" alt="Secadora" key={index} />
+            );
+            break;
+          case 'TV':
+            return(
+              <img className="extras" src="/img/icons/002-television.png" alt="TV" key={index} />
+            );
+            break;
+          case 'Telefono':
+            return(
+              <img className="extras" src="/img/icons/003-phone.png" alt="Telefono" key={index} />
+            );
+            break;
+          case 'WIFI':
+            return(
+              <img className="extras" src="/img/icons/001-wifi.png" alt="Internet" key={index} />
+            );
+            break;
+          case 'Compartido':
+            return(
+              <img className="extras" src="/img/icons/013-compartido.png" alt="Compartido" key={index} />
+            );
+            break
+          default:
+            break;
+        }
+      });
+
+      // Montado de la URL de la direccion
+      let urlGoogleMaps = 'http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q='+ elemento.direccion +',España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ elemento.direccion + ',España&amp;t=m&amp;z=50&amp';
+
+      // El montaje del asunto (del elemento)
       return (
         <div className="grid-x grid-margin-x elemento" key={elemento.idpiso}>
           <div className="small-12 medium-3 cell">
@@ -90,16 +192,37 @@ class Busquedas extends React.Component {
          </div>
          <div className="small-9 cell">
           <p><a href={hrefPiso} role="link">{descripcionPiso}</a></p>
+          <p className="text-right extras">{extrasPiso}</p>
+          <div className="small-4 cell text-right">
+            <p><a href={urlGoogleMaps} className="button small" role="link" target="_blank"><i className="fi-marker"></i>&nbsp;&nbsp;Google Maps</a></p>
+          </div>
          </div>
         </div>
       );
+    });
 
+    // Paginacion
+    // Calculamos el numero de paginas
+    var paginas = Math.trunc(this.state.resultados.length/this.state.itemsPerPage);
+
+    // Creamos un array temporal con las paginas
+    let arrayTmpPaginacion = []
+    for (let i = 0; i <= paginas; i++) {
+      arrayTmpPaginacion.push(i);
+    }
+
+    // Creamos la paginacion
+    let paginacionElementos = arrayTmpPaginacion.map((item, key) => {
+      return (
+        <li key={key}><a href="#" onClick={this.handlePaginacion.bind(this, key)}>{item}</a></li>
+      )
     });
 
     if (this.state.isLoading === false) {
       return (
         <Fragment>
           {encontrados}
+          {paginacionElementos}
         </Fragment>
       );
     } else {
