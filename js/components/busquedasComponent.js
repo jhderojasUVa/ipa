@@ -64,6 +64,7 @@ class Busquedas extends React.Component {
 
     // El hostname que nunca se sabe
     var hostname = window.location.hostname;
+    console.log(hostname);
 
     // Por donde comenzamos, el elemento por el que comenzamos
     var ItemInicio = (this.state.page) * this.state.itemsPerPage;
@@ -97,7 +98,7 @@ class Busquedas extends React.Component {
         }
 
         // La URL del piso
-        let hrefPiso = hostname + 'index.php/pisos/producto_piso?id=' + elemento.idpiso;
+        let hrefPiso = 'http://'+ hostname + '/index.php/pisos/producto_piso?id=' + elemento.idpiso;
 
         // Descripcion del piso antes de hacerla cochinadas
         let descripcionPiso = ''
