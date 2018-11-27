@@ -72,8 +72,8 @@ class Analizadorsintactico {
 
 		// Primero vemos si viene barrio o ciudad para descartarlo
 
-		log_message("DEBUG", "EMPTY array devuelveSQLWheredeArray: ".empty($array) == false);
-		log_message("DEBUG", "SIZE: array devuelveSQLWheredeArray: ".sizeof($array));
+		//log_message("DEBUG", "EMPTY array devuelveSQLWheredeArray: ".empty($array) == false);
+		//log_message("DEBUG", "SIZE: array devuelveSQLWheredeArray: ".sizeof($array));
 
 		if (empty($array) == false && sizeof($array) > 0) {
 			$sql = " WHERE 0 OR (";
@@ -83,19 +83,24 @@ class Analizadorsintactico {
 			foreach ($array as $row) {
 				$upperrow = strtoupper($row);
 
-				if ((strpos($upperrow, "CIUDAD:") == false || strpos($upperrow, "BARRIO:") == false)) {
-					if ($i == 0) {
-						$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
-						$i++;
-					} else {
-						$sql = $sql . " OR descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
-					}
-				} else {
+				//log_message("DEBUG", "COMPARANDO CON CIUDAD: ".strpos($upperrow, "CIUDAD:"));
+
+				// Por como funciona el STRPOS hay que ver si es diferente de false para ver si esta dentro
+				if (strpos($upperrow, "CIUDAD:") !== false || strpos($upperrow, "BARRIO:") !== false) {
+					// Si contiene ciudad o barrio
 					if ($i == 0) {
 						$sql = $sql . " descripcion LIKE '%%' ";
 						$i++;
 					} else {
 						$sql = $sql . " OR descripcion LIKE '%%' ";
+					}
+				} else {
+					// Si no lo contiene
+					if ($i == 0) {
+						$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+						$i++;
+					} else {
+						$sql = $sql . " OR descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
 					}
 				}
 			}
