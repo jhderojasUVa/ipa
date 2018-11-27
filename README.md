@@ -23,9 +23,11 @@ Tambien se ira limpiando toda la morralla de paso de una versión a otra que da 
 ## Front End
 Como se ha indicado parte del front esta realizado con React. En la carpeta 'js/components' se encuentran los componentes separados por ficheros.
 
-addpisoComponent.js > (En proceso) Componente para la inserccion de pisos en 3 fases
+addpisoComponent.js > Componente para la inserccion de pisos en 3 fases
 
 barriosCiudadesComponent.js > Componente que muestra una lista con los barrios y ciudades que tienen pisos anunciados en la plataforma
+
+busquedasComponent.js > Componente de las busquedas. Se usa tambien para cuando se selecciona una ciudad o un barrio y asi sirve para todo de un golpe. Las busquedas se hacen al "estilo spotify", es decir, con palabras y si se quiere buscar una ciudad añadiendo "ciudad:nombre de la ciudad" o un barrio con "barrio:nombre del barrio". Se pueden añadir tantos como se quiera o haga falta (en principio)
 
 slideshowComponent.js > Componente del slideshow. Este componente usa slick como slideshow (y por lo tanto necesita JQuery por el parche metido)
 
