@@ -212,14 +212,33 @@ class Busquedas extends React.Component {
 
     // Creamos un array temporal con las paginas
     let arrayTmpPaginacion = []
-    for (let i = 0; i <= (paginas-1); i++) {
+    for (let i = 0; i <= (paginas - 1); i++) {
       arrayTmpPaginacion.push(i);
     }
 
+    // Lo que pone la primera y la ultima pagina con sus enlaces
+    if (this.state.page == 0) {
+      // Si esta en la primera, se disablea y se quita el enlace
+      var primero = <li className="pagination-previous disabled">Anterior</li>;
+    } else {
+      // Sino, lo normal
+      var primero = <li className="pagination-previous"><a href="#" aria-label="Anterior" onClick={this.handlePaginacion.bind(this, (this.state.page - 1))}>Anterior</a></li>;
+    }
+
+    if (this.state.page == (paginas - 1)){
+      // Si esta en la ultima pagina, se disablea y se quita el enlace
+      var ultimo = <li className="pagination-next disabled">Siguiente</li>;
+    } else {
+      // Sino lo normal
+      var ultimo = <li className="pagination-next"><a href="#" aria-label="Siguiente" onClick={this.handlePaginacion.bind(this, (this.state.page + 1))}>Siguiente</a></li>;
+    }
+
+
     // Creamos la paginacion
     let paginacionElementos = arrayTmpPaginacion.map((item, key) => {
+      let paginaNumero = "Pagina "+ key;
       return (
-        <li key={key} className={key == this.state.page ? 'active' : 'no_active'}><a href="#" onClick={this.handlePaginacion.bind(this, key)}>{item + 1}</a></li>
+        <li key={key} className={key == this.state.page ? 'active' : 'no_active'}><a href="#" aria-label={paginaNumero} onClick={this.handlePaginacion.bind(this, key)}>{item + 1}</a></li>
       )
     });
 
@@ -232,9 +251,13 @@ class Busquedas extends React.Component {
         return (
           <Fragment>
             {encontrados}
-            <ul className="pagination text-center" style={stylePaginacion}>
-              {paginacionElementos}
-            </ul>
+            <nav aria-label="Paginacion de resultados">
+              <ul className="pagination text-center" style={stylePaginacion}>
+                {primero}
+                {paginacionElementos}
+                {ultimo}
+              </ul>
+            </nav>
           </Fragment>
         );
       } else {
