@@ -278,7 +278,16 @@ class Busquedas extends React.Component {
         'https://media.giphy.com/media/slbQo8QFOUi1W/giphy-downsized.gif',
         'https://media.giphy.com/media/IVDYYv6Cto6LS/200w_d.gif',
         'https://media.giphy.com/media/GnqgAJvlpkK76/200w_d.gif',
-        'https://media.giphy.com/media/WClVp8rnMThvi/200w_d.gif'
+        'https://media.giphy.com/media/WClVp8rnMThvi/200w_d.gif',
+        'https://media.giphy.com/media/26BGpzKXLCgVZHdHa/giphy.gif',
+        'https://media.giphy.com/media/yNvlalDnIAATu/giphy.gif',
+        'https://media.giphy.com/media/IVDYYv6Cto6LS/giphy.gif',
+        'https://media.giphy.com/media/R2KdCa5UmhPS8/giphy.gif',
+        'https://media.giphy.com/media/oRmVa4IWfMRJm/giphy.gif',
+        'https://media.giphy.com/media/11atWmDHcwRuqA/giphy.gif',
+        'https://media.giphy.com/media/108KUzjTMEp2gw/giphy.gif',
+        'https://media.giphy.com/media/BtIpahM6na1tm/giphy.gif',
+        'https://media.giphy.com/media/UG3gvvrop9S6I/giphy.gif'
       ]
       let randomImg = arrayImgRandom[Math.floor((Math.random()*arrayImgRandom.length)+1)];
 

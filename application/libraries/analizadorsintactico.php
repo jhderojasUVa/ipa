@@ -72,7 +72,10 @@ class Analizadorsintactico {
 
 		// Primero vemos si viene barrio o ciudad para descartarlo
 
-		if (empty($array) == false) {
+		log_message("DEBUG", "EMPTY array devuelveSQLWheredeArray: ".empty($array) == false);
+		log_message("DEBUG", "SIZE: array devuelveSQLWheredeArray: ".sizeof($array));
+
+		if (empty($array) == false && sizeof($array) > 0) {
 			$sql = " WHERE 0 OR (";
 			// Recorremos a la vieja usanza
 			$i = 0;
@@ -80,7 +83,7 @@ class Analizadorsintactico {
 			foreach ($array as $row) {
 				$upperrow = strtoupper($row);
 
-				if ((strpos($upperrow, "CIUDAD:") != 0 || strpos($upperrow, "BARRIO:") != 0)) {
+				if ((strpos($upperrow, "CIUDAD:") == false || strpos($upperrow, "BARRIO:") == false)) {
 					if ($i == 0) {
 						$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
 						$i++;
