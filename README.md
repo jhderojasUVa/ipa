@@ -74,7 +74,7 @@ Compendio de cosas:
 - Se esta intentado usar camelCase en las notaciones de funciones y variables como estandar porque ya toca usar un estandar.
 - Se intentara usar PSR (https://www.php-fig.org/psr/) para el PHP ahora o en un futuro... vamos a partir de ahora, pese a que hay cosas que no me gustan un pimiento.
 - Se quiere crear una libreria que use las API de Google de Machine Learning que ayudaria a desgranar el texto enviado por los usuarios de forma que reconozca palabras, frases, nombres de barrios, ciudades... esas cosas. Se plantea el uso de AutoML Natural Language de Google o Cloud Natural Language (https://cloud.google.com/natural-language).
-
+- Documentando, estoy documentando.
 
 ## Futuro?
 
