@@ -818,6 +818,8 @@ class Pisos_model extends CI_Model {
     // Acabamos con la ordenacion (las ultimas, mas modernas seran las primeras)
     $sql = $sql . " ORDER BY fecha DESC";
 
+    // log_message("DEBUG", "==== SQL BUSQUEDA: ".$sql);
+
     // Ejecutamos la query
     $resultado = $this -> db -> query($sql);
     // Recorremos para sacar las imagenes con una query secundaria
@@ -870,26 +872,37 @@ class Pisos_model extends CI_Model {
 
   function devuelveSqlBarrioCiudad($arrayDatos) {
     // Funcion web que hace el SQL que añade y busca los barrios y ciudades puestas en texto
+    // Devuelve false si no hay datos
 
     // Ante todo el array de resultado multiloquesea;
     $arrayRetornar = array();
 
-    // Primero las ciudades
-    // Una sentencia que devuelve 0 para el OR
-    $sql = "SELECT idlocalizacion FROM localizaciones WHERE 0 ";
-    foreach ($arrayDatos as $row) {
-      $sql = $sql . " OR upper(localizacion) LIKE '%". trim(strtoupper($row)) ."%'";
+    //echo "<hr>Size of devuelveSQLBArrio: ".sizeof($arrayDatos);
+    //log_message("DEBUG", "Size of devuelveSQLBArrio: ".sizeof($arrayDatos));
+    //log_message("DEBUG", "ArrayDatos: ".$arrayDatos);
+
+    //echo empty($arrayDatos);
+
+    if (sizeof($arrayDatos) > 0 && empty($arrayDatos) == false) {
+      // Primero las ciudades
+      // Una sentencia que devuelve 0 para el OR
+      $sql = "SELECT idlocalizacion FROM localizaciones WHERE 0 ";
+      foreach ($arrayDatos as $row) {
+        $sql = $sql . " OR upper(localizacion) LIKE '%". trim(strtoupper($row)) ."%'";
+      }
+
+      array_push($arrayRetornar, $sql);
+
+      // Ahora repetimos para barrios
+      $sql = "SELECT idbarrio FROM barrios WHERE 0 ";
+      foreach ($arrayDatos as $row) {
+        $sql = $sql . " OR upper(barrio) like '%". trim(strtoupper($row)) ."%'";
+      }
+
+      array_push($arrayRetornar, $sql);
+    } else {
+      return false;
     }
-
-    array_push($arrayRetornar, $sql);
-
-    // Ahora repetimos para barrios
-    $sql = "SELECT idbarrio FROM barrios WHERE 0 ";
-    foreach ($arrayDatos as $row) {
-      $sql = $sql . " OR upper(barrio) like '%". trim(strtoupper($row)) ."%'";
-    }
-
-    array_push($arrayRetornar, $sql);
 
     // Devolvemos el array
     return $arrayRetornar;
