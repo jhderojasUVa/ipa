@@ -79,7 +79,7 @@ class Analizadorsintactico {
 
 			foreach ($array as $row) {
 				$upperrow = strtoupper($row);
-				if (strpos($upperrow, "CIUDAD:") != 0 || strpos($upperrow, "BARRIO:") !=0 ) {
+				if (strpos($upperrow, "CIUDAD:") !== 0 || strpos($upperrow, "BARRIO:") !== 0 ) {
 					if ($i == 0) {
 						$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
 						$i++;
