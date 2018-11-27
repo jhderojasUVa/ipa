@@ -47,7 +47,7 @@ class Pisos_model extends CI_Model {
 				$ciudad = $row3 -> localizacion;
 			}
 			// Imagenes
-			$sql2 = "SELECT imagen from imagenes_pisos WHERE idpiso = ".$row ->id_piso;
+			$sql2 = "SELECT imagen from imagenes_pisos WHERE idpiso = ".$row -> id_piso;
 			$resultado_2 = $this -> db -> query($sql2);
 			if ($resultado_2 -> num_rows()>0) {
 				foreach ($resultado_2 -> result() as $row2) {
@@ -784,7 +784,6 @@ class Pisos_model extends CI_Model {
 
     // Ahora el secundario
     foreach ($querySecundaria as $row) {
-
       if ($row) {
         // Detecta que haya contenido
         // Asi no mete un AND vacio
@@ -814,7 +813,6 @@ class Pisos_model extends CI_Model {
         // Ñapa man, ñapa man
         $sql = $sql . ")";
       }
-
     }
 
     // Acabamos con la ordenacion (las ultimas, mas modernas seran las primeras)

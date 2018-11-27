@@ -38,6 +38,7 @@ class Busquedas extends React.Component {
     fetch('/index.php/components/busqueda/busqueda?q='+datosBusqueda)
       .then((respuesta) =>  respuesta.json())
       .then((respuestaJSON) => {
+        console.log(respuestaJSON);
         // Cambiamos el estado del componente con el resultado
         this.setState({
           resultados: respuestaJSON.resultados,
@@ -280,8 +281,6 @@ class Busquedas extends React.Component {
         'https://media.giphy.com/media/WClVp8rnMThvi/200w_d.gif'
       ]
       let randomImg = arrayImgRandom[Math.floor((Math.random()*arrayImgRandom.length)+1)];
-
-      console.log(randomImg);
 
       return (
         <Fragment>

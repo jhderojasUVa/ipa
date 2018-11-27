@@ -70,17 +70,29 @@ class Analizadorsintactico {
 		// Funcion que devuelve el SQL montado de un array de cosas que le enviamos
 		// Esto se puede refactorizar, pero al final, las refactorizaciones hacen lo mismo
 
+		// Primero vemos si viene barrio o ciudad para descartarlo
+
 		if (sizeof($array) > 0) {
 			$sql = " WHERE 0 OR (";
 			// Recorremos a la vieja usanza
 			$i = 0;
 
 			foreach ($array as $row) {
-				if ($i == 0) {
-					$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
-					$i++;
+				$upperrow = strtoupper($row);
+				if (strpos($upperrow, "CIUDAD:") != 0 || strpos($upperrow, "BARRIO:") !=0 ) {
+					if ($i == 0) {
+						$sql = $sql . " descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+						$i++;
+					} else {
+						$sql = $sql . " OR descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+					}
 				} else {
-					$sql = $sql . " OR descripcion LIKE '%".$row."%' OR calle LIKE '%".$row."%' ";
+					if ($i == 0) {
+						$sql = $sql . " descripcion LIKE '%%' ";
+						$i++;
+					} else {
+						$sql = $sql . " OR descripcion LIKE '%%' ";
+					}
 				}
 			}
 
@@ -153,43 +165,48 @@ class Analizadorsintactico {
 		// Trocea el string por "ciudad" y por "barrio"
 
 		// Por diseño, lo de ciudad y barrio tiene que ir al final... que esto hay que cambiarlo
-		$dondeEstaCiudad = strpos(strtoupper($string), "CIUDAD:");
-		if ($dondeEstaCiudad > 0) {
-			$string = substr($string, $dondeEstaCiudad, strlen($string));
-		}
+		// Pasamos todo a mayusculas
+		$stringMayusculas = strtoupper($string);
+		// Sacamos si tiene ciudad o barrio
+		$dondeEstaCiudad = strpos($stringMayusculas, "CIUDAD:");
+		$dondeEstaBarrio = strpos($stringMayusculas, "BARRIO:");
 
-		// Esto se puede refactorizar a algo mucho mas rapido
-
-		// Primero lo pasamos todo a mayusculas
-    $queryBusqueda = strtoupper($string);
 		// Creamos el array de vuelta (empty)
-    $arrayReturn = array();
-		// Separamos todo en las partes de ciudades
-    $splitCiudades = explode("CIUDAD:", $queryBusqueda);
+		$arrayReturn = array();
 
-		// Recorremos las ciudades para buscar los trozos de barrio
-		if (sizeof($splitCiudades) > 1) {
-			// Si hay ciudades en la query
-			foreach ($splitCiudades as $trozo) {
-				// Separamos los barrios
-	      $tmp = explode("BARRIO:", $trozo);
-	      foreach ($tmp as $trozotmp) {
-	        if ($trozotmp != "") {
-						// Si no esta vacio, lo metemos en el array
-	          array_push($arrayReturn, trim($trozotmp));
-	        }
-	      }
-	    }
-		} else {
-			// Si no hay ciudad y solo hay barrio en la query
-			$dondeEstaBarrio = strpos($queryBusqueda, "BARRIO:");
-			if ($dondeEstaBarrio > 0) {
-				$queryBusqueda = substr($queryBusqueda, $dondeEstaBarrio, strlen($queryBusqueda));
-				$splitBarrios = explode("BARRIO:", $queryBusqueda);
-				foreach ($splitBarrios as $trozotmp) {
-					if ($trozotmp != "") {
-						array_push($arrayReturn, trim($trozotmp));
-					}
+		// Si hay ciudad (y barrio o no)
+		if ($dondeEstaCiudad !== false) {
+			// Cortamos el string para quedar solo las ciudades y barrios (si hay)
+			$string = substr($string, $dondeEstaCiudad, strlen($string));
+
+			// Separamos todo en las partes de ciudades
+	    $splitCiudades = explode("CIUDAD:", $stringMayusculas);
+
+			if (sizeof($splitCiudades) > 1) {
+				// Si hay ciudades en la query
+				foreach ($splitCiudades as $trozo) {
+					// Separamos los barrios
+		      $tmp = explode("BARRIO:", $trozo);
+		      foreach ($tmp as $trozotmp) {
+		        if ($trozotmp != "") {
+							// Si no esta vacio, lo metemos en el array
+		          array_push($arrayReturn, trim($trozotmp));
+		        }
+		      }
+		    }
+			}
+		} else	if ($dondeEstaBarrio !== false) {
+			// Si solo hay barrio
+			// Cortamos el string para sacar solo los barrios
+			$string = substr($stringMayusculas, $dondeEstaBarrio, strlen($stringMayusculas));
+
+			// Separamos los barrios
+			$splitBarrios = explode("BARRIO:", $string);
+
+			foreach ($splitBarrios as $trozotmp) {
+				if ($trozotmp != "") {
+					// Los metemos en el array
+					array_push($arrayReturn, trim($trozotmp));
 				}
 			}
 		}
@@ -202,6 +219,7 @@ class Analizadorsintactico {
 			// Si esta vacio vamos a false
 			return false;
 		}
+
 
   }
 
@@ -238,7 +256,6 @@ class Analizadorsintactico {
 			// Si no
 			return false;
 		}
-
   }
 
   private function similitudes_sale($origen, $destino) {

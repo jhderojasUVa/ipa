@@ -41,9 +41,8 @@ class Busqueda extends CI_Controller {
 
 		// Query de los barrios y pisos (es un array lo que se devuelve)
 		$datos["idBarriosCiudades"] = array();
-		if (sizeof($datos["separadoOriginalCiudadesBarrios"]) > 1){
+		if (sizeof($datos["separadoOriginalCiudadesBarrios"]) >= 1){
 			$query_busqueda_barrios_pisos = $this -> pisos_model -> devuelveSqlBarrioCiudad($datos["separadoOriginalCiudadesBarrios"]);
-
 			foreach ($query_busqueda_barrios_pisos as $row) {
 				array_push($datos["idBarriosCiudades"], $this -> pisos_model -> ejecutaQueryRaw($row));
 			}
@@ -51,6 +50,7 @@ class Busqueda extends CI_Controller {
 
 		// Query de la busqueda
 		$query_busqueda = $this -> analizadorsintactico -> devuelveSQLWheredeArray($datos["palabrasQuery"]);
+
 		// Pasamos la query al modelo
 		$datos["resultados"] = $this -> pisos_model -> buscar_piso_query($query_busqueda, $datos["idBarriosCiudades"]);
 
