@@ -67,7 +67,6 @@ class Pisos_model extends CI_Model {
 		// Funcion que devuelve los pisos por barrio
 		$piso = array();
 		$sql = "SELECT id_piso, descripcion, calle, numero, cp, idlocalizacion, extras, tlf FROM pisos WHERE verificado=true AND libre=1 AND idbarrio=".$idbarrio." ORDER BY id_piso LIMIT ".$total." OFFSET ".($llego*$total);
-		log_message("debug",$sql);
 		$resultado_1 = $this -> db -> query($sql);
 		// Ahora lo recorremos para sacar las imagenes y tal y pascual y lo metemos en el array y tal y pascual
 		foreach ($resultado_1 -> result() as $row) {
@@ -818,8 +817,6 @@ class Pisos_model extends CI_Model {
     // Acabamos con la ordenacion (las ultimas, mas modernas seran las primeras)
     $sql = $sql . " ORDER BY fecha DESC";
 
-    // log_message("DEBUG", "==== SQL BUSQUEDA: ".$sql);
-
     // Ejecutamos la query
     $resultado = $this -> db -> query($sql);
     // Recorremos para sacar las imagenes con una query secundaria
@@ -876,12 +873,6 @@ class Pisos_model extends CI_Model {
 
     // Ante todo el array de resultado multiloquesea;
     $arrayRetornar = array();
-
-    //echo "<hr>Size of devuelveSQLBArrio: ".sizeof($arrayDatos);
-    //log_message("DEBUG", "Size of devuelveSQLBArrio: ".sizeof($arrayDatos));
-    //log_message("DEBUG", "ArrayDatos: ".$arrayDatos);
-
-    //echo empty($arrayDatos);
 
     if (sizeof($arrayDatos) > 0 && empty($arrayDatos) == false) {
       // Primero las ciudades

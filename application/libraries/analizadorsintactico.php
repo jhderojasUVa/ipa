@@ -72,17 +72,13 @@ class Analizadorsintactico {
 
 		// Primero vemos si viene barrio o ciudad para descartarlo
 
-		//echo "<hr>Size of array: ".sizeof($array);
-
-		if (sizeof($array) > 0) {
+		if (empty($array) == false) {
 			$sql = " WHERE 0 OR (";
 			// Recorremos a la vieja usanza
 			$i = 0;
 
 			foreach ($array as $row) {
 				$upperrow = strtoupper($row);
-
-				//echo "<hr>".$upperrow."<hr>";
 
 				if ((strpos($upperrow, "CIUDAD:") != 0 || strpos($upperrow, "BARRIO:") != 0)) {
 					if ($i == 0) {
