@@ -601,7 +601,7 @@ class Paso3 extends React.Component {
       });
     })
     .catch((error) => {
-      alert("Error al recuperar las imagenes. Error 0x012");
+      alert("Error al recuperar las imagenes. Error I0x012");
       throw "Error al recuperar las imagenes: "+ error;
     });
 
@@ -678,7 +678,7 @@ class Paso3 extends React.Component {
       });
     })
     .catch((error) => {
-      alert("Error al recuperar las imagenes. Error 0x012");
+      alert("Error al recuperar las imagenes. Error I0x012");
       throw "Error al recuperar las imagenes: "+ error;
     });
 

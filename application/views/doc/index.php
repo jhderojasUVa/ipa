@@ -112,6 +112,14 @@
 				<li>3. <a style="cursor: not-allowed;" aria-disabled="true" onclick="return false;" href="<?=base_url()?>index.php/doc/borra_imagenes_sin_duenyo">Elimina las imagenes que no tienen dueño. Diferencia del anterior es que son las que estan en bruto en el directorio donde se almacenan todas</a></li>
 			</ul>
 		</div>
+		<div style="border: 1px solid red; padding: 20px;">
+			<h1>Utilidades de mantenimiento extras y de paso de la v2 a la v2.5 IPA</h1>
+			<p>¡Ciudado al usar estas utilidades!. Si las otras eran peligrosas estas lo son mas, asi que cuidado con tocarlas.</p>
+			<p>En esta ocasion <strong>asegurate que hay una copia de la base de datos</strong>.</p>
+			<ul style="padding: 30px; text-align: left;">
+				<li>1. <a style="cursor: not-allowed;" aria-disabled="true" onclick="return false;" href="<?=base_url()?>index.php/doc/repara_order_imagenes">Repara el orden de las imagenes y arregla la base de datos, los primary keys</a></li>
+			</ul>
+		</div>
 </div>
 </body>
 </html>

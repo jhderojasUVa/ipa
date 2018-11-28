@@ -283,14 +283,22 @@ class Pisos_model extends CI_Model {
     $resultado = $this -> db -> query($sql);
   }
 
-	function cambia_orden_imagen($fichero, $actual, $nuevo, $idpiso) {
+	function cambia_orden_imagen($imagen, $actual, $nuevo, $idpiso) {
 		// Funcion que cambia el orden de una imagen
-		// Primero ponemos la vieja al orden de la nueva
-		$sql = "UPDATE imagenes_pisos SET orden='".$actual."' WHERE idpiso='".$idpiso."' AND orden='".$nuevo."'";
+    // Ahora necesitamos 2 sqls para hacerlo
+
+    // Los temporales
+    $sql = "UPDATE imagenes_pisos SET orden='".$actual."' WHERE idpiso='".$idpiso."' AND orden='99999'";
+    $resultado = $this -> db -> query($sql);
+    $sql = "UPDATE imagenes_pisos SET orden='".$nuevo."' WHERE idpiso='".$idpiso."' AND orden='99998'";
+		$resultado = $this -> db -> query($sql);
+
+    // Primero ponemos la vieja al orden de la nueva
+		$sql = "UPDATE imagenes_pisos SET orden='".$nuevo."' WHERE idpiso='".$idpiso."' AND orden='99999'";
 		$resultado = $this -> db -> query($sql);
 
 		// Ahora ponemos el viejo en el nuevo
-		$sql = "UPDATE imagenes_pisos SET orden='".$nuevo."' WHERE idpiso='".$idpiso."' AND orden='".$actual."' AND imagen='".$fichero."'";
+		$sql = "UPDATE imagenes_pisos SET orden='".$acutal."' WHERE idpiso='".$idpiso."' AND orden='99998'";
 		$resultado = $this -> db -> query($sql);
 	}
 
