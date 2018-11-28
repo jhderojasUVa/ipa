@@ -119,6 +119,7 @@
 			<ul style="padding: 30px; text-align: left;">
 				<li>1. <a style="cursor: not-allowed;" aria-disabled="true" onclick="return false;" href="<?=base_url()?>index.php/doc/repara_order_imagenes">Repara el orden de las imagenes y arregla la base de datos, los primary keys</a></li>
 				<li>2. <a style="cursor: not-allowed;" aria-disabled="true" onclick="return false;" href="<?=base_url()?>index.php/doc/add_id_precios">Tabla pisos_precio le pone ID y primary key</a></li>
+				<li>3. <a style="cursor: not-allowed;" aria-disabled="true" onclick="return false;" href="<?=base_url()?>index.php/doc/repara_add_id_denuncias">Tabla denuncias le pone ID y primary key</a></li>
 			</ul>
 		</div>
 </div>

@@ -43,7 +43,9 @@ class Busqueda extends CI_Controller {
 		$datos["idBarriosCiudades"] = array();
 
 		if (empty($datos["separadoOriginalCiudadesBarrios"]) == false) {
+			// Si hay ciudades y barrios generamos las SQL a lo burro
 			$query_busqueda_barrios_pisos = $this -> pisos_model -> devuelveSqlBarrioCiudad($datos["separadoOriginalCiudadesBarrios"]);
+			// Ejecutamos las SQL y lo metemos en el array
 			foreach ($query_busqueda_barrios_pisos as $row) {
 				array_push($datos["idBarriosCiudades"], $this -> pisos_model -> ejecutaQueryRaw($row));
 			}

@@ -791,6 +791,7 @@ class Pisos_model extends CI_Model {
 
     // Ahora el secundario
     $inicializadorACero = 0;
+
     if (empty($querySecundaria) == false) {
       foreach ($querySecundaria as $row) {
         if ($row && $inicializadorACero == 0) {
@@ -808,12 +809,14 @@ class Pisos_model extends CI_Model {
             // Si no es el primer elemento hay que meter un OR
             $sql = $sql. " OR";
           }
-          if (isset($row[$i] -> idbarrio)) {
+
+          if (empty($row[$i] -> idbarrio) !== true) {
             // Si es un barrio
             $sql = $sql. " idbarrio ='".$row[$i] -> idbarrio."'";
-          } elseif (isset($row[$i] -> idlocalizacion)) {
+          } elseif (empty($row[$i] -> idlocalizacion) !== true) {
             // Si es una ciudad o localizacion
             $sql = $sql. " idlocalizacion ='".$row[$i] -> idlocalizacion."'";
+            log_message("DEBUG", $sql);
           } else {
             // Resto se deja porque nunca se sabe
           }
@@ -883,6 +886,7 @@ class Pisos_model extends CI_Model {
     return false;
   }
 
+  /* FUNCION VIEJA QUE ESTAMOS REHACIENDO
   function devuelveSqlBarrioCiudad($arrayDatos) {
     // Funcion web que hace el SQL que añade y busca los barrios y ciudades puestas en texto
     // Devuelve false si no hay datos
@@ -913,6 +917,59 @@ class Pisos_model extends CI_Model {
 
     // Devolvemos el array
     return $arrayRetornar;
+  }
+  */
+
+  function devuelveSqlBarrioCiudad($arrayDatos) {
+    // Funcion que hace el SQL que añade barrios y ciudades puesta en texto
+    // Ahora es mas complicada pero es mas sencilla al mismo tiempo por como viene el origen de datos
+    // Devuelve false si no hay datos
+
+    // Ante todo el array de resultado multiloquesea;
+    $arrayRetornar = array();
+
+    if (sizeof($arrayDatos) > 0 && empty($arrayDatos) == false) {
+      // Lo recorremos
+      foreach ($arrayDatos as $row) {
+        // Revisamos el array de vuelta
+        if (isset($row["ciudades"])) {
+          // Si es ciudad
+          $sql = "SELECT idlocalizacion FROM localizaciones WHERE 0 ";
+          foreach ($row["ciudades"] as $rowciudad) {
+            $sql = $sql . " OR upper(localizacion) LIKE '%". trim(strtoupper($rowciudad)) ."%'";
+          }
+          // Montamos el array
+          array_push($arrayRetornar, $sql);
+        } else if (isset($row["barrios"])) {
+          // Si es barrio
+          $sql = "SELECT idbarrio FROM barrios WHERE 0 ";
+          foreach ($row["barrios"] as $rowbarrio) {
+            $sql = $sql . " OR upper(barrio) like '%". trim(strtoupper($rowbarrio)) ."%'";
+          }
+          //  Montamos el array
+          array_push($arrayRetornar, $sql);
+        } else {
+          // Si es un todo
+          // Primero las ciudades
+          $sql = "SELECT idlocalizacion FROM localizaciones WHERE 0 ";
+          foreach ($row["generico"] as $rowgenerico) {
+            $sql = $sql . " OR upper(localizacion) LIKE '%". trim(strtoupper($rowgenerico)) ."%'";
+          }
+          // Montamos el array con las ciudades
+          array_push($arrayRetornar, $sql);
+          // Luego los barrios
+          $sql = "SELECT idbarrio FROM barrios WHERE 0 ";
+          foreach ($row["generico"] as $rowgenerico) {
+            $sql = $sql . " OR upper(barrio) like '%". trim(strtoupper($rowgenerico)) ."%'";
+          }
+          //  Montamos el array
+          array_push($arrayRetornar, $sql);
+        }
+      }
+      return $arrayRetornar;
+    } else {
+      return false;
+    }
   }
 
   function buscarBarrioCiudad($idDato, $que) {

@@ -183,6 +183,11 @@ class Analizadorsintactico {
 		// Creamos el array de vuelta (empty)
 		$arrayReturn = array();
 
+		// Arrays de cada cosa vacios
+		$arrayCiudades = array();
+		$arrayBarrios = array();
+		$arrayGenerico = array(); // Array mezcla
+
 		// Si hay ciudad (y barrio o no)
 		if ($dondeEstaCiudad !== false) {
 			// Cortamos el string para quedar solo las ciudades y barrios (si hay)
@@ -193,18 +198,38 @@ class Analizadorsintactico {
 
 			if (sizeof($splitCiudades) > 1) {
 				// Si hay ciudades en la query
-				foreach ($splitCiudades as $trozo) {
-					// Separamos los barrios
-		      $tmp = explode("BARRIO:", $trozo);
-		      foreach ($tmp as $trozotmp) {
-		        if ($trozotmp != "") {
-							// Si no esta vacio, lo metemos en el array
-		          array_push($arrayReturn, trim($trozotmp));
-		        }
-		      }
+				$implodeSplitCiudades = implode(" ", $splitCiudades);
+				$haybarrios = strpos($implodeSplitCiudades, "BARRIO:");
+
+				if ($haybarrios == true) {
+					foreach ($splitCiudades as $trozo) {
+						// Primero detectamos si hay barrios
+						// Si hay llegado aqui es que hay ciudades y barrios
+						// Hay barrios
+						// Separamos los barrios
+						$tmp = explode("BARRIO:", $trozo);
+						foreach ($tmp as $trozotmp) {
+							if ($trozotmp != "") {
+								// Si no esta vacio, lo metemos en el array en gordo
+								array_push($arrayGenerico, trim($trozotmp));
+							}
+						}
+					}
+					// Array de vuelta
+					array_push($arrayReturn, ["generico" => $arrayGenerico]);
+				} else {
+					// Solo hay ciudades
+					foreach ($splitCiudades as $trozoAlArray) {
+						if ($trozoAlArray != "") {
+							array_push($arrayCiudades, trim($trozoAlArray));
+						}
+					}
+					// Array de vuelta
+					array_push($arrayReturn, ["ciudades" => $arrayCiudades]);
 		    }
+
 			}
-		} else	if ($dondeEstaBarrio !== false) {
+		} else if ($dondeEstaBarrio !== false) {
 			// Si solo hay barrio
 			// Cortamos el string para sacar solo los barrios
 			$string = substr($stringMayusculas, $dondeEstaBarrio, strlen($stringMayusculas));
@@ -215,9 +240,11 @@ class Analizadorsintactico {
 			foreach ($splitBarrios as $trozotmp) {
 				if ($trozotmp != "") {
 					// Los metemos en el array
-					array_push($arrayReturn, trim($trozotmp));
+					array_push($arrayBarrios, trim($trozotmp));
 				}
 			}
+			// Array de vuelta
+			array_push($arrayReturn, ["barrios" => $arrayBarrios]);
 		}
 
 		// Devolvemos el array
