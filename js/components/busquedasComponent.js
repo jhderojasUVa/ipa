@@ -64,7 +64,6 @@ class Busquedas extends React.Component {
 
     // El hostname que nunca se sabe
     var hostname = window.location.hostname;
-    console.log(hostname);
 
     // Por donde comenzamos, el elemento por el que comenzamos
     var ItemInicio = (this.state.page) * this.state.itemsPerPage;

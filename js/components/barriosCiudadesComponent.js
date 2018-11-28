@@ -45,7 +45,6 @@ class BarriosciudadesComponent extends React.Component {
 
     if (this.state.isloading == false) {
       var barrios = this.state.barrios.map((datosbarrio, index) => {
-        //let hrefBarrio = 'http://'+ hostname +'/index.php/principal/barrios?id='+ datosbarrio.idbarrio;
         let hrefBarrio = 'http://'+ hostname +'/index.php/buscar/busquedas?q=barrio:'+ datosbarrio.barrio;
         return (
           <li key={index}>
@@ -56,7 +55,6 @@ class BarriosciudadesComponent extends React.Component {
         )
       });
       var ciudades = this.state.ciudades.map((datosciudad, index) => {
-        //let hrefCiudad = 'http://'+ hostname +'/index.php/principal/ciudades?id='+datosciudad.idlocalizacion;
         let hrefCiudad = 'http://'+ hostname +'/index.php/buscar/busquedas?q=ciudad:'+ datosciudad.localizacion;
         return (
           <li key={index}>
