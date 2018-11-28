@@ -738,5 +738,21 @@ class Doc extends CI_Controller {
 
 	}
 
+	public function add_id_precios() {
+		// Funcion que crea un id a los precios de los pisos y repara la bd
+
+		echo "<h1>Modificando tabla de precios_pisos...</h1>";
+
+		$boyuyo = $this -> pisos_model -> repara_add_id_precios_pisos();
+
+		if ($boyuyo == true) {
+			// Todo correcto
+			echo "<p>Terminado con exito!</p>";
+		} else {
+			// Hubo un error
+			echo "<p>Hubo un error</p>";
+		}
+	}
+
 }
 ?>

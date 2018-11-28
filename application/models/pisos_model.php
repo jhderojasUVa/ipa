@@ -1054,5 +1054,48 @@ class Pisos_model extends CI_Model {
       return false;
     }
   }
+
+  function repara_add_id_precios_pisos() {
+    // Funcion que añadde un ID de precio, lo pone unico y crea la primary key...
+
+    // El true o false si va bien
+    $ok = false;
+
+    $sqlGordo = "SELECT idpiso, precio, descripcion FROM pisos_precio ORDER BY idpiso";
+
+    // Primero añadimos el campo
+    echo "<h2>Primera alteracion de la tabla, ahora con IDPISO</h2>";
+    $sqlAddID = "ALTER TABLE pisos_precio ADD idprecio INT(11)";
+    $resultadosqlAddID = $this -> db -> query($sqlAddID);
+    echo "<p>Añadido el campo en la tabla! Oh My God!</p>";
+
+    // Hacemos la query gorda y la dejamos guardada en memoria
+    $resultadosqlGordo = $this -> db -> query($sqlGordo);
+
+    // Nos follamos la tabla entera
+    $sqlMeLosFollo = "DELETE FROM pisos_precio";
+    $resultadoMeLosFollo = $this -> db -> query($sqlMeLosFollo);
+    echo "<p>Follada la tabla entera!... que tu dios te pille confesado.</p>";
+
+    // Recorremos la vuelta y lo vamos metiendo
+    foreach ($resultadosqlGordo -> result() as $key => $rowGordo) {
+      // Insertamos los datos nuevos
+      $sqlInsert = "INSERT INTO pisos_precio (idprecio, idpiso, precio, descripcion) VALUES ('".$key."', '".$rowGordo -> idpiso."', '".$rowGordo -> precio."', '".$rowGordo -> descripcion."')";
+      $resultadoSqlInsert = $this -> db -> query($sqlInsert);
+      echo "Insertado precio_piso: ".$sqlInsert."<br>";
+      $ok = true;
+    }
+
+    if ($ok == true) {
+      // Ahora cambiamos la columna y la hacemos primary key
+      echo "<h2>Segunda alteracion de la tabla, ahora con primary keys</h2>";
+      $sqlPrimaryKey = "ALTER TABLE pisos_precio ADD PRIMARY KEY (idprecio)";
+      $resultadoPrimaryKey = $this -> db -> query($sqlPrimaryKey);
+      echo "<p>Completado el primary key con exito!</p>.";
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 ?>
