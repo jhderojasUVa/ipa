@@ -721,5 +721,22 @@ class Doc extends CI_Controller {
 		}
 	}
 
+	public function repara_order_imagenes() {
+		// Funcion que repara los ordenes de las imagenes y lo repara
+
+		echo "<h1>Reparando ordenes de las imagenes...</h1>";
+
+		$boyuyo = $this -> pisos_model -> reparar_orden_imagenes();
+
+		if ($boyuyo == true) {
+			// Todo correcto
+			echo "<p>Terminado con exito!</p>";
+		} else {
+			// Hubo un error
+			echo "<p>Hubo un error</p>";
+		}
+
+	}
+
 }
 ?>

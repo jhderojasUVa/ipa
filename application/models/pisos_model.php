@@ -999,5 +999,52 @@ class Pisos_model extends CI_Model {
       return false;
     }
   }
+
+  function reparar_orden_imagenes() {
+    // Funcion de administracion que arregla los ordenes de las imagenes
+    // Devuelve true si todo va ok y false con el error (en pantalla) si algo ha fallado
+
+    // El retorno
+    $ok = true;
+
+    // Primero sacar los que estan mal
+    $sql = "SELECT DISTINCT idpiso FROM imagenes_pisos group by idpiso, orden having count(orden) > 1";
+
+    $resultado = $this -> db -> query($sql);
+
+    // Los recorremos
+    foreach ($resultado -> result() as $rowPrincipal) {
+      // Sacamos las imagenes y el orden
+      $sql2 = "SELECT imagen, descripcion, orden FROM imagenes_pisos WHERE idpiso = ".$rowPrincipal -> idpiso. " ORDER BY orden";
+      $resultadoSelect = $this -> db -> query ($sql2);
+      if ($resultadoSelect -> num_rows() > 0) {
+        // Si no es vacio (que se supone que no)
+        // Nos follamos los registros para volverlos a escribir
+        $sqlMeLosFollo = "DELETE FROM imagenes_pisos WHERE idpiso = ".$rowPrincipal -> idpiso;
+        echo "<h2>Me lo follo</h2>";
+        echo $sqlMeLosFollo."<br>";
+        $meLosFollo = $this -> db -> query($sqlMeLosFollo);
+        foreach ($resultadoSelect -> result() as $key => $rowSecundaria) {
+          // Los vuelvo a insertar ordenados ok
+          $sql_insert = "INSERT INTO imagenes_pisos (idpiso, imagen, descripcion, orden) VALUES ('".$rowPrincipal -> idpiso."', '".$rowSecundaria -> imagen."', '".$rowSecundaria -> descripcion."', '".$key."')";
+          echo "Insert: ".$sql_insert."<br>";
+          $resultado_insert = $this -> db -> query($sql_insert);
+        }
+      }
+      $ok = true;
+    }
+    if ($ok == true) {
+      // Si esta OK alteramos la tabla para meter los primary keys de idpiso y orden
+      $sqlPrimaryKey = "ALTER TABLE imagenes_pisos ADD CONSTRAINT imagenes_pisos_pl PRIMARY KEY (idpiso, orden)";
+      echo "<h2>Alterando la Base de Datos</h2>";
+      echo "<p>Mas te vale haber hecho copia de seguridad!</p>";
+      echo $sqlPrimaryKey;
+      $resultadoPrimaryKey = $this -> db -> query($sqlPrimaryKey);
+      echo "<p>Hecho!. Que tu dios te pille confesado!</p>";
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 ?>
