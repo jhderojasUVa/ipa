@@ -754,5 +754,21 @@ class Doc extends CI_Controller {
 		}
 	}
 
+	public function repara_add_id_denuncias() {
+		// Funcion que hace lo de antes, crea un ID unico y arregla el percal
+
+		echo "<h1>Modificando tabla comentarios...</h1>";
+
+		$boyuyo = $this -> comentarios_model -> repara_add_id_denuncias();
+
+		if ($boyuyo == true) {
+			// Todo correcto
+			echo "<p>Terminado con exito!</p>";
+		} else {
+			// Hubo un error
+			echo "<p>Hubo un error</p>";
+		}
+	}
+
 }
 ?>

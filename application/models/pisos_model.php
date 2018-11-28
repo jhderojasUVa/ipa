@@ -1034,7 +1034,7 @@ class Pisos_model extends CI_Model {
         $meLosFollo = $this -> db -> query($sqlMeLosFollo);
         foreach ($resultadoSelect -> result() as $key => $rowSecundaria) {
           // Los vuelvo a insertar ordenados ok
-          $sql_insert = "INSERT INTO imagenes_pisos (idpiso, imagen, descripcion, orden) VALUES ('".$rowPrincipal -> idpiso."', '".$rowSecundaria -> imagen."', '".$rowSecundaria -> descripcion."', '".$key."')";
+          $sql_insert = "INSERT INTO imagenes_pisos (idpiso, imagen, descripcion, orden) VALUES ('".$rowPrincipal -> idpiso."', '".$rowSecundaria -> imagen."', '".$rowSecundaria -> descripcion."', '".($key + 1)."')";
           echo "Insert: ".$sql_insert."<br>";
           $resultado_insert = $this -> db -> query($sql_insert);
         }
@@ -1091,7 +1091,10 @@ class Pisos_model extends CI_Model {
       echo "<h2>Segunda alteracion de la tabla, ahora con primary keys</h2>";
       $sqlPrimaryKey = "ALTER TABLE pisos_precio ADD PRIMARY KEY (idprecio)";
       $resultadoPrimaryKey = $this -> db -> query($sqlPrimaryKey);
-      echo "<p>Completado el primary key con exito!</p>.";
+      echo "<p>Completado el primary key con exito!</p>";
+      $sqlAutoIncrementKey = "ALTER TABLE pisos_precio ALTER COLUMN idprecio AUTO_INCREMENT";
+      $resultadoAutoIncrement = $this -> db -> query($sqlAutoIncrementKey);
+      echo "<p>Ahora con auto_increment</p>";
       return true;
     } else {
       return false;
