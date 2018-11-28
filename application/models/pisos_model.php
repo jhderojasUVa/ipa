@@ -801,7 +801,7 @@ class Pisos_model extends CI_Model {
           $sql = $sql . " AND (";
             $inicializadorACero++;
         } else if ($row && $inicializadorACero != 0) {
-          $sql = $sql . " OR (";
+          $sql = $sql . " AND (";
         }
 
         for ($i = 0; $i < sizeof($row); $i++) {
@@ -810,10 +810,12 @@ class Pisos_model extends CI_Model {
             $sql = $sql. " OR";
           }
 
-          if (empty($row[$i] -> idbarrio) !== true) {
+          //if (empty($row[$i] -> idbarrio) !== true) {
+          if (empty($row[$i] -> idbarrio) == false) {
             // Si es un barrio
             $sql = $sql. " idbarrio ='".$row[$i] -> idbarrio."'";
-          } elseif (empty($row[$i] -> idlocalizacion) !== true) {
+          } elseif (empty($row[$i] -> idlocalizacion) == false) {
+          //} elseif (empty($row[$i] -> idlocalizacion) !== true) {
             // Si es una ciudad o localizacion
             $sql = $sql. " idlocalizacion ='".$row[$i] -> idlocalizacion."'";
             log_message("DEBUG", $sql);
@@ -885,40 +887,6 @@ class Pisos_model extends CI_Model {
     }
     return false;
   }
-
-  /* FUNCION VIEJA QUE ESTAMOS REHACIENDO
-  function devuelveSqlBarrioCiudad($arrayDatos) {
-    // Funcion web que hace el SQL que añade y busca los barrios y ciudades puestas en texto
-    // Devuelve false si no hay datos
-
-    // Ante todo el array de resultado multiloquesea;
-    $arrayRetornar = array();
-
-    if (sizeof($arrayDatos) > 0 && empty($arrayDatos) == false) {
-      // Primero las ciudades
-      // Una sentencia que devuelve 0 para el OR
-      $sql = "SELECT idlocalizacion FROM localizaciones WHERE 0 ";
-      foreach ($arrayDatos as $row) {
-        $sql = $sql . " OR upper(localizacion) LIKE '%". trim(strtoupper($row)) ."%'";
-      }
-
-      array_push($arrayRetornar, $sql);
-
-      // Ahora repetimos para barrios
-      $sql = "SELECT idbarrio FROM barrios WHERE 0 ";
-      foreach ($arrayDatos as $row) {
-        $sql = $sql . " OR upper(barrio) like '%". trim(strtoupper($row)) ."%'";
-      }
-
-      array_push($arrayRetornar, $sql);
-    } else {
-      return false;
-    }
-
-    // Devolvemos el array
-    return $arrayRetornar;
-  }
-  */
 
   function devuelveSqlBarrioCiudad($arrayDatos) {
     // Funcion que hace el SQL que añade barrios y ciudades puesta en texto
