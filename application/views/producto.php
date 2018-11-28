@@ -22,7 +22,7 @@ $minuto = substr($fecha_insercion, 14, 2);
 		<div class="grid-x">
       <div class="cell" style="overflow: hidden;">
         <div class="slideshow">
-					<? if (count($imagenes)>0) { ?>
+					<? if (count($imagenes) > 0) { ?>
             	<? foreach ($imagenes as $row) { ?>
 								<div class="caja"><center><img src="<?=base_url()?>img_pisos/<?=$row -> idpiso?>/<?=$row -> imagen?>" alt="<?=$row -> descripcion?>" /></center></div>
               <? } ?>
@@ -32,7 +32,6 @@ $minuto = substr($fecha_insercion, 14, 2);
         </div>
       </div>
     </div>
-
 		<? if ($_SESSION["logeado"] == true) { ?>
 			<div class="grid-container contenido"> <? // Inicio del div del contenido total ?>
 				<!-- Libre o no -->

@@ -20,6 +20,7 @@
           </div>
         </div>
       </form>
+			<p class="text-center" style="background-color: #e9e9e9; margin-top: -10px;"><small>completa tu busqueda con <strong>ciudad:nombre de la ciudad</strong> o <strong>barrio:nombre del barrio</strong> para restringuir tu busqueda.</small></p>
     </div>
 
 		<!-- opciones -->

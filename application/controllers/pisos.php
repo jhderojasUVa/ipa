@@ -107,6 +107,7 @@ class Pisos extends CI_Controller {
 				$this -> load -> view("cabecera", $datos);
 				$this -> load -> view("producto", $datos);
 				$this -> load -> view("footer", $datos);
+				$this -> load -> view("slideshowjs");
 			}
 
 		} else {
