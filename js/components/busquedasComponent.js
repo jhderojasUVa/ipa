@@ -279,10 +279,15 @@ class Busquedas extends React.Component {
       // Montamos la URL de vuelta para el enlace
       let urlMontar = 'http://ipa.uva.es/index.php/buscar/busquedas?q='+ quisoDecir.join(' ');
       // Montamos el string a mostrar (feo, pero funcional)
-      quisoDecirRespuesta = <p>Quizas usted quiso decir: <strong><a href={urlMontar}>{quisoDecir.join(' ')}</a></strong></p>;
+      quisoDecirRespuesta = <p>Quizás usted quiso decir: <strong><a href={urlMontar}>{quisoDecir.join(' ')}</a></strong></p>;
 
     } else {
-      var quisoDecirRespuesta = <br/>;
+      var quisoDecirRespuesta = '';
+    }
+
+    // Comprobamos que es lo mismo lo enviado que lo revisado para eliminar el quisodecir
+    if (this.state.query == quisoDecir.join(' ')) {
+      quisoDecirRespuesta = '';
     }
 
     if (this.state.isLoading === false && encontrados.length > 0) {
