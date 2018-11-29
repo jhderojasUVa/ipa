@@ -5,6 +5,7 @@ class Busquedas extends React.Component {
     super(props);
     this.state = {
       query: '',
+      palabrasQueryArreglada: [],
       resultados: [],
       idBarriosCiudades: [],
       // Datos de configuracion del componente
@@ -43,6 +44,7 @@ class Busquedas extends React.Component {
           resultados: respuestaJSON.resultados,
           query: respuestaJSON.q,
           idBarriosCiudades: respuestaJSON.idBarriosCiudades,
+          palabrasQueryArreglada: respuestaJSON.palabrasQueryQuisoDecir,
           // Y que ya ha acabado
           isLoading: false
         });
@@ -242,6 +244,47 @@ class Busquedas extends React.Component {
       )
     });
 
+
+    // Si hay palabras mal escritas que hemos revisado y las hemos puesto bien
+
+    var quisoDecir = this.state.query.split(" ");
+    var quisoDecirRespuesta;
+
+    if (this.state.palabrasQueryArreglada.length > 0) {
+      // Formamos la nueva query
+      quisoDecir = quisoDecir.map((valor, indice) => {
+        // Recorremos y mirarmos que no es null
+
+        // Creamos una variable para ver el retorno si esta o no esta
+        let retorno = false;
+
+        for (let i = 0; i < this.state.palabrasQueryArreglada.length; i++) {
+
+          if(this.state.palabrasQueryArreglada[i][valor] !== undefined) {
+            // Si no es undefined, esta y tenemos que devolverlo
+            retorno = true;
+            return this.state.palabrasQueryArreglada[i][valor];
+          }
+        }
+
+        if (retorno == true) {
+          // No lo necesitamos pero lo dejamos por si acaso
+          // en una refactorizacion esto se elininara
+        } else {
+          // Si no, devolvemos el texto original
+          return valor;
+        }
+      });
+
+      // Montamos la URL de vuelta para el enlace
+      let urlMontar = 'http://ipa.uva.es/index.php/buscar/busquedas?q='+ quisoDecir.join(' ');
+      // Montamos el string a mostrar (feo, pero funcional)
+      quisoDecirRespuesta = <p>Quizas usted quiso decir: <strong><a href={urlMontar}>{quisoDecir.join(' ')}</a></strong></p>;
+
+    } else {
+      var quisoDecirRespuesta = <br/>;
+    }
+
     if (this.state.isLoading === false && encontrados.length > 0) {
       let stylePaginacion = {
         marginTop: '1em'
@@ -250,6 +293,7 @@ class Busquedas extends React.Component {
       if (paginacionElementos.length > 1) {
         return (
           <Fragment>
+            {quisoDecirRespuesta}
             {encontrados}
             <nav aria-label="Paginacion de resultados">
               <ul className="pagination text-center" style={stylePaginacion}>
@@ -263,6 +307,7 @@ class Busquedas extends React.Component {
       } else {
         return (
           <Fragment>
+            {quisoDecirRespuesta}
             {encontrados}
           </Fragment>
         );
@@ -299,6 +344,7 @@ class Busquedas extends React.Component {
             </div>
             <div className="small-12 medium-8 cell">
               <p>Lo sentimos, <strong>no se han encontrado resultados de su busqueda</strong>.</p>
+              {quisoDecirRespuesta}
               <p>Pruebe a modificar su busqueda:</p>
               <ul>
                 <li>Pruebe a poner palabras más simples.</li>

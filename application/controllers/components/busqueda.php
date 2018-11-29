@@ -39,6 +39,12 @@ class Busqueda extends CI_Controller {
 		// Sacamos la busqueda, los elementos
 		$datos["palabrasQuery"] = $this -> analizadorsintactico -> queryTexto($datos["q"]);
 
+		// Analizamos sintacticamente la consulta para encontrar fallos de escritura
+		// Primero sacamos las palabras de la BD
+		$palabrasBD = $this -> palabras_model -> devuelvePalabras();
+		// Pasamos el analizador a las palabras de la consulta y las de la BD
+		$datos["palabrasQueryQuisoDecir"] = $this -> analizadorsintactico -> similitudes_palabras($datos["palabrasQuery"], $palabrasBD);
+
 		// Query de los barrios y pisos (es un array lo que se devuelve)
 		$datos["idBarriosCiudades"] = array();
 

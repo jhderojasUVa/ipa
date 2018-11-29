@@ -275,17 +275,18 @@ class Analizadorsintactico {
 				// Para cada uno de ellos
         foreach($arrayConQuienComparar as $rowCiudadesArray) {
 					// Hacemos la comparacion de Levenshtein a traves de nuestra otra funcion privada
-          $resulttmp = similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda);
+          $resulttmp = $this -> similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda);
 					// Por si escupe blanco (esto se puede hacer en origen y asi deberia ser)
           if ($resulttmp !='') {
 						// Lo metemos en los resultados
-            array_push($returnArray, similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda));
+            array_push($returnArray, $this -> similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda));
           }
         }
       }
     }
+
 		// Retorno (esto se podria mejorar ya que el else sobra y con devolver por defecto el false valdria)
-		if (size_of($returnArray) > 0) {
+		if (empty($returnArray) == false) {
 			// Si hay datos
 			return $returnArray;
 		} else {
@@ -294,9 +295,46 @@ class Analizadorsintactico {
 		}
   }
 
-  private function similitudes_sale($origen, $destino) {
+	function similitudes_palabras($arrayDatos, $arrayConQuienComparar) {
+    // Funcion que busca las similitudes
+		// Devuelve un array con las similitudes
+		// Necesita la funcion privada similitudes_sale
+		// Pensado para ciudades y barrios de ahi los nombres de las variables
+
+		// Primero el array de vuelta vacia
+    $returnArray = array();
+
+		// Recorremos el array
+    foreach($arrayDatos as $rowCiudadesBusqueda) {
+			// Siempre observamos si esta vacio o no, que nunca se sabe
+      if ($rowCiudadesBusqueda != '') {
+				// Para cada uno de ellos
+        foreach($arrayConQuienComparar as $rowCiudadesArray) {
+					// Hacemos la comparacion de Levenshtein a traves de nuestra otra funcion privada
+          $resulttmp = $this -> similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda);
+					// Por si escupe blanco (esto se puede hacer en origen y asi deberia ser)
+          if ($resulttmp !='') {
+						// Lo metemos en los resultados
+            array_push($returnArray, [$rowCiudadesBusqueda => $this -> similitudes_sale($rowCiudadesArray, $rowCiudadesBusqueda)]);
+          }
+        }
+      }
+    }
+
+		// Retorno (esto se podria mejorar ya que el else sobra y con devolver por defecto el false valdria)
+		if (empty($returnArray) == false) {
+			// Si hay datos
+			return $returnArray;
+		} else {
+			// Si no
+			return false;
+		}
+  }
+
+  function similitudes_sale($origen, $destino) {
     // Funcion que muestra aquellas con un 70% o mas de igualdad por Levenshtein
 		// Devuelve el string si tiene un 70% de coincidencia o mas sino devuelve false
+
     $sim = similar_text(strtoupper($origen), strtoupper($destino), $perc);
     if ($perc > 70) {
       return $origen;
