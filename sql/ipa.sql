@@ -187,6 +187,31 @@ CREATE TABLE `usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
+# Volcado de tabla palabras
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `palabras`;
+
+CREATE TABLE `palabras` (
+  `palabra` varchar(250) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL DEFAULT '' COMMENT 'Palabras para el buscador',
+  PRIMARY KEY (`palabra`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `palabras` WRITE;
+/*!40000 ALTER TABLE `palabras` DISABLE KEYS */;
+
+INSERT INTO `palabras` (`palabra`)
+VALUES
+	('calefacción'),
+	('cerca'),
+	('compartido'),
+	('grande'),
+	('habitación'),
+	('lejos'),
+	('pequeño');
+
+/*!40000 ALTER TABLE `palabras` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
