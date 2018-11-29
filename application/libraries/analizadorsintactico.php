@@ -334,9 +334,10 @@ class Analizadorsintactico {
   function similitudes_sale($origen, $destino) {
     // Funcion que muestra aquellas con un 70% o mas de igualdad por Levenshtein
 		// Devuelve el string si tiene un 70% de coincidencia o mas sino devuelve false
+		// Bajado a un 65%
 
     $sim = similar_text(strtoupper($origen), strtoupper($destino), $perc);
-    if ($perc > 70) {
+    if ($perc > 65) {
       return $origen;
     } else {
       return false;
