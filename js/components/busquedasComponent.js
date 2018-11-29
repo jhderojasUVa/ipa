@@ -279,7 +279,7 @@ class Busquedas extends React.Component {
       // Montamos la URL de vuelta para el enlace
       let urlMontar = 'http://ipa.uva.es/index.php/buscar/busquedas?q='+ quisoDecir.join(' ');
       // Montamos el string a mostrar (feo, pero funcional)
-      quisoDecirRespuesta = <p>Quizás usted quiso decir: <strong><a href={urlMontar}>{quisoDecir.join(' ')}</a></strong></p>;
+      quisoDecirRespuesta = <p className="quizasdecir">Quizás quisiste decir: <strong><a href={urlMontar}>{quisoDecir.join(' ')}</a></strong></p>;
 
     } else {
       var quisoDecirRespuesta = '';

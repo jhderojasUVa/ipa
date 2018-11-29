@@ -836,3 +836,8 @@ input:required:valid {
 h2.borderBottom {
   border-bottoom: 1px dotted #f9f9f9;
 }
+
+.quizasdecir {
+  color: #FF530D;
+  font-size: 1.1em;
+}
