@@ -51,6 +51,12 @@ Usar la rama master significa que puede funcionar... o no ya que es la rama de d
 
 Recordad, si alguien quiere usar esto, ir al ultimo branch.
 
+## Documentacion
+
+Cada carpeta (o la mayoria de ellas) tienen un Readme.md que es la documentacion de los metodos/funciones/lo que sea de los elementos que componen el directorio.
+
+No se si esta bien hecha o escrita.
+
 ## Base de datos
 
 Un volcado, vamos, lo normal.
