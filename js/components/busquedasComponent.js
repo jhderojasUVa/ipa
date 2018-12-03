@@ -11,6 +11,7 @@ class Busquedas extends React.Component {
       // Datos de configuracion del componente
       itemsPerPage: 10,
       page: 0,
+      barriosCiudades: [],
       isLoading: true
     }
 
@@ -53,6 +54,16 @@ class Busquedas extends React.Component {
         // Error!!
         alert('Lo sentimos\n\rHa habido un error al realizar la busqueda');
         throw 'Error en busqueda: '.error;
+      });
+
+    // Hacemos un fetch de los barrios
+    fetch('/index.php/components/busqueda/devuelveBarrios')
+      .then((respuesta) => respuesta.json())
+      .then((respuestaJSON) => {
+        // Rellenamos el estado
+        this.setState({
+          barriosCiudades: respuestaJSON.barriosCiudades
+        });
       });
   }
 
@@ -188,6 +199,15 @@ class Busquedas extends React.Component {
         // Montado de la URL de la direccion
         let urlGoogleMaps = 'http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q='+ elemento.direccion +',España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ elemento.direccion + ',España&amp;t=m&amp;z=50&amp';
 
+        // Pongamos el barrio y la ciudad
+        let barrioYCiudad = this.state.barriosCiudades.filter((elementoBarrioCiudad) => {
+          if (elementoBarrioCiudad.idbarrio == elemento.idbarrio && elementoBarrioCiudad.idlocalizacion == elemento.idlocalizacion) {
+            return elementoBarrioCiudad;
+          }
+        });
+
+        console.log(barrioYCiudad);
+
         // El montaje del asunto (del elemento)
         return (
           <div className="grid-x grid-margin-x elemento" key={elemento.idpiso}>
@@ -197,8 +217,9 @@ class Busquedas extends React.Component {
            <div className="small-9 cell">
             <p><a href={hrefPiso} role="link">{descripcionPiso}</a></p>
             <p className="text-right extras">{extrasPiso}</p>
+            <p className="text-right">{elemento.direccion.toUpperCase()}<br/><small>barrio {barrioYCiudad[0].barrio} ({barrioYCiudad[0].localizacion})</small></p>
             <div className="small-4 cell text-right">
-              <p><a href={urlGoogleMaps} className="button small" role="link" target="_blank"><i className="fi-marker"></i>&nbsp;&nbsp;Google Maps</a></p>
+              <p className="text-right"><a href={urlGoogleMaps} className="button small" role="link" target="_blank"><i className="fi-marker"></i>&nbsp;&nbsp;Google Maps</a></p>
             </div>
            </div>
           </div>
@@ -243,7 +264,6 @@ class Busquedas extends React.Component {
         <li key={key} className={key == this.state.page ? 'active' : 'no_active'}><a href="#" aria-label={paginaNumero} onClick={this.handlePaginacion.bind(this, key)}>{item + 1}</a></li>
       )
     });
-
 
     // Si hay palabras mal escritas que hemos revisado y las hemos puesto bien
 

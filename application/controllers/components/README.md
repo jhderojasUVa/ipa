@@ -136,7 +136,7 @@ id: id del piso en cuestion
 
 - Salida (JSON)
 
-[
+{
   "inmueble": {
       "descripcion": string,
       "calle": string,
@@ -153,18 +153,20 @@ id: id del piso en cuestion
     {
       "precio": number,
       "descripcion": string
-    }
+    },
+    ...
   ],
   "imagenes": [
     {
       "imagen": string (el fichero),
       "descripcion": string,
       "orden": number
-    }
+    },
+    ...
   ],
   "libre": boolean (1 o 0),
   "idpiso": number
-]
+}
 
 ### function devuelveDatosPiso()
 
@@ -176,7 +178,7 @@ id: id del piso (number)
 
 - Salida (JSON)
 
-[
+{
   "inmueble": {
       "descripcion": string,
       "calle": string,
@@ -189,7 +191,7 @@ id: id del piso (number)
       "idbarrio": number,
       "tlf": number
   }
-]
+}
 
 ### function devuelveImagenes()
 
@@ -201,12 +203,88 @@ id: id del piso (number)
 
 - Salida (JSON)
 
-[
+{
   "imagenes": [
     {
       "imagen": string (el fichero),
       "descripcion": string,
       "orden": number
-    }
+    },
+    ...
   ]
-]
+}
+
+## PORTADA.PHP
+
+Todos los componentes usados en la portada llaman a diferentes metodos de esta parte del backend para "recibir las ordenes" y los datos pertinentes
+
+### function slideshow()
+
+Metodo usado en el slideshow para las imagene. Devuelve el id para componer la URL, el fichero y la descripcion para el ALT.
+
+- Entrada
+
+Nada
+
+- Salida (JSON)
+
+{
+  "slideshow": [
+    {
+    "id_piso": number,
+    "imagen": string,
+    "descripcion": string
+    },
+    ...
+}
+
+### function ultimos_6()
+
+Metodo que devuelve los ultimos 6 pisos añadidos en la plataforma con sus datos necesarios para componerlos en la portada.
+
+- Entrada
+
+Nada
+
+- Salida (JSON)
+
+{
+  "ultimos_6": [
+    {
+    "idpiso": string,
+    "descripcion": string,
+    "extras": string (cosa|cosa|cosa|cosa),
+    "direccion": string,
+    "imagen": string
+    },
+    ...
+  ]
+}
+
+### function barriosciudades()
+
+Metodo que devuelve un JSON con los barrios y ciudades para que los use el componente.
+
+- Entrada
+
+Nada
+
+- Salida (JSON)
+
+{
+  "barrios": [
+    {
+    "idbarrio": number,
+    "barrio": string,
+    "ciudad": string
+    },
+    ...
+  ],
+  "ciudades": [
+    {
+    "idlocalizacion": number,
+    "localizacion": string
+    },
+    ...
+  ]
+}  

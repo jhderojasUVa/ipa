@@ -97,5 +97,16 @@ class Busqueda extends CI_Controller {
     echo json_encode($datos);
 	}
 
+	public function devuelveBarrios() {
+		// Funcion que devuelve los barrios
+		// La informacion no es "privada", luego no hace falta que veamos si es usuario IPA o no
+
+		$datos["barriosCiudades"] = $this -> barrios_model -> devuelveBarriosLocalizaciones();
+
+		// Cambiamos la cabecera a JSON de respuesta
+    header('Content-Type: application/json');
+    // Escupimos la respuesta
+    echo json_encode($datos);
+	}
 
 }

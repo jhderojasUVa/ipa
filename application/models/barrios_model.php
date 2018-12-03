@@ -136,5 +136,16 @@ class Barrios_model extends CI_Model {
 
 		return $barrio;
 	}
+
+  function devuelveBarriosLocalizaciones() {
+    // Devuelve todos los barrio sy localizaciones con sus textos
+    // false, si no hay nada
+    $sql = "SELECT barrios.idbarrio, localizaciones.idlocalizacion, barrios.barrio, localizaciones.localizacion FROM barrios INNER JOIN localizaciones ON barrios.idlocalizacion = localizaciones.idlocalizacion ORDER BY localizaciones.idlocalizacion";
+    $resultado = $this -> db -> query($sql);
+    if ($resultado -> num_rows() > 0) {
+      return $resultado -> result();
+    }
+    return false;
+  }
 }
 ?>
