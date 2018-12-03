@@ -206,8 +206,6 @@ class Busquedas extends React.Component {
           }
         });
 
-        console.log(barrioYCiudad);
-
         // El montaje del asunto (del elemento)
         return (
           <div className="grid-x grid-margin-x elemento" key={elemento.idpiso}>
