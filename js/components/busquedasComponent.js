@@ -206,6 +206,12 @@ class Busquedas extends React.Component {
           }
         });
 
+        // Comprobamos que ni este vacio ni que ni siquiera tengamos la respuest para crear la variable
+        let barrioYCiudadstring;
+        if (barrioYCiudad !== 'undefined' && barrioYCiudad.length > 0) {
+          barrioYCiudadstring = <span>{barrioYCiudad[0].barrio} ({barrioYCiudad[0].localizacion})</span>;
+        }
+
         // El montaje del asunto (del elemento)
         return (
           <div className="grid-x grid-margin-x elemento" key={elemento.idpiso}>
@@ -215,7 +221,7 @@ class Busquedas extends React.Component {
            <div className="small-9 cell">
             <p><a href={hrefPiso} role="link">{descripcionPiso}</a></p>
             <p className="text-right extras">{extrasPiso}</p>
-            <p className="text-right">{elemento.direccion.toUpperCase()}<br/><small>barrio {barrioYCiudad[0].barrio} ({barrioYCiudad[0].localizacion})</small></p>
+            <p className="text-right">{elemento.direccion.toUpperCase()}<br/>barrio {barrioYCiudadstring}</p>
             <div className="small-4 cell text-right">
               <p className="text-right"><a href={urlGoogleMaps} className="button small" role="link" target="_blank"><i className="fi-marker"></i>&nbsp;&nbsp;Google Maps</a></p>
             </div>
