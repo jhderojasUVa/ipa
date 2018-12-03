@@ -841,3 +841,7 @@ h2.borderBottom {
   color: #FF530D;
   font-size: 1.1em;
 }
+
+ul.pagination li.active {
+  border-bottom: 2px solid black;
+}
