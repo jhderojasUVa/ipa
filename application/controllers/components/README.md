@@ -63,6 +63,28 @@ Un JSON con lo siguiente:
     "total": number
 }
 
+### function devuelveBarrios()
+
+Metodo que devuelve de la base de datos todos los identificadores de ciudad, barrio con sus descripciones para ayudar en la busqueda a poner, justamente, en texto, eso. Esto, seguramente, se podria hacer con un inner join en busqueda y ahorrarnos un paso.
+
+- Entrada
+
+Ninguna.
+
+- Salida (JSON)
+
+{
+  "barriosCiudades": [
+    {
+    "idbarrio": "6",
+    "idlocalizacion": "1",
+    "barrio": "Circular",
+    "localizacion": "Valladolid"
+    },
+    ...
+  ]
+}
+
 ## MIS.PHP
 
 Contiene todo lo usado para cuando uno esta registrado, cuando añade un piso, un comentario, etc...
