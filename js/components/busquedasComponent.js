@@ -197,7 +197,7 @@ class Busquedas extends React.Component {
         });
 
         // Montado de la URL de la direccion
-        let urlGoogleMaps = 'http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q='+ elemento.direccion +',España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ elemento.direccion + ',España&amp;t=m&amp;z=50&amp';
+        let urlGoogleMaps = 'http://maps.google.es/maps?f=q&source=embed&hl=es&geocode=&q='+ elemento.direccion +','+ elemento.cp +',España&vpsrc=0&ie=UTF8&hq=&hnear='+ elemento.direccion + ',España&vpsrc=0&ie=UTF8&hq=&amp;hnear='+ elemento.direccion + '&t=m&z=50&';
 
         // Pongamos el barrio y la ciudad
         let barrioYCiudad = this.state.barriosCiudades.filter((elementoBarrioCiudad) => {

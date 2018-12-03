@@ -165,7 +165,7 @@ $minuto = substr($fecha_insercion, 14, 2);
 	          	</div>
 							<div class="grid-x">
 								<div class="small-12 cell text-center">
-									<a href="http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=<?=$calle?>,<?=$numero?>,<?=$cp?>,<?=$ciudad?>,España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=?=$calle?>,<?=$numero?>,<?=$cp?>,<?=$ciudad?>>&amp;t=m&amp;z=50&amp" class="button" role="link" target="_blank">Google Maps</a>
+									<a href="http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=<?=$calle?>,<?=$numero?>,<?=$cp?>,<?=$ciudad?>,España&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=<?=$calle?>,<?=$numero?>,<?=$cp?>,<?=$ciudad?>&amp;t=m&amp;z=50&amp" class="button" role="link" target="_blank">Google Maps</a>
 								</div>
 							</div>
 
