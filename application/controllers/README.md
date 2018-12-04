@@ -403,3 +403,65 @@ Nada
 - SALIDA
 
 Texto plano de lo que va haciendo.
+
+## MIS.PHP
+
+Controlador que se usa cuando un usuario entra en su zona particular en la web.
+
+### function mispisos()
+
+Metodo que devuelve un listado con los pisos del usuario. Deja un log en los log indicando que ha entrado por seguridad.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+La vista donde se muestra un listado de los pisos del usuario.
+
+### function miscomentarios()
+
+Metodo que devuelve los comentarios del usuario (que ha realizado) para que tenga constancia de ellos.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+La vista de los comentarios de la zona privada del usuario.
+
+### function buscar()
+
+Metodo de busqueda de los comentarios que ha hecho.
+
+- ENTRADA (POST)
+
+q: query (string)
+
+- SALIDA
+
+La vista de los comentarios
+
+### function misdatos_usuario()
+
+Metodo que muestra sus datos a fin de que pueda modificar algo de ellos. Solo para usuarios NO UVA (los UVA van por el LDAP).
+Tambien puede modificarlos. En principio era el pass y el usuario, luego se dejo solo el poder cambiar el password.
+
+- ENTRADA
+
+change_pass: (string)
+change_user: (string)
+nombre: (string)
+apellidos: (string)
+direccion: (string)
+tlf: (string)
+email: (string)
+dni: (string)
+
+- SALIDA
+
+La vista que se muestra y permite cambiarlo al llamar a este controlador de nuevo.
+
+## PISOS.PHP
