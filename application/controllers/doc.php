@@ -79,11 +79,7 @@ class Doc extends CI_Controller {
 		// Cosas de sesiones y si es admin o no
 		if ($this -> admin_model -> es_admin($usuario)>0) {
 			// Es admin
-			if ($this -> input -> get("id")) {
-				$id = $this -> input -> get("id");
-			} else {
-				$id = $this -> input -> post("id");
-			}
+			$id = $this -> input -> post_get("id");
 
 			if ($this -> input -> post("cambiar")==1) {
 				$datos["datos_comentario"] = $this -> comentarios_model -> show_comentario($id);
@@ -176,7 +172,7 @@ class Doc extends CI_Controller {
 			$datos["q"] = $q;
 
 			if ($q=="") {
-				$datos["busqueda"]=array();
+				$datos["busqueda"] = array();
 			} else {
 				// Si buscamos un piso
 				$datos["busqueda"] = $this -> pisos_model -> buscar_piso_4($q);
@@ -235,7 +231,7 @@ class Doc extends CI_Controller {
 			foreach ($datos_usuario as $row) {
 				$asunto = "Su usuario en IPA UVa ha sido activado";
 				$texto = "Hola,\r\nEl administrador de IPA ha activado su usuario. Ya puede entrar en el portal de Información de Pisos en Alquiler a traves de la URL ".base_url()." pulsar sobre el botón autentificarse y hacerlo a traves del sistema IPA.\r\n\r\nPodra añadir al sistema los pisos que desee y ver los comentarios realizados hacia sus inmuebles.\r\n\r\nRecuerde que, los pisos tras ser añadidos en el sistema pasan por un sistema de verificación.\r\n\r\nReciba un cordial saludo por parte del equipo de Asuntos Sociales.";
-				$this -> mail_uva -> envia_mail($row->email, $asunto, $texto);
+				$this -> mail_uva -> envia_mail($row -> email, $asunto, $texto);
 			}
 
 			// Y recargamos los datos
