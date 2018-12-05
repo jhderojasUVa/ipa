@@ -61,6 +61,7 @@ class Pisos extends CI_Controller {
 
 		// Luego los datos que pasa por get, tampoco es grave ya que es solo de consulta
 		$id_piso = $this -> input -> get("id");
+		//$ws = $this -> input -> post_get("ws");
 
 		// Ahora si el tio es IPA que solo vea su piso
 		if ($this -> sesiones_usuarios -> es_uva() == false) {

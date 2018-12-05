@@ -26,6 +26,6 @@
 
   <div class="grid-container">
 		<div id="busquedas"></div>
-		<script src="<?=base_url()?>js/components/production/busquedasComponent.js"></script>
+		<script type="text/babel" src="<?=base_url()?>js/components/busquedasComponent.js"></script>
 	</div>
 </div>

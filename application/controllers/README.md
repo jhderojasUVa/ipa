@@ -465,3 +465,17 @@ dni: (string)
 La vista que se muestra y permite cambiarlo al llamar a este controlador de nuevo.
 
 ## PISOS.PHP
+
+Controlador para todas las acciones que se realizan con los pisos.
+
+### function producto_piso($ws = null)
+
+Metodo que muestra la informacion de un piso en concreto. Si ws es "json" devuelve un JSON con la informacion de vuelta.
+
+- ENTRADA (GET)
+
+id: id del piso (number)
+
+- SALIDA
+
+Vista del piso o el JSON correspondiente.

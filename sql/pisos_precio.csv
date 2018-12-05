@@ -1,0 +1,2394 @@
+idpiso,precio,"descripcion",idprecio
+355,165,"habitación",0
+355,420,"completo",1
+355,165,"habitación",2
+355,420,"completo",3
+356,150,"habitación",4
+356,150,"habitación",5
+357,190,"por habitación",6
+357,220,"habitación doble",7
+357,190,"por habitación",8
+357,220,"habitación doble",9
+358,170,"habitación",10
+358,170,"Habitacion",11
+358,170,"Habitacion",12
+358,170,"habitacion",13
+358,170,"habitacion",14
+358,180,"habitacion",15
+358,180,"habitacion",16
+359,200,"Dormitorios medianos",17
+359,230,"Dormitorio principal",18
+359,180,"Dormitorio pequeño",19
+359,200,"Dormitorios medianos",20
+359,230,"Dormitorio principal",21
+359,180,"Dormitorio pequeño",22
+360,150,"Habitacion menor",23
+360,150,"Habitacion menor",24
+361,200,"habitación",25
+361,235,"Habitación individual",26
+361,200,"habitación",27
+361,235,"Habitación individual",28
+362,230,"según habitación",29
+362,350,"según habitación",30
+362,230,"según habitación",31
+362,350,"según habitación",32
+363,150,"habitación",33
+363,150,"habitación",34
+364,150,"habitación",35
+364,150,"habitación",36
+365,125,"habitación",37
+365,125,"habitación",38
+366,200,"habitación",39
+366,200,"habitación",40
+367,215,"Habitacion doble",41
+367,205,"Habitación sencilla",42
+367,205,"Habitación sencilla",43
+367,210,"habitacion doble",44
+368,150,"habitación",45
+368,150,"habitación",46
+369,480,"mes",47
+369,480,"mes",48
+371,500,"mes",49
+371,500,"mes",50
+372,175,"habitación",51
+372,175,"habitación",52
+375,450,"piso completo",53
+375,450,"piso completo",54
+376,600,"piso completo",55
+376,150,"habitación",56
+376,600,"piso completo",57
+376,150,"habitación",58
+377,200,"habitación",59
+377,200,"habitación",60
+378,150,"habitacion mediana",61
+378,165,"habitacion mediana",62
+378,150,"habitacion mediana",63
+378,165,"habitacion mediana",64
+379,150,"habitación",65
+379,150,"habitación",66
+380,465,"piso completo",67
+380,155,"habitación",68
+380,465,"piso completo",69
+380,155,"habitación",70
+381,180,"habitación",71
+381,180,"habitación",72
+382,160,"habitación",73
+382,160,"habitación",74
+384,390,"piso completo",75
+384,390,"piso completo",76
+385,200,"habitación doble",77
+385,180,"habitación",78
+385,200,"habitación doble",79
+385,180,"habitación",80
+386,150,"habitación",81
+386,150,"habitación",82
+387,450,"piso completo",83
+387,450,"piso completo",84
+388,400,"piso completo",85
+388,400,"piso completo",86
+389,450,"piso completo",87
+389,450,"piso completo",88
+390,465,"piso completo",89
+390,465,"piso completo",90
+391,400,"piso completo",91
+391,400,"piso completo",92
+392,450,"piso completo",93
+392,450,"piso completo",94
+393,200,"habitación",95
+393,200,"habitación",96
+394,540,"piso completo",97
+394,520,"Piso completo",98
+394,520,"Piso completo",99
+394,540,"piso completo",100
+394,520,"Piso completo",101
+394,520,"Piso completo",102
+396,250,"Habitacion 1",103
+396,250,"Habitacion 1",104
+397,450,"piso completo",105
+397,150,"habitación",106
+397,450,"piso completo",107
+397,150,"habitación",108
+398,150,"habitación",109
+398,150,"habitación",110
+399,145,"habitación",111
+399,145,"habitación",112
+400,200,"habitación",113
+400,200,"habitación",114
+401,360,"piso completo",115
+401,360,"piso completo",116
+402,165,"habitación",117
+402,165,"habitación",118
+403,160,"habitación",119
+403,160,"habitación",120
+404,160,"habitación",121
+404,160,"habitación",122
+405,140,"habitación",123
+405,140,"habitación",124
+406,180,"habitación",125
+406,180,"habitación",126
+407,130,"habitación",127
+407,130,"habitación",128
+408,157,"habitación",129
+408,157,"habitación",130
+409,140,"habitación",131
+409,140,"habitación",132
+410,230,"habitación",133
+410,230,"habitación",134
+411,210,"Habitación grande",135
+411,210,"Habitación grande",136
+412,225,"habitación",137
+412,225,"habitación",138
+413,190,"habitación",139
+413,190,"habitación",140
+414,170,"habitación",141
+414,170,"habitación",142
+415,150,"habitación",143
+415,150,"habitación",144
+416,250,"habitación / mes",145
+416,450,"piso completo / mes",146
+416,250,"habitación / mes",147
+416,450,"piso completo / mes",148
+418,575,"piso completo",149
+418,192,"habitación",150
+418,575,"piso completo",151
+418,192,"habitación",152
+419,150,"habitación",153
+419,150,"habitación",154
+420,220,"habitación + gastos",155
+420,220,"habitación + gastos",156
+421,140,"habitación",157
+421,140,"habitación",158
+422,155,"habitación",159
+422,155,"habitación",160
+423,195,"habitación",161
+423,195,"habitación",162
+424,250,"habitación",163
+424,250,"habitación",164
+426,150,"habitación",165
+426,150,"habitación",166
+427,200,"habitación + gastos",167
+427,200,"habitación + gastos",168
+428,250,"habitación",169
+428,250,"habitación",170
+429,300,"Habitación",171
+429,300,"Habitación",172
+430,155,"habitación",173
+430,155,"habitación",174
+431,155,"habitación",175
+431,155,"habitación",176
+433,420,"piso completo",177
+433,420,"piso completo",178
+434,400,"habitaciones 2 ó 3",179
+434,400,"habitaciones 2 ó 3",180
+435,250,"habitación",181
+435,250,"habitación",182
+436,470,"piso completo",183
+436,470,"piso completo",184
+437,150,"habitación + gastos",185
+437,150,"habitación + gastos",186
+438,190,"habitación + gastos",187
+438,190,"habitación + gastos",188
+439,420,"piso completo",189
+439,420,"piso completo",190
+440,550,"piso completo",191
+440,275,"Habitación individual (total 2 Hab.)",192
+440,550,"piso completo",193
+440,275,"Habitación individual (total 2 Hab.)",194
+441,300,"mes",195
+441,300,"mes",196
+442,400,"piso completo",197
+442,400,"piso completo",198
+443,167,"habitación",199
+443,167,"habitación",200
+444,180,"habitación doble + gastos",201
+444,150,"2 habitaciones +gastos",202
+444,180,"habitación doble + gastos",203
+444,150,"2 habitaciones +gastos",204
+445,207,"habitación",205
+445,207,"habitación",206
+446,575,"piso completo",207
+446,575,"piso completo",208
+447,160,"habitación",209
+447,160,"habitación",210
+449,150,"habitación + gastos",211
+449,150,"habitación + gastos",212
+450,160,"Habitación",213
+450,160,"Habitación",214
+451,130,"habitación",215
+451,130,"habitación",216
+452,150,"habitación",217
+452,170,"habitación doble",218
+452,150,"habitación",219
+452,170,"habitación doble",220
+453,133,"habitación",221
+453,133,"habitación",222
+454,370,"mes",223
+454,370,"mes",224
+455,400,"piso completo",225
+455,400,"piso completo",226
+456,550,"piso completo",227
+456,183,"habitación",228
+456,550,"piso completo",229
+456,183,"habitación",230
+457,150,"habitación + gastos",231
+457,150,"habitación + gastos",232
+459,230,"habitación",233
+459,230,"habitación",234
+461,375,"mes",235
+461,375,"mes",236
+462,150,"habitación",237
+462,160,"habitación",238
+462,150,"habitación",239
+462,160,"habitación",240
+463,150,"habitación",241
+463,150,"habitación",242
+464,150,"habitación",243
+464,150,"habitación",244
+465,200,"habitación + gastos",245
+465,200,"habitación + gastos",246
+466,160,"habitación",247
+466,160,"habitación",248
+467,300,"mes",249
+467,300,"mes",250
+468,175,"habitación",251
+468,175,"habitación",252
+469,450,"mes",253
+469,450,"mes",254
+470,200,"habitación",255
+470,200,"habitación",256
+471,160,"habitación (negociable)",257
+471,160,"habitación (negociable)",258
+472,135,"habitación",259
+472,135,"habitación",260
+473,375,"piso completo",261
+473,375,"piso completo",262
+474,225,"habitación",263
+474,225,"habitación",264
+475,400,"piso completo",265
+475,400,"piso completo",266
+476,400,"piso completo",267
+476,400,"piso completo",268
+477,380,"piso completo",269
+477,380,"piso completo",270
+478,150,"habitación",271
+478,150,"habitación",272
+480,500,"mes",273
+480,500,"mes",274
+481,600,"piso completo",275
+481,600,"piso completo",276
+482,590,"piso completo",277
+482,590,"piso completo",278
+483,450,"piso completo",279
+483,450,"piso completo",280
+484,560,"piso completo",281
+484,560,"piso completo",282
+485,200,"habitación",283
+485,200,"habitación",284
+486,470,"piso completo",285
+486,470,"piso completo",286
+488,400,"piso completo",287
+488,400,"piso completo",288
+489,460,"piso completo",289
+489,460,"piso completo",290
+490,600,"piso completo",291
+490,600,"piso completo",292
+492,540,"piso completo",293
+492,150,"habitación",294
+492,540,"piso completo",295
+492,150,"habitación",296
+493,420,"piso completo",297
+493,420,"piso completo",298
+494,550,"piso completo",299
+494,550,"piso completo",300
+496,216,"habitación todo incluido",301
+496,216,"habitación todo incluido",302
+497,500,"piso completo",303
+497,500,"piso completo",304
+498,480,"PISO COMPLETO",305
+498,480,"PISO COMPLETO",306
+501,175,"habitación",307
+501,175,"habitación",308
+503,525,"piso completo",309
+503,525,"piso completo",310
+504,500,"piso completo",311
+504,500,"piso completo",312
+505,450,"piso completo",313
+505,450,"piso completo",314
+506,450,"piso completo",315
+506,450,"piso completo",316
+507,540,"piso completo",317
+507,540,"piso completo",318
+508,500,"piso completo",319
+508,500,"piso completo",320
+509,475,"piso completo",321
+509,475,"piso completo",322
+510,460,"piso completo",323
+510,460,"piso completo",324
+511,470,"piso completo",325
+511,470,"piso completo",326
+512,750,"piso completo",327
+512,750,"piso completo",328
+513,160,"habitación",329
+513,160,"habitación",330
+514,540,"piso completo",331
+514,540,"piso completo",332
+515,600,"piso completo",333
+515,600,"piso completo",334
+516,450,"Piso completo ",335
+516,450,"Piso completo ",336
+517,525,"Piso Completo",337
+517,525,"Piso Completo",338
+518,570,"piso completo",339
+518,570,"piso completo",340
+519,450,"piso completo",341
+519,450,"piso completo",342
+520,475,"piso completo",343
+520,475,"piso completo",344
+521,400,"piso completo",345
+521,133,"habitación",346
+521,400,"piso completo",347
+521,133,"habitación",348
+522,570,"piso completo",349
+522,570,"piso completo",350
+523,450,"piso completo",351
+523,450,"piso completo",352
+524,400,"PISO COMPLETO",353
+524,400,"PISO COMPLETO",354
+525,525,"piso completo",355
+525,525,"piso completo",356
+526,180,"habitación",357
+526,180,"habitación",358
+527,520,"piso completo",359
+527,520,"piso completo",360
+528,540,"piso completo",361
+528,540,"piso completo",362
+529,600,"piso completo",363
+529,600,"piso completo",364
+530,465,"piso completo",365
+530,465,"piso completo",366
+531,430,"piso completo",367
+531,430,"piso completo",368
+532,550,"piso completo",369
+532,550,"piso completo",370
+533,150,"habitación",371
+533,150,"habitación",372
+534,540,"piso completo",373
+534,540,"piso completo",374
+535,580,"piso completo",375
+535,580,"piso completo",376
+536,550,"piso completo",377
+536,550,"con comunidad",378
+536,550,"piso completo",379
+536,550,"con comunidad",380
+537,550,"piso completo",381
+537,550,"piso completo",382
+538,500,"piso completo",383
+538,500,"piso completo",384
+539,555,"piso completo",385
+539,555,"piso completo",386
+540,400,"piso completo",387
+540,400,"piso completo",388
+542,150,"habitación",389
+542,150,"habitación",390
+543,150,"habitación",391
+543,150,"habitación",392
+545,750,"piso completo",393
+545,750,"piso completo",394
+546,425,"piso completo",395
+546,425,"piso completo",396
+547,140,"habitación",397
+547,140,"habitación",398
+548,330,"piso completo",399
+548,330,"piso completo",400
+549,500,"piso completo",401
+549,500,"piso completo",402
+550,475,"piso completo",403
+550,475,"piso completo",404
+551,150,"habitación",405
+551,150,"habitación",406
+552,500,"piso completo",407
+552,500,"piso completo",408
+553,550,"piso completo",409
+553,550,"piso completo",410
+555,570,"piso completo",411
+555,570,"piso completo",412
+556,500,"piso completo",413
+556,500,"piso completo",414
+557,150,"habitación",415
+557,150,"habitación",416
+559,430,"mes",417
+559,430,"mes",418
+560,570,"piso completo",419
+560,570,"piso completo",420
+561,600,"mes",421
+561,600,"mes",422
+562,160,"Habitación 1",423
+562,50,"Plaza de garaje",424
+562,160,"Habitación 1",425
+562,50,"Plaza de garaje",426
+564,400,"mes",427
+564,400,"mes",428
+565,420,"mes",429
+565,420,"mes",430
+566,400,"mes",431
+566,400,"mes",432
+567,500,"mes",433
+567,500,"mes",434
+568,190,"habitación",435
+568,200,"habitación",436
+568,190,"habitación",437
+568,200,"habitación",438
+569,150,"habitacion",439
+569,150,"habitacion",440
+570,650,"piso con comunidad",441
+570,650,"piso con comunidad",442
+571,500,"mes",443
+571,500,"mes",444
+572,190,"habitacion",445
+572,190,"habitacion",446
+573,210,"habitacion doble",447
+573,180,"habitacion",448
+573,210,"habitacion doble",449
+573,180,"habitacion",450
+574,375,"piso completo",451
+574,375,"piso completo",452
+575,510,"mes",453
+575,510,"mes",454
+576,150,"habitacion",455
+576,150,"habitacion",456
+577,150,"habitacion",457
+577,150,"habitacion",458
+578,200,"habitacion",459
+578,200,"habitacion",460
+579,160,"habitacion",461
+579,160,"habitacion",462
+580,183,"habitacion",463
+580,183,"habitacion",464
+581,500,"las tres habitaciones",465
+581,500,"las tres habitaciones",466
+582,560,"mes ",467
+582,560,"mes ",468
+583,140,"habitacion",469
+583,140,"habitacion",470
+584,200,"habitacion",471
+584,200,"habitacion",472
+585,150,"habitacion",473
+585,150,"habitacion",474
+586,150,"habitacion",475
+586,150,"habitacion",476
+587,480,"mes",477
+587,480,"mes",478
+588,140,"habitacion",479
+588,140,"habitacion",480
+589,125,"habitacion",481
+589,125,"habitacion",482
+590,500,"piso mas comunidad",483
+590,500,"piso mas comunidad",484
+591,200,"habitación",485
+591,200,"habitación",486
+592,450,"completo",487
+592,450,"completo",488
+593,255,"habitación",489
+593,255,"habitación",490
+594,150,"habitacion indivudual",491
+594,200,"habitacion doble",492
+594,150,"habitacion indivudual",493
+594,200,"habitacion doble",494
+595,150,"habitación",495
+595,450,"piso completo",496
+595,150,"habitación",497
+595,450,"piso completo",498
+596,450,"ENTERO",499
+596,170,"HABITACION",500
+596,450,"ENTERO",501
+596,170,"HABITACION",502
+597,140,"habitación",503
+597,140,"habitación",504
+598,150,"habitación",505
+598,450,"piso completo",506
+598,150,"habitación",507
+598,450,"piso completo",508
+599,120,"Habitación Grande",509
+599,120,"Habitación Grande",510
+600,550,"piso completo",511
+600,550,"piso completo",512
+601,525,"piso completo",513
+601,525,"piso completo",514
+602,560,"piso completo",515
+602,140,"1 habitacion sencilla",516
+602,560,"piso completo",517
+602,140,"1 habitacion sencilla",518
+604,450,"piso completo",519
+604,450,"piso completo",520
+605,175,"habitación",521
+605,175,"habitación",522
+606,550,"piso completo",523
+606,550,"piso completo",524
+607,850,"piso completo",525
+607,850,"piso completo",526
+608,700,"piso completo",527
+608,700,"piso completo",528
+609,660,"piso completo",529
+609,660,"piso completo",530
+610,550,"piso completo",531
+610,550,"piso completo",532
+611,550,"piso completo",533
+611,550,"piso completo",534
+612,600,"piso completo",535
+612,150,"habitación",536
+612,600,"piso completo",537
+612,150,"habitación",538
+613,600,"piso completo",539
+613,150,"habitación",540
+613,600,"piso completo",541
+613,150,"habitación",542
+614,165,"habitación",543
+614,165,"habitación",544
+615,665,"piso completo",545
+615,665,"piso completo",546
+617,650,"piso completo",547
+617,650,"piso completo",548
+618,1000,"piso completo",549
+618,1000,"piso completo",550
+619,490,"piso completo",551
+619,490,"piso completo",552
+621,475,"Piso completo",553
+621,475,"Piso completo",554
+622,400,"piso completo",555
+622,400,"piso completo",556
+623,600,"PISO AMUEBLADO",557
+623,600,"PISO AMUEBLADO",558
+624,430,"todo el inmueble ",559
+624,430,"todo el inmueble ",560
+625,600,"piso completo",561
+625,185,"habitación con tres alquiladas 150 con cuatro     ",562
+625,600,"piso completo",563
+625,185,"habitación con tres alquiladas 150 con cuatro     ",564
+627,840,"piso completo",565
+627,840,"piso completo",566
+628,360,"mes",567
+628,360,"mes",568
+629,640,"piso completo",569
+629,640,"piso completo",570
+630,450,"piso completo",571
+630,450,"piso completo",572
+631,160,"habitación",573
+631,160,"habitación",574
+632,135,"HABITACION",575
+632,135,"HABITACION",576
+633,600,"piso completo",577
+633,600,"piso completo",578
+634,600,"piso completo",579
+634,600,"piso completo",580
+635,600,"piso completo",581
+635,600,"piso completo",582
+636,680,"piso completo",583
+636,680,"piso completo",584
+637,500,"piso completo",585
+637,500,"piso completo",586
+638,900,"piso completo",587
+638,900,"piso completo",588
+639,110,"habitación simple",589
+639,120,"habitación tamaño medio",590
+639,140,"habitación doble",591
+639,110,"habitación simple",592
+639,120,"habitación tamaño medio",593
+639,140,"habitación doble",594
+640,800,"piso completo",595
+640,800,"piso completo",596
+641,150,"habitación",597
+641,150,"habitación",598
+642,500,"piso completo",599
+642,500,"piso completo",600
+643,500,"piso completo",601
+643,500,"piso completo",602
+644,220,"habitación",603
+644,220,"habitación",604
+645,1000,"piso completo",605
+645,1000,"piso completo",606
+646,600,"piso completo",607
+646,600,"piso completo",608
+647,120,"habitación",609
+647,470,"piso completo",610
+647,120,"habitación",611
+647,470,"piso completo",612
+649,700,"piso completo",613
+649,700,"piso completo",614
+651,200,"habitación",615
+651,200,"habitación",616
+652,150,"habitación",617
+652,150,"habitación",618
+653,250,"habitación",619
+653,500,"piso completo",620
+653,250,"habitación",621
+653,500,"piso completo",622
+655,500,"piso completo",623
+655,500,"piso completo",624
+656,220,"habitación",625
+656,220,"habitación",626
+657,250,"habitación",627
+657,250,"habitación",628
+658,190,"habitación",629
+658,190,"habitación",630
+660,130,"habitación",631
+660,130,"habitación",632
+661,165,"habitación",633
+661,200,"fianza",634
+661,200,"habitación doble",635
+661,200,"fianza",636
+662,580,"piso completo",637
+662,225,"habitación",638
+662,580,"piso completo",639
+662,225,"habitación",640
+663,600,"completo",641
+663,150,"habitación",642
+663,600,"completo",643
+663,150,"habitación",644
+664,500,"Completo",645
+664,500,"Completo",646
+665,450,"piso completo",647
+665,450,"piso completo",648
+667,600,"completo",649
+667,600,"completo",650
+668,180,"Habitación ",651
+668,540,"Piso completo",652
+668,180,"Habitación ",653
+668,540,"Piso completo",654
+670,200,"habitación individual y uso de zonas comunes",655
+670,200,"habitación individual y uso de zonas comunes",656
+673,400,"piso completo",657
+673,135,"habitación individual",658
+673,135,"habitación individual",659
+673,400,"piso completo",660
+673,135,"habitación individual",661
+673,135,"habitación individual",662
+675,330,"piso completo",663
+675,330,"Todo el piso",664
+675,165,"habitacion",665
+675,340,"Todo el piso",666
+675,330,"piso completo",667
+675,330,"Todo el piso",668
+675,165,"habitacion",669
+675,340,"Todo el piso",670
+678,600,"piso completo",671
+678,250,"habitación individual",672
+678,450,"habitacion doble",673
+678,600,"piso completo",674
+678,250,"habitación individual",675
+678,450,"habitacion doble",676
+679,200,"por  cada habitación",677
+679,200,"por  cada habitación",678
+681,1050,"calefaccion incluida",679
+681,1050,"todo el piso. La habitacion sale a 210 €",680
+681,1050,"calefaccion incluida",681
+681,1050,"todo el piso. La habitacion sale a 210 €",682
+682,180,"habitación individual",683
+682,180,"habitación individual",684
+684,180,"INDIVIDUAL",685
+684,190,"Habitacion individual",686
+684,180,"INDIVIDUAL",687
+685,600,"la totalidad del piso",688
+685,600,"la totalidad del piso",689
+686,600,"piso completo",690
+686,600,"piso completo",691
+687,450,"piso completo",692
+687,450,"piso completo",693
+688,185,"precio por habitación alquiladas 3",694
+688,150,"precio por habitación alquiladas 4",695
+688,600,"piso alquilado completo",696
+688,185,"precio por habitación alquiladas 3",697
+688,150,"precio por habitación alquiladas 4",698
+688,600,"piso alquilado completo",699
+691,370,"piso completo",700
+691,370,"piso completo",701
+694,550,"piso completo",702
+694,125,"habitación",703
+694,550,"piso completo",704
+694,125,"habitación",705
+696,430,"Piso completo",706
+696,430,"Piso completo",707
+698,864,"INCLUIDA CALEFACCION CENTRAL Y GASTOS DE COMUNIDAD",708
+698,864,"INCLUIDA CALEFACCION CENTRAL Y GASTOS DE COMUNIDAD",709
+699,400,"piso completo",710
+699,420,"piso completo",711
+699,400,"piso completo",712
+699,420,"piso completo",713
+701,50,"null",714
+701,50,"null",715
+702,430,"piso completo",716
+702,430,"piso completo",717
+703,350,"piso completo",718
+703,350,"piso completo",719
+705,450,"piso completo",720
+705,450,"piso completo",721
+706,190,"habitación",722
+706,190,"habitación",723
+707,180,"individual",724
+707,180,"individual",725
+709,150,"Por habitación",726
+709,150,"Por habitación",727
+710,235,"cada habitacion",728
+710,235,"cada habitacion",729
+711,550,"comun",730
+711,550,"comun",731
+713,180,"habitación individual ",732
+713,520,"PISO COMPLETO",733
+713,180,"habitación individual ",734
+713,520,"PISO COMPLETO",735
+716,700,"piso completo",736
+716,700,"piso completo",737
+717,165,"habitación pequeña",738
+717,175,"habitación mediana",739
+717,185,"habitación grande",740
+717,165,"habitación pequeña",741
+717,175,"habitación mediana",742
+717,185,"habitación grande",743
+719,450,"piso completo",744
+719,450,"piso completo",745
+720,230,"habitación",746
+720,235,"habitación doble",747
+720,230,"habitación",748
+720,235,"habitación doble",749
+722,120,"habitacion pequeña",750
+722,120,"habitacion pequeña",751
+723,495,"vivienda completa",752
+723,495,"vivienda completa",753
+725,550,"PISO COMPLETO CON CALEF CENTRAL,AGUA Y CDAD INCLUI",754
+725,550,"PISO COMPLETO CON CALEF CENTRAL,AGUA Y CDAD INCLUI",755
+727,350,"piso completo",756
+727,350,"piso completo",757
+728,370,"Piso completo",758
+728,370,"Piso completo",759
+729,180,"por habitación con comunidad y calefacción incluid",760
+729,180,"por habitación con comunidad y calefacción incluid",761
+730,160,"Habitación grande",762
+730,160,"Habitación normal",763
+730,150,"Habitación pequeña",764
+730,160,"Habitación grande",765
+730,160,"Habitación normal",766
+730,150,"Habitación pequeña",767
+733,450,"piso completo",768
+733,450,"piso completo",769
+733,450,"Piso completo ",770
+733,450,"piso completo",771
+733,450,"piso completo",772
+733,450,"Piso completo ",773
+734,450,"incluye comunidad",774
+734,450,"incluye comunidad",775
+735,450,"Todo el piso",776
+735,450,"Todo el piso",777
+737,180,"hab. individual",778
+737,180,"hab. individual",779
+738,200,"HABITACION INDIVIDUAL",780
+738,600,"CASA COMPLETA(3 HABT)",781
+738,200,"HABITACION INDIVIDUAL",782
+738,600,"CASA COMPLETA(3 HABT)",783
+743,600,"Piso completo",784
+743,200,"Habitación",785
+743,600,"Piso completo",786
+743,200,"Habitación",787
+744,590,"piso completo",788
+744,590,"piso completo",789
+746,183,"habitación simple",790
+746,183,"Habitación",791
+746,183,"habitación simple",792
+746,183,"Habitación",793
+749,140,"Habitación",794
+749,420,"Piso completo",795
+749,140,"Habitación",796
+749,420,"Piso completo",797
+752,430,"PISO COMPLETO",798
+752,430,"PISO COMPLETO",799
+753,325,"Piso completo",800
+753,325,"Piso completo",801
+754,430,"El mes",802
+754,143,"Habitación",803
+754,430,"El mes",804
+754,143,"Habitación",805
+756,550,"Piso completo",806
+756,550,"Piso completo",807
+757,180,"habitación sencilla",808
+757,550,"piso completo",809
+757,180,"habitación sencilla",810
+757,550,"piso completo",811
+758,180,"habitación individuales",812
+758,180,"habitación individuales",813
+759,150,"habitación individual",814
+759,450,"piso completo",815
+759,475,"piso completo",816
+760,165,"por habitación al mes",817
+760,165,"por habitación al mes",818
+761,175,"habitación",819
+761,175,"habitación",820
+762,555,"totalidad o divisible por habitaciones",821
+762,555,"totalidad o divisible por habitaciones",822
+763,400,"Vivienda completa para 2 personas",823
+763,400,"Vivienda completa para 2 personas",824
+767,135,"alquiler de habitación con internet incluido",825
+767,135,"alquiler de habitación con internet incluido",826
+767,135,"alquiler de habitación con internet incluido",827
+767,135,"alquiler de habitación con internet incluido",828
+768,450,"piso completo",829
+768,450,"piso completo",830
+771,241,"habitacion individual",831
+771,241,"habitacion individual",832
+772,250,"habitación rosa",833
+772,230,"habitación rosa",834
+772,210,"habitación azul",835
+772,250,"habitación rosa",836
+772,230,"habitación rosa",837
+772,210,"habitación azul",838
+773,450,"euros/mes; 10 meses/año",839
+773,450,"euros/mes; 10 meses/año",840
+774,140,"Habitación grande",841
+774,120,"Habitación pequeña",842
+774,140,"Habitación grande",843
+774,120,"Habitación pequeña",844
+777,480,"piso completo",845
+777,480,"piso completo",846
+779,600,"mes",847
+779,600,"mes",848
+781,500,"piso completo",849
+781,500,"piso completo",850
+784,165,"habitacion",851
+784,165,"habitacion",852
+785,148,"habitación mas gastos",853
+785,148,"habitación mas gastos",854
+786,148,"habitacion mas gastos",855
+786,148,"habitacion mas gastos",856
+787,135,"habitación mes",857
+787,135,"habitación mes",858
+788,145,"habitación",859
+788,145,"habitación",860
+789,200,"habitación y baño",861
+789,200,"habitación y baño",862
+790,840,"piso completo (incluidos gastos comunidad ",863
+790,840,"piso completo (incluidos gastos comunidad ",864
+791,555,"por piso completo o divisible por habitaciones",865
+791,555,"por piso completo o divisible por habitaciones",866
+793,195,"dormitorio",867
+793,195,"dormitorio",868
+794,160,"habitación",869
+794,160,"habitación",870
+796,370,"Todo",871
+796,370,"Todo",872
+797,390,"INCLUYE COMUNIDAD",873
+797,390,"INCLUYE COMUNIDAD",874
+803,500,"3 DORMITORIOS",875
+803,500,"3 DORMITORIOS",876
+804,180,"habitación individual",877
+804,180,"habitación individual",878
+806,240,"por habitación",879
+806,240,"por habitación",880
+813,400,"Piso",881
+813,400,"Piso",882
+816,150,"+ GASTOS",883
+816,150,"+ GASTOS",884
+817,160,"habitación individual",885
+817,160,"habitación individual",886
+824,170,"habitación sencilla",887
+824,170,"habitación sencilla",888
+827,380,"piso completo",889
+827,380,"piso completo",890
+828,360,"piso completo",891
+828,360,"piso completo",892
+834,160,"habitacion",893
+834,160,"habitacion",894
+835,450,"todo el piso",895
+835,450,"piso completo",896
+835,450,"todo el piso",897
+835,450,"piso completo",898
+836,900,"Piso completo",899
+836,900,"Piso completo",900
+837,120,"habitación",901
+837,120,"habitación",902
+839,140,"habitación mediana",903
+839,140,"habitación mediana",904
+842,165,"habitación",905
+842,165,"habitación",906
+842,165,"habitación",907
+842,165,"habitación",908
+842,165,"habitación",909
+842,165,"habitación",910
+842,165,"habitación",911
+842,165,"habitación",912
+847,165,"habitacion individual",913
+847,165,"habitacion individual",914
+852,170,"habitación individual",915
+852,170,"habitación individual",916
+855,170,"Habitacion",917
+855,525,"PISO ENTERO",918
+855,170,"Habitacion",919
+855,525,"PISO ENTERO",920
+858,500,"Total del piso incluida la comunidad",921
+858,500,"Total del piso incluida la comunidad",922
+865,260,"piso 3 dormitorios",923
+865,260,"piso 3 dormitorios",924
+867,600,"PISO AMUEBLADO",925
+867,600,"PISO AMUEBLADO",926
+872,190,"Habitación II",927
+872,160,"Habitación III",928
+872,190,"Habitación I",929
+872,220,"Habitación Baño",930
+872,190,"Habitación II",931
+872,160,"Habitación III",932
+872,190,"Habitación I",933
+872,220,"Habitación Baño",934
+873,450,"piso",935
+873,450,"piso",936
+874,350,"Estudio",937
+874,350,"Estudio",938
+877,450,"mes",939
+877,450,"mes",940
+879,400,"Incluido comunidad",941
+879,400,"Incluido comunidad",942
+885,200,"habitación",943
+885,200,"habitación",944
+888,550,"Alquiler completo y comunidad",945
+888,550,"Alquiler completo y comunidad",946
+894,450,"piso completo",947
+894,450,"piso completo",948
+898,400,"por habitación",949
+898,400,"por habitación",950
+908,500,"Completo (incluida comunidad)",951
+908,500,"Completo (incluida comunidad)",952
+912,440,"piso completo",953
+912,145,"habitación individual",954
+912,440,"piso completo",955
+912,145,"habitación individual",956
+914,350,"Habitación grande",957
+914,310,"Habitacion más pequeña",958
+914,1150,"Piso completo con gastos incluidos",959
+914,400,"Habitación grande con baño incluido",960
+914,350,"Habitación grande",961
+914,310,"Habitacion más pequeña",962
+914,1150,"Piso completo con gastos incluidos",963
+914,400,"Habitación grande con baño incluido",964
+916,1200,"PISO COMPLETO",965
+916,300,"Habitacion gastos incluidos",966
+916,1200,"PISO COMPLETO",967
+916,1200,"PISO COMPLETO",968
+916,300,"Habitacion gastos incluidos",969
+916,1200,"PISO COMPLETO",970
+917,170,"Habitacion simple, gastos aparte",971
+917,170,"Habitacion simple, gastos aparte",972
+922,150,"la habitacion más las zonas comunes",973
+922,150,"la habitacion más las zonas comunes",974
+923,250,"habitación sencilla",975
+923,250,"habitación sencilla",976
+924,300,"3 DORMITORIOS",977
+924,300,"3 DORMITORIOS",978
+927,260,"habitación individual",979
+927,260,"habitación individual",980
+928,250,"Habitación Azul",981
+928,250,"Habitación Azul",982
+931,570,"  ",983
+931,570,"  ",984
+945,185,"habitación \"A\"",985
+945,160,"habitación \"C\"",986
+945,185,"habitación \"B\"",987
+945,190,"habitación \"B\"",988
+945,165,"habitación \"C\"",989
+945,190,"habitación \"A\"",990
+947,250,"habitacion individual gastos incluidos",991
+947,250,"habitacion individual gastos incluidos",992
+948,220,"habitación",993
+948,220,"habitación",994
+950,180,"habitación",995
+950,180,"habitación",996
+952,400,"piso completo",997
+952,400,"piso completo",998
+953,430,"PISO COMPLETO",999
+953,430,"PISO COMPLETO",1000
+954,175,"Habitacion 1",1001
+954,175,"Habitracion 2",1002
+954,150,"Habitacion 3",1003
+954,175,"Habitacion 1",1004
+954,175,"Habitracion 2",1005
+954,150,"Habitacion 3",1006
+956,175,"Habitacion 1",1007
+956,175,"Habitacion 2",1008
+956,150,"Habitacion 3",1009
+956,175,"Habitacion 1",1010
+956,175,"Habitacion 2",1011
+956,150,"Habitacion 3",1012
+957,550,"Piso completo",1013
+957,550,"Piso completo",1014
+958,325,"PISO COMPLETO",1015
+958,325,"PISO COMPLETO",1016
+963,175,"profesores o estudiantes",1017
+963,175,"profesores o estudiantes",1018
+970,390,"piso completo incluye la comunidad",1019
+970,390,"piso completo incluye la comunidad",1020
+977,500,"piso completo",1021
+977,500,"piso completo",1022
+980,120,"habitacion",1023
+980,120,"habitacion",1024
+985,200,"mes",1025
+985,190,"mes",1026
+985,200,"mes",1027
+985,190,"mes",1028
+986,210,"Habitación",1029
+986,210,"Habitación",1030
+987,175,"habitacion individual",1031
+987,175,"habitacion individual",1032
+990,145,"pizarro",1033
+990,145,"pizarro",1034
+993,550,"Piso completo",1035
+993,550,"Piso completo",1036
+997,185,"habitacion individual",1037
+997,185,"habitacion individual",1038
+998,500,"todo el piso",1039
+998,450,"todo el piso",1040
+998,550,"todo el piso",1041
+998,550,"todo el piso",1042
+998,500,"todo el piso",1043
+998,450,"todo el piso",1044
+998,550,"todo el piso",1045
+998,550,"todo el piso",1046
+1004,135,"habitación individual",1047
+1004,135,"habitación individual",1048
+1005,150,"habitación individual",1049
+1005,150,"habitación individual",1050
+1009,450,"Alquiler piso completo",1051
+1009,450,"Alquiler piso completo",1052
+1010,400,"Comunidad 45",1053
+1010,400,"Comunidad 45",1054
+1012,250,"gastos incluidos",1055
+1012,250,"gastos incluidos",1056
+1015,450,"Piso completo, gastos aparte.",1057
+1015,450,"Piso completo, gastos aparte.",1058
+1022,200,"por habitación",1059
+1022,600,"piso ",1060
+1022,200,"por habitación",1061
+1022,600,"piso ",1062
+1025,170,"Habitación individual",1063
+1025,170,"Habitación individual",1064
+1030,200,"individual",1065
+1030,300,"dos personas en habitación doble",1066
+1030,200,"individual",1067
+1030,300,"dos personas en habitación doble",1068
+1032,500,"Habitación DOBLE/Estudiante-mes",1069
+1032,560,"Habitación INDIVIDUAL/Estudiante-mes",1070
+1032,160,"Habitación/Estudiante por semana",1071
+1032,500,"Habitación DOBLE/Estudiante-mes",1072
+1032,560,"Habitación INDIVIDUAL/Estudiante-mes",1073
+1032,160,"Habitación/Estudiante por semana",1074
+1036,300,"piso completo",1075
+1036,300,"piso completo",1076
+1037,175,"Por habitación",1077
+1037,175,"Por habitación",1078
+1038,175,"Por habitación",1079
+1038,175,"Por habitación",1080
+1045,170,"habitación individual",1081
+1045,170,"habitación individual",1082
+1046,180,"habitacion",1083
+1046,180,"habitacion",1084
+1047,150,"habitacion",1085
+1047,450,"piso completo",1086
+1047,150," HABITACION",1087
+1047,150,"habitacion",1088
+1047,450,"piso completo",1089
+1047,150," HABITACION",1090
+1048,375,"piso completo",1091
+1048,375,"piso completo",1092
+1052,500,"piso completo",1093
+1052,500,"piso completo",1094
+1059,175,"habitacion amplia individual",1095
+1059,175,"habitacion amplia individual",1096
+1061,500,"piso comunidad incluido",1097
+1061,500,"piso comunidad incluido",1098
+1063,150,"habitación individual",1099
+1063,150,"habitación individual",1100
+1072,350,"Piso completo/mes",1101
+1072,350,"Piso completo/mes",1102
+1078,170,"Habitación individual",1103
+1078,170,"Habitación individual",1104
+1080,400,"apartamento en Soria",1105
+1080,400,"apartamento en Soria",1106
+1084,620,"piso completo",1107
+1084,620,"piso completo",1108
+1087,325,"todo el estudio",1109
+1087,325,"todo el estudio",1110
+1098,300,"piso completo",1111
+1098,300,"piso completo",1112
+1101,535,"Total por la vivienda",1113
+1101,535,"Total por la vivienda",1114
+1102,200,"una habitacion",1115
+1102,200,"una habitacion",1116
+1110,450,"apartamento y plaza garaje",1117
+1110,450,"apartamento y plaza garaje",1118
+1111,140,"habitación",1119
+1111,400,"completo",1120
+1111,140,"habitación",1121
+1111,400,"completo",1122
+1112,420,"piso completo, incluye comunidad",1123
+1112,420,"piso completo, incluye comunidad",1124
+1117,135,"HABITACION",1125
+1117,135,"habitacion",1126
+1117,135,"HABITACION",1127
+1117,135,"habitacion",1128
+1118,420,"piso completo",1129
+1118,420,"piso completo",1130
+1129,200,"habitacion sola",1131
+1129,200,"habitacion sola",1132
+1136,200,"habitación con aseo individual",1133
+1136,225,"habitación con baño individual",1134
+1136,200,"habitación con aseo individual",1135
+1136,225,"habitación con baño individual",1136
+1137,200,"habitación con aseo individual",1137
+1137,225,"habitación con baño individual",1138
+1137,200,"habitación con aseo individual",1139
+1137,225,"habitación con baño individual",1140
+1140,460,"piso completo",1141
+1141,430,"Apartamento y plaza garaje",1142
+1141,430,"Apartamento y plaza garaje",1143
+1142,430,"Apartamento + plaza garaje",1144
+1142,430,"Apartamento + plaza garaje",1145
+1143,153,"cada habitación",1146
+1143,153,"cada habitación",1147
+1148,150,"habitación individual",1148
+1148,150,"habitación individual",1149
+1149,425,"completo",1150
+1149,425,"completo",1151
+1156,500,"TODO EL PISO",1152
+1156,500,"TODO EL PISO",1153
+1159,600,"incluida comunidad y calefacción",1154
+1159,600,"incluida comunidad y calefacción",1155
+1161,600,"completo",1156
+1161,600,"completo",1157
+1171,170,"Habitación mediana",1158
+1171,180,"Habitaciones grandes",1159
+1171,150,"Habitación pequeña",1160
+1171,170,"Habitación mediana",1161
+1171,180,"Habitaciones grandes",1162
+1171,150,"Habitación pequeña",1163
+1173,500,"completo",1164
+1173,500,"completo",1165
+1174,150,"habitación sencilla",1166
+1174,450,"piso completo",1167
+1174,150,"habitación sencilla",1168
+1174,450,"piso completo",1169
+1178,480,"piso completo",1170
+1178,490,"piso completo",1171
+1185,500,"Vivienda completa",1172
+1185,500,"Vivienda completa",1173
+1188,220,"habitacion",1174
+1188,220,"BUENAS CALIDADES, DECORACION, AMBIENTE",1175
+1188,220,"habitacion",1176
+1188,220,"BUENAS CALIDADES, DECORACION, AMBIENTE",1177
+1189,370,"piso completo",1178
+1189,370,"piso completo",1179
+1192,175,"mes",1180
+1192,175,"mes",1181
+1193,165,"Habitación individual",1182
+1193,175,"Habitación pequeña",1183
+1193,190,"Habitación grande",1184
+1194,145,"más gastos de luz, agua y gas. Fianza de un mes.",1185
+1194,150,"habitación",1186
+1196,215,"Habitación",1187
+1196,750,"Piso completo",1188
+1196,215,"Habitación",1189
+1196,750,"Piso completo",1190
+1199,600,"alquiler",1191
+1199,600,"alquiler",1192
+1200,480,"EL PISO COMPLETO",1193
+1200,480,"EL PISO COMPLETO",1194
+1203,450,"piso completo",1195
+1203,450,"piso completo",1196
+1204,440,"piso completo",1197
+1204,440,"PISO COMPLETO",1198
+1204,440,"piso completo",1199
+1204,440,"PISO COMPLETO",1200
+1209,500,"PISO ENTERO",1201
+1209,500,"PISO ENTERO",1202
+1220,165,"una habitación/mes",1203
+1220,155,"una habitación/mes",1204
+1220,165,"una habitación/mes",1205
+1220,155,"una habitación/mes",1206
+1223,150,"Habitación individual.",1207
+1223,160,"Habitación número 4",1208
+1223,150,"Habitación individual.",1209
+1223,160,"Habitación número 4",1210
+1224,425,"piso completo",1211
+1224,425,"piso completo",1212
+1227,180,"habitaciones grandes",1213
+1227,150,"habitacíón pequeña",1214
+1227,170,"habitación mediana",1215
+1227,180,"habitaciones grandes",1216
+1227,150,"habitacíón pequeña",1217
+1227,170,"habitación mediana",1218
+1229,160,"habitacion single",1219
+1229,160,"habitacion single",1220
+1231,190,"la habitacion disponible",1221
+1231,190,"la habitacion disponible",1222
+1232,175,"el precio varia segun habitacion a elegir",1223
+1232,175,"el precio varia segun habitacion a elegir",1224
+1237,540,"piso completo de 3 dormitorios",1225
+1237,540,"piso completo de 3 dormitorios",1226
+1243,220,"Habitación individual",1227
+1243,220,"Habitación individual",1228
+1245,145,"habitacion mes",1229
+1245,145,"habitacion mes",1230
+1246,165,"Alquiler de habitación",1231
+1246,165,"Alquiler de habitación",1232
+1249,540,"piso completo",1233
+1249,540,"piso completo",1234
+1251,540,"11",1235
+1251,540,"11",1236
+1253,160,"habitación (son 3 hab.) ",1237
+1253,160,"habitación (son 3 hab.) ",1238
+1255,400,"negociables",1239
+1255,400,"negociables",1240
+1259,550,"INCLUIDA COMUNIDAD Y CALEFACCIÓN",1241
+1259,550,"INCLUIDA COMUNIDAD Y CALEFACCIÓN",1242
+1263,500,"piso",1243
+1263,500,"piso",1244
+1264,400,"alquiler piso",1245
+1264,400,"alquiler piso",1246
+1268,175,"habitación grande",1247
+1268,150,"habitación individual",1248
+1268,450,"piso completo",1249
+1268,175,"habitación grande",1250
+1268,150,"habitación individual",1251
+1268,450,"piso completo",1252
+1271,165,"Habitación 1",1253
+1271,165,"Habitación 3",1254
+1271,165,"Habitación 2",1255
+1271,165,"Habitación 1",1256
+1271,165,"Habitación 3",1257
+1271,165,"Habitación 2",1258
+1273,160,"160",1259
+1273,160,"160",1260
+1275,625,"vivienda completa",1261
+1275,200,"HABITACION INDIVIDUAL",1262
+1275,200,"HABITACION INDIVIDUAL",1263
+1275,625,"vivienda completa",1264
+1275,200,"HABITACION INDIVIDUAL",1265
+1275,200,"HABITACION INDIVIDUAL",1266
+1279,450,"piso completo",1267
+1279,450,"piso completo",1268
+1279,450,"piso completo",1269
+1279,450,"piso completo",1270
+1280,200,"habitación",1271
+1280,200,"habitación",1272
+1282,230,"habitación baño propio",1273
+1282,190,"habitación individual",1274
+1282,190,"habitación individual",1275
+1282,230,"habitación baño propio",1276
+1282,190,"habitación individual",1277
+1282,190,"habitación individual",1278
+1283,600,"piso completo",1279
+1283,600,"piso completo",1280
+1290,160,"Habitación individual. (gastos a compartir)",1281
+1290,160,"Habitación individual. (gastos a compartir)",1282
+1291,620,"piso completo",1283
+1291,620,"piso completo",1284
+1292,180,"1 habitación",1285
+1292,180,"1 habitación",1286
+1293,220,"habitación normal ",1287
+1293,220,"habitación normal ",1288
+1294,145,"PUEDE SER 128 E. TODO EL AÑO",1289
+1294,145,"PUEDE SER 128 E. TODO EL AÑO",1290
+1295,345,"todo el piso (comunidad incluida)",1291
+1295,345,"todo el piso (comunidad incluida)",1292
+1300,165,"Habitación 3",1293
+1300,165,"Habitación 1",1294
+1300,165,"Habitación 2",1295
+1300,165,"Habitación 3",1296
+1300,165,"Habitación 1",1297
+1300,165,"Habitación 2",1298
+1305,120,"habitación individual",1299
+1305,120,"habitación individual",1300
+1307,180,"cada habitación grande",1301
+1307,150,"habitación pequeña",1302
+1307,180,"cada habitación grande",1303
+1307,150,"habitación pequeña",1304
+1308,160,"Habitación individual",1305
+1308,160,"Habitación individual",1306
+1310,399,"Piso completo con todos los gastos incluidos",1307
+1310,399,"Piso completo con todos los gastos incluidos",1308
+1311,399,"Piso completo con todos los gastos incluidos",1309
+1311,399,"Piso completo con todos los gastos incluidos",1310
+1312,15,"diarios en habitación individual",1311
+1312,15,"diarios en habitación individual",1312
+1316,187,"habitaciones grandes",1313
+1316,187,"habitaciones grandes",1314
+1317,250,"habitación",1315
+1317,250,"habitación",1316
+1321,390,"Piso completo. Añadir 120 € de comunidad al mes. ",1317
+1321,390,"Piso completo. Añadir 120 € de comunidad al mes. ",1318
+1322,180,"Habitación sencilla",1319
+1322,180,"Habitación sencilla",1320
+1323,350,"piso completo",1321
+1323,350,"piso completo",1322
+1324,380,"apartamento",1323
+1324,380,"apartamento",1324
+1330,500,"piso mas comunidad",1325
+1330,500,"piso mas comunidad",1326
+1330,500,"piso mas comunidad",1327
+1330,500,"piso mas comunidad",1328
+1331,150,"habitacion piso compartido",1329
+1331,150,"habitacion piso compartido",1330
+1334,450,"Piso completo",1331
+1334,450,"Piso completo",1332
+1337,120,"Habitación. Comunidad incluida",1333
+1337,120,"Habitación. Comunidad incluida",1334
+1339,180,"habitación ",1335
+1339,180,"habitación ",1336
+1339,180,"habitación ",1337
+1339,180,"habitación ",1338
+1339,180,"habitación ",1339
+1339,180,"habitación ",1340
+1341,300,"habitación con baño individual",1341
+1341,300,"habitación con baño individual",1342
+1342,390,"piso completo",1343
+1342,390,"piso completo",1344
+1343,195,"alquiler por habitacion",1345
+1343,195,"alquiler por habitacion",1346
+1348,475,"piso completo",1347
+1348,475,"piso completo",1348
+1350,210,"cama de matrimonio",1349
+1350,205,"cama de 1,05",1350
+1350,200,"cama de 1,05",1351
+1353,160,"habitación pequeña",1352
+1353,170,"habitación grande",1353
+1353,160,"habitación pequeña",1354
+1353,170,"habitación grande",1355
+1357,150,"Por habitación ",1356
+1357,400,"Piso completo",1357
+1357,140," por habitación",1358
+1357,150,"Por habitación ",1359
+1357,150,"Por habitación ",1360
+1357,400,"Piso completo",1361
+1357,140," por habitación",1362
+1357,150,"Por habitación ",1363
+1358,120,"habitación individual",1364
+1358,120,"habitación individual",1365
+1359,130,"habitación individual",1366
+1359,130,"habitación individual",1367
+1360,120,"habitación individual",1368
+1360,120,"habitación individual",1369
+1361,130,"habitación individual",1370
+1361,130,"habitación individual",1371
+1366,150,"habitación 2",1372
+1366,460,"todo el piso",1373
+1366,180,"habitación 1",1374
+1366,150,"habitación 3",1375
+1366,150,"habitación 2",1376
+1366,460,"todo el piso",1377
+1366,180,"habitación 1",1378
+1366,150,"habitación 3",1379
+1367,145,"habitación  individual ",1380
+1367,145,"habitación  individual ",1381
+1368,150,"habitación individual",1382
+1368,150,"habitación individual",1383
+1371,210,"Habitación individual",1384
+1371,210,"Habitación individual",1385
+1375,160,"habitacion ",1386
+1375,160,"habitacion ",1387
+1376,400,"PISO COMPLETO,ASCENSOR",1388
+1376,400,"PISO COMPLETO,ASCENSOR",1389
+1386,800,"PISO DUPLEX",1390
+1386,800,"PISO DUPLEX",1391
+1386,800,"PISO DUPLEX",1392
+1386,800,"PISO DUPLEX",1393
+1421,1100,"piso completo",1394
+1421,250,"habitación",1395
+1421,1100,"piso completo",1396
+1421,250,"habitación",1397
+1432,150,"Habitación a la plaza",1398
+1432,130,"habitacion a patio",1399
+1432,150,"Habitación con balcón a la plaza",1400
+1432,150,"Habitación a la plaza",1401
+1432,130,"habitacion a patio",1402
+1432,150,"Habitación con balcón a la plaza",1403
+1447,135,"habitacion individual",1404
+1447,135,"habitacion individual",1405
+1470,400,"piso completo",1406
+1470,400,"piso completo",1407
+1485,480,"piso",1408
+1485,480,"piso",1409
+1494,400,"todo el piso",1410
+1494,400,"todo el piso",1411
+1514,800,"PISO COMPLETO",1412
+1514,800,"PISO COMPLETO",1413
+1540,750,"Piso completo",1414
+1540,200,"habitacion",1415
+1540,750,"Piso completo",1416
+1540,200,"habitacion",1417
+1544,500,"Piso completo",1418
+1544,500,"Piso completo",1419
+1553,500,"todo el piso",1420
+1553,500,"todo el piso",1421
+1561,190,"habitación individual",1422
+1561,190,"habitación individual",1423
+1561,230,"habitación baño propio",1424
+1561,190,"habitación individual",1425
+1561,190,"habitación individual",1426
+1561,230,"habitación baño propio",1427
+1571,395,"piso completo/mes",1428
+1571,395,"piso completo/mes",1429
+1574,175,"habitación azul",1430
+1574,200,"habitación rosa",1431
+1574,175,"habitación azul",1432
+1574,200,"habitación rosa",1433
+1576,600,"Piso completo",1434
+1576,600,"Piso completo",1435
+1578,480,"piso completo",1436
+1578,480,"piso completo",1437
+1584,560,"piso completo",1438
+1584,560,"piso completo",1439
+1585,400,"PISO COMPLETO",1440
+1585,400,"PISO COMPLETO",1441
+1587,560,"3 habitaciones",1442
+1587,560,"3 habitaciones",1443
+1590,700,"casa entera",1444
+1590,700,"casa entera",1445
+1595,200,"euros/mes por persona",1446
+1595,200,"precio de cada habitación, mismo para todas.",1447
+1595,200,"euros/mes por persona",1448
+1595,200,"precio de cada habitación, mismo para todas.",1449
+1598,400,"COMPLETE FLAT",1450
+1598,400,"COMPLETE FLAT",1451
+1599,420,"piso completo",1452
+1599,495,"piso completo",1453
+1601,190,"habitacion normal",1454
+1601,190,"habitacion normal",1455
+1604,166,"habitacion",1456
+1604,166,"habitacion",1457
+1607,200,"habitación individual",1458
+1607,200,"habitación individual",1459
+1607,200,"habitación individual",1460
+1607,200,"habitación individual",1461
+1607,200,"habitación individual",1462
+1607,200,"habitación individual",1463
+1607,200,"habitación individual",1464
+1607,200,"habitación individual",1465
+1623,430,"piso completo",1466
+1623,430,"piso completo",1467
+1625,600,"INCLUYE MOBILIARIO, CALEFACCIÓN Y AGUA CALIENTE",1468
+1625,600,"INCLUYE MOBILIARIO, CALEFACCIÓN Y AGUA CALIENTE",1469
+1629,800,"Piso COMPLETO",1470
+1629,800,"Piso COMPLETO",1471
+1638,183,"por habitación mas gastos",1472
+1638,183,"por habitación mas gastos",1473
+1639,160,"habitación azul",1474
+1639,170,"habitación verde",1475
+1639,160,"habitación azul",1476
+1639,170,"habitación verde",1477
+1642,214,"habitación individual  + gastos (comunidad ya incl",1478
+1642,642,"3 habitaciones+gastos(comunidad ya incl",1479
+1642,214,"habitación individual  + gastos (comunidad ya incl",1480
+1642,642,"3 habitaciones+gastos(comunidad ya incl",1481
+1646,400,"PISO COMPLETO",1482
+1646,400,"PISO COMPLETO",1483
+1647,200,"habitacón + internet",1484
+1647,200,"habitacón + internet",1485
+1653,145,"HABITACION 1ª",1486
+1653,145,"HABITACION 2ª",1487
+1653,170,"HABITACION GRANDE",1488
+1653,145,"HABITACION 1ª",1489
+1653,145,"HABITACION 2ª",1490
+1653,170,"HABITACION GRANDE",1491
+1663,450,"PISO COMPLETO",1492
+1663,450,"PISO COMPLETO",1493
+1663,450,"PISO COMPLETO",1494
+1663,450,"PISO COMPLETO",1495
+1664,300,"H grande 5 o - meses",1496
+1664,250,"H grande 9 o + meses",1497
+1664,230,"h mediana 9 o + meses",1498
+1664,300,"H grande 5 o - meses",1499
+1664,250,"H grande 9 o + meses",1500
+1664,230,"h mediana 9 o + meses",1501
+1666,265,"Habitación",1502
+1666,265,"Habitación",1503
+1667,150,"habitacion mediana",1504
+1667,150,"habitacion mediana",1505
+1667,150,"habitacion mediana",1506
+1667,150,"habitacion mediana",1507
+1676,450,"piso",1508
+1676,450,"piso",1509
+1677,450,"piso completo reformado",1510
+1677,450,"piso completo reformado",1511
+1682,500,"Piso completo",1512
+1682,500,"Piso completo",1513
+1684,120,"habitacion",1514
+1684,120,"habitacion",1515
+1685,500,"piso",1516
+1685,170,"habitación",1517
+1685,170,"habitación",1518
+1685,500,"piso",1519
+1685,170,"habitación",1520
+1685,170,"habitación",1521
+1688,400,"vivienda",1522
+1688,400,"vivienda",1523
+1689,200,"habitacion individual",1524
+1689,200,"ha itacion individual",1525
+1689,200,"habitacion individual",1526
+1689,200,"habitacion individual",1527
+1689,200,"ha itacion individual",1528
+1689,200,"habitacion individual",1529
+1690,200,"habitacion individual",1530
+1690,200,"habitacion individual",1531
+1690,200,"habitacion individual",1532
+1690,200,"habitacion individual",1533
+1691,155,"habitación ofertada",1534
+1691,155,"habitación ofertada",1535
+1692,450,"piso completo",1536
+1692,450,"piso completo",1537
+1696,400,"PISO COMPLETO",1538
+1696,400,"PISO COMPLETO",1539
+1705,380,"VIVIENDA",1540
+1705,380,"VIVIENDA",1541
+1707,250,"habitacion1",1542
+1707,200,"habitacion 2",1543
+1708,140,"Habitación 1",1544
+1708,140,"Habitación 2",1545
+1708,140,"Habitación 1",1546
+1708,140,"Habitación 2",1547
+1710,420,"Piso completo",1548
+1710,420,"Piso completo",1549
+1711,180,"POR HABITACION",1550
+1711,180,"POR HABITACION",1551
+1713,170,"Cada habitación",1552
+1713,170,"Cada habitación",1553
+1717,175,"habitación (a mayores gastos comunes)",1554
+1717,175,"habitación (a mayores gastos comunes)",1555
+1718,170,"habitación",1556
+1718,170,"habitación",1557
+1719,500,"apartamento completo",1558
+1719,500,"apartamento completo",1559
+1723,290,"Piso completo",1560
+1723,290,"Piso completo",1561
+1724,200,"habitación",1562
+1724,200,"habitación",1563
+1731,170,"habitación grande",1564
+1731,170,"habitación grande",1565
+1734,193,"alquiler una habitacion",1566
+1734,193,"alquiler una habitacion",1567
+1747,230,"habitación grande",1568
+1747,210,"habitación mediana",1569
+1747,230,"habitación grande",1570
+1747,210,"habitación mediana",1571
+1748,490,"piso completo",1572
+1748,490,"piso completo",1573
+1750,220,"habitación sencilla",1574
+1750,220,"habitación sencilla",1575
+1752,150,"habit",1576
+1752,150,"habit",1577
+1753,190,"Habitación individual",1578
+1753,190,"Habitación individual",1579
+1754,350,"Habitacion doble",1580
+1754,300,"Habitacion single",1581
+1754,350,"Habitacion doble",1582
+1754,300,"Habitacion single",1583
+1755,325,"estudio",1584
+1755,325,"estudio",1585
+1756,500,"PISO COMPLETO",1586
+1756,500,"PISO COMPLETO",1587
+1757,155,"habitacion grande",1588
+1757,145,"habitacion mediana",1589
+1757,155,"habitacion grande",1590
+1757,145,"habitacion mediana",1591
+1758,150,"con gastos incluidos",1592
+1758,150,"con gastos incluidos",1593
+1759,425,"Piso completo ",1594
+1759,425,"Piso completo ",1595
+1760,210,"por habitacion",1596
+1760,210,"por habitacion",1597
+1761,700,"piso completo",1598
+1761,700,"piso completo",1599
+1762,175,"habitación mediana",1600
+1762,175,"habitación mediana",1601
+1763,190,"Habitación individual",1602
+1763,200,"Habitación individual grande",1603
+1763,200,"Habitación individual grande",1604
+1763,210,"Habitación individual de tamaño doble",1605
+1763,190,"Habitación individual",1606
+1763,200,"Habitación individual grande",1607
+1763,200,"Habitación individual grande",1608
+1763,210,"Habitación individual de tamaño doble",1609
+1765,365,"piso completo",1610
+1765,365,"piso completo",1611
+1766,340,"Piso completo",1612
+1766,340,"Piso completo",1613
+1767,600,"TODA LA CASA",1614
+1767,600,"TODA LA CASA",1615
+1768,180,"habitación individual",1616
+1768,180,"habitación individual",1617
+1769,660,"piso completo",1618
+1769,240,"habitación grande",1619
+1769,220,"habitación mediana",1620
+1769,200,"habitación pequeña",1621
+1769,660,"piso completo",1622
+1769,240,"habitación grande",1623
+1769,220,"habitación mediana",1624
+1769,200,"habitación pequeña",1625
+1770,425,"Alquiler mensual piso completo",1626
+1770,425,"Alquiler mensual piso completo",1627
+1771,780,"4 habitaciones",1628
+1771,780,"4 habitaciones",1629
+1772,780,"piso",1630
+1772,720,"piso completo",1631
+1772,720,"piso completo",1632
+1772,780,"piso",1633
+1772,720,"piso completo",1634
+1772,720,"piso completo",1635
+1773,165,"habitacion/mes",1636
+1773,165,"habitacion/mes",1637
+1774,300,"Piso completo. No incluye luz ni calefacción",1638
+1774,300,"Piso completo. No incluye luz ni calefacción",1639
+1775,190,"Habitación simple.",1640
+1775,190,"Habitación simple.",1641
+1776,150,"Habitación",1642
+1776,600,"piso completo",1643
+1776,150,"Habitación",1644
+1776,600,"piso completo",1645
+1777,680,"piso",1646
+1778,1,"piso completo",1647
+1778,1,"piso completo",1648
+1779,700,"piso completo",1649
+1779,700,"piso completo",1650
+1780,210,"habitacion",1651
+1780,210,"habitacion",1652
+1781,250,"habitación individual grande con garaje",1653
+1781,225,"habitación individual grande",1654
+1781,200,"habitación individual mediana con garaje",1655
+1781,175,"habitación individual mediana",1656
+1781,200,"habitación individual mediana con garaje",1657
+1781,250,"habitación individual grande con garaje",1658
+1781,225,"habitación individual grande",1659
+1781,200,"habitación individual mediana con garaje",1660
+1781,175,"habitación individual mediana",1661
+1781,200,"habitación individual mediana con garaje",1662
+1782,500,"PRECIO COMPLETO",1663
+1782,500,"PRECIO COMPLETO",1664
+1783,230,"habitacion individual",1665
+1783,230,"habitacion individual",1666
+1783,230,"habitacion individual",1667
+1783,230,"habitacion individual",1668
+1783,230,"habitacion individual",1669
+1783,230,"habitacion individual",1670
+1784,600,"todo",1671
+1784,600,"todo",1672
+1785,113," + gastos (luz, agua, teléfono, gas)",1673
+1785,113," + gastos (luz, agua, teléfono, gas)",1674
+1786,150,"+ gastos luz, gas y agua",1675
+1786,150,"+ gastos luz, gas y agua",1676
+1787,184,"Alquiler habitación",1677
+1787,184,"Alquiler habitación",1678
+1788,200,"Habitación",1679
+1789,115,"habitación individual",1680
+1789,115,"habitación individual",1681
+1790,400,"todo el piso",1682
+1790,400,"todo el piso",1683
+1791,200,"Habitación individual ",1684
+1791,200,"Habitación individual ",1685
+1792,185,"habitacion simple",1686
+1792,185,"habitacion simple",1687
+1793,220,"Habiatación individual, gastos incluidos",1688
+1793,220,"Habiatación individual, gastos incluidos",1689
+1794,230,"Cama 135cm",1690
+1794,220,"Cama 105cm",1691
+1794,210,"Cama 105cm",1692
+1794,230,"Cama 135cm",1693
+1794,220,"Cama 105cm",1694
+1794,210,"Cama 105cm",1695
+1795,250,"habitación",1696
+1795,250,"habitación",1697
+1796,220,"habitacion individual ",1698
+1796,220,"habitacion individual ",1699
+1797,1,"a",1700
+1797,1,"a",1701
+1798,220,"habitación individual",1702
+1798,220,"habitación individual",1703
+1799,370,"3 habitaciones",1704
+1799,370,"3 habitaciones",1705
+1800,360,"Piso completo",1706
+1800,360,"Piso completo",1707
+1801,550,"piso completo",1708
+1801,550,"piso completo",1709
+1802,550,"piso completo",1710
+1802,550,"piso completo",1711
+1803,260,"habitación individual",1712
+1803,280,"habitación individual",1713
+1803,260,"habitación individual",1714
+1803,280,"habitación individual",1715
+1804,500,"piso completo",1716
+1804,500,"piso completo",1717
+1805,500,"piso completo",1718
+1805,500,"piso completo",1719
+1806,750,"piso completo",1720
+1806,750,"piso completo",1721
+1807,190,"habitación mas gastos",1722
+1807,190,"habitación mas gastos",1723
+1809,450,"Piso completo",1724
+1809,450,"Piso completo",1725
+1811,160,"individual",1726
+1811,160,"individual",1727
+1812,550,"piso completo",1728
+1812,550,"piso completo",1729
+1813,130,"habitación individual",1730
+1813,150,"habitación individual",1731
+1813,130,"habitación individual",1732
+1813,150,"habitación individual",1733
+1814,500,"200 euros habitacion",1734
+1814,500,"200 euros habitacion",1735
+1815,145,"habitación sencilla",1736
+1815,145,"habitación sencilla",1737
+1816,600,"piso completo",1738
+1816,600,"piso completo",1739
+1817,450,"vivienda completa",1740
+1817,450,"vivienda completa",1741
+1818,200,"habitación",1742
+1818,200,"habitación",1743
+1819,400,"PISO COMPLETO",1744
+1819,400,"PISO COMPLETO",1745
+1820,680,"todo el piso",1746
+1820,680,"todo el piso",1747
+1821,150,"Habitación",1748
+1821,150,"Habitación",1749
+1822,400,"3 habitaciones",1750
+1822,400,"3 habitaciones",1751
+1824,150,"habitación individual",1752
+1824,150,"habitación individual",1753
+1825,187,"HABITACIÓN INDIVIDUAL",1754
+1825,187,"HABITACIÓN INDIVIDUAL",1755
+1826,210,"Habitación",1756
+1826,210,"Habitación",1757
+1827,160,"habitación individual",1758
+1827,160,"habitación individual",1759
+1828,400,"PISO COMPLETO 4 HABITACIONES",1760
+1828,400,"PISO COMPLETO 4 HABITACIONES",1761
+1829,600,"PISO COMPLETO",1762
+1829,600,"PISO COMPLETO",1763
+1830,450,"piso completo",1764
+1830,450,"piso completo",1765
+1831,190,"habitación individual",1766
+1831,190,"habitación individual",1767
+1832,390,"porvenir 4 hab exterio 2ºd",1768
+1832,390,"porvenir 4 hab exterio 2ºd",1769
+1833,600,"Piso entero con comunidad y calefacción ",1770
+1833,600,"Piso entero con comunidad y calefacción ",1771
+1834,180,"euros mes por habitación",1772
+1834,180,"euros mes por habitación",1773
+1835,520,"piso completo",1774
+1835,520,"piso completo",1775
+1836,150,"habitacion individual",1776
+1836,150,"habitacion individual",1777
+1837,180,"habitacion",1778
+1837,180,"habitacion",1779
+1838,220,"habitación doble",1780
+1838,660,"piso completo",1781
+1838,220,"habitación doble",1782
+1838,660,"piso completo",1783
+1839,600,"Piso Completo",1784
+1839,600,"Piso Completo",1785
+1840,175,"Habitación pequeña",1786
+1840,185,"Habitación media",1787
+1840,195,"Habitación grande",1788
+1840,175,"Habitación pequeña",1789
+1840,185,"Habitación media",1790
+1840,195,"Habitación grande",1791
+1841,197,"Habitación media con internet",1792
+1841,204,"Habitación grande con internet",1793
+1841,184,"Habitación pequeña con internet",1794
+1841,197,"Habitación media con internet",1795
+1841,204,"Habitación grande con internet",1796
+1841,184,"Habitación pequeña con internet",1797
+1842,1350,"Todo el chalet",1798
+1842,225,"Habitación indibidual",1799
+1842,1350,"Todo el chalet",1800
+1842,225,"Habitación indibidual",1801
+1843,200,"habitación individual",1802
+1843,200,"habitación individual",1803
+1844,150,"una habitacion",1804
+1844,150,"una habitacion",1805
+1845,450,"piso completo",1806
+1845,450,"piso completo",1807
+1847,400,"Mas gastos: agua, luz y gas.",1808
+1847,400,"Mas gastos: agua, luz y gas.",1809
+1848,180,"Habitacion",1810
+1848,720,"Piso completo ",1811
+1848,185,"Habitacion",1812
+1849,600,"Piso completo, sin comunidad",1813
+1849,600,"Piso completo, sin comunidad",1814
+1850,120,"habitación",1815
+1850,120,"habitación",1816
+1851,200,"habitacion individual con derecho a toda la casa",1817
+1851,200,"habitacion individual con derecho a toda la casa",1818
+1852,475,"piso completo",1819
+1852,475,"piso completo",1820
+1854,680,"Piso completo",1821
+1854,680,"Piso completo",1822
+1855,170,"Habitacion individual",1823
+1855,170,"Habitacion individual",1824
+1856,580,"piso completo",1825
+1856,580,"piso completo",1826
+1857,130,"habitación individual",1827
+1857,130,"habitación individual",1828
+1858,800,"piso completo",1829
+1858,800,"piso completo",1830
+1859,200,"Habitación completamente amueblada.",1831
+1859,200,"habitación individual amueblada",1832
+1859,200,"Habitación completamente amueblada.",1833
+1859,200,"habitación individual amueblada",1834
+1860,178,"habitación",1835
+1860,178,"habitación",1836
+1861,500,"Alquiler piso completo",1837
+1861,500,"Alquiler piso completo",1838
+1862,450,"Tres habitaciones",1839
+1862,450,"Tres habitaciones",1840
+1863,350,"PORVENIR 4 3ºC",1841
+1863,350,"PORVENIR 4 3ºC",1842
+1864,590,"piso completo de 3 habitaciones",1843
+1864,590,"piso completo de 3 habitaciones",1844
+1865,600,"Piso completo",1845
+1865,600,"Piso completo",1846
+1866,200,"Habitación grande",1847
+1866,150,"C/habitación pequeña",1848
+1866,200,"Habitación grande",1849
+1866,150,"C/habitación pequeña",1850
+1867,325,"todo el piso",1851
+1867,325,"todo el piso",1852
+1868,645,"PISO COMPLETO",1853
+1868,645,"PISO COMPLETO",1854
+1868,645,"PISO COMPLETO",1855
+1868,645,"PISO COMPLETO",1856
+1869,190,"Habitacion",1857
+1869,190,"Habitacion",1858
+1870,160,"UNA HABITACION",1859
+1870,160,"UNA HABITACION",1860
+1870,160,"UNA HABITACION",1861
+1871,200,"habitación individual",1862
+1871,200,"habitación individual",1863
+1872,180,"habitación ",1864
+1872,720,"piso completo",1865
+1872,180,"habitación ",1866
+1872,720,"piso completo",1867
+1873,400,"Piso completo",1868
+1873,400,"Piso completo",1869
+1873,400,"Piso completo",1870
+1873,400,"Piso completo",1871
+1874,375,"piso",1872
+1874,125,"habitación",1873
+1874,375,"piso",1874
+1874,125,"habitación",1875
+1875,135,"habitación individual ",1876
+1875,135,"habitación individual ",1877
+1876,500,"piso",1878
+1876,500,"piso",1879
+1877,350,"piso completo",1880
+1877,350,"piso completo",1881
+1878,400,"Piso completo",1882
+1878,400,"Piso completo",1883
+1879,400,"apartamento",1884
+1879,400,"apartamento",1885
+1880,450,"El piso entero",1886
+1880,150,"cada habitación",1887
+1880,450,"El piso entero",1888
+1880,150,"cada habitación",1889
+1881,400,"piso",1890
+1881,400,"piso",1891
+1882,210,"Habitación individual",1892
+1882,210,"Habitación individual",1893
+1883,210,"habitacion",1894
+1883,210,"habitacion",1895
+1885,1200,"chalé completo",1896
+1885,800,"dos habitaciones ",1897
+1885,1200,"chalé completo",1898
+1885,800,"dos habitaciones ",1899
+1886,500,"habitacion individual",1900
+1886,500,"habitacion individual",1901
+1887,400,"todo el piso, comunjidad incluida",1902
+1887,400,"todo el piso, comunjidad incluida",1903
+1888,600,"piso completo",1904
+1888,600,"piso completo",1905
+1889,130,"1 habitación pequeña",1906
+1889,160,"3 habitaciones grandes",1907
+1889,130,"1 habitación pequeña",1908
+1889,160,"3 habitaciones grandes",1909
+1890,340,"COMPLETE FLAT",1910
+1890,340,"COMPLETE FLAT",1911
+1891,180,"habitación ",1912
+1891,180,"habitación ",1913
+1892,125,"habitación individual",1914
+1892,125,"habitación individual",1915
+1893,175,"habitacion amplia individual",1916
+1893,175,"habitacion amplia individual",1917
+1894,175,"alquiler y comunidad incluida",1918
+1894,175,"alquiler y comunidad incluida",1919
+1895,135,"1 HABITACIÓN",1920
+1895,135,"1 HABITACIÓN",1921
+1896,550,"piso 3 habitaciones y salón",1922
+1896,550,"piso 3 habitaciones y salón",1923
+1897,550,"todo el piso",1924
+1897,550,"todo el piso",1925
+1898,275,"D2 Hab Grande Sin Arm. Empotrado",1926
+1898,300,"D1 Hab Grande con Arm. Empotrado",1927
+1898,950,"Piso Completo",1928
+1898,200,"D3 Hab Pq con Arm. Empotrado",1929
+1898,175,"D4 Hab. Pq sin Arm Empotrado",1930
+1898,275,"D2 Hab Grande Sin Arm. Empotrado",1931
+1898,300,"D1 Hab Grande con Arm. Empotrado",1932
+1898,950,"Piso Completo",1933
+1898,200,"D3 Hab Pq con Arm. Empotrado",1934
+1898,175,"D4 Hab. Pq sin Arm Empotrado",1935
+1899,180,"habitación individual",1936
+1899,180,"habitación individual",1937
+1899,180,"habitación individual",1938
+1899,180,"habitación individual",1939
+1899,180,"habitación individual",1940
+1899,180,"habitación individual",1941
+1899,180,"habitación individual",1942
+1899,180,"habitación individual",1943
+1900,220,"habitaión y calefacción central",1944
+1900,220,"habitaión y calefacción central",1945
+1902,250,"por persona",1946
+1902,250,"por persona",1947
+1903,450,"PISO COMPLETO",1948
+1903,150,"HABITACION",1949
+1903,450,"PISO COMPLETO",1950
+1903,150,"HABITACION",1951
+1904,540,"PISO COMPLETO",1952
+1904,185,"POR HABITACION ",1953
+1904,540,"PISO COMPLETO",1954
+1904,185,"POR HABITACION ",1955
+1905,210,"habitacion verde (gastos a parte)",1956
+1905,220,"habitacion naranja (gastos a parte)",1957
+1905,210,"habitacion verde (gastos a parte)",1958
+1905,220,"habitacion naranja (gastos a parte)",1959
+1906,170,"habitación individual",1960
+1906,170,"habitación individual",1961
+1907,600,"165 por habitación",1962
+1907,600,"165 por habitación",1963
+1908,400,"piso completo 2 habitaciones",1964
+1908,400,"piso completo 2 habitaciones",1965
+1909,500,"Habitación y Pensión Completa con todos los gastos",1966
+1909,500,"Habitación y Pensión Completa con todos los gastos",1967
+1910,475,"Piso completo",1968
+1910,475,"Piso completo",1969
+1911,460,"piso completo",1970
+1911,460,"piso completo",1971
+1912,370,"piso completo",1972
+1912,370,"piso completo",1973
+1913,1,"hab",1974
+1913,1,"hab",1975
+1914,130,"Mes",1976
+1914,130,"Mes",1977
+1915,164,"Habitación",1978
+1915,164,"Habitación",1979
+1916,170,"HABITACION CON TERRAZA CERRADA",1980
+1916,160,"UNA HABITACION",1981
+1917,450,"piso completo",1982
+1917,200,"habitación 2",1983
+1917,220,"habitación 1",1984
+1917,180,"habitación 3",1985
+1917,450,"piso completo",1986
+1917,200,"habitación 2",1987
+1917,220,"habitación 1",1988
+1917,180,"habitación 3",1989
+1918,210,"habitaciones grandes",1990
+1918,800,"piso completo",1991
+1918,200,"habitaciones pequeñas",1992
+1918,210,"habitaciones grandes",1993
+1918,800,"piso completo",1994
+1918,200,"habitaciones pequeñas",1995
+1919,120,"habitación individual",1996
+1919,120,"habitación individual",1997
+1920,160,"HABITACION INDIVIDUAL",1998
+1920,160,"HABITACION INDIVIDUAL",1999
+1923,550,"PISO COMPLETO",2000
+1923,550,"PISO COMPLETO",2001
+1923,550,"PISO COMPLETO",2002
+1923,550,"PISO COMPLETO",2003
+1923,550,"PISO COMPLETO",2004
+1923,550,"PISO COMPLETO",2005
+1924,480,"Piso completo",2006
+1924,480,"Piso completo",2007
+1925,420,"piso completo",2008
+1925,420,"piso completo",2009
+1926,150,"habitación individual",2010
+1926,150,"habitación individual",2011
+1927,350,"casa completa (si se alquila 1 habitación)",2012
+1927,150,"cada habitacion si se alquilan las 3 habitaciones",2013
+1927,175,"cada habitación, si se alquilan 2 habitaciones",2014
+1927,350,"casa completa (si se alquila 1 habitación)",2015
+1927,150,"cada habitacion si se alquilan las 3 habitaciones",2016
+1927,175,"cada habitación, si se alquilan 2 habitaciones",2017
+1928,150,"habitación",2018
+1928,500,"piso completo",2019
+1928,150,"habitación",2020
+1928,500,"piso completo",2021
+1929,430,"Apartemento+garaje",2022
+1929,430,"Apartemento+garaje",2023
+1930,190,"HABITACION INDIVIDUAL",2024
+1930,190,"HABITACION INDIVIDUAL",2025
+1932,160,"habitacion",2026
+1932,160,"habitacion",2027
+1933,300,"Habitación con baño",2028
+1933,300,"Habitación con baño",2029
+1933,250,"Habitación grande",2030
+1933,250,"Habitación grande",2031
+1933,150,"Habitación pequeña",2032
+1933,300,"Habitación con baño",2033
+1933,300,"Habitación con baño",2034
+1933,300,"Habitación con baño",2035
+1933,250,"Habitación grande",2036
+1933,250,"Habitación grande",2037
+1933,150,"Habitación pequeña",2038
+1933,300,"Habitación con baño",2039
+1934,190,"Habitacion Individual",2040
+1934,190,"Habitacion Individual",2041
+1935,220,"Habitación ind cama 135",2042
+1935,200,"Habitacion ind cama 90*200",2043
+1935,220,"Habitación ind cama 135",2044
+1935,200,"Habitacion ind cama 90*200",2045
+1936,580,"piso completo",2046
+1936,580,"piso completo",2047
+1937,190,"habitacion individual",2048
+1937,190,"habitacion individual",2049
+1938,170,"Habitación",2050
+1938,170,"Habitación",2051
+1939,165,"Habitación individual, gastos a parte",2052
+1939,165,"Habitación individual, gastos a parte",2053
+1941,180,"cada habitación",2054
+1941,540,"piso completo + cochera + trastero",2055
+1941,180,"cada habitación",2056
+1941,540,"piso completo + cochera + trastero",2057
+1942,200,"Habitacion",2058
+1942,200,"Habitacion",2059
+1943,133,"habitación individual",2060
+1943,133,"habitación individual",2061
+1944,200,"habitacion individual",2062
+1944,200,"habitacion individual",2063
+1947,150,"habitacion pequeña",2064
+1947,165,"habitacion grande",2065
+1947,150,"habitacion pequeña",2066
+1947,165,"habitacion grande",2067
+1949,125,"HABITACIÓN INDIVIDUAL",2068
+1949,125,"HABITACIÓN INDIVIDUAL",2069
+1950,250,"habitación",2070
+1950,250,"habitación",2071
+1950,250,"habitacion individual",2072
+1950,250,"habitación",2073
+1950,250,"habitación",2074
+1950,250,"habitacion individual",2075
+1951,180,"habitacion:11m/2",2076
+1951,180,"habitacion:11m/2",2077
+1952,255,"habitación doble",2078
+1952,255,"Mágnifica habitación individual",2079
+1952,255,"habitación doble",2080
+1953,650,"Piso completo",2081
+1953,650,"Piso completo",2082
+1954,510,"piso completo",2083
+1954,510,"piso completo",2084
+1955,500,"piso ",2085
+1955,180,"HABITACIÓN CAMA 135 ",2086
+1955,160,"HABITACION CAMA 90 ",2087
+1955,160,"HABITACION CAMA 90 ",2088
+1955,500,"piso ",2089
+1955,180,"HABITACIÓN CAMA 135 ",2090
+1955,160,"HABITACION CAMA 90 ",2091
+1955,160,"HABITACION CAMA 90 ",2092
+1956,465,"Piso completo",2093
+1956,465,"Piso completo",2094
+1957,260,"habitación mediana",2095
+1957,290,"habitación grande",2096
+1957,290,"habitacion grande",2097
+1957,260,"habitacion mediana",2098
+1957,260,"habitación mediana",2099
+1957,290,"habitación grande",2100
+1957,290,"habitacion grande",2101
+1957,260,"habitacion mediana",2102
+1958,180,"todas las habitaciones",2103
+1958,180,"habitación 1 persona",2104
+1958,180,"habitación 1 persona",2105
+1958,180,"todas las habitaciones",2106
+1958,180,"habitación 1 persona",2107
+1958,180,"habitación 1 persona",2108
+1959,6666,"hab",2109
+1959,6666,"hab",2110
+1960,740,"piso completo",2111
+1960,185,"habitación",2112
+1960,740,"piso completo",2113
+1960,185,"habitación",2114
+1961,200,"habitación grande",2115
+1961,210,"Habitaciones normales ",2116
+1961,210,"Habitaciones normales ",2117
+1962,225,"habitacion individual",2118
+1962,225,"habitacion individual",2119
+1963,225,"habitación individual",2120
+1963,225,"habitación individual",2121
+1964,435,"piso completo",2122
+1964,435,"piso completo",2123
+1965,500,"piso",2124
+1965,500,"piso",2125
+1966,850,"piso completo",2126
+1966,850,"piso completo",2127
+1967,120,"habitación simple",2128
+1967,120,"habitación simple",2129
+1968,150,"Habitación individual",2130
+1968,150,"Habitación individual",2131
+1970,450,"piso completo",2132
+1970,450,"piso completo",2133
+1971,420,"TODA LA CASA",2134
+1971,420,"TODA LA CASA",2135
+1972,550,"PISO",2136
+1972,185,"dormitorio",2137
+1973,125,"una habitación",2138
+1973,125,"una habitación",2139
+1974,550,"piso completo",2140
+1974,550,"piso completo",2141
+1975,490,"Por todo el Piso",2142
+1975,490,"Por todo el Piso",2143
+1976,150,"habitación individual",2144
+1976,150,"habitación individual",2145
+1977,170,"habitacion",2146
+1977,170,"habitacion",2147
+1978,850,"PISO",2148
+1978,850,"PISO",2149
+1979,500,"piso completo",2150
+1979,160,"habitación individual",2151
+1979,220,"habitación doble",2152
+1979,500,"piso completo",2153
+1979,160,"habitación individual",2154
+1979,220,"habitación doble",2155
+1980,225,"una habitación",2156
+1980,225,"una habitación",2157
+1981,180,"habitación",2158
+1981,700,"piso completo",2159
+1981,180,"habitación",2160
+1981,700,"piso completo",2161
+1982,555,"piso completo",2162
+1982,555,"piso completo",2163
+1983,150,"por habitación",2164
+1983,150,"por habitación",2165
+1984,250,"Habitación principal de la casa",2166
+1984,250,"Habitación principal de la casa",2167
+1985,550,"PISO COMPLETO",2168
+1985,550,"PISO COMPLETO",2169
+1987,120,"Comunidad",2170
+1987,600,"Alquiler",2171
+1987,180,"habitación individual",2172
+1987,120,"Comunidad",2173
+1987,600,"Alquiler",2174
+1987,180,"habitación individual",2175
+1988,150,"habitación indiviual",2176
+1988,150,"habitación indiviual",2177
+1989,188,"habitación",2178
+1989,188,"habitación",2179
+1990,550,"piso completo",2180
+1990,550,"piso completo",2181
+1991,350,"una habitación",2182
+1991,650,"piso completo",2183
+1991,350,"una habitación",2184
+1991,650,"piso completo",2185
+1992,345,"Piso completo",2186
+1992,345,"Piso completo",2187
+1994,180,"habitación individual",2188
+1994,180,"habitación individual",2189
+1995,420,"apartamento ",2190
+1995,420,"apartamento ",2191
+1996,550,"piso completo",2192
+1996,550,"piso completo",2193
+1997,480,"PISO COMPLETO",2194
+1997,480,"PISO COMPLETO",2195
+1998,450,"Todo el piso",2196
+1998,450,"Todo el piso",2197
+1999,420,"habitacion individual gastos incluidos",2198
+1999,460,"habitacion doble gastos incluidos",2199
+1999,420,"habitacion individual gastos incluidos",2200
+1999,460,"habitacion doble gastos incluidos",2201
+2000,500,"Todo el piso",2202
+2000,500,"Todo el piso",2203
+2001,130,"habitación individual",2204
+2001,130,"habitación individual",2205
+2002,220,"Habitación individual",2206
+2002,220,"Habitación individual",2207
+2004,660,"piso completo",2208
+2005,130,"1 habitación",2209
+2005,130,"1 habitación",2210
+2006,450,"piso",2211
+2006,450,"piso",2212
+2007,150,"Habitacion individual",2213
+2007,150,"Habitacion individual",2214
+2008,200,"Habitación individual. Comunidad Incluida",2215
+2008,600,"Piso completo. Comunidad Incluida",2216
+2008,200,"Habitación individual. Comunidad Incluida",2217
+2008,600,"Piso completo. Comunidad Incluida",2218
+2009,480,"PISO COMPLETO",2219
+2009,480,"PISO COMPLETO",2220
+2010,350,"Habitación cama grande todo incluido",2221
+2010,350,"Habitación cama grande todo incluido",2222
+2011,400,"Piso completo ",2223
+2011,400,"Piso completo ",2224
+2012,300,"ESTUDIO",2225
+2012,300,"ESTUDIO",2226
+2013,650,"Piso Completo",2227
+2013,650,"Piso Completo",2228
+2014,750,"Piso",2229
+2014,750,"Piso",2230
+2015,180,"Habitación y zonas comunes",2231
+2015,602,"Piso completo (4 hab) no incluye comunidad",2232
+2016,190,"Habitación",2233
+2016,190,"Habitación",2234
+2017,210,"habitación doble",2235
+2017,190,"habitación doble",2236
+2017,210,"habitación doble",2237
+2017,190,"habitación doble",2238
+2018,280,"Habitación individual gastos incluidos ",2239
+2018,280,"Habitación individual gastos incluidos ",2240
+2019,400,"Piso Completo(3 dormitorios,amplio Salón...)",2241
+2019,400,"Piso Completo(3 dormitorios,amplio Salón...)",2242
+2020,623,"500 de alquiler y 123 de comunidad ",2243
+2020,623,"500 de alquiler y 123 de comunidad ",2244
+2021,155,"habitacion mediana",2245
+2021,155,"habitacion mediana",2246
+2021,155,"habitacion mediana",2247
+2021,155,"habitacion mediana",2248
+2022,640,"piso ",2249
+2022,640,"piso ",2250
+2023,398,"Completo",2251
+2023,398,"Completo",2252
+2024,300,"habitación individual",2253
+2024,300,"habitación individual",2254
+2025,220,"habitación individual",2255
+2025,220,"habitación individual",2256
+2026,240,"habitación individual",2257
+2026,240,"habitación individual",2258
+2027,185,"Habitación",2259
+2027,185,"Habitación",2260
+2027,185,"Habitación",2261
+2027,185,"Habitación",2262
+2028,470,"PISO COMPLETO",2263
+2028,470,"PISO COMPLETO",2264
+2029,225,"habitacion individual para chicas",2265
+2029,225,"habitacion individual para chicas",2266
+2030,900,"Ocupado",2267
+2030,900,"Ocupado",2268
+2031,595,"PISO COMPLETO",2269
+2031,595,"PISO COMPLETO",2270
+2032,200,"Habitación",2271
+2032,200,"Habitación",2272
+2033,185,"Habitación 4",2273
+2033,165,"Habitación 2",2274
+2033,200,"Habitación 1",2275
+2033,200,"Habitación 1",2276
+2034,450,"Todo el piso",2277
+2034,450,"Todo el piso",2278
+2035,135,"Habitacion individual",2279
+2035,135,"Habitacion individual",2280
+2036,145,"por habitación /mes",2281
+2036,145,"por habitación /mes",2282
+2037,160,"habitación normal",2283
+2037,180,"habitación doble",2284
+2037,480,"Vivienda completa",2285
+2037,460,"Vivienda completa",2286
+2038,250,"Alquiler Habitacion Individual con derecho a cocin",2287
+2038,250,"Habitación Individual",2288
+2038,250,"Alquiler Habitacion Individual con derecho a cocin",2289
+2038,250,"Habitación Individual",2290
+2039,175,"individual",2291
+2039,175,"individual",2292
+2040,500,"Piso completo",2293
+2040,500,"Piso completo",2294
+2041,450,"piso completo",2295
+2041,450,"piso completo",2296
+2042,150,"Habitación con vistas a la calle Lepanto",2297
+2042,140,"Habitación con vistas al patio",2298
+2042,120,"Habitación pequeña",2299
+2042,150,"Habitación con vistas a la calle Lepanto",2300
+2042,140,"Habitación con vistas al patio",2301
+2042,120,"Habitación pequeña",2302
+2043,450,"Piso completo",2303
+2043,450,"Piso completo",2304
+2044,170,"HABITACION INDIVIDUAL, GASTOS COMPARTIDOS ",2305
+2044,170,"HABITACION INDIVIDUAL, GASTOS COMPARTIDOS ",2306
+2045,400,"piso completo",2307
+2045,400,"piso completo",2308
+2046,150,"habitacion individual",2309
+2046,150,"habitacion individual",2310
+2047,780,"piso completo",2311
+2047,780,"piso completo",2312
+2047,780,"piso completo",2313
+2047,780,"piso completo",2314
+2048,200,"habitacion individual",2315
+2048,200,"habitacion individual",2316
+2049,450,"habitación",2317
+2049,450,"habitación",2318
+2050,460,"3 Habitaciones",2319
+2051,1,"otros",2320
+2052,525,"PISO ENTERO",2321
+2053,495,"PISO ENTERO",2322
+2054,130,"habitación 1",2323
+2055,390,"Piso completo al mes",2324
+2056,420,"Piso completo al mes",2325
+2057,540,"Piso completo",2326
+2058,180,"Habitación individual",2327
+2059,150,"Habitación individual",2328
+2060,170,"habitación individual",2329
+2061,480,"Piso completo",2330
+2062,490,"Piso",2331
+2062,490,"Piso",2332
+2063,200,"por habitación",2333
+2063,600,"piso",2334
+2064,225,"Habitación",2335
+2065,750,"Piso completo 3 habitaciones 2 baños",2336
+2066,220,"habitación individual",2337
+2066,450,"piso completo",2338
+2067,175,"habitación grande",2339
+2068,540,"Todo el piso (las 3 habitaciones)",2340
+2069,200,"habitación ",2341
+2071,190,"Habitacion",2342
+2071,570,"Piso completo",2343
+2072,100,"habitacion",2344
+2073,185,"habitación individual",2345
+2074,180,"Habitacion simple",2346
+2074,180,"Habitaciones simple",2347
+2075,130,"Poe habitación, 550€ en total a dividir los q seam",2348
+2076,200,"Una habitación ",2349
+2079,192,"Habitación individual",2350
+2080,1000,"Piso completo, 4 habitaciones",2351
+2081,550,"Piso completo",2352
+2083,185,"Habitación individual",2353
+2084,200,"Habitación 2",2354
+2084,200,"Habitación 1",2355
+2084,225,"Habitación principal",2356
+2085,200,"Habitación 1",2357
+2085,200,"Habitación 2",2358
+2085,225,"Habitación principal",2359
+2086,201,"Habitación",2360
+2086,200,"Habitación, 2.000 al año, regalo dos meses. ",2361
+2087,550,"Piso completo",2362
+2088,540,"Completo",2363
+2090,175,"Habitación",2364
+2090,175,"Habitación",2365
+2090,175,"Habitación",2366
+2091,350,"Piso completo",2367
+2092,864,"Piso completo",2368
+2093,225,"Habitación y acceso a todo el piso",2369
+2094,500,"habitación y pensión completa ",2370
+2095,400,"PISO COMPLETO",2371
+2096,900,"piso completo",2372
+2097,400,"Piso entero",2373
+2097,180,"habitación",2374
+2099,220,"habitación individual",2375
+2100,170,"habitación individual",2376
+2101,450,"Casa",2377
+2102,620,"PISO COMPLETO (COMUNIDAD Y CALEFACCION INCLUIDA)",2378
+2103,600,"piso completo",2379
+2104,225,"habitacion",2380
+2104,225,"habitación",2381
+2105,525,"alquiler ( aparte consumo de luz y agua)",2382
+2106,420,"PISO ENTERO",2383
+2106,420,"PISO ENTERO",2384
+2107,240,"Habitación individual con terraza",2385
+2107,200,"Habitación individual",2386
+2108,602,"Piso completo (4 hab)",2387
+2109,160,"Habitación individual",2388
+2110,175,"habitación individual",2389
+2111,540,"PISO COMPLETO",2390
+2111,540,"PISO COMPLETO",2391
+2112,250,"habitación doble",2392
