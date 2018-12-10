@@ -639,3 +639,131 @@ comentario: (string)
 - SALIDA
 
 Si no hay JSON se va al inmueble si hay JSON se envia solo los comentarios.
+
+## PRINCIPAL.PHP
+
+Este controlador es para la pagina principal de cuando se entra en el sitio. Contiene todo lo necesario para que funcione. Esta depreciado al haber pasado todo a React.
+
+### function index()
+
+Metodo de entrada a la web. Se sigue usando aunque se puede liberar todas las consultas a la base de datos porque no se estan usando.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+La vista principal.
+
+### function barrios()
+
+Depreciado. Metodo que saca los barrios y muestra los inmuebles que pertenezcan a un barrio determinado.
+
+- ENTRADA
+
+id: id del barrio (number)
+
+- SALIDA
+
+Resultados de la busqueda (la vista)
+
+### function ciudades()
+
+Depreciado. Metodo que saca los inmuebles de una ciudad determinada.
+
+- ENTRADA
+
+id: id de la ciudad/localizacion (number)
+
+- SALIDA
+
+Resultados de la busqueda (la vista)
+
+### function rss()
+
+No se usa. Este metodo sirve para mostrar unas RSS de los ultimos 10 pisos, pero al final, por temas de privacidad y que se muestre o no, no se usa para nada.
+
+### function haz_login()
+
+Metodo que abre la pagina donde se hace login, le da igual todo y te envia ahi.
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+La vista del login.
+
+### function login()
+
+Metodo para hacer el login de usuario, ya sea UVa o de fuera. Al final vuelve a la principal con las cookies, el SSO y lo que haga falta. Vamos es lo que discrimina si es UVa o no.
+
+- ENTRADA
+
+uva: (boolean)
+
+- SALIDA
+
+La vista correspondiente, o el SSO o el login este.
+
+### function alta_nueva()
+
+Metodo que da de alta un usuario no UVa. El password deberia estar en MD5.
+
+- ENTRADA (POST)
+
+nombre: (string)
+apellidos: (string)
+login: (string)
+password: (string)
+direccion: (string)
+tlf: (number)
+email: (string)
+dni: (string)
+ok: (boolean)
+
+- SALIDA
+
+La vista de que ha terminado de añadir un usuario.
+
+### function logout()
+
+Metodo de hacer logout, que elimina cookies, sesiones te envia al SSO, lo que haga falta.
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+La URL de entrada.
+
+### function vermisdatos()
+
+Metodo para ver los datos de un usuario (solo lo hace el propio usuario).
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+La vista de los datos del usuario para que las pueda modificar.
+
+### function letranif($dni)
+
+Metodo privado para comprobar si un DNI es el correcto. Devuelve la letra de un numero del DNI
+
+- ENTRADA
+
+dni: (string)
+
+- SALIDA
+
+(string) la letra
+
+### function revisaSiEstaLogueado($id, $uniqid)
+
+No usado.

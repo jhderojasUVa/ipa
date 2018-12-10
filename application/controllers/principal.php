@@ -78,10 +78,13 @@ class Principal extends CI_Controller {
 			// Si no es admin
 			// Pintamos la pagina de arriba a abajo
 			// Primero la oferta de pisos con imagenes, que son 5
+
+			/* COMENTADO PORQUE NO SE NECESITAN YA
 			$datos["pisos"] = $this -> pisos_model -> muestra_5_imagenes_piso();
 			$datos["ultimos_6"] = $this -> pisos_model -> muestra_ultimos_pisos(6);
 			$datos["barrios"] = $this -> barrios_model -> barrios_con_pisos();
 			$datos["ciudades"] = $this -> localizaciones_model -> mostrar_localizaciones_pisos();
+			*/
 
 			$this -> load -> view("cabecera", $datos);
 			$this -> load -> view("index", $datos);
@@ -323,7 +326,7 @@ class Principal extends CI_Controller {
 		// Comprobaciones anteriores a todo, antes en JS ahora en PHP
 		$ok = 1;
 
-		if ($email!="" && $login!="") {
+		if ($email != "" && $login != "") {
 
 			// Comprobamos que no nos la quiere meter doblada en el correo
 			if ($this -> usuarios_model -> comprueba_mail($email) == true) {
@@ -338,7 +341,7 @@ class Principal extends CI_Controller {
 				$mas_login = $this -> usuarios_model -> variantes_usuario($login, 5);
 				// Montamos el error
 				$datos["errores"] .= "<li>El nombre de usuario ya esta en uso. Puede probar con los siguientes:";
-				for ($aux=0; $aux<count($datos["mas_login"]); $aux++) {
+				for ($aux = 0; $aux < count($datos["mas_login"]); $aux++) {
 					if ($aux == count($datos["mas_login"] - 1)){
 						// Poner un punto al final, nunca esta de mas
 						$datos["errores"] .= " ".$mas_login[$aux].".";
@@ -358,7 +361,7 @@ class Principal extends CI_Controller {
 		}
 
 
-		if ($this -> input -> post("ok")==1 && $ok == 1) {
+		if ($this -> input -> post("ok") == 1 && $ok == 1) {
 			// Ahora lo metemos en la bd
 			$this -> usuarios_model -> add_usuario($nombre, $apellidos, $login, $password, $direccion, $tlf, $email, $dni);
 
