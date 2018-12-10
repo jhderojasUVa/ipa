@@ -767,3 +767,15 @@ dni: (string)
 ### function revisaSiEstaLogueado($id, $uniqid)
 
 No usado.
+
+## RSS.PHP
+
+Este controlador era, como su nombre indica, para generar las RSS y "controlar" las RSS. Pero, como no se usa, no sirve, no vale, por cuestiones de privacidad de los inmuebles, pues no se usa y punto redondo.
+
+## WS.PHP
+
+En principio este controlador era para los Web Services, pero se ha ido delegando su funcion al resto. Al final quedo en que no se usa en la version 2 en adelante debido a que hay que pagar para usar la API.
+
+### function gps_pisos()
+
+Metodo croneado (osea metido en el cron) que añade las coordenadas GPS de cada inmueble para que (recordad que ya no se usa) el GMAPS sea capaz de localizarlo sencillamente.
