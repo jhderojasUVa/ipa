@@ -812,13 +812,14 @@ class Paso3 extends React.Component {
     this.forceUpdate();
   }
 
-  handleDeleteFile(imagen, descripcion, event) {
+  handleDeleteFile(imagen, descripcion, orden, event) {
     // Esto elimina la imagen
 
     // Creamos el formData
     var formDataModify = new FormData();
     // Lo damos de comer
     formDataModify.append('idpiso', datos.id);
+    formDataModify.append('orden', orden)
     formDataModify.append('imagen_borrar', imagen);
     formDataModigy.append('descripcion_borrar', descripcion);
     formDataModify.append('ws', 'json');
@@ -875,7 +876,7 @@ class Paso3 extends React.Component {
                 <div id="formularios_img">
                   <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) - 1, item.orden)} className="button tiny" role="link"><i className="fi-arrow-left"></i></a>&nbsp;
                   <a onClick={this.handleChangeOrder.bind(this, item.imagen, parseInt(item.orden) + 1, item.orden)} className="button tiny" role="link"><i className="fi-arrow-right"></i></a>&nbsp;
-                  <a onClick={this.handleDeleteFile.bind(this, item.imagen, item.descripcion)} className="button tiny" role="link"><i className="fi-x"></i></a>
+                  <a onClick={this.handleDeleteFile.bind(this, item.imagen, item.descripcion, item.orden)} className="button tiny" role="link"><i className="fi-x"></i></a>
                   <div id="clear"></div>
                 </div>
               </div>

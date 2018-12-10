@@ -479,3 +479,163 @@ id: id del piso (number)
 - SALIDA
 
 Vista del piso o el JSON correspondiente.
+
+### function spam()
+
+Metodo para añadir una denuncia a un comentario determinado.
+
+- ENTRADA (GET)
+
+idspam: identificador del comentario (number)
+
+- SALIDA
+
+La pagina de la vista estandar del piso y su contenido.
+
+### function showaddpiso1()
+
+Depreciada. Metodo para ver el incorporar los datos primarios de un piso. Ahora con el componente en React ya no se usa.
+
+- ENTRADA
+
+Ninguna
+
+- SALIDA
+
+Vista del primer paso de añadir un piso.
+
+### function addpiso1()
+
+Depreciada. Metodo para incorporar o editar los datos primarios de un piso. Ahora con el componente en React ya no se usa.
+
+- ENTRADA (POST)
+
+contenido: elemento|elemento|elemento (string)
+descripcion: (string)
+calle: (string)
+numero: (string)
+piso: (string) A = atico, B = bajo sino el numero de altura
+letra: (string)
+cp: (string)
+idbarrio: (number)
+idlocalidad: (number)
+tlf: (string)
+libre: (boolean)
+edicion: para saber si esta editando o no (boolean)
+
+- SALIDA
+
+Vista del segundo paso de añadir un piso.
+
+### function addpiso2($ws = null)
+
+Depreciada. Metodo para incorporar o editar los datos de los dineros por habitacion de un piso. Ahora con el componente en React ya no se usa.
+
+- ENTRADA (POST/GET)
+
+idpiso: id del piso (number)
+precio: (number)
+descripcion: (string)
+
+- SALIDA
+
+Vista del segundo paso de añadir un piso para que, si quiera, pueda meter mas dineros.
+
+### function borra_precio($ws = null)
+
+Metodo para eliminar un precio especifico. Creo que esta depreciado porque en React, se eliminan todos los precios y se vuelven a añadir.
+
+- ENTRADA (POST/GET)
+
+idprecio: id del precio (number)
+idpiso: id del piso (number) // mantenido por el metodo viejo
+precio: (number) // mantenido por el metodo viejo
+descripcion: (string) // mantenido por el metodo viejo
+
+- SALIDA
+
+Si no se indica ws, se envia a la vista de los precios. Sino, devuelve el JSON con los precios.
+
+### function addpiso2_fin()
+
+Depreciado. Metodo que visualiza la vista donde se ven las imagenes de un inmueble. Ahora que va por React no hace falta.
+
+- ENTRADA (GET/POST)
+
+idpiso: (number)
+
+- SALIDA
+
+La vista de entrada que se muestra para añadir imagenes y las imagenes metidas.
+
+### function addpiso3($ws = null)
+
+Se usa por el componente de React. Metodo que añade imagenes a los inmuebles.
+
+- ENTRADA (POST)
+
+idpiso: (number)
+descripcion: (string)
+upload: (file)
+ws: (string) // aunque no hace falta
+
+- SALIDA
+
+Si no hay JSON la vista donde se muestran todas las imagenes. Sino un JSON con las imagenes del inmueble.
+
+### function del_img($ws = null)
+
+Metodo que elimina una imagen de un inmueble. Hay que cambiarlo usando el idpiso y el orden como claves.
+
+- ENTRADA (POST)
+
+idpiso: (number)
+orden: (number)
+imagen_borrar: (string)
+ws: (string)
+descripcion_borrar: (string)
+
+- SALIDA
+
+O la vista donde se muestran todas las imagenes o el JSON con las imagenes.
+
+### function cambiarorden($ws = null)
+
+Metodo que cambiar el orden de una imagen.
+
+- ENTRADA (POST/GET)
+
+idpiso: (number)
+nuevo: (number)
+actual: (number)
+fichero: (string)
+ws: (string)
+
+- SALIDA
+
+Depende de si la vuelta es con JSON o no, sino va a la vista donde se muestras las imagenes con "las nuevas imagenes".
+
+### function editpiso1()
+
+Depreciado. Metodo que sirve para ir al paso 1 cuando va se pulsa en retroceder en el paso 3. Como ahora va por React no se usa.
+
+- ENTRADA (POST)
+
+idpiso: (number)
+
+- SALIDA
+
+La vista de edicion del primer paso con los datos cargados.
+
+### function comentarios($ws = null)
+
+Metodo que añade un comentario a un inmueble. Envia un correo al dueño del inmueble y al administrador para que sepa que hay un comentario nuevo.
+
+- ENTRADA (POST)
+
+idpiso: (number)
+comentario: (string)
+
+- SALIDA
+
+Si no hay JSON se va al inmueble si hay JSON se envia solo los comentarios.

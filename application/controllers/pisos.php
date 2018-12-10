@@ -358,6 +358,8 @@ class Pisos extends CI_Controller {
 
 		$usuario = $datos["usuario"];
 
+		// Añadido por la nueva version
+		$idprecio = $this -> input -> get("idprecio");
 		$idpiso = $this -> input -> get("idpiso");
 		$precio = $this -> input -> get("precio");
 		$descripcion = $this -> input -> get("desc");
@@ -365,7 +367,13 @@ class Pisos extends CI_Controller {
 		// Comprobamos que es un admin o es el usuario al que le pertenece el piso
 		if ($this -> pisos_model -> es_piso_usuario($usuario, $idpiso)==true || $this -> admin_model -> es_admin($usuario)>0) {
 			// Si es el pollo o el admin, mostramos los datos
-			$this -> precios_model -> del_precio($idpiso, $precio, $descripcion);
+			if ($idprecio != "") {
+				// Formato nuevo
+				$this -> precios_model -> del_precio_con_id($idprecio);
+			} else {
+				// Si es el formato viejo
+				$this -> precios_model -> del_precio($idpiso, $precio, $descripcion);
+			}
 		}
 
 		$datos["idpiso"] = $idpiso;
@@ -490,13 +498,13 @@ class Pisos extends CI_Controller {
 				// Cargamos todas las imagenes para pasarlas
 			}
 		}
-		log_message('debug', 'idpiso = '.$idpiso);
+		//log_message('debug', 'idpiso = '.$idpiso);
 		$datos["imagenes_piso"] = $this -> pisos_model -> show_imagenes_piso($idpiso);
 
 		if ($ws == "json") {
 			header('Content-Type: application/json');
 			// Escupimos la respuesta
-			log_message('debug', json_encode($datos));
+			//log_message('debug', json_encode($datos));
 			echo json_encode($datos);
 		} else {
 			$this -> load -> view("cabecera", $datos);
@@ -530,6 +538,7 @@ class Pisos extends CI_Controller {
 		$usuario = $datos["usuario"];
 
 		$idpiso = $this -> input -> post_get("idpiso");
+		$orden = $this -> input -> post_get("orden");
 		$imagen_borrar = $this -> input -> post("imagen_borrar");
 		$ws = $this -> input -> post("ws");
 		$descripcion_borrar = $this -> input -> post("descripcion_borrar");
