@@ -123,6 +123,7 @@ class Analizadorsintactico {
     } else {
       return false;
     }
+		return $sql;
   }
 
   function esUnNumero($string) {
