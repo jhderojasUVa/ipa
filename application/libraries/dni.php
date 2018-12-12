@@ -45,7 +45,7 @@ class DNI {
 		return false;
 	}
 
-	function comprobar_nif($nif){
+	function comprobar_nif($nif) {
 	   $letras = explode(',','T,R,W,A,G,M,Y,F,P,D,X,B,N,J,Z,S,Q,V,H,L,C,K,E');
 	   if (
 		  (strlen($nif)!=9) ||

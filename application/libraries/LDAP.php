@@ -128,22 +128,20 @@ class LDAP {
 		@ldap_set_option($ds,LDAP_OPT_PROTOCOL_VERSION,3);
 
 		if (@ldap_bind($ds, $opciones['dnadmin'],
-					$opciones['passwdadmin']) !== TRUE) {
+			$opciones['passwdadmin']) !== TRUE) {
 			log_message('error', 'No se pudo hacer bind. Revise la configuración');
 			return FALSE;
 		}
 
 		// Modificado por Tuti,
-		 $atributos = array('uid', 'cn', 'givenName', 'mail');
-
+		$atributos = array('uid', 'cn', 'givenName', 'mail');
 
 		$res = ldap_search($ds, $opciones["base"], "uid=".$id.")"); //);
-		log_message("DEBUG", "LDAP: ds=".$ds." opciones=".$opciones["base"]." filtro=(uid=".$id.")");
+		//log_message("DEBUG", "LDAP: ds=".$ds." opciones=".$opciones["base"]." filtro=(uid=".$id.")");
 		$info = @ldap_get_entries($ds, $res);
 
 		if ($info['count'] == 0) {
-			log_message('error', 'Búsqueda en LDAP de usuario inexistente: '
-					. $id);
+			//log_message('error', 'Búsqueda en LDAP de usuario inexistente: '. $id);
 			return FALSE;
 		}
 
