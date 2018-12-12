@@ -87,8 +87,7 @@ class Sesiones_usuarios {
 		} elseif ($_SESSION["es_admin"] == false) {
 			$_SESSION["es_admin"] = true;
 		}
-
-		log_message("DEBUG", ">>>>>>>>>>>>>>>>>>>>>> ENTRO");
+		
 	}
 
 	function es_admin() {

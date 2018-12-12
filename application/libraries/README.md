@@ -344,3 +344,142 @@ texto: (string)
 true si todo ha ido bien y false si ha ido mal.
 
 ## SESIONES_USUARIOS.PHP
+
+Libreria que trabaja el tema de las sesiones de usuarios.
+
+### function esta_logeado()
+
+Metodo que comprueba si un usuario "que lo ejecuta" esta logeado o no en la plataforma.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+true si esta, false si no lo esta.
+
+### function es_uva()
+
+Metodo que devuelve si el usuario que lo esta ejecutando es UVa o no.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+true si lo es, false si no
+
+### function log_out()
+
+Metodo que se cepilla todas las cookies (tanto las de la aplicacion como las del SSO) y deja al usuario a cero.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+Nada
+
+### function que_es($admin, $usuario)
+
+Metodo que cambia las cookies especificas (como usamos el session lo compara entre equipo y servidor por seguridad) para si es usuario y admin o ambas cosas.
+
+- ENTRADA
+
+admin: si/no
+usuario: si/no
+
+- SALIDA
+
+Nada
+
+### function cambiar_tipo()
+
+Metodo que cambia el modo del usuario para entrar a la zona de administracion o no.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+Nada
+
+### function es_admin()
+
+Metodo que te dice si eres administrador o no en la plataforma.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+true si lo es, false si no lo es
+
+### function es_user()
+
+Metodo que te dice si eres un usuario normal (sin privilegios de administrador) o no.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+true si lo es, false si no lo es
+
+### function fue_admin()
+
+Metodo que te dice si en el pasado has sido o has entrado como administrador o no.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+true si lo es, false si no lo es
+
+## SSOUVA.PHP
+
+Libreria que controla el SSO de la UVa.
+
+### function getLoginURL()
+
+Metodo que te envia a la URL del login del SSO.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+En si nada, solo cambia el location del navegador
+
+### function login()
+
+Metodo que comprueba el login (si esta logeado) en el SSO y sino, te envia a la pagina del SSO.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+Depende, si no esta logeado, al SSO que vas, si lo estas te devuelve el identificador del usuario.
+
+### function logout()
+
+Metodo para deslogear (hacer un logout) del SSO.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+Nada
