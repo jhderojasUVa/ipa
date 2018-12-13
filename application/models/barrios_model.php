@@ -61,7 +61,7 @@ class Barrios_model extends CI_Model {
 		$sql = "SELECT idpiso FROM pisos WHERE idbarrio=".$barrio;
 		$resultado = $this -> db -> query($sql);
 		foreach ($resutado->result() as $row) {
-			$sql_borra_piso = "DELETE FROM imagenes_pisos WHERE idpiso =".$row->idpiso;
+			$sql_borra_piso = "DELETE FROM imagenes_pisos WHERE idpiso =".$row -> idpiso;
 			$resultado_borrado = $this -> db -> query($sql_borra_piso);
 		}
 
