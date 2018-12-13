@@ -836,7 +836,7 @@ class Pisos_model extends CI_Model {
     // Acabamos con la ordenacion (las ultimas, mas modernas seran las primeras)
     $sql = $sql . " ORDER BY fecha DESC";
 
-    log_message("DEBUG", "SQL FINAL: ".$sql);
+    //log_message("DEBUG", "SQL FINAL: ".$sql);
 
     // Ejecutamos la query
     $resultado = $this -> db -> query($sql);
