@@ -120,7 +120,7 @@ class Ultimos6Pisos extends React.Component {
         }
 
         let pisoHref = 'http://'+ hostname +'/index.php/pisos/producto_piso?id='+ datospisos.idpiso;
-        let pisoGmap = 'http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q='+ datospisos.direccion +'&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ datospisos.direccion +'&amp;t=m&amp;z=50&amp';
+        let pisoGmap = 'http://maps.google.es/maps?f=q&source=embed&hl=es&geocode=&q='+ datospisos.direccion +'&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear='+ datospisos.direccion +'&amp;t=m&amp;z=50&amp';
 
         return (
           <div className="medium-4 cell">
