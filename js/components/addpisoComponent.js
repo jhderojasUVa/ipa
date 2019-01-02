@@ -665,13 +665,16 @@ class Paso3 extends React.Component {
     .then((respuesta) => respuesta.json())
     .then((respuestajson) => {
       datos.imagenes = [];
-      respuestajson.forEach((itemImagen) => {
-        datos.imagenes.push({
-          imagen: itemImagen.imagen,
-          descripcion: itemImagen.descripcion,
-          orden: itemImagen.orden
-        })
-      });
+      if (respuestajson.length > 0) {
+        console.log(respuestajson.length);
+        respuestajson.forEach((itemImagen) => {
+          datos.imagenes.push({
+            imagen: itemImagen.imagen,
+            descripcion: itemImagen.descripcion,
+            orden: itemImagen.orden
+          })
+        });
+      }
       // Actualizamos el estado
       this.setState({
         files: datos.imagenes
@@ -821,7 +824,7 @@ class Paso3 extends React.Component {
     formDataModify.append('idpiso', datos.id);
     formDataModify.append('orden', orden)
     formDataModify.append('imagen_borrar', imagen);
-    formDataModigy.append('descripcion_borrar', descripcion);
+    formDataModify.append('descripcion_borrar', descripcion);
     formDataModify.append('ws', 'json');
 
     fetch('/index.php/pisos/del_img', {
