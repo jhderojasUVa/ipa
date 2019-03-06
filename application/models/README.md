@@ -1088,3 +1088,480 @@ query: (string)
 Lo que la query escupa
 
 ### function devuelveSqlBarrioCiudad($arrayDatos)
+
+Este metodo/funcion es usado por las busquedas. Su funcion es generar el codigo SQL a ejecutarse recibiendo un array especifico que vienen separadas ciudades y barrios (es un array multidimensional de arbol con dos entradas principales "ciudades" y "barrios", de ellos cuelgan los nombres de los susodichos).
+
+- ENTRADA
+
+arrayDatos: (array)
+
+- SALIDA
+
+Una query con los IDs de las localizaciones en cuestion.
+
+### function buscarBarrioCiudad($idDato, $que)
+
+Metodo que devuelve los alojamientos/pisos segun pertenezcan a un barrio o una ciudad concreta (de ahi el "que").
+
+- ENTRADA
+
+idDato: (number), identificador de pisos/barrios
+que: (string), el que cosa buscamos (barrio|ciudad)
+
+- SALIDA
+
+El resultado de la query con los datos tipicos para el resultado de una busqueda (id, descripcion, calle, numero...) o false si no se encuentra nada.
+
+### function validar_piso($idpiso)
+
+Metodo *para administradores* que valida un piso concreto a traves de su identificador. En resumen, le cambia a true el campo "verificado".
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+Nada. Vamos el resultado del update pero que es nada, normalmente.
+
+### function devuelve_usuario_piso($idpiso)
+
+Esto devuelve el identificador del usuario de un piso, ya sea el de la UVa (el identificador de la UVa) o el login.
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+El identificador en cuestion o false (0) si no o hay un error o a saber.
+
+### function cambia_ocupado_piso($idpiso)
+
+Este metodo o funcion que cambia un piso de libre a ocupado o de ocupado a libre... vamos que le cambia el estado.
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+Nada. Vamos el resultado del update pero que es nada, normalmente.
+
+### function devuelve_todas_imagenes_idpiso()
+
+Metodo que devuelve, como su nombre indica, *todas las imagenes*, si todas, de la BD ordenadas por el id del piso y con este.
+
+- ENTRADA
+
+Nada
+
+- SALIDA
+
+La query con dos cosas, el id del piso y la imagen, ni mas ni menos. Cumple lo que dice.
+
+### function piso_existe($idpiso)
+
+Metodo que indica si un inmueble existe o no. Si existe true, si no false.
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+Un booleano que me la toca con la mano. True si esta, false si no.
+
+### function show_pisos_usuario_uva()
+
+Metodo que devuelve todos los inmuebles que hayan sido metidos por personal de la UVa. Usada, principalmente, para la zona de administracion (y sin principalmente)
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+Un array donde estan las imagenes del inmueble aparte del ID, la direccion, el contenido, los extas... esas cosas.
+
+### function reparar_orden_imagenes()
+
+Metodo de paso de la version 2 a la version 2.5 de la aplicacion y que hace cosas muy importantes.
+
+Primero arregla los ordenes de las imagenes cuando, algunas tienen varias veces el mismos orden.
+Segundo, añade el primary key con el identificador del inmueble y el orden (como tiene que ser). Altera la base de datos, vamos.
+
+De una unica aplicacion ya que toca la base de datos!.
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+Como esto es usable solo por el administrador y con ciudadito, por pantalla saca lo que esta haciendo, si hay errores cuales, donde, y porque...
+
+### function repara_add_id_precios_pisos()
+
+Metodo de paso de la version 2 a la version 2.5 de la aplicacion y que hace cosas muy importantes.
+
+Primero coge todos los precios. Segundo altera la base de datos para poner un primary key a los precios y tercero, les vuelva con los precios.
+
+De una unica aplicacion ya que toca la base de datos!.
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+Como esto es usable solo por el administrador y con ciudadito, por pantalla saca lo que esta haciendo, si hay errores cuales, donde, y porque...
+
+## PRECIOS_MODEL.PHP
+
+Se pueden encontrar todas las operaciones con el modelo de datos de los precios.
+
+### function add_precio($idpiso, $precio, $descripcion)
+
+Metodo para añadir un precio a un inmueble concreto. Estos son de la v1 y la v2. Con el cambio en la v2.5 de la base de datos añadiendo un ID a cada precio... pues estan en desuso, pero los mantengo por... por... no se.
+
+- ENTRADA
+
+idpiso: (number)
+precio: (number)
+descripcion: (string)
+
+- SALIDA
+
+Como es un insert y esto esta hecho hace tiempo, no devuelve nada...
+
+### function del_precio($idpiso, $precio, $descripcion)
+
+Metodo para eliminar un precio. Estos son de la v1 y la v2. Con el cambio en la v2.5 de la base de datos añadiendo un ID a cada precio... pues estan en desuso.
+
+- ENTRADA
+
+idpiso: (number)
+precio: (number)
+descripcion: (string)
+
+- SALIDA
+
+Nada, que lo borra y listo.
+
+### function del_precio_con_id($idprecio)
+
+Metodo que elimina un precio a traves de su ID (de su id de precio).
+
+- ENTRADA
+
+idprecio: (number)
+
+- SALIDA
+
+Nada, porque nada tiene que devolver.
+
+### function borrarTodosPrecios($idpiso)
+
+Metodo que se carga todos los precios de golpe de un inmueble concreto. Ahi, haciendo sangre...
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+Nada.
+
+### function show_precios($idpiso)
+
+Metodo que devuelve todos los precios de un inmueble concreto si ordenar, ahi en crudo a lo burro.
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+La query con los precios y las descripciones.
+
+### function cant_show_precios($idpiso)
+
+Metodo que devuelve la cantidad de precios que tiene un inmueble. Es una mierda como un piano ya que se puede refactorizar con un COUNT y ¿por que no lo he hecho?... no lo se. Esto es tarea para el Tuti del futuro.
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+La query, la query!.
+
+## USUARIOS_MODEL.PHP
+
+Aqui se puede encontrar todo lo que toca el modelo de los usuarios.
+
+### function logear($usuario, $password)
+
+Metodo para cuando alguien hace un login. Este metodo mete mucha mierda en la sesion para identificar al usuario, sobre si es admin, el nombre, apellidos, si esta autentificado... esas cosas.
+
+MOVIDA DE SEGURIDAD: *el pass esta en plano!* hay que meterlo en SHA1 y/o MD5 entre ya y hace un tiempo.
+
+- ENTRADA
+
+usuario: (string)
+password: (string)
+
+- SALIDA
+
+Pues true si esta identificado o false si no.
+
+### function comprueba($usuario)
+
+Metodo que comprueba si el usuario existe.
+
+- ENTRADA
+
+usuario: (string)
+
+- SALIDA
+
+True si el usuario existe y false si no. Nada mas.
+
+### function variantes_usuario($usuario, $variaciones)
+
+Metodo que genera las variantes del usuario. Es decir, que si alguien comprueba un login y esta usado, le mostramos unas variantes... aqui esta quien lo hace.
+
+- ENTRADA
+
+usuario: (string)
+variaciones: (number) numero de variaciones
+
+- SALIDA
+
+Un array con las variaciones.
+
+### function comprueba_mail($email)
+
+Metodo que comprueba si el correo esta usado en la plataforma.
+
+- ENTRADA
+
+email: (string)
+
+- SALIDA
+
+True si esta, false si no esta. Simple y conciso.
+
+### function add_usuario($nombre, $apellidos, $login, $password, $direccion, $tlf, $email, $dni)
+
+Metodo que mete a un usuario en la base de datos. Nada mas.
+
+- ENTRADA
+
+nombre: (string)
+apellidos: (string)
+login: (string)
+password: (string)
+direccion: (string)
+tlf: (string)
+email: (string)
+dni: (string)
+
+- SALIDA
+
+Na-da.
+
+### function devuelve_datos_usuario($correo)
+
+Metodo que te devuelve todos los datos del usuario a traves del correo.
+
+- ENTRADA
+
+correo: (string)
+
+- SALIDA
+
+Un SELECT todo, vamos un churrazo o false si no.
+
+### function devuelve_datos_usuario_id($id)
+
+Metodo que devuelve todos los datos de un usuario a traves del identificador.
+
+- ENTRADA
+
+id: (number)
+
+- SALIDA
+
+Un SELECT todo, vamos un churrazo o false si no.
+
+### function borra_user($id)
+
+Este metodo borra un usuario y todo su contenido, lo que ha hecho y esos temas. No borra los ficheros (las imagenes)! que fiate de la virgen y no corras.
+
+- ENTRADA
+
+id: (number)
+
+- SALIDA
+
+Na-da.
+
+### function usuarios_no_activados()
+
+Metodo que devuelve los usuarios que no han sido activados. Porque cuando se dan de alta, se ponen en barbecho y alguien (el administrador) ha de validarlos... esta funcion es para ello.
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+Es un SELECT todos... asi que...
+
+### function activar_user($idu)
+
+Metodoo que activa un usuario, que lo valida.
+
+- ENTRADA
+
+id: (number)
+
+- SALIDA
+
+Ninguna.
+
+### function cambia_campo($campo, $nuevovalor, $idu)
+
+Metodo que cambia el valor de un campo de la tabla de usuarios. Obviamente, necesita el id del usuario para buscarlo.
+
+- ENTRADA
+
+campo: (string)
+nuevovalor: (string/number)
+idu: (number) identificacion del usuario
+
+- SALIDA
+
+Ninguna.
+
+### function updatea_user($idu, $nombre, $apellidos, $login, $password, $direccion, $tlf, $email, $verificado)
+
+Metodo que actualiza todos los datos de un usuario concreto. Como antes, *el password deberia SHA1ciarse o MD5 peinarse*.
+
+- ENTRADA
+
+idu: (number)
+nombre: (string)
+apellidos: (string)
+login: (string)
+password: (string), $direccion
+tlf: (string)
+email: (string)
+verificado: boolean
+
+- SALIDA
+
+Nada.
+
+### function buscar_usuario($q)
+
+Metodo de administracion para buscar un usuario por cualquiera de los campos que lo compone. Obviamente, como es una mierda, burra, que usa recursos que te hace llorar, esta solo disponible para administradores.
+
+- ENTRADA
+
+q: (string)
+
+- SALIDA
+
+La query. Es un SELECT todo, asi que cuidadito.
+
+### function buscar_correo($q, $verificado)
+
+Metodo que busca a los usuarios por su correo y si estan o no verificados.
+
+- ENTRADA
+
+q: (string)
+verificado: (boolean)
+
+- SALIDA
+
+La query, que es un SELECT todo.
+
+### function enviar_a_todos($verificado)
+
+Pre-metodo que devuelve todos los usuarios (verificados o no) para el envio masivo de correos desde la plataforma.
+
+- ENTRADA
+
+verificado: boolean
+
+- SALIDA
+
+La query burra, el resultado.
+
+### function borrar_usuarios_fecha($fecha)
+
+Metodo que borra los usuarios de una fecha pa'bajo. Es decir, todos los anteriores a una fecha. Y oye, este lo deja mas liso que otra cosa, se cepilla los datos y las imagenes (ya puestos).
+
+- ENTRADA
+
+fecha: (mysql date)
+
+- SALIDA
+
+Nada.
+
+### function ver_usuarios_no_ipa()
+
+Metodo que lista los usuarios que son IPA, los de la UVa no, los otros.
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+El resultado de la query (un SELECT todo) o false si no.
+
+## WEBSERVICE_MODEL.PHP
+
+Se supone que la idea es meter aqui todos los modelos que sean para el uso del webservice.
+
+### function consulta_google($idpiso)
+
+Metodo que monta el mapa para Google sin usar su API. Es decir, aunque guardamos la direccion antes, a Google Maps le ponia mas cachondo el que le dieras la latitud y longuitud cuando sacabas el mapa. Este metodo (que se puede y debe poner en un cron en la maquina) consulta, saca la latitud y longuitud de un inmueble y lo mete en la BD.
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+O nada o un error por "pantalla" como un piano.
+
+### function piso_tiene_gps($idpiso)
+
+Funcion/Metodo que devuelve si la latitud y longuitud es de un inmueble.
+
+- ENTRADA
+
+idpiso: (number)
+
+- SALIDA
+
+True si tiene, false si no.
+
+### function ids_pisos()
+
+Metodo que devuelve todos los IDs de los inmuebles ordenados por el id.
+
+- ENTRADA
+
+Nada.
+
+- SALIDA
+
+Resultado de la query.
