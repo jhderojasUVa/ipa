@@ -57,6 +57,8 @@ Cada carpeta (o la mayoria de ellas) tienen un Readme.md que es la documentacion
 
 No se si esta bien hecha o escrita.
 
+Ademas, del uso de la aplicacion se puede encontrar el fichero */css/IPA.pdf* con un pequeño manual para los usuarios (*manual de uso*) de la aplicacion. Observando dicho manual se puede ver el workflow de la aplicacion para todos aquellos que la usan y por lo tanto se puede seguir el funcionamiento interno de la aplicacion (incluyendo controladores, vistas, componentes, etc...). De ahi que no se incluya un diagrama UML de como se realizan los procesos ya que se considera al lector lo suficientemente inteligente como para poder hacerlo sin problemas. El manual de uso no esta con los graficos de la version 2 y se deberia pasar a dicho formato para que el usuario no se vuelva loco.
+
 ## Base de datos
 
 Un volcado, vamos, lo normal.
@@ -83,6 +85,7 @@ Compendio de cosas:
 - Se intentara usar PSR (https://www.php-fig.org/psr/) para el PHP ahora o en un futuro... vamos a partir de ahora, pese a que hay cosas que no me gustan un pimiento.
 - Se quiere crear una libreria que use las API de Google de Machine Learning que ayudaria a desgranar el texto enviado por los usuarios de forma que reconozca palabras, frases, nombres de barrios, ciudades... esas cosas. Se plantea el uso de AutoML Natural Language de Google o Cloud Natural Language (https://cloud.google.com/natural-language).
 - Documentando, estoy documentando.
+- PDF del manual de uso para el usuario.
 
 ## Futuro?
 
