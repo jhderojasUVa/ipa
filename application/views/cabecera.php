@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="version" content="2.5">
     <title>IPA Información de Pisos en Alquiler. Universidad de Valladolid</title>
     <!-- React base -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
